@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .hamburger--is-toggled span:first-child,
+  .hamburger--is-toggled span:last-child{
+    @apply w-0 left-1/2;
+  }
+  .hamburger--is-toggled span:nth-child(2){
+    @apply rotate-45;
+  }
+  .hamburger--is-toggled span:nth-child(3){
+    @apply -rotate-45;
+  }
+}
