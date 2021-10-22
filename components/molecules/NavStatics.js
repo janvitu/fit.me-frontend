@@ -2,8 +2,10 @@ import { NavLink } from "@components/atoms";
 export function NavStatics({ routes }) {
 	return (
 		<nav className="flex h-full space-x-10">
-			{routes.map(({ path, text }) => (
-				<NavLink href={path}>{text}</NavLink>
+			{routes.map(({ name, path, text }) => (
+				<NavLink key={name} href={path}>
+					{text}
+				</NavLink>
 			))}
 		</nav>
 	);
