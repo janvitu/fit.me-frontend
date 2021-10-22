@@ -1,0 +1,1 @@
+export { NavStatics } from "./NavStatics";
