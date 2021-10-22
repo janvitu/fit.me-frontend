@@ -6,8 +6,8 @@
 			"@components": ["components"],
 			"@pages/*": ["pages/*"],
 			"@pages": ["pages"],
-			"@styles/*": ["styles/*"],
-			"@styles": ["styles"]
+			"@assets/*": ["assets/*"],
+			"@assets": ["assets"],
 		}
 	},
 	"exclude": ["node_modules"],

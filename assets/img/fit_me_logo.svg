@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="100" viewBox="0 0 300 100">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        font-size: 100px;
+        font-family: TeleNeo;
+        font-weight: 700;
+      }
+
+      .cls-1, .cls-3 {
+        fill: #040000;
+      }
+
+      .cls-4 {
+        fill: #fcd900;
+      }
+    </style>
+  </defs>
+  <text id="Lorem_Ipsum" data-name="Lorem Ipsum" class="cls-1" x="-58.25" y="-99.75">Lorem Ipsum</text>
+  <text id="FIT.ME" class="cls-2" x="12.5" y="83.5">FIT<tspan class="cls-3">.<tspan class="cls-4">ME</tspan></tspan></text>
+</svg>
