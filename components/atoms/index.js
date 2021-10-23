@@ -10,3 +10,7 @@ export { SubheadingText } from "./SubheadingText";
 export { TopheadingText } from "./TopheadingText";
 export { DescriptionListTerm } from "./DescriptionListTerm";
 export { DescriptionListDescription } from "./DescriptionListDescription";
+export { CtaHeadingText } from "./CtaHeadingText";
+export { CtaDescriptionText } from "./CtaDescriptionText";
+export { CtaButton } from "./CtaButton";
+export { CtaImage } from "./CtaImage";
