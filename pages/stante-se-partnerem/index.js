@@ -1,7 +1,5 @@
 import { StaticSite } from "@components/templates";
-import { HeadingText } from "@components/atoms";
-import { SubheadingText } from "@components/atoms";
-import { TopheadingText } from "@components/atoms";
+import { PageHeader } from "@components/molecules";
 
 export default function Partner() {
 	return (
@@ -12,14 +10,12 @@ export default function Partner() {
 
 			<div className="py-12 bg-white">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div className="lg:text-center">
-						<TopheadingText>Benefity</TopheadingText>
-						<HeadingText>Co vám přinese partnerství</HeadingText>
-						<SubheadingText>
-							Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum
-							cupiditate veritatis in accusamus quisquam.
-						</SubheadingText>
-					</div>
+					<PageHeader
+						topheadingText="Benefity"
+						headingText="Co vám přinese partnerství"
+						subheadingText="Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum
+							cupiditate veritatis in accusamus quisquam."
+					/>
 
 					<div className="mt-10">
 						<dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
