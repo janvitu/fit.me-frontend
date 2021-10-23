@@ -1,7 +1,5 @@
 import React from "react";
-import { HeadingText } from "@components/atoms";
-import { SubheadingText } from "@components/atoms";
-import { TopheadingText } from "@components/atoms";
+import { HeadingText, SubheadingText, TopheadingText } from "@components/atoms";
 
 export function PageHeader({ topheadingText, headingText, subheadingText }) {
 	return (
