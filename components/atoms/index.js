@@ -6,3 +6,4 @@ export { ButtonLinkOutlineBase } from "./buttons/ButtonLinkOutlineBase";
 export { ButtonLinkOutlineBig } from "./buttons/ButtonLinkOutlineBig";
 export { XlWrapper } from "./XlWrapper";
 export { HeadingText } from "./HeadingText";
+export { SubheadingText } from "./SubheadingText";

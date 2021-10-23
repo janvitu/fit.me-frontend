@@ -1,5 +1,6 @@
 import { StaticSite } from "@components/templates";
 import { HeadingText } from "@components/atoms";
+import { SubheadingText } from "@components/atoms";
 
 export default function Partner() {
 	return (
@@ -15,10 +16,10 @@ export default function Partner() {
 							Benefity
 						</h2>
 						<HeadingText>Co vám přinese partnerství</HeadingText>
-						<p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+						<SubheadingText>
 							Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum
 							cupiditate veritatis in accusamus quisquam.
-						</p>
+						</SubheadingText>
 					</div>
 
 					<div className="mt-10">
