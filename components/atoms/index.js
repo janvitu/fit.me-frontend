@@ -12,5 +12,5 @@ export { DescriptionListTerm } from "./DescriptionListTerm";
 export { DescriptionListDescription } from "./DescriptionListDescription";
 export { CtaHeadingText } from "./CtaHeadingText";
 export { CtaDescriptionText } from "./CtaDescriptionText";
-export { CtaButton } from "./CtaButton";
+export { CtaButtonLink } from "./CtaButtonLink";
 export { CtaImage } from "./CtaImage";

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CtaButton({ href, children }) {
+export function CtaButtonLink({ href, children }) {
 	return (
 		<a
 			href={href}

@@ -1,8 +1,7 @@
 import { StaticSite } from "@components/templates";
-import { PageHeader } from "@components/molecules";
+import { PageHeader, CtaTextSection } from "@components/molecules";
 import { DescriptionList } from "@components/organisms";
-import { CtaDescriptionText, CtaHeadingText, CtaImage } from "@components/atoms";
-import CtaButton from "@components/atoms/CtaButton";
+import { CtaImage } from "@components/atoms";
 
 const descriptionList = [
 	{
@@ -60,16 +59,13 @@ export default function Partner() {
 			<div className="bg-white">
 				<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
 					<div className="bg-main-700 rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-2 lg:gap-4">
-						<div className="pt-10 pb-12 px-6 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
-							<div className="lg:self-center">
-								<CtaHeadingText>Jednoduchá Administrátorská konzole.</CtaHeadingText>
-								<CtaDescriptionText>
-									Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada
-									adipiscing sagittis vel nulla nec.
-								</CtaDescriptionText>
-								<CtaButton href="#">Live demo</CtaButton>
-							</div>
-						</div>
+						<CtaTextSection
+							heading="Jednoduchá Administrátorská konzole."
+							description="Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing
+					sagittis vel nulla nec."
+							linkText="Live demo"
+							linkUrl="#"
+						/>
 						<CtaImage
 							src="https://tailwindui.com/img/component-images/full-width-with-sidebar.jpg"
 							alt="App screenshot"
