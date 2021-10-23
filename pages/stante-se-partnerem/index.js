@@ -1,6 +1,7 @@
 import { StaticSite } from "@components/templates";
 import { HeadingText } from "@components/atoms";
 import { SubheadingText } from "@components/atoms";
+import { TopheadingText } from "@components/atoms";
 
 export default function Partner() {
 	return (
@@ -12,9 +13,7 @@ export default function Partner() {
 			<div className="py-12 bg-white">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="lg:text-center">
-						<h2 className="text-base text-main-600 font-semibold tracking-wide uppercase">
-							Benefity
-						</h2>
+						<TopheadingText>Benefity</TopheadingText>
 						<HeadingText>Co vám přinese partnerství</HeadingText>
 						<SubheadingText>
 							Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum
