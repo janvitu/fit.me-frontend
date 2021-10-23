@@ -9,3 +9,4 @@ export { HeadingText } from "./HeadingText";
 export { SubheadingText } from "./SubheadingText";
 export { TopheadingText } from "./TopheadingText";
 export { DescriptionListTerm } from "./DescriptionListTerm";
+export { DescriptionListDescription } from "./DescriptionListDescription";
