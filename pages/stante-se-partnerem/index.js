@@ -1,4 +1,5 @@
 import { StaticSite } from "@components/templates";
+import { HeadingText } from "@components/atoms";
 
 export default function Partner() {
 	return (
@@ -13,9 +14,7 @@ export default function Partner() {
 						<h2 className="text-base text-main-600 font-semibold tracking-wide uppercase">
 							Benefity
 						</h2>
-						<p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-							Co vám přinese partnerství
-						</p>
+						<HeadingText>Co vám přinese partnerství</HeadingText>
 						<p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
 							Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum
 							cupiditate veritatis in accusamus quisquam.
