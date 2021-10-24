@@ -14,3 +14,4 @@ export { CtaHeadingText } from "./CtaHeadingText";
 export { CtaDescriptionText } from "./CtaDescriptionText";
 export { CtaButtonLink } from "./CtaButtonLink";
 export { CtaImage } from "./CtaImage";
+export { PageSection } from "./PageSection";

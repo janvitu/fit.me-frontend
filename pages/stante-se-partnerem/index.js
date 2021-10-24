@@ -1,5 +1,6 @@
 import { StaticSite } from "@components/templates";
 import { PageHeader } from "@components/molecules";
+import { PageSection } from "@components/atoms";
 import { DescriptionList, CtaWithImage } from "@components/organisms";
 
 const descriptionList = [
@@ -39,35 +40,31 @@ export default function Partner() {
 
 			{/* Centered 2x2 grid "Co vám přinese partnerství" */}
 
-			<div className="py-12 bg-white">
-				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<PageHeader
-						topheadingText="Benefity"
-						headingText="Co vám přinese partnerství"
-						subheadingText="Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum
+			<PageSection>
+				<PageHeader
+					topheadingText="Benefity"
+					headingText="Co vám přinese partnerství"
+					subheadingText="Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum
 							cupiditate veritatis in accusamus quisquam."
-					/>
-					<DescriptionList list={descriptionList} />
-				</div>
-			</div>
+				/>
+				<DescriptionList list={descriptionList} />
+			</PageSection>
 
 			{/* "Co znamená být naším partnerem" */}
 
 			{/* "Jednoduchá administrátorská konzole" */}
 
-			<div className="bg-white">
-				<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-					<CtaWithImage
-						heading="Jednoduchá Administrátorská konzole."
-						description="Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing
+			<PageSection>
+				<CtaWithImage
+					heading="Jednoduchá Administrátorská konzole."
+					description="Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing
 					sagittis vel nulla nec."
-						linkText="Live demo"
-						linkUrl="#"
-						imageSrc="https://tailwindui.com/img/component-images/full-width-with-sidebar.jpg"
-						imageAlt="App screenshot"
-					/>
-				</div>
-			</div>
+					linkText="Live demo"
+					linkUrl="#"
+					imageSrc="https://tailwindui.com/img/component-images/full-width-with-sidebar.jpg"
+					imageAlt="App screenshot"
+				/>
+			</PageSection>
 		</StaticSite>
 	);
 }
