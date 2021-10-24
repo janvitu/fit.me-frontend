@@ -1,7 +1,6 @@
 import { StaticSite } from "@components/templates";
-import { PageHeader, CtaTextSection } from "@components/molecules";
-import { DescriptionList } from "@components/organisms";
-import { CtaImage } from "@components/atoms";
+import { PageHeader } from "@components/molecules";
+import { DescriptionList, CtaWithImage } from "@components/organisms";
 
 const descriptionList = [
 	{
@@ -58,19 +57,15 @@ export default function Partner() {
 
 			<div className="bg-white">
 				<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-					<div className="bg-main-700 rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-2 lg:gap-4">
-						<CtaTextSection
-							heading="Jednoduchá Administrátorská konzole."
-							description="Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing
+					<CtaWithImage
+						heading="Jednoduchá Administrátorská konzole."
+						description="Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing
 					sagittis vel nulla nec."
-							linkText="Live demo"
-							linkUrl="#"
-						/>
-						<CtaImage
-							src="https://tailwindui.com/img/component-images/full-width-with-sidebar.jpg"
-							alt="App screenshot"
-						/>
-					</div>
+						linkText="Live demo"
+						linkUrl="#"
+						imageSrc="https://tailwindui.com/img/component-images/full-width-with-sidebar.jpg"
+						imageAlt="App screenshot"
+					/>
 				</div>
 			</div>
 		</StaticSite>
