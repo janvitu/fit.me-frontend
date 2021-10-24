@@ -1,5 +1,4 @@
-import { StaticSite } from "@components/templates";
-import { PartnerTemplate } from "@components/templates";
+import { StaticSite, PartnerTemplate } from "@components/templates";
 
 const descriptionList = [
 	{
