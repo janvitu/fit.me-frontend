@@ -5,3 +5,7 @@ export { ButtonLinkFilledBig } from "./buttons/ButtonLinkFilledBig";
 export { ButtonLinkOutlineBase } from "./buttons/ButtonLinkOutlineBase";
 export { ButtonLinkOutlineBig } from "./buttons/ButtonLinkOutlineBig";
 export { XlWrapper } from "./XlWrapper";
+export { BigH3 } from "./headings/BigH3";
+export { MainH2 } from "./headings/MainH2";
+export { SmallH2 } from "./headings/SmallH2";
+export { HeadingWrapper } from "./headings/HeadingWrapper";
