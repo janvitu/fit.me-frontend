@@ -1,7 +1,5 @@
 import { StaticSite } from "@components/templates";
-import { PageHeader } from "@components/molecules";
-import { PageSection } from "@components/atoms";
-import { DescriptionList, CtaWithImage } from "@components/organisms";
+import { PartnerTemplate } from "@components/templates";
 
 const descriptionList = [
 	{
@@ -36,35 +34,20 @@ const descriptionList = [
 export default function Partner() {
 	return (
 		<StaticSite>
-			{/* "Staňte se naším partnerem" + CTA */}
-
-			{/* Centered 2x2 grid "Co vám přinese partnerství" */}
-
-			<PageSection>
-				<PageHeader
-					topheadingText="Benefity"
-					headingText="Co vám přinese partnerství"
-					subheadingText="Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum
+			<PartnerTemplate
+				topheadingText="Benefity"
+				headingText="Co vám přinese partnerství"
+				subheadingText="Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum
 							cupiditate veritatis in accusamus quisquam."
-				/>
-				<DescriptionList list={descriptionList} />
-			</PageSection>
-
-			{/* "Co znamená být naším partnerem" */}
-
-			{/* "Jednoduchá administrátorská konzole" */}
-
-			<PageSection>
-				<CtaWithImage
-					heading="Jednoduchá Administrátorská konzole."
-					description="Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing
-					sagittis vel nulla nec."
-					linkText="Live demo"
-					linkUrl="#"
-					imageSrc="https://tailwindui.com/img/component-images/full-width-with-sidebar.jpg"
-					imageAlt="App screenshot"
-				/>
-			</PageSection>
+				descriptionList={descriptionList}
+				ctaHeading="Jednoduchá Administrátorská konzole."
+				ctaDescription="Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing
+				sagittis vel nulla nec."
+				ctaLinkText="Live demo"
+				ctaLinkUrl="#"
+				ctaImageSrc="https://tailwindui.com/img/component-images/full-width-with-sidebar.jpg"
+				ctaImageAlt="App screenshot"
+			/>
 		</StaticSite>
 	);
 }
