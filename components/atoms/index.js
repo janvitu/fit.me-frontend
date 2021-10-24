@@ -8,4 +8,5 @@ export { XlWrapper } from "./XlWrapper";
 export { BigH3 } from "./headings/BigH3";
 export { MainH2 } from "./headings/MainH2";
 export { SmallH2 } from "./headings/SmallH2";
+export { BigH2 } from "./headings/BigH2";
 export { HeadingWrapper } from "./headings/HeadingWrapper";
