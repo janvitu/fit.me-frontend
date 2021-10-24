@@ -1,4 +1,10 @@
-import { ButtonLinkFilledBase, ButtonLinkFilledBig } from "@components/atoms";
+import {
+	BigH2,
+	ButtonLinkFilledBase,
+	ButtonLinkFilledBig,
+	HeadingWrapper,
+	MainH2,
+} from "@components/atoms";
 import { StaticSite } from "@components/templates";
 
 export default function Home() {
@@ -49,37 +55,13 @@ export default function Home() {
 					</slot>
 				</div>
 			</section>
-			<section className="bg-gray-200">
-				<div className="max-w-7xl mx-auto py-12 lg:py-16 px-4 sm:px-6 md:px-8 flex items-center justify-between">
-					<h2 className="text-3xl font-extrabold tracking-tight text-gray-900 ">
-						<span className="block">No text provided</span>
-						<span className="block text-main-800">Add text to right slot</span>
-					</h2>
-					<div className="mt-0 flex flex-shrink-0">
-						<ButtonLinkFilledBase>Text</ButtonLinkFilledBase>
-					</div>
-				</div>
-			</section>
 
 			{/* "S ČÍM VÁM POMÁHÁME "White background with overlaping cards */}
 			<div className="bg-white">
 				{/* <!-- Header --> */}
 				<div className="relative pb-32 bg-white-800">
-					<div className="absolute inset-0">
-						{/* <img
-							className="w-full h-full object-cover"
-							src="https://images.unsplash.com/photo-1525130413817-d45c1d127c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1920&q=60&&sat=-100"
-							alt=""
-						/> */}
-						<div
-							className="absolute inset-0 bg-gray-100 mix-blend-multiply"
-							aria-hidden="true"
-						></div>
-					</div>
 					<div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 flex flex-col items-center">
-						<h1 className="text-4xl font-extrabold tracking-tight text-gray-900 md:text-5xl lg:text-6xl ">
-							S čím vám pomáháme
-						</h1>
+						<BigH2>S čím vám pomáháme</BigH2>
 						<p className="mt-6 max-w-3xl text-xl text-gray-600 text-center">
 							Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non.
 							Cras aliquet purus dui laoreet diam sed lacus, fames. Dui, amet, nec sit pulvinar.
@@ -199,9 +181,55 @@ export default function Home() {
 			</div>
 
 			{/* "JAK TO FUNGUJE" */}
-			<div>Jak to funguje</div>
+			<section className="relative">
+				<div className="flex flex-col mx-auto lg:flex-row">
+					<div className="relative px-4 mx-auto py-12 lg:py-16 lg:max-w-7xl lg:pl-6 lg:mr-auto">
+						<div className="text-base max-w-prose mx-auto lg:max-w-lg lg:mr-0">
+							<HeadingWrapper>
+								<MainH2> Our Process</MainH2>
+							</HeadingWrapper>
+							<div className="mt-5 prose prose-red text-gray-500">
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, excepturi tempore
+									repudiandae nihil ipsam officiis dolor deleniti ex maiores dicta commodi magni
+									sapiente vel id ipsum suscipit fugit, ea ducimus.
+								</p>
+								<h3>Some header</h3>
+								<p>
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci nulla autem
+									porro quod aliquam itaque a dolore delectus praesentium maxime!
+								</p>
+								<ul>
+									<li>Lorem ipsum dolor sit.</li> <li>Lorem ipsum dolor sit.</li>
+									<li>Lorem ipsum dolor sit.</li>
+								</ul>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, libero.</p>
+							</div>
+						</div>
+					</div>
+					<div className="lg:w-1/2 lg:h-auto flex items-center justify-center">
+						<img
+							className="h-56 w-full object-cover lg:h-full shadow-md"
+							src="https://source.unsplash.com/random/?garden"
+							alt=""
+							loading="lazy"
+						/>
+					</div>
+				</div>
+			</section>
+
 			{/* CTA */}
-			<div>CTA</div>
+			<section className="bg-gray-200">
+				<div className="max-w-7xl mx-auto py-12 lg:py-16 px-4 sm:px-6 md:px-8 flex items-center justify-between">
+					<h2 className="text-3xl font-extrabold tracking-tight text-gray-900 ">
+						<span className="block">No text provided</span>
+						<span className="block text-main-800">Add text to right slot</span>
+					</h2>
+					<div className="mt-0 flex flex-shrink-0">
+						<ButtonLinkFilledBase>Text</ButtonLinkFilledBase>
+					</div>
+				</div>
+			</section>
 
 			{/* STATS Split with Image */}
 
