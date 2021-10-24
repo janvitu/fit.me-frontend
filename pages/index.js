@@ -53,7 +53,7 @@ export default function Home() {
 				<div className="max-w-7xl mx-auto py-12 lg:py-16 px-4 sm:px-6 md:px-8 flex items-center justify-between">
 					<h2 className="text-3xl font-extrabold tracking-tight text-gray-900 ">
 						<span className="block">No text provided</span>
-						<span className="block text-red-800">Add text to right slot</span>
+						<span className="block text-main-800">Add text to right slot</span>
 					</h2>
 					<div className="mt-0 flex flex-shrink-0">
 						<ButtonLinkFilledBase>Text</ButtonLinkFilledBase>
@@ -109,9 +109,9 @@ export default function Home() {
 										aria-hidden="true"
 									>
 										<path
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											stroke-width="2"
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth="2"
 											d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
 										/>
 									</svg>
@@ -142,9 +142,9 @@ export default function Home() {
 										aria-hidden="true"
 									>
 										<path
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											stroke-width="2"
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth="2"
 											d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
 										/>
 									</svg>
@@ -175,9 +175,9 @@ export default function Home() {
 										aria-hidden="true"
 									>
 										<path
-											stroke-linecap="round"
-											stroke-linejoin="round"
-											stroke-width="2"
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth="2"
 											d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
 										/>
 									</svg>
@@ -227,9 +227,9 @@ export default function Home() {
 									aria-hidden="true"
 								>
 									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="2"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth="2"
 										d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
 									/>
 								</svg>
@@ -273,9 +273,9 @@ export default function Home() {
 
 			{/* "Chcete vědět s kým spolupracujeme?" Section */}
 			<div className="bg-white overflow-hidden shadow rounded-lg pt-20">
-				<div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-					<div class="text-center">
-						<p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
+				<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+					<div className="text-center">
+						<p className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
 							Chcete vědět s kým spolupracujete? <br /> Podívejte se na mapu.
 						</p>
 					</div>
@@ -283,7 +283,7 @@ export default function Home() {
 
 				<div className="px-4  sm:px-64 ">
 					{/* <!-- Content goes here --> */}
-					<label for="email" className="block text-sm font-medium text-gray-700">
+					<label htmlFor="email" className="block text-sm font-medium text-gray-700">
 						Zadejte adresu / Hledat sportoviště
 					</label>
 					<div className="mt-1 flex rounded-md shadow-sm">
