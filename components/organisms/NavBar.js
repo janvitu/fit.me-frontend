@@ -15,7 +15,7 @@ export function NavBar() {
 				<div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
 					<div className="flex justify-start lg:w-0 lg:flex-1">
 						<Link href="/" passHref>
-							<a>
+							<a className=" h-12 hover:scale-105 transition-all">
 								<Logo />
 							</a>
 						</Link>
