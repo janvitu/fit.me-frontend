@@ -17,9 +17,7 @@ export default function FourOhFour() {
 							</p>
 						</div>
 						<div className="flex mt-4 sm:border-l sm:border-transparent sm:pl-6 space-x-3">
-							<Link href="/" passHref>
-								<ButtonLinkFilledBase>Vrátit se na domovskou stránku</ButtonLinkFilledBase>
-							</Link>
+							<ButtonLinkFilledBase href="/">Vrátit se na domovskou stránku</ButtonLinkFilledBase>
 						</div>
 					</div>
 				</main>
