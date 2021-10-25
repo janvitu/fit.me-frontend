@@ -9,6 +9,7 @@ module.exports = {
 		colors: {
 			...tailwindcssDefaults.colors,
 			gray: colors.trueGray,
+			lime: colors.lime,
 		},
 		extend: {
 			colors: {
