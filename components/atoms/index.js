@@ -10,3 +10,4 @@ export { MainH2 } from "./headings/MainH2";
 export { SmallH2 } from "./headings/SmallH2";
 export { BigH2 } from "./headings/BigH2";
 export { HeadingWrapper } from "./headings/HeadingWrapper";
+export { FooterLink } from "./FooterLink";
