@@ -12,3 +12,5 @@ export { BigH2 } from "./headings/BigH2";
 export { HeadingWrapper } from "./headings/HeadingWrapper";
 export { FooterLink } from "./FooterLink";
 export { DelimiterSmall } from "./DelimiterSmall";
+export { TwoColGrid } from "./layouts/TwoColGrid";
+export { TextProse } from "./layouts/TextProse";
