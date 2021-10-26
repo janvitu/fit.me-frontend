@@ -1,12 +1,11 @@
 import {
 	BigH2,
-	ButtonLinkFilledBase,
 	ButtonLinkFilledBig,
 	HeadingWrapper,
 	MainH2,
 } from "@components/atoms";
 import { ContactFooter } from "@components/organisms";
-import { OverlappingCard } from "@components/molecules";
+import { OverlappingCard, CTA } from "@components/molecules";
 import { StaticSite } from "@components/templates";
 
 export default function Home() {
@@ -46,8 +45,6 @@ export default function Home() {
 				</div>
 			</section>
 
-
- {/* */}
 			{/* "S ČÍM VÁM POMÁHÁME "White background with overlaping cards */}
 			<div className="bg-white">
 				{/* <!-- Header --> */}
@@ -133,17 +130,11 @@ export default function Home() {
 			</section>
 
 			{/* CTA */}
-			<section className="bg-gray-200">
-				<div className="max-w-7xl mx-auto py-12 lg:py-16 px-4 sm:px-6 md:px-8 flex items-center justify-between">
-					<h2 className="text-3xl font-extrabold tracking-tight text-gray-900 ">
-						<span className="block">No text provided</span>
-						<span className="block text-main-800">Add text to right slot</span>
-					</h2>
-					<div className="mt-0 flex flex-shrink-0">
-						<ButtonLinkFilledBase>Text</ButtonLinkFilledBase>
-					</div>
-				</div>
-			</section>
+			<CTA
+			upperText = "No text defined"
+			lowerText = "A cool text"
+			buttonText = "Klikni"
+			/>	
 
 			{/* STATS Split with Image */}
 			<div className="relative bg-white">
