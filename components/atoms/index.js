@@ -14,3 +14,5 @@ export { FooterLink } from "./FooterLink";
 export { DelimiterSmall } from "./DelimiterSmall";
 export { TwoColGrid } from "./layouts/TwoColGrid";
 export { TextProse } from "./layouts/TextProse";
+export { StatItem } from "./StatItem";
+export { SvgIcon } from "./SvgIcon";

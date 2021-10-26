@@ -5,6 +5,8 @@ import {
 	HeadingWrapper,
 	MainH2,
 	XlWrapper,
+	StatItem,
+	SvgIcon,
 } from "@components/atoms";
 import { ContactFooter } from "@components/organisms";
 import { OverlappingCard } from "@components/molecules";
@@ -93,7 +95,7 @@ export default function Home() {
 				</section>
 			</div>
 
-			{/* "JAK TO FUNGUJE" */}
+			{/* "OUR PROCESS" */}
 			<section className="relative">
 				<div className="flex flex-col mx-auto lg:flex-row">
 					<div className="relative px-4 mx-auto py-12 lg:py-16 lg:max-w-7xl lg:pl-6 lg:mr-auto">
@@ -159,26 +161,10 @@ export default function Home() {
 						<div>
 							<div className="flex items-center justify-center h-12 w-12 rounded-md bg-main-500 text-white">
 								{/* <!-- Heroicon name: outline/users --> */}
-								<svg
-									className="h-6 w-6"
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-									aria-hidden="true"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth="2"
-										d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-									/>
-								</svg>
+								<SvgIcon svgVector="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
 							</div>
 						</div>
-						<h2 className="mt-6 text-3xl font-extrabold text-gray-900 sm:text-4xl">
-							Spolupracují s námi sportoviště z 10 měst
-						</h2>
+						<MainH2>Spolupracují s námi sportoviště z 10 měst</MainH2>
 						<p className="mt-6 text-lg text-gray-500">
 							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore nihil ea rerum ipsa.
 							Nostrum consectetur sequi culpa doloribus omnis, molestiae esse placeat,
@@ -186,26 +172,9 @@ export default function Home() {
 						</p>
 						<div className="mt-8 overflow-hidden">
 							<dl className="-mx-8 -mt-8 flex flex-wrap">
-								<div className="flex flex-col px-8 pt-8">
-									<dt className="order-2 text-base font-medium text-gray-500">Sportovišť</dt>
-									<dd className="order-1 text-2xl font-extrabold text-main-600 sm:text-3xl">
-										200+
-									</dd>
-								</div>
-								<div className="flex flex-col px-8 pt-8">
-									<dt className="order-2 text-base font-medium text-gray-500">
-										Spokojených uživatelů
-									</dt>
-									<dd className="order-1 text-2xl font-extrabold text-main-600 sm:text-3xl">
-										30 000
-									</dd>
-								</div>
-								<div className="flex flex-col px-8 pt-8">
-									<dt className="order-2 text-base font-medium text-gray-500">Spálených kalorií</dt>
-									<dd className="order-1 text-2xl font-extrabold text-main-600 sm:text-3xl">
-										100 000+
-									</dd>
-								</div>
+								<StatItem indicatorText="Sportovišť" indicatorNumber="200 +" />
+								<StatItem indicatorText="Spokojených uživatelů" indicatorNumber="30 000 +" />
+								<StatItem indicatorText="Spálených kalorií" indicatorNumber="100 000+" />
 							</dl>
 						</div>
 					</div>
