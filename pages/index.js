@@ -4,6 +4,7 @@ import {
 	ButtonLinkFilledBig,
 	HeadingWrapper,
 	MainH2,
+	XlWrapper,
 } from "@components/atoms";
 import { ContactFooter } from "@components/organisms";
 import { OverlappingCard } from "@components/molecules";
@@ -46,8 +47,7 @@ export default function Home() {
 				</div>
 			</section>
 
-
- {/* */}
+			{/* */}
 			{/* "S ČÍM VÁM POMÁHÁME "White background with overlaping cards */}
 			<div className="bg-white">
 				{/* <!-- Header --> */}
@@ -71,25 +71,24 @@ export default function Home() {
 					</h2>
 					<div className="grid grid-cols-1 gap-y-20 lg:grid-cols-3 lg:gap-y-0 lg:gap-x-8">
 						<OverlappingCard
-							header = "Cvičení"
-							text= 'Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames.'
-							linkText = "Zaregistrujte se"
-							svgVector = "M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-						/>
-						
-						<OverlappingCard
-							header = "Plánování"
-							text= 'Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames.'
-							linkText = "Zaregistrujte se"
-							svgVector = "M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
+							header="Cvičení"
+							text="Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames."
+							linkText="Zaregistrujte se"
+							svgVector="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
 						/>
 
 						<OverlappingCard
-							header = "Doporučení"
-							text= 'Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames.'
-							linkText = "Zaregistrujte se"
-							svgVector = "M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
-							/>					
+							header="Plánování"
+							text="Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames."
+							linkText="Zaregistrujte se"
+							svgVector="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
+						/>
+						<OverlappingCard
+							header="Doporučení"
+							text="Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames."
+							linkText="Zaregistrujte se"
+							svgVector="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+						/>
 					</div>
 				</section>
 			</div>
@@ -134,17 +133,18 @@ export default function Home() {
 
 			{/* CTA */}
 			<section className="bg-gray-200">
-				<div className="max-w-7xl mx-auto py-12 lg:py-16 px-4 sm:px-6 md:px-8 flex items-center justify-between">
-					<h2 className="text-3xl font-extrabold tracking-tight text-gray-900 ">
-						<span className="block">No text provided</span>
-						<span className="block text-main-800">Add text to right slot</span>
-					</h2>
-					<div className="mt-0 flex flex-shrink-0">
-						<ButtonLinkFilledBase>Text</ButtonLinkFilledBase>
+				<XlWrapper>
+					<div className="flex items-center justify-between">
+						<MainH2>
+							<span className="block">Upper text</span>
+							<span className="block text-main-800">Lower text</span>
+						</MainH2>
+						<div className="mt-0 flex flex-shrink-0">
+							<ButtonLinkFilledBase>Button text</ButtonLinkFilledBase>
+						</div>
 					</div>
-				</div>
+				</XlWrapper>
 			</section>
-
 			{/* STATS Split with Image */}
 			<div className="relative bg-white">
 				<div className="h-56 bg-main-600 sm:h-72 lg:absolute lg:left-0 lg:h-full lg:w-1/2">
