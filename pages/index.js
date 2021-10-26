@@ -5,6 +5,7 @@ import {
 	HeadingWrapper,
 	MainH2,
 	XlWrapper,
+	StatItem,
 } from "@components/atoms";
 import { ContactFooter } from "@components/organisms";
 import { OverlappingCard } from "@components/molecules";
@@ -186,26 +187,9 @@ export default function Home() {
 						</p>
 						<div className="mt-8 overflow-hidden">
 							<dl className="-mx-8 -mt-8 flex flex-wrap">
-								<div className="flex flex-col px-8 pt-8">
-									<dt className="order-2 text-base font-medium text-gray-500">Sportovišť</dt>
-									<dd className="order-1 text-2xl font-extrabold text-main-600 sm:text-3xl">
-										200+
-									</dd>
-								</div>
-								<div className="flex flex-col px-8 pt-8">
-									<dt className="order-2 text-base font-medium text-gray-500">
-										Spokojených uživatelů
-									</dt>
-									<dd className="order-1 text-2xl font-extrabold text-main-600 sm:text-3xl">
-										30 000
-									</dd>
-								</div>
-								<div className="flex flex-col px-8 pt-8">
-									<dt className="order-2 text-base font-medium text-gray-500">Spálených kalorií</dt>
-									<dd className="order-1 text-2xl font-extrabold text-main-600 sm:text-3xl">
-										100 000+
-									</dd>
-								</div>
+								<StatItem indicatorText="Sportovišť" indicatorNumber="200 +" />
+								<StatItem indicatorText="Spokojených uživatelů" indicatorNumber="30 000 +" />
+								<StatItem indicatorText="Spálených kalorií" indicatorNumber="100 000+" />
 							</dl>
 						</div>
 					</div>
