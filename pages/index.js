@@ -1,5 +1,6 @@
 import {
 	BigH2,
+	BigH3,
 	ButtonLinkFilledBase,
 	ButtonLinkFilledBig,
 	HeadingWrapper,
@@ -109,7 +110,7 @@ export default function Home() {
 									repudiandae nihil ipsam officiis dolor deleniti ex maiores dicta commodi magni
 									sapiente vel id ipsum suscipit fugit, ea ducimus.
 								</p>
-								<h3>Some header</h3>
+								<BigH3>Some header</BigH3>
 								<p>
 									Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci nulla autem
 									porro quod aliquam itaque a dolore delectus praesentium maxime!
