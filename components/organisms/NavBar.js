@@ -1,4 +1,6 @@
-import { ButtonLinkFilledBase, ButtonLinkOutlineBase } from "@components/atoms";
+import { useState } from "react";
+
+import { ButtonLinkFilledBase, ButtonLinkOutlineBase, Hamburger } from "@components/atoms";
 import { NavStatics } from "@components/molecules";
 import { Logo } from "@components/partials/Logo";
 import Link from "next/link";
@@ -9,6 +11,11 @@ const ROUTES = [
 	{ name: "contact", path: "/kontakt", text: "Kontakt" },
 ];
 export function NavBar() {
+	const [toggled, setToggled] = useState(false);
+	function toggle() {
+		setToggled(!toggled);
+	}
+
 	return (
 		<div className="sticky top-0 z-50 bg-white">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -20,7 +27,10 @@ export function NavBar() {
 							</a>
 						</Link>
 					</div>
-					<NavStatics routes={ROUTES} />
+					<NavStatics toggled={toggled} routes={ROUTES} />
+					<div className="absolute right-0 md:hidden">
+						<Hamburger toggle={toggle} toggled={toggled} />
+					</div>
 					<div className="hidden md:flex space-x-2 items-center justify-end md:flex-1 lg:w-0">
 						<ButtonLinkOutlineBase>Registrace</ButtonLinkOutlineBase>
 						<ButtonLinkFilledBase>Přihlásit se</ButtonLinkFilledBase>
