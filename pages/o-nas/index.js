@@ -1,4 +1,12 @@
-import { BigH3, HeadingWrapper, SmallH2, SmallDescription } from "@components/atoms";
+import {
+	BigH3,
+	HeadingWrapper,
+	SmallH2,
+	SmallDescription,
+	MainH2,
+	MainDescription,
+	BigH2,
+} from "@components/atoms";
 import { StaticSite } from "@components/templates";
 
 import hooli from "@assets/img/hooli-brands.svg";
@@ -10,13 +18,11 @@ export default function About() {
 			<div className="bg-white">
 				<div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
 					<div className="text-center">
-						<h1 className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
-							O Nás
-						</h1>
-						<p className="max-w-xl mt-5 mx-auto text-xl text-gray-500">
+						<BigH2>O Nás</BigH2>
+						<MainDescription>
 							Tvoříme most mezi <span className="text-main-600">sportovišti</span> a
 							<span className="text-main-600"> sportovci</span>
-						</p>
+						</MainDescription>
 					</div>
 				</div>
 			</div>
@@ -28,14 +34,16 @@ export default function About() {
 						<BigH3>V čem jsme jiní</BigH3>
 					</HeadingWrapper>
 
-					<div className="relative z-10 text-base max-w-prose mx-auto lg:max-w-5xl lg:mx-0 lg:pr-72">
-						<p className="text-lg text-gray-500">
-							Sagittis scelerisque nulla cursus in enim consectetur quam. Dictum urna sed
-							consectetur neque tristique pellentesque. Blandit amet, sed aenean erat arcu morbi.
-							Cursus faucibus nunc nisl netus morbi vel porttitor vitae ut. Amet vitae fames
-							senectus vitae.
-						</p>
-					</div>
+					<SmallDescription>
+						<div className="lg:max-w-5xl lg:pr-72">
+							<p className="text-lg text-gray-500 ">
+								Sagittis scelerisque nulla cursus in enim consectetur quam. Dictum urna sed
+								consectetur neque tristique pellentesque. Blandit amet, sed aenean erat arcu morbi.
+								Cursus faucibus nunc nisl netus morbi vel porttitor vitae ut. Amet vitae fames
+								senectus vitae.
+							</p>
+						</div>
+					</SmallDescription>
 					<div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-start">
 						<div className="relative z-10">
 							<SmallDescription>
@@ -115,16 +123,12 @@ export default function About() {
 			<div className="bg-white">
 				<div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
 					<div className="text-center">
-						<h2 className="text-base font-semibold text-main-600 tracking-wide uppercase">
-							Spolupráce
-						</h2>
-						<p className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
-							Náš přístup
-						</p>
-						<p className="max-w-xl mt-5 mx-auto text-xl text-gray-500">
+						<SmallH2>Spolupráce</SmallH2>
+						<MainH2>Náš přístup</MainH2>
+						<MainDescription>
 							Start building for free, then add a site plan to go live. Account plans unlock
 							additional features.
-						</p>
+						</MainDescription>
 					</div>
 				</div>
 			</div>

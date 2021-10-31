@@ -7,6 +7,7 @@ import {
 	MainDescription,
 	SmallDescription,
 	ButtonLinkOutlineBase,
+	SmallH2,
 } from "@components/atoms";
 import { StaticSite } from "@components/templates";
 import { DescriptionList } from "@components/organisms";
@@ -55,7 +56,7 @@ export default function Partner() {
 									<span className="block">Staňte se naším</span>
 									<span className="block text-main-800">Partnerem</span>
 								</BigH2>
-								<MainDescription className="mt-3 text-base text-gray-200 lg:text-gray-600 sm:mt-5 sm:text-lg sm:max-w-xl md:mt-5 md:text-xl lg:mx-0">
+								<MainDescription>
 									Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat
 									commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
 								</MainDescription>
@@ -84,9 +85,7 @@ export default function Partner() {
 			<div className="py-12 bg-white">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="lg:text-center">
-						<h2 className="text-base text-main-600 font-semibold tracking-wide uppercase">
-							Benefity
-						</h2>
+						<SmallH2>Benefity</SmallH2>
 						<MainH2>Co vám přinese partnerství</MainH2>
 						<MainDescription>
 							Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum
