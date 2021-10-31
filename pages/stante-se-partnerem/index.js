@@ -6,9 +6,11 @@ import {
 	BigH2,
 	MainDescription,
 	SmallDescription,
+	ButtonLinkOutlineBase,
 } from "@components/atoms";
 import { StaticSite } from "@components/templates";
 import { DescriptionList } from "@components/organisms";
+import { BigCardWithImage } from "@components/molecules";
 
 const descriptionList = [
 	{
@@ -101,7 +103,7 @@ export default function Partner() {
 					<div className="relative px-4 mx-auto py-12 lg:py-16 lg:max-w-7xl lg:pl-6 lg:mr-auto">
 						<div className="text-base max-w-prose mx-auto lg:max-w-lg lg:mr-0">
 							<HeadingWrapper>
-								<MainH2> Our Process</MainH2>
+								<MainH2>Our Process</MainH2>
 							</HeadingWrapper>
 							<SmallDescription>
 								<p>
@@ -136,32 +138,25 @@ export default function Partner() {
 
 			<div className="bg-white">
 				<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-					<div className="bg-main-700 rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-2 lg:gap-4">
-						<div className="pt-10 pb-12 px-6 sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20">
-							<div className="lg:self-center">
-								<h2 className="text-3xl font-extrabold text-white sm:text-4xl">
-									<span className="block">Jednoduchá Administrátorská konzole.</span>
-								</h2>
-								<p className="mt-4 text-lg leading-6 text-main-200">
-									Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada
-									adipiscing sagittis vel nulla nec.
-								</p>
-								<a
-									href="#"
-									className="mt-8 bg-white border border-transparent rounded-md shadow px-5 py-3 inline-flex items-center text-base font-medium text-main-600 hover:bg-main-50"
-								>
-									Live demo
-								</a>
-							</div>
+					<BigCardWithImage
+						imageSrc="https://tailwindui.com/img/component-images/full-width-with-sidebar.jpg"
+						imageAlt="App screenshot"
+					>
+						<MainH2>
+							<p className="block text-white">
+								Jednoduchá <br />
+								administrátorská <br />
+								konzole.
+							</p>
+						</MainH2>
+						<p className="my-4 text-lg leading-6 text-main-200">
+							Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing
+							sagittis vel nulla nec.
+						</p>
+						<div className="md:max-w-xs">
+							<ButtonLinkOutlineBase href="#">Live demo</ButtonLinkOutlineBase>
 						</div>
-						<div className="-mt-6 aspect-w-5 aspect-h-3 md:aspect-w-2 md:aspect-h-1">
-							<img
-								className="transform translate-x-6 translate-y-6 rounded-md object-cover object-left-top sm:translate-x-16 lg:translate-y-20"
-								src="https://tailwindui.com/img/component-images/full-width-with-sidebar.jpg"
-								alt="App screenshot"
-							/>
-						</div>
-					</div>
+					</BigCardWithImage>
 				</div>
 			</div>
 		</StaticSite>
