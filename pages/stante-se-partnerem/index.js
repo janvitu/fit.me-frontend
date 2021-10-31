@@ -3,6 +3,8 @@ import {
 	ButtonLinkOutlineBig,
 	HeadingWrapper,
 	MainH2,
+	BigH2,
+	MainDescription,
 } from "@components/atoms";
 import { StaticSite } from "@components/templates";
 
@@ -15,14 +17,14 @@ export default function Partner() {
 					<div className="relative z-10 py-8 lg:bg-white sm:py-16 md:py-20 lg:max-w-2xl lg:w-full lg:py-28 xl:py-32 ml-auto">
 						<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
 							<div className="text-left">
-								<h1 className="text-4xl tracking-tight font-extrabold text-white lg:text-gray-900 sm:text-5xl md:text-6xl">
+								<BigH2>
 									<span className="block">Staňte se naším</span>
 									<span className="block text-main-800">Partnerem</span>
-								</h1>
-								<p className="mt-3 text-base text-gray-200 lg:text-gray-600 sm:mt-5 sm:text-lg sm:max-w-xl md:mt-5 md:text-xl lg:mx-0">
+								</BigH2>
+								<MainDescription className="mt-3 text-base text-gray-200 lg:text-gray-600 sm:mt-5 sm:text-lg sm:max-w-xl md:mt-5 md:text-xl lg:mx-0">
 									Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat
 									commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
-								</p>
+								</MainDescription>
 								<div className="mt-5 sm:mt-8 flex flex-wrap gap-3 justify-start">
 									<ButtonLinkFilledBig>Staňte se partnerem</ButtonLinkFilledBig>
 									<ButtonLinkOutlineBig>Naše síť</ButtonLinkOutlineBig>
@@ -51,13 +53,11 @@ export default function Partner() {
 						<h2 className="text-base text-main-600 font-semibold tracking-wide uppercase">
 							Benefity
 						</h2>
-						<p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-							Co vám přinese partnerství
-						</p>
-						<p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+						<MainH2>Co vám přinese partnerství</MainH2>
+						<MainDescription>
 							Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum
 							cupiditate veritatis in accusamus quisquam.
-						</p>
+						</MainDescription>
 					</div>
 
 					<div className="mt-10">

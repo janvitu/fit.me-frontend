@@ -17,3 +17,4 @@ export { TextProse } from "./layouts/TextProse";
 export { IconWrapperMainBg } from "./IconWrapperMainBg";
 export { StatItem } from "./StatItem";
 export { ArrowLink } from "./ArrowLink";
+export { MainDescription } from "./descriptions/MainDescription";
