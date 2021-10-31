@@ -1,10 +1,10 @@
-import { DescriptionListTerm, SmallDescription } from "@components/atoms";
+import { DescriptionListTerm, DescriptionListDescription } from "@components/atoms";
 
 export function DescriptionListItem({ term, description, svgDraw }) {
 	return (
 		<div className="relative">
 			<DescriptionListTerm svgDraw={svgDraw}>{term}</DescriptionListTerm>
-			<SmallDescription>{description}</SmallDescription>
+			<DescriptionListDescription>{description}</DescriptionListDescription>
 		</div>
 	);
 }
