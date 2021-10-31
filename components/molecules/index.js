@@ -4,3 +4,4 @@ export { OverlappingCard } from "./OverlappingCard";
 export { DescriptionListItem } from "./DescriptionListItem";
 export { BigCardWithImage } from "./BigCardWithImage";
 export { ReferenceCard } from "./ReferenceCard";
+export { TeamMemberCard } from "./TeamMemberCard";
