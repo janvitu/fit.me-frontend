@@ -1,3 +1,3 @@
 export function SmallDescription({ children }) {
-	return <dd className="mt-2 ml-16 text-base text-gray-500">{children}</dd>;
+	return <div className="prose prose-main text-gray-500 mx-auto lg:max-w-none">{children}</div>;
 }

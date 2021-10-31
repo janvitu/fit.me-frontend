@@ -5,6 +5,7 @@ import {
 	MainH2,
 	BigH2,
 	MainDescription,
+	SmallDescription,
 } from "@components/atoms";
 import { StaticSite } from "@components/templates";
 import { DescriptionList } from "@components/organisms";
@@ -102,7 +103,7 @@ export default function Partner() {
 							<HeadingWrapper>
 								<MainH2> Our Process</MainH2>
 							</HeadingWrapper>
-							<div className="mt-5 prose prose-red text-gray-500">
+							<SmallDescription>
 								<p>
 									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, excepturi tempore
 									repudiandae nihil ipsam officiis dolor deleniti ex maiores dicta commodi magni
@@ -118,7 +119,7 @@ export default function Partner() {
 									<li>Lorem ipsum dolor sit.</li>
 								</ul>
 								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, libero.</p>
-							</div>
+							</SmallDescription>
 						</div>
 					</div>
 					<div className="lg:w-1/2 lg:h-auto flex items-center justify-center">

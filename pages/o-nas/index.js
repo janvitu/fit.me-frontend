@@ -1,4 +1,4 @@
-import { BigH3, HeadingWrapper, SmallH2 } from "@components/atoms";
+import { BigH3, HeadingWrapper, SmallH2, SmallDescription } from "@components/atoms";
 import { StaticSite } from "@components/templates";
 
 import hooli from "@assets/img/hooli-brands.svg";
@@ -38,7 +38,7 @@ export default function About() {
 					</div>
 					<div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-start">
 						<div className="relative z-10">
-							<div className="prose prose-main text-gray-500 mx-auto lg:max-w-none">
+							<SmallDescription>
 								<p>
 									Sollicitudin tristique eros erat odio sed vitae, consequat turpis elementum. Lorem
 									nibh vel, eget pretium arcu vitae. Eros eu viverra donec ut volutpat donec laoreet
@@ -62,7 +62,7 @@ export default function About() {
 									Laoreet sem est phasellus eu proin massa, lectus. Diam rutrum posuere donec
 									ultricies non morbi. Mi a platea auctor mi.
 								</p>
-							</div>
+							</SmallDescription>
 						</div>
 						<div className="mt-12 relative text-base max-w-prose mx-auto lg:mt-0 lg:max-w-none">
 							<blockquote className="relative bg-white rounded-lg shadow-lg">
