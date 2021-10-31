@@ -28,7 +28,7 @@ export function ReferenceCard({
 						<img
 							className="w-12 h-12 sm:w-20 sm:h-20 rounded-full bg-main-800"
 							src={refereeImgSrc}
-							alt=""
+							alt={refereeName}
 							loading="lazy"
 						/>
 					</div>

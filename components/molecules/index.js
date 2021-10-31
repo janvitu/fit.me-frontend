@@ -5,3 +5,4 @@ export { DescriptionListItem } from "./DescriptionListItem";
 export { BigCardWithImage } from "./BigCardWithImage";
 export { ReferenceCard } from "./ReferenceCard";
 export { TeamMemberCard } from "./TeamMemberCard";
+export { ReferenceSection } from "./ReferenceSection";
