@@ -18,3 +18,5 @@ export { IconWrapperMainBg } from "./IconWrapperMainBg";
 export { StatItem } from "./StatItem";
 export { ArrowLink } from "./ArrowLink";
 export { MainDescription } from "./descriptions/MainDescription";
+export { SmallDescription } from "./descriptions/SmallDescription";
+export { DescriptionListTerm } from "./DescriptionListTerm";
