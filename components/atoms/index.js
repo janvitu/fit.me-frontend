@@ -22,3 +22,4 @@ export { Input } from "./formElements/Input";
 export { TextArea } from "./formElements/TextArea";
 export { ErrorMsg } from "./formElements/ErrorMsg";
 export { ButtonLink } from "./ButtonLink";
+export { ButtonSubmit } from "./ButtonSubmit";
