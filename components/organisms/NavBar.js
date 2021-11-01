@@ -33,7 +33,7 @@ export function NavBar() {
 					</div>
 					<div className="hidden md:flex space-x-2 items-center justify-end md:flex-1 lg:w-0">
 						<ButtonLinkOutlineBase>Registrace</ButtonLinkOutlineBase>
-						<ButtonLinkFilledBase>Přihlásit se</ButtonLinkFilledBase>
+						<ButtonLinkFilledBase href="/prihlasit-se">Přihlásit se</ButtonLinkFilledBase>
 					</div>
 				</div>
 			</div>

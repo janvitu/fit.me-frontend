@@ -9,6 +9,7 @@ import {
 	ButtonLinkOutlineBase,
 	SmallH2,
 } from "@components/atoms";
+import { ContactFooter } from "@components/organisms";
 import { StaticSite } from "@components/templates";
 import { DescriptionList } from "@components/organisms";
 import { BigCardWithImage } from "@components/molecules";
@@ -158,6 +159,7 @@ export default function Partner() {
 					</BigCardWithImage>
 				</div>
 			</div>
+			<ContactFooter />
 		</StaticSite>
 	);
 }

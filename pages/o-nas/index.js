@@ -189,8 +189,6 @@ export default function About() {
 				</ReferenceSection>
 			</section>
 
-			{/* "Kontaktujte nás" section */}
-
 			{/* FAQ */}
 		</StaticSite>
 	);

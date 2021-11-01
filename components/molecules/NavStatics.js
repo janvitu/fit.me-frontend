@@ -1,7 +1,10 @@
 import { NavLink } from "@components/atoms";
+import { useRouter } from "next/router";
 
 import { ButtonLinkFilledBase, ButtonLinkOutlineBase } from "@components/atoms";
+
 export function NavStatics({ routes, toggled }) {
+	const router = useRouter();
 	return (
 		<nav
 			className={`absolute inset-x-0 md:w-auto overflow-hidden pb-6 md:pb-0 bg-white top-full flex justify-center items-center flex-col md:flex-row md:static md:h-full md:space-x-10 transition-all md:transform origin-top md:scale-100 ${
@@ -9,7 +12,7 @@ export function NavStatics({ routes, toggled }) {
 			}`}
 		>
 			{routes.map(({ name, path, text }) => (
-				<NavLink key={name} href={path}>
+				<NavLink key={name} href={path} linkIsActive={router.asPath === path}>
 					{text}
 				</NavLink>
 			))}

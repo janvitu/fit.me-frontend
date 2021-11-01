@@ -48,3 +48,15 @@
 		@apply top-0 -translate-y-1/2 text-gray-500 bg-white;
 	}
 }
+
+@layer utilities {
+	.scrollbar-hidden::-webkit-scrollbar {
+		display: none;
+	}
+
+	/* Hide scrollbar for IE, Edge and Firefox */
+	.scrollbar-hidden {
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none; /* Firefox */
+	}
+}

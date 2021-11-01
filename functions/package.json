@@ -1,0 +1,8 @@
+{
+	"name": "functions",
+	"version": "1.0.0",
+	"license": "ISC",
+	"dependencies": {
+		"joi": "^17.4.2"
+	}
+}
