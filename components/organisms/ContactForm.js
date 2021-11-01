@@ -1,7 +1,6 @@
 import { InputWrapper } from "@components/molecules";
 import { TextAreaWrapper } from "@components/molecules";
-
-import { useEffect } from "react";
+import { ButtonSubmit } from "@components/atoms";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
@@ -23,11 +22,6 @@ export function ContactForm() {
 			message: Yup.string().required("Zpráva nesmí být prázdný"),
 		}),
 	});
-
-	useEffect(() => {
-		console.log(formik);
-		console.log(formik.touched["email"]);
-	}, [formik]);
 
 	return (
 		<form
@@ -51,6 +45,7 @@ export function ContactForm() {
 					description="Zpráva"
 				/>
 			</div>
+			<ButtonSubmit>Odeslat</ButtonSubmit>
 		</form>
 	);
 }
