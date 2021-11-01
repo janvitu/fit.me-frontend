@@ -29,7 +29,7 @@ export function ButtonLink({ href, children, variant, isOutline }) {
 	);
 }
 
-ButtonLinkFilledBase.defaultProps = {
+ButtonLink.defaultProps = {
 	href: "#",
 	isOutline: false,
 	variant: "base",
