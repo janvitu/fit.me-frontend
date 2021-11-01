@@ -1,21 +1,15 @@
-import copyToClip from "@assets/js/coppyToClipboard";
-
 export function ContactCard({ imgSrc, imgAlt, name, position, email, phone }) {
-	function handleCopyClick(e) {
-		copyToClip(e);
-		const copyBanners = e.currentTarget.querySelectorAll("[data-coppy]");
-		copyBanners.forEach((element) => {
-			element.style.opacity = "1";
-		});
+	function handleCopyClick(e, coppyVal) {
+		navigator.clipboard.writeText(coppyVal);
+		const copyBanner = e.currentTarget.querySelector("[data-coppy]");
+		copyBanner.style.opacity = "1";
 
 		setTimeout(() => {
-			copyBanners.forEach((element) => {
-				element.style.opacity = "";
-			});
+			copyBanner.element.style.opacity = "";
 		}, 1000);
 	}
 	return (
-		<div>
+		<>
 			<div className="flex gap-4 items-center">
 				<div>
 					<img
@@ -76,7 +70,10 @@ export function ContactCard({ imgSrc, imgAlt, name, position, email, phone }) {
 				</div>
 				<div className="mt-1">
 					<dt className="sr-only">Phone number</dt>
-					<dd onClick={handleCopyClick} className="group flex hover:cursor-pointer">
+					<dd
+						onClick={(e) => handleCopyClick(e, phone)}
+						className="group flex hover:cursor-pointer"
+					>
 						<span>{phone}</span>
 						<div className="relative flex items-center">
 							<div
@@ -119,6 +116,6 @@ export function ContactCard({ imgSrc, imgAlt, name, position, email, phone }) {
 					</dd>
 				</div>
 			</dl>
-		</div>
+		</>
 	);
 }

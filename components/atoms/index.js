@@ -20,6 +20,5 @@ export { SmallDescription } from "./descriptions/SmallDescription";
 export { Label } from "./formElements/Label";
 export { Input } from "./formElements/Input";
 export { TextArea } from "./formElements/TextArea";
-export { InputWrapper } from "./formElements/InputWrapper";
-export { TextAreaWrapper } from "./formElements/TextAreaWrapper";
+export { ErrorMsg } from "./formElements/ErrorMsg";
 export { ButtonLink } from "./ButtonLink";

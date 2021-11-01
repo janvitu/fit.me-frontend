@@ -1,16 +1,31 @@
-import { onFocus, onBlur, liveValidate } from "@assets/js/formValidate";
-
-export function TextArea({ name, type, cols, rows, rule, ...other }) {
+export function TextArea({
+	formik,
+	name,
+	type,
+	cols,
+	rows,
+	isRequired,
+	setIsVisited,
+	setIsFocused,
+}) {
 	return (
 		<textarea
-			onFocus={onFocus}
-			onBlur={(e) => onBlur(e, rule)}
-			onInput={(e) => liveValidate(e, rule)}
+			onFocus={() => {
+				setIsFocused(true);
+				setIsVisited(true);
+			}}
+			onBlur={(e) => {
+				setIsFocused(false);
+				formik.handleBlur(e);
+			}}
+			onChange={formik.handleChange}
 			name={name}
 			type={type}
+			value={formik.values[name]}
 			className="bg-transparent h-full outline-none pb-3 pl-3 pt-3 resize-none text-gray-700 w-full"
 			cols={cols}
 			rows={rows}
+			required={isRequired}
 		></textarea>
 	);
 }
@@ -20,9 +35,4 @@ TextArea.defaultProps = {
 	type: "text",
 	cols: "30",
 	rows: "10",
-	rule: {
-		regExp: /^.+$/,
-		errMsg: "N/A",
-		emptyErr: "Zpráva nesmí být prázdná",
-	},
 };

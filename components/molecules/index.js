@@ -6,3 +6,5 @@ export { BigCardWithImage } from "./BigCardWithImage";
 export { ReferenceCard } from "./ReferenceCard";
 export { TeamMemberCard } from "./TeamMemberCard";
 export { ReferenceSection } from "./ReferenceSection";
+export { TextAreaWrapper } from "./TextAreaWrapper";
+export { InputWrapper } from "./InputWrapper";
