@@ -1,5 +1,3 @@
-import { MainH2, ButtonLinkOutlineBase } from "@components/atoms";
-
 export function BigCardWithImage({ children, imageSrc, imageAlt }) {
 	return (
 		<div className="bg-main-700 rounded-lg shadow-xl overflow-hidden lg:grid lg:grid-cols-2 lg:gap-4">

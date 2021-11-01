@@ -1,6 +1,5 @@
 import { useState } from "react";
-
-import { ButtonLinkFilledBase, ButtonLinkOutlineBase, Hamburger } from "@components/atoms";
+import { ButtonLink, Hamburger } from "@components/atoms";
 import { NavStatics } from "@components/molecules";
 import { Logo } from "@components/partials/Logo";
 import Link from "next/link";
@@ -32,8 +31,12 @@ export function NavBar() {
 						<Hamburger toggle={toggle} toggled={toggled} />
 					</div>
 					<div className="hidden md:flex space-x-2 items-center justify-end md:flex-1 lg:w-0">
-						<ButtonLinkOutlineBase>Registrace</ButtonLinkOutlineBase>
-						<ButtonLinkFilledBase href="/prihlasit-se">Přihlásit se</ButtonLinkFilledBase>
+						<ButtonLink variant="base" isOutline={true}>
+							Registrace
+						</ButtonLink>
+						<ButtonLink variant="base" isOutline={false} href="/prihlasit-se">
+							Přihlásit se
+						</ButtonLink>
 					</div>
 				</div>
 			</div>

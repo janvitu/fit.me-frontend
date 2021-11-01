@@ -1,7 +1,6 @@
 import { NavLink } from "@components/atoms";
 import { useRouter } from "next/router";
-
-import { ButtonLinkFilledBase, ButtonLinkOutlineBase } from "@components/atoms";
+import { ButtonLink } from "@components/atoms";
 
 export function NavStatics({ routes, toggled }) {
 	const router = useRouter();
@@ -17,8 +16,12 @@ export function NavStatics({ routes, toggled }) {
 				</NavLink>
 			))}
 			<div className="flex md:hidden space-x-2 items-center">
-				<ButtonLinkOutlineBase>Registrace</ButtonLinkOutlineBase>
-				<ButtonLinkFilledBase>Přihlásit se</ButtonLinkFilledBase>
+				<ButtonLink variant="base" isOutline={true}>
+					Registrace
+				</ButtonLink>
+				<ButtonLink variant="base" isOutline={false}>
+					Přihlásit se
+				</ButtonLink>
 			</div>
 		</nav>
 	);

@@ -1,12 +1,4 @@
-import {
-	BigH2,
-	ButtonLinkFilledBase,
-	ButtonLinkFilledBig,
-	HeadingWrapper,
-	MainH2,
-	XlWrapper,
-	StatItem,
-} from "@components/atoms";
+import { H2, ButtonLink, HeadingWrapper, XlWrapper, StatItem } from "@components/atoms";
 import { ContactFooter } from "@components/organisms";
 import { OverlappingCard } from "@components/molecules";
 import { StaticSite } from "@components/templates";
@@ -43,7 +35,9 @@ export default function Home() {
 						reiciendis nihil dolorem. Ab dolores nemo sapiente doloribus?
 					</p>
 					<div className="mt-10 flex">
-						<ButtonLinkFilledBig>Zjistit více</ButtonLinkFilledBig>
+						<ButtonLink variant="big" isOutline={false}>
+							Zjistit více
+						</ButtonLink>
 					</div>
 				</div>
 			</section>
@@ -54,7 +48,7 @@ export default function Home() {
 				{/* <!-- Header --> */}
 				<div className="relative pb-32 bg-white-800">
 					<div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 flex flex-col items-center">
-						<BigH2>S čím vám pomáháme</BigH2>
+						<H2 variant="big">S čím vám pomáháme</H2>
 						<p className="mt-6 max-w-3xl text-xl text-gray-600 text-center">
 							Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non.
 							Cras aliquet purus dui laoreet diam sed lacus, fames. Dui, amet, nec sit pulvinar.
@@ -100,7 +94,7 @@ export default function Home() {
 					<div className="relative px-4 mx-auto py-12 lg:py-16 lg:max-w-7xl lg:pl-6 lg:mr-auto">
 						<div className="text-base max-w-prose mx-auto lg:max-w-lg lg:mr-0">
 							<HeadingWrapper>
-								<MainH2> Our Process</MainH2>
+								<H2 variant="base"> Our Process</H2>
 							</HeadingWrapper>
 							<div className="mt-5 prose prose-red text-gray-500">
 								<p>
@@ -136,12 +130,14 @@ export default function Home() {
 			<section className="bg-gray-200">
 				<XlWrapper>
 					<div className="flex items-center justify-between">
-						<MainH2>
+						<H2 variant="base">
 							<span className="block">Upper text</span>
 							<span className="block text-main-800">Lower text</span>
-						</MainH2>
+						</H2>
 						<div className="mt-0 flex flex-shrink-0">
-							<ButtonLinkFilledBase>Button text</ButtonLinkFilledBase>
+							<ButtonLink variant="base" isOutline={false}>
+								Button text
+							</ButtonLink>
 						</div>
 					</div>
 				</XlWrapper>
