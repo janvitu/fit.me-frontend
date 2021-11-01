@@ -1,9 +1,5 @@
 export { Hamburger } from "./Hamburger";
 export { NavLink } from "./NavLink";
-export { ButtonLinkFilledBase } from "./buttons/ButtonLinkFilledBase";
-export { ButtonLinkFilledBig } from "./buttons/ButtonLinkFilledBig";
-export { ButtonLinkOutlineBase } from "./buttons/ButtonLinkOutlineBase";
-export { ButtonLinkOutlineBig } from "./buttons/ButtonLinkOutlineBig";
 export { XlWrapper } from "./XlWrapper";
 export { SmWrapper } from "./SmWrapper";
 export { BigH3 } from "./headings/BigH3";
@@ -27,3 +23,4 @@ export { Input } from "./formElements/Input";
 export { TextArea } from "./formElements/TextArea";
 export { InputWrapper } from "./formElements/InputWrapper";
 export { TextAreaWrapper } from "./formElements/TextAreaWrapper";
+export { ButtonLink } from "./ButtonLink";
