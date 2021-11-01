@@ -1,13 +1,10 @@
 import {
-	ButtonLinkFilledBig,
-	ButtonLinkOutlineBig,
+	ButtonLink,
 	HeadingWrapper,
-	MainH2,
-	BigH2,
+	H2,
+	H1,
 	MainDescription,
 	SmallDescription,
-	ButtonLinkOutlineBase,
-	SmallH2,
 } from "@components/atoms";
 import { ContactFooter } from "@components/organisms";
 import { StaticSite } from "@components/templates";
@@ -53,17 +50,21 @@ export default function Partner() {
 					<div className="relative z-10 py-8 lg:bg-white sm:py-16 md:py-20 lg:max-w-2xl lg:w-full lg:py-28 xl:py-32 ml-auto">
 						<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
 							<div className="text-left">
-								<BigH2>
+								<H1>
 									<span className="block">Staňte se naším</span>
 									<span className="block text-main-800">Partnerem</span>
-								</BigH2>
+								</H1>
 								<MainDescription>
 									Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat
 									commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.
 								</MainDescription>
 								<div className="mt-5 sm:mt-8 flex flex-wrap gap-3 justify-start">
-									<ButtonLinkFilledBig>Staňte se partnerem</ButtonLinkFilledBig>
-									<ButtonLinkOutlineBig>Naše síť</ButtonLinkOutlineBig>
+									<ButtonLink variant="big" isOutline={false}>
+										Staňte se partnerem
+									</ButtonLink>
+									<ButtonLink variant="big" isOutline={true}>
+										Naše síť
+									</ButtonLink>
 								</div>
 							</div>
 						</div>
@@ -86,8 +87,8 @@ export default function Partner() {
 			<div className="py-12 bg-white">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="lg:text-center">
-						<SmallH2>Benefity</SmallH2>
-						<MainH2>Co vám přinese partnerství</MainH2>
+						<H2 variant="small">Benefity</H2>
+						<H2 variant="base">Co vám přinese partnerství</H2>
 						<MainDescription>
 							Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum
 							cupiditate veritatis in accusamus quisquam.
@@ -103,7 +104,7 @@ export default function Partner() {
 					<div className="relative px-4 mx-auto py-12 lg:py-16 lg:max-w-7xl lg:pl-6 lg:mr-auto">
 						<div className="text-base max-w-prose mx-auto lg:max-w-lg lg:mr-0">
 							<HeadingWrapper>
-								<MainH2>Our Process</MainH2>
+								<H2 variant="base">Our Process</H2>
 							</HeadingWrapper>
 							<SmallDescription>
 								<p>
@@ -142,19 +143,21 @@ export default function Partner() {
 						imageSrc="https://tailwindui.com/img/component-images/full-width-with-sidebar.jpg"
 						imageAlt="App screenshot"
 					>
-						<MainH2>
+						<H2 variant="base">
 							<p className="block text-white">
 								Jednoduchá <br />
 								administrátorská <br />
 								konzole.
 							</p>
-						</MainH2>
+						</H2>
 						<p className="my-4 text-lg leading-6 text-main-200">
 							Ac euismod vel sit maecenas id pellentesque eu sed consectetur. Malesuada adipiscing
 							sagittis vel nulla nec.
 						</p>
 						<div className="md:max-w-xs">
-							<ButtonLinkOutlineBase href="#">Live demo</ButtonLinkOutlineBase>
+							<ButtonLink variant="base" outline={true} href="#">
+								Live demo
+							</ButtonLink>
 						</div>
 					</BigCardWithImage>
 				</div>

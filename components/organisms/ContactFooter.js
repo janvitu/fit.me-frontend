@@ -1,4 +1,4 @@
-import { XlWrapper, MainH2, DelimiterSmall } from "@components/atoms";
+import { XlWrapper, H2, DelimiterSmall } from "@components/atoms";
 import { ContactCard } from "@components/molecules";
 
 export function ContactFooter() {
@@ -8,7 +8,7 @@ export function ContactFooter() {
 				<div className="divide-y-2 divide-gray-200">
 					<div className="lg:grid lg:grid-cols-3 lg:gap-8">
 						<div>
-							<MainH2>Kontaktujte nás</MainH2>
+							<H2 variant="base">Kontaktujte nás</H2>
 							<DelimiterSmall />
 						</div>
 						<div className="mt-8 grid grid-cols-1 gap-12 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 lg:mt-0 lg:col-span-2">

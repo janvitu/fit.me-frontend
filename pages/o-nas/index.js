@@ -1,12 +1,4 @@
-import {
-	BigH3,
-	HeadingWrapper,
-	SmallH2,
-	SmallDescription,
-	MainH2,
-	MainDescription,
-	BigH2,
-} from "@components/atoms";
+import { H3, H2, H1, HeadingWrapper, SmallDescription, MainDescription } from "@components/atoms";
 import { StaticSite } from "@components/templates";
 import { ReferenceCard, TeamMemberCard, ReferenceSection } from "@components/molecules";
 
@@ -64,7 +56,7 @@ export default function About() {
 			<div className="bg-white">
 				<div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
 					<div className="text-center">
-						<BigH2>O Nás</BigH2>
+						<H1>O Nás</H1>
 						<MainDescription>
 							Tvoříme most mezi <span className="text-main-600">sportovišti</span> a
 							<span className="text-main-600"> sportovci</span>
@@ -76,8 +68,8 @@ export default function About() {
 			<section className="py-16 overflow-hidden">
 				<div className="max-w-7xl mx-auto px-4 space-y-8 sm:px-6 lg:px-8">
 					<HeadingWrapper>
-						<SmallH2>Mise</SmallH2>
-						<BigH3>V čem jsme jiní</BigH3>
+						<H2 variant="small">Mise</H2>
+						<H3 variant="big">V čem jsme jiní</H3>
 					</HeadingWrapper>
 
 					<SmallDescription>
@@ -138,8 +130,8 @@ export default function About() {
 			<div className="bg-white">
 				<div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
 					<div className="text-center">
-						<SmallH2>Spolupráce</SmallH2>
-						<MainH2>Náš přístup</MainH2>
+						<H2 variant="small">Spolupráce</H2>
+						<H2 variant="base">Náš přístup</H2>
 						<MainDescription>
 							Start building for free, then add a site plan to go live. Account plans unlock
 							additional features.
@@ -152,8 +144,8 @@ export default function About() {
 			<section className="relative py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
 				<div className="mx-auto max-w-7xl">
 					<HeadingWrapper centered>
-						<SmallH2>tým</SmallH2>
-						<BigH3>Náš tým</BigH3>
+						<H2 variant="small">tým</H2>
+						<H3 variant="big">Náš tým</H3>
 					</HeadingWrapper>
 					<ul className="space-y-4 sm:grid sm:grid-cols-2 sm:space-y-0 lg:grid-cols-3 sm:gap-6 lg:gap-8">
 						{teamMembers.map((teamMember, index) => (

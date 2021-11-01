@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { ButtonLinkFilledBase } from "@components/atoms";
+import { ButtonLink } from "@components/atoms";
 
 export default function FourOhFour() {
 	return (
@@ -17,7 +16,9 @@ export default function FourOhFour() {
 							</p>
 						</div>
 						<div className="flex mt-4 sm:border-l sm:border-transparent sm:pl-6 space-x-3">
-							<ButtonLinkFilledBase href="/">Vrátit se na domovskou stránku</ButtonLinkFilledBase>
+							<ButtonLink variant="base" isOutline={false} href="/">
+								Vrátit se na domovskou stránku
+							</ButtonLink>
 						</div>
 					</div>
 				</main>
