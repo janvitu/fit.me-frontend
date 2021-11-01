@@ -2,6 +2,7 @@ import {
 	ButtonLink,
 	HeadingWrapper,
 	H2,
+	H1,
 	MainDescription,
 	SmallDescription,
 } from "@components/atoms";
@@ -49,10 +50,10 @@ export default function Partner() {
 					<div className="relative z-10 py-8 lg:bg-white sm:py-16 md:py-20 lg:max-w-2xl lg:w-full lg:py-28 xl:py-32 ml-auto">
 						<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
 							<div className="text-left">
-								<H2 variant="big">
+								<H1>
 									<span className="block">Staňte se naším</span>
 									<span className="block text-main-800">Partnerem</span>
-								</H2>
+								</H1>
 								<MainDescription>
 									Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat
 									commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.

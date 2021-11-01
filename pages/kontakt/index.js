@@ -1,15 +1,14 @@
 import { ContactForm } from "@components/organisms/ContactForm";
 import { ContactFooter } from "@components/organisms";
 import { StaticSite } from "@components/templates";
+import { H1 } from "@components/atoms";
 
 export default function Contact() {
 	return (
 		<StaticSite>
 			<section className="lg:px-8 lg:py-16 px-4 py-12 relative sm:px-6">
 				<div className="flex flex-col items-center">
-					<h1 className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
-						Kontaktujte nás
-					</h1>
+					<H1>Kontaktujte nás</H1>
 					<div className="bg-mainG h-2 mb-4 mt-2 rounded-full w-16"></div>
 				</div>
 				<div className="max-w-prose mt-4 mx-auto space-y-6 text-center">

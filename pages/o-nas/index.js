@@ -1,4 +1,4 @@
-import { H3, H2, HeadingWrapper, SmallDescription, MainDescription } from "@components/atoms";
+import { H3, H2, H1, HeadingWrapper, SmallDescription, MainDescription } from "@components/atoms";
 import { StaticSite } from "@components/templates";
 import { ReferenceCard, TeamMemberCard, ReferenceSection } from "@components/molecules";
 
@@ -56,7 +56,7 @@ export default function About() {
 			<div className="bg-white">
 				<div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
 					<div className="text-center">
-						<H2 variant="big">O Nás</H2>
+						<H1>O Nás</H1>
 						<MainDescription>
 							Tvoříme most mezi <span className="text-main-600">sportovišti</span> a
 							<span className="text-main-600"> sportovci</span>

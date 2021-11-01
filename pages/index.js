@@ -1,4 +1,4 @@
-import { H2, ButtonLink, HeadingWrapper, XlWrapper, StatItem } from "@components/atoms";
+import { H2, H1, ButtonLink, HeadingWrapper, XlWrapper, StatItem } from "@components/atoms";
 import { ContactFooter } from "@components/organisms";
 import { OverlappingCard } from "@components/molecules";
 import { StaticSite } from "@components/templates";
@@ -24,10 +24,10 @@ export default function Home() {
 					<div className="absolute bg-black bg-opacity-60 inset-0" aria-hidden="true" />
 				</div>
 				<div className="relative flex flex-col h-full justify-center text-white max-w-7xl">
-					<h1 className="font-extrabold tracking-tight text-4xl sm:text-5xl lg:text-6xl">
+					<H1>
 						<span className="block text-white">Text</span>
 						<span className="block text-main-800">another text</span>
-					</h1>
+					</H1>
 
 					<p className="mt-6 text-xl text-gray-100 max-w-3xl">
 						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, similique placeat,
