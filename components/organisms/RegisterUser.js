@@ -1,6 +1,7 @@
 import { InputWrapper } from "@components/molecules";
 import { useFormik } from "formik";
 import { ButtonSubmit } from "../atoms/ButtonSubmit";
+import * as Yup from "yup";
 
 export function RegisterUser() {
 	const formik = useFormik({
@@ -27,7 +28,7 @@ export function RegisterUser() {
 		}),
 	});
 	return (
-		<form className="space-y-4" onSubmit={formik.onSubmit}>
+		<form className="space-y-6" onSubmit={formik.onSubmit}>
 			<div className="space-y-9">
 				<InputWrapper formik={formik} name="name" type="text" isRequired description="Jméno" />
 				<InputWrapper
@@ -50,7 +51,7 @@ export function RegisterUser() {
 					name="secondPassword"
 					type="password"
 					isRequired
-					descriptio="Znovu zadejte heslo"
+					description="Znovu zadejte heslo"
 				/>
 			</div>
 			<ButtonSubmit>Registrovat se</ButtonSubmit>

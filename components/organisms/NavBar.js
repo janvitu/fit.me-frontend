@@ -31,7 +31,7 @@ export function NavBar() {
 						<Hamburger toggle={toggle} toggled={toggled} />
 					</div>
 					<div className="hidden md:flex space-x-2 items-center justify-end md:flex-1 lg:w-0">
-						<ButtonLink variant="base" isOutline={true}>
+						<ButtonLink variant="base" isOutline={true} href="/registrace">
 							Registrace
 						</ButtonLink>
 						<ButtonLink variant="base" isOutline={false} href="/prihlasit-se">

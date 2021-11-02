@@ -1,5 +1,9 @@
 export { NavBar } from "./NavBar";
 export { Footer } from "./Footer";
 export { ContactFooter } from "./ContactFooter";
+export { ContactForm } from "./ContactForm";
 export { DescriptionList } from "./DescriptionList";
 export { LogInForm } from "./LogInForm";
+export { RegisterUser } from "./RegisterUser";
+export { RegisterTrainer } from "./RegisterTrainer";
+export { RegisterWorkoutPlace } from "./RegisterWorkoutPlace";
