@@ -1,5 +1,5 @@
-import { FooterLinksWrapper } from "@components/molecules";
-import { ROUTES } from "@components/constants";
+import { FooterLinksWrapper } from "@src/molecules";
+import { ROUTES } from "@src/constants";
 
 export function Footer() {
 	return (

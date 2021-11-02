@@ -1,15 +1,8 @@
-import {
-	ButtonLink,
-	HeadingWrapper,
-	H2,
-	H1,
-	MainDescription,
-	SmallDescription,
-} from "@components/atoms";
-import { ContactFooter } from "@components/organisms";
-import { StaticSite } from "@components/templates";
-import { DescriptionList } from "@components/organisms";
-import { BigCardWithImage } from "@components/molecules";
+import { ButtonLink, HeadingWrapper, H2, H1, MainDescription, SmallDescription } from "@src/atoms";
+import { ContactFooter } from "@src/organisms";
+import { StaticSite } from "@src/templates";
+import { DescriptionList } from "@src/organisms";
+import { BigCardWithImage } from "@src/molecules";
 
 const descriptionList = [
 	{

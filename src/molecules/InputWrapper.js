@@ -1,4 +1,4 @@
-import { ErrorMsg, Input, Label } from "@components/atoms";
+import { ErrorMsg, Input, Label } from "@src/atoms";
 import { useState } from "react";
 
 export function InputWrapper({ formik, name, type, isRequired, description }) {

@@ -1,7 +1,7 @@
-import { ContactForm } from "@components/organisms/ContactForm";
-import { ContactFooter } from "@components/organisms";
-import { StaticSite } from "@components/templates";
-import { H1 } from "@components/atoms";
+import { ContactForm } from "@src/organisms/ContactForm";
+import { ContactFooter } from "@src/organisms";
+import { StaticSite } from "@src/templates";
+import { H1 } from "@src/atoms";
 
 export default function Contact() {
 	return (

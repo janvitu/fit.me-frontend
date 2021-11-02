@@ -1,6 +1,6 @@
-import { H1, SmWrapper } from "@components/atoms";
-import { LogInForm } from "@components/organisms";
-import { StaticSite } from "@components/templates";
+import { H1, SmWrapper } from "@src/atoms";
+import { LogInForm } from "@src/organisms";
+import { StaticSite } from "@src/templates";
 
 export default function LogIn() {
 	return (

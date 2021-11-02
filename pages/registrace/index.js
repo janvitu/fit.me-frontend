@@ -1,6 +1,6 @@
-import { H1, SmWrapper } from "@components/atoms";
-import { StaticSite } from "@components/templates";
-import { RegisterUser, RegisterWorkoutPlace, RegisterTrainer } from "@components/organisms";
+import { H1, SmWrapper } from "@src/atoms";
+import { StaticSite } from "@src/templates";
+import { RegisterUser, RegisterWorkoutPlace, RegisterTrainer } from "@src/organisms";
 import { useRouter } from "next/router";
 import { useState } from "react";
 

@@ -1,5 +1,5 @@
-import { XlWrapper, H2, DelimiterSmall } from "@components/atoms";
-import { ContactCard } from "@components/molecules";
+import { XlWrapper, H2, DelimiterSmall } from "@src/atoms";
+import { ContactCard } from "@src/molecules";
 
 export function ContactFooter() {
 	return (

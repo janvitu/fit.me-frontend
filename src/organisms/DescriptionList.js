@@ -1,4 +1,4 @@
-import { DescriptionListItem } from "@components/molecules";
+import { DescriptionListItem } from "@src/molecules";
 
 export function DescriptionList({ list }) {
 	return (

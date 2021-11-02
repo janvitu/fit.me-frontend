@@ -1,4 +1,4 @@
-import { ArrowLink, IconWrapperMainBg } from "@components/atoms";
+import { ArrowLink, IconWrapperMainBg } from "@src/atoms";
 import hooliIcon from "@assets/img/hooli-brands.svg";
 export function OverlappingCard({ header, text, linkText, linkHref, icon }) {
 	return (

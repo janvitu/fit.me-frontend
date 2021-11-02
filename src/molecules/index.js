@@ -8,3 +8,4 @@ export { TeamMemberCard } from "./TeamMemberCard";
 export { ReferenceSection } from "./ReferenceSection";
 export { TextAreaWrapper } from "./TextAreaWrapper";
 export { InputWrapper } from "./InputWrapper";
+export { FooterLinksWrapper } from "./FooterLinksWrapper";

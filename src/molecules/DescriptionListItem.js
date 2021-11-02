@@ -1,4 +1,4 @@
-import { DescriptionListTerm, DescriptionListDescription } from "@components/atoms";
+import { DescriptionListTerm, DescriptionListDescription } from "@src/atoms";
 
 export function DescriptionListItem({ term, description, svgDraw }) {
 	return (

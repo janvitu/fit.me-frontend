@@ -1,9 +1,9 @@
-import { InputWrapper } from "@components/molecules";
+import { InputWrapper } from "@src/molecules";
 import { useFormik } from "formik";
 import { ButtonSubmit } from "../atoms/ButtonSubmit";
 import * as Yup from "yup";
 
-export function RegisterWorkoutPlace() {
+export function RegisterTrainer() {
 	const formik = useFormik({
 		initialValues: {
 			name: "",

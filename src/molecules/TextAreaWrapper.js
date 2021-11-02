@@ -1,4 +1,4 @@
-import { ErrorMsg, Label, TextArea } from "@components/atoms";
+import { ErrorMsg, Label, TextArea } from "@src/atoms";
 import { useState } from "react";
 
 export function TextAreaWrapper({ formik, name, type, cols, rows, isRequired, description }) {

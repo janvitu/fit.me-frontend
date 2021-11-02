@@ -1,4 +1,4 @@
-import { FooterLink } from "@components/atoms";
+import { FooterLink } from "@src/atoms";
 
 export function FooterLinksWrapper({ routes }) {
 	return (

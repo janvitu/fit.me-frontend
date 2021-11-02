@@ -1,6 +1,6 @@
-import { NavLink } from "@components/atoms";
+import { NavLink } from "@src/atoms";
 import { useRouter } from "next/router";
-import { ButtonLink } from "@components/atoms";
+import { ButtonLink } from "@src/atoms";
 
 export function NavStatics({ routes, toggled }) {
 	const router = useRouter();

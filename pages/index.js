@@ -1,7 +1,7 @@
-import { H2, H1, ButtonLink, HeadingWrapper, XlWrapper, StatItem } from "@components/atoms";
-import { ContactFooter } from "@components/organisms";
-import { OverlappingCard } from "@components/molecules";
-import { StaticSite } from "@components/templates";
+import { H2, H1, ButtonLink, HeadingWrapper, XlWrapper, StatItem } from "@src/atoms";
+import { ContactFooter } from "@src/organisms";
+import { OverlappingCard } from "@src/molecules";
+import { StaticSite } from "@src/templates";
 
 export default function Home() {
 	const myMap = () => {

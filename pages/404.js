@@ -1,4 +1,4 @@
-import { ButtonLink } from "@components/atoms";
+import { ButtonLink } from "@src/atoms";
 
 export default function FourOhFour() {
 	return (

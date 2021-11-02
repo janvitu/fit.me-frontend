@@ -1,6 +1,6 @@
-import { H3, H2, H1, HeadingWrapper, SmallDescription, MainDescription } from "@components/atoms";
-import { StaticSite } from "@components/templates";
-import { ReferenceCard, TeamMemberCard, ReferenceSection } from "@components/molecules";
+import { H3, H2, H1, HeadingWrapper, SmallDescription, MainDescription } from "@src/atoms";
+import { StaticSite } from "@src/templates";
+import { ReferenceCard, TeamMemberCard, ReferenceSection } from "@src/molecules";
 
 import hooli from "@assets/img/hooli-brands.svg";
 

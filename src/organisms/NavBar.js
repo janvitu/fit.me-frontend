@@ -1,9 +1,10 @@
-import { useState } from "react";
-import { ButtonLink, Hamburger } from "@components/atoms";
-import { NavStatics } from "@components/molecules";
-import { Logo } from "@components/partials/Logo";
 import Link from "next/link";
-import { ROUTES } from "@components/constants";
+import { useState } from "react";
+
+import { ButtonLink, Hamburger } from "@src/atoms";
+import { NavStatics } from "@src/molecules";
+import { Logo } from "@src/partials/Logo";
+import { ROUTES } from "@src/constants";
 
 export function NavBar() {
 	const [toggled, setToggled] = useState(false);

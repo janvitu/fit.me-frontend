@@ -1,4 +1,4 @@
-import { NavBar, Footer } from "@components/organisms";
+import { NavBar, Footer } from "@src/organisms";
 
 export function StaticSite({ children }) {
 	return (
