@@ -3,12 +3,8 @@ import { ButtonLink, Hamburger } from "@components/atoms";
 import { NavStatics } from "@components/molecules";
 import { Logo } from "@components/partials/Logo";
 import Link from "next/link";
+import { ROUTES } from "@components/constants";
 
-const ROUTES = [
-	{ name: "partner", path: "/stante-se-partnerem", text: "Staňte se partnerem" },
-	{ name: "about", path: "/o-nas", text: "O Nás" },
-	{ name: "contact", path: "/kontakt", text: "Kontakt" },
-];
 export function NavBar() {
 	const [toggled, setToggled] = useState(false);
 	function toggle() {
