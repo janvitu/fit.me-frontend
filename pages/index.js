@@ -25,14 +25,12 @@ export default function Home() {
 				</div>
 				<div className="relative flex flex-col h-full justify-center text-white max-w-7xl">
 					<H1>
-						<span className="block text-white">Text</span>
-						<span className="block text-main-800">another text</span>
+						<span className="block text-white">BUĎ FIT</span>
+						<span className="block text-main-800">je to na tobě</span>
 					</H1>
 
 					<p className="mt-6 text-xl text-gray-100 max-w-3xl">
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, similique placeat,
-						sint, soluta saepe deserunt vitae sunt quia cupiditate praesentium porro earum
-						reiciendis nihil dolorem. Ab dolores nemo sapiente doloribus?
+						Přestaň váhat, prostě začni! Dostaň ze sebe to nejlepší.{" "}
 					</p>
 					<div className="mt-10 flex">
 						<ButtonLink variant="big" isOutline={false}>
@@ -48,10 +46,12 @@ export default function Home() {
 				{/* <!-- Header --> */}
 				<div className="relative pb-32 bg-white-800">
 					<div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 flex flex-col items-center">
-						<H2 variant="big">S čím vám pomáháme</H2>
+						<H2 variant="big">Jak ti pomůžeme</H2>
 						<p className="mt-6 max-w-3xl text-xl text-gray-600 text-center">
-							Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non.
-							Cras aliquet purus dui laoreet diam sed lacus, fames. Dui, amet, nec sit pulvinar.
+							Buď fit s naší platformou Fit.Me! Fit.me pomáhá spojit sportovce s jejich vysněnými
+							sportovišti. Jako sportovec si můžeš vybrat z různé řady sportovišť, určitě najdeš to
+							správné právě pro tebe! Sportovištím poskytujeme kompletní rezervační systém včetně
+							bezpečné správy plateb.
 						</p>
 					</div>
 				</div>
@@ -67,20 +67,20 @@ export default function Home() {
 					<div className="grid grid-cols-1 gap-y-20 lg:grid-cols-3 lg:gap-y-0 lg:gap-x-8">
 						<OverlappingCard
 							header="Cvičení"
-							text="Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames."
+							text="Víš, že chceš sportovat. Víš, kde chceš sportovat. Nejsi si jistý, co konkrétně za sport chceš dělat, případně tušíš, ale v okolí nic neznáš. Máš benefit kartu a nebojíš se ji použít."
 							linkText="Zaregistrujte se"
 							svgVector="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
 						/>
 
 						<OverlappingCard
 							header="Plánování"
-							text="Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames."
+							text="Naplánuj si svůj sportovní život s naší aplikací. Díky intuitivnímu kalednáři a propojení se systémy sportovišť hned uvidíš, co kdy a kde můžeš dělat."
 							linkText="Zaregistrujte se"
 							svgVector="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
 						/>
 						<OverlappingCard
 							header="Doporučení"
-							text="Varius facilisi mauris sed sit. Non sed et duis dui leo, vulputate id malesuada non. Cras aliquet purus dui laoreet diam sed lacus, fames."
+							text="Víš, že chceš sportovat. Nevíš, co chceš dělat a chceš si nechat něco doporučit. Fit.Me na základě pokročilých postupů najde to nejlepší pro tebe!"
 							linkText="Zaregistrujte se"
 							svgVector="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
 						/>
@@ -94,24 +94,19 @@ export default function Home() {
 					<div className="relative px-4 mx-auto py-12 lg:py-16 lg:max-w-7xl lg:pl-6 lg:mr-auto">
 						<div className="text-base max-w-prose mx-auto lg:max-w-lg lg:mr-0">
 							<HeadingWrapper>
-								<H2 variant="base"> Our Process</H2>
+								<H2 variant="base"> Jak pracujeme </H2>
 							</HeadingWrapper>
 							<div className="mt-5 prose prose-red text-gray-500">
 								<p>
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, excepturi tempore
-									repudiandae nihil ipsam officiis dolor deleniti ex maiores dicta commodi magni
-									sapiente vel id ipsum suscipit fugit, ea ducimus.
+									Se sportovišti komunikujeme jako s našimi rovnocennými partnery. Vaši zpětnou
+									vazbu bereme vážně a všechny vstupy sportovišť pečlivě zvažujeme.
 								</p>
-								<h3>Some header</h3>
-								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci nulla autem
-									porro quod aliquam itaque a dolore delectus praesentium maxime!
-								</p>
+								<h3>Jak vypadá spolupráce</h3>
+								<p>Postup domluvení spolupráce se sportovištěm je intutivní a jednoduchý.</p>
 								<ul>
-									<li>Lorem ipsum dolor sit.</li> <li>Lorem ipsum dolor sit.</li>
-									<li>Lorem ipsum dolor sit.</li>
+									<li>První schůzka</li> <li>Podpis smlouvy</li>
+									<li>Registrace do platformy</li>
 								</ul>
-								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, libero.</p>
 							</div>
 						</div>
 					</div>
@@ -131,12 +126,12 @@ export default function Home() {
 				<XlWrapper>
 					<div className="flex items-center justify-between">
 						<H2 variant="base">
-							<span className="block">Upper text</span>
-							<span className="block text-main-800">Lower text</span>
+							<span className="block">Staň se součástí</span>
+							<span className="block text-main-800">naší sítě!</span>
 						</H2>
 						<div className="mt-0 flex flex-shrink-0">
-							<ButtonLink variant="base" isOutline={false}>
-								Button text
+							<ButtonLink href="/registrace?formType=user" variant="base" isOutline={false}>
+								Registruj se
 							</ButtonLink>
 						</div>
 					</div>
@@ -177,9 +172,9 @@ export default function Home() {
 							Spolupracují s námi sportoviště z 10 měst
 						</h2>
 						<p className="mt-6 text-lg text-gray-500">
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore nihil ea rerum ipsa.
-							Nostrum consectetur sequi culpa doloribus omnis, molestiae esse placeat,
-							exercitationem magnam quod molestias quia aspernatur deserunt voluptatibus.
+							Přidej se k naší rostoucí komunitě! Litovat určitě nebudeš. A pokud ano, vrátíme ti
+							peníze. Všechny. Stejně jako ty nemáme rádi závazky. Zato máme rádi sport a víme, co
+							by naše platforma měla umět.{" "}
 						</p>
 						<div className="mt-8 overflow-hidden">
 							<dl className="-mx-8 -mt-8 flex flex-wrap">
@@ -197,7 +192,7 @@ export default function Home() {
 				<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
 					<div className="text-center">
 						<p className="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
-							Chcete vědět s kým spolupracujete? <br /> Podívejte se na mapu.
+							Chceš vědět s kým spolupracujeme? <br /> Podívej se na mapu.
 						</p>
 					</div>
 				</div>
@@ -205,7 +200,7 @@ export default function Home() {
 				<div className="px-4  sm:px-64 ">
 					{/* <!-- Content goes here --> */}
 					<label htmlFor="email" className="block text-sm font-medium text-gray-700">
-						Zadejte adresu / Hledat sportoviště
+						Zadej adresu / Hledat sportoviště
 					</label>
 					<div className="mt-1 flex rounded-md shadow-sm">
 						<div className="relative flex items-stretch flex-grow focus-within:z-10">
