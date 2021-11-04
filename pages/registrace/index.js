@@ -1,4 +1,4 @@
-import { H1, SmWrapper } from "@src/atoms";
+import { H1, SmWrapper, Button } from "@src/atoms";
 import { StaticSite } from "@src/templates";
 import { RegisterUser, RegisterWorkoutPlace, RegisterTrainer } from "@src/organisms";
 import { useRouter } from "next/router";
@@ -33,21 +33,35 @@ export default function Registrace() {
 					<div className="mb-8">
 						<H1>Registrovat se</H1>
 					</div>
-					<div className="text-sm my-8">
+					<div className="text-sm my-8 w-full md:w-11/12">
 						<nav>
-							<ul className="flex gap-4 divide-x-2">
-								<li>
-									<button onClick={() => setRegisterFormRoute("user")}>registrace uživatele</button>
+							<ul className="flex justify-around nowrap">
+								<li className="flex justify-center">
+									<Button
+										variant="underline"
+										onClickHandler={() => setRegisterFormRoute("user")}
+										isActive={registerFormRoute === "user"}
+									>
+										Registrace uživatele
+									</Button>
 								</li>
-								<li>
-									<button onClick={() => setRegisterFormRoute("trainer")}>
-										registrace trenéra
-									</button>
+								<li className="flex justify-center">
+									<Button
+										variant="underline"
+										onClickHandler={() => setRegisterFormRoute("trainer")}
+										isActive={registerFormRoute === "trainer"}
+									>
+										Registrace trenéra
+									</Button>
 								</li>
-								<li>
-									<button onClick={() => setRegisterFormRoute("place")}>
-										registrace sportoviště
-									</button>
+								<li className="flex justify-center">
+									<Button
+										variant="underline"
+										onClickHandler={() => setRegisterFormRoute("place")}
+										isActive={registerFormRoute === "place"}
+									>
+										Registrace sportoviště
+									</Button>
 								</li>
 							</ul>
 						</nav>
