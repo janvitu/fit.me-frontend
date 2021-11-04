@@ -75,51 +75,40 @@ export default function About() {
 					<SmallDescription>
 						<div className="lg:max-w-5xl lg:pr-72">
 							<p className="text-lg text-gray-500 ">
-								Sagittis scelerisque nulla cursus in enim consectetur quam. Dictum urna sed
-								consectetur neque tristique pellentesque. Blandit amet, sed aenean erat arcu morbi.
-								Cursus faucibus nunc nisl netus morbi vel porttitor vitae ut. Amet vitae fames
-								senectus vitae.
+								Naším posláním je vytvářet svět pro sportovce, kde každý najde své sportovní vyžití.
 							</p>
 						</div>
 					</SmallDescription>
 					<div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-start">
 						<div className="relative z-10">
 							<SmallDescription>
-								<p>
-									Sollicitudin tristique eros erat odio sed vitae, consequat turpis elementum. Lorem
-									nibh vel, eget pretium arcu vitae. Eros eu viverra donec ut volutpat donec laoreet
-									quam urna.
-								</p>
+								<p>Misi naplňujeme následujícími body:</p>
 								<ul>
-									<li>Quis elit egestas venenatis mattis dignissim.</li>
-									<li>Cras cras lobortis vitae vivamus ultricies facilisis tempus.</li>
-									<li>Orci in sit morbi dignissim metus diam arcu pretium.</li>
+									<li>Vytváříme jedinečnou platformu pro sportovce</li>
+									<li>Nebojíme se sportovních výzev</li>
+									<li>Sami sportujeme a víme, co sportovci potřebují</li>
 								</ul>
 								<p>
-									Rhoncus nisl, libero egestas diam fermentum dui. At quis tincidunt vel ultricies.
-									Vulputate aliquet velit faucibus semper. Pellentesque in venenatis vestibulum
-									consectetur nibh id. In id ut tempus egestas. Enim sit aliquam nec, a. Morbi enim
-									fermentum lacus in. Viverra.
+									Nic nás neodradí od našeho cíle. Jsme Fit. Jsme Me. Jsme Fit.Me. Ambice naší
+									platformy jsou nemalé. Do roku 2023 expandujeme na zahraniční trhy.{" "}
 								</p>
-								<h3>We’re here to help</h3>
+								<h3>Jsme tu pro vás</h3>
 								<p>
-									Tincidunt integer commodo, cursus etiam aliquam neque, et. Consectetur pretium in
-									volutpat, diam. Montes, magna cursus nulla feugiat dignissim id lobortis amet.
-									Laoreet sem est phasellus eu proin massa, lectus. Diam rutrum posuere donec
-									ultricies non morbi. Mi a platea auctor mi.
+									Ve Fit.Me naleznete spolehlivého partnera na vaší sportovní cestě. S jakýkmkoliv
+									problémem se můžete obrátit na 24/7 prémiovou podporu.{" "}
 								</p>
 							</SmallDescription>
 						</div>
 						<ReferenceCard
-							companyName="Tridora group"
+							companyName="Lezecké cetrum SmíchOff"
 							companyLogoSrc={hooli.src}
 							refereeName="John Doe"
 							refereeImgSrc="https://source.unsplash.com/random/48x48/?male,face"
 							refereePosition="CEO"
 						>
-							Tincidunt integer commodo, cursus etiam aliquam neque, et. Consectetur pretium in
-							volutpat, diam. Montes, magna cursus nulla feugiat dignissim id lobortis amet. Laoreet
-							sem est phasellus eu proin massa, lectus.
+							Fit.Me nám vyšlo vstříc ve všem. Od přátelského přijetí na platformu až po propagaci
+							lezeckého centra novým sportovcům. Bez Fit.Me bychom post-covidovou dobu nezvládli.
+							Děkujeme!
 						</ReferenceCard>
 					</div>
 				</div>
@@ -133,8 +122,8 @@ export default function About() {
 						<H2 variant="small">Spolupráce</H2>
 						<H2 variant="base">Náš přístup</H2>
 						<MainDescription>
-							Start building for free, then add a site plan to go live. Account plans unlock
-							additional features.
+							Začněte zdarma, postupně vyplňte váš profil a zveřejněte ho. Poté lze dále zkoušet a
+							zavádět další funkce.
 						</MainDescription>
 					</div>
 				</div>
@@ -165,17 +154,16 @@ export default function About() {
 			{/* "Píší o nás" section */}
 			<section className="py-12 bg-gray-50 overflow-hidden md:py-20 lg:py-24">
 				<ReferenceSection
-					companyName="Hooli"
+					companyName="Fit.Me"
 					companyLogoSrc={hooli.src}
-					refereeName="Gavin Belson"
+					refereeName="Jan Vítů"
 					refereeImgSrc="https://source.unsplash.com/random/48x48/?male,face"
 					refereePosition="CEO, ex"
 				>
 					<div className="max-w-3xl mx-auto text-center text-2xl leading-9 font-medium text-gray-900">
 						<p>
-							&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo expedita voluptas
-							culpa sapiente alias molestiae. Numquam corrupti in laborum sed rerum et
-							corporis.&rdquo;
+							&ldquo;Fit.Me má vizi. Je to jedinečná firma na trhu, jedinečná platforma, kterou
+							jinde nenajdete.&rdquo;
 						</p>
 					</div>
 				</ReferenceSection>
