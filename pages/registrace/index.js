@@ -2,14 +2,18 @@ import { H1, SmWrapper } from "@src/atoms";
 import { StaticSite } from "@src/templates";
 import { RegisterUser, RegisterWorkoutPlace, RegisterTrainer } from "@src/organisms";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Registrace() {
 	const [registerFormRoute, setRegisterFormRoute] = useState("user");
 
 	const router = useRouter();
 	const formTypes = ["user", "trainer", "place"];
-	if (formTypes.includes(router.query.formType)) setRegisterFormRoute(router.query.formType);
+
+	useEffect(() => {
+		if (formTypes.includes(router.query.formType)) setRegisterFormRoute(router.query.formType);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [router.query.formType]);
 
 	const getFormByType = (registerFormRoute) => {
 		switch (registerFormRoute) {
