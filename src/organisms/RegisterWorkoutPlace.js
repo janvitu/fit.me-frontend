@@ -33,7 +33,7 @@ export function RegisterWorkoutPlace() {
 		}),
 	});
 	return (
-		<form className="space-y-4" onSubmit={formik.onSubmit}>
+		<form className="space-y-9" onSubmit={formik.onSubmit}>
 			<div className="space-y-9">
 				<InputWrapper formik={formik} name="name" type="text" isRequired description="Název" />
 				<InputWrapper
@@ -60,7 +60,9 @@ export function RegisterWorkoutPlace() {
 					description="Znovu zadejte heslo"
 				/>
 			</div>
-			<ButtonSubmit>Registrovat se</ButtonSubmit>
+			<div className="flex justify-center">
+				<ButtonSubmit>Registrovat se</ButtonSubmit>
+			</div>
 		</form>
 	);
 }
