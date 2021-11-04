@@ -1,9 +1,10 @@
 import { CardsGrid, H2, H1, HeadingWrapper } from "@src/atoms";
 import { TrainerCard } from "@src/molecules";
+import { DynamicSite } from "@src/templates/DynamicSite";
 
 export default function Trainers() {
 	return (
-		<>
+		<DynamicSite>
 			<div className="bg-white overflow-hidden shadow rounded-lg pt-20 mb-10">
 				<div className="px-4  sm:px-32 ">
 					<HeadingWrapper>
@@ -58,6 +59,6 @@ export default function Trainers() {
 					<TrainerCard />
 				</div>
 			</section>
-		</>
+		</DynamicSite>
 	);
 }
