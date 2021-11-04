@@ -7,3 +7,4 @@ export { LogInForm } from "./LogInForm";
 export { RegisterUser } from "./RegisterUser";
 export { RegisterTrainer } from "./RegisterTrainer";
 export { RegisterWorkoutPlace } from "./RegisterWorkoutPlace";
+export { NavBarApp } from "./NavBarApp";
