@@ -1,4 +1,4 @@
-export { NavBar } from "./NavBar";
+export { NavBarStatic } from "./NavBarStatic";
 export { Footer } from "./Footer";
 export { ContactFooter } from "./ContactFooter";
 export { ContactForm } from "./ContactForm";

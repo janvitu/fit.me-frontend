@@ -6,7 +6,7 @@ import { NavStatics } from "@src/molecules";
 import { Logo } from "@src/partials/Logo";
 import { ROUTES } from "@src/constants";
 
-export function NavBar() {
+export function NavBarStatic() {
 	const [toggled, setToggled] = useState(false);
 	function toggle() {
 		setToggled(!toggled);
