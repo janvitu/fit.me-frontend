@@ -23,3 +23,5 @@ export { TextArea } from "./formElements/TextArea";
 export { ErrorMsg } from "./formElements/ErrorMsg";
 export { ButtonLink } from "./ButtonLink";
 export { ButtonSubmit } from "./ButtonSubmit";
+export { ButtonCard } from "./ButtonCard";
+export { Tag } from "./Tag";
