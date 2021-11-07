@@ -11,3 +11,4 @@ export { InputWrapper } from "./InputWrapper";
 export { FooterLinksWrapper } from "./FooterLinksWrapper";
 export { PlaceCard } from "./PlaceCard";
 export { TrainerCard } from "./TrainerCard";
+export { ProfileCard } from "./ProfileCard";
