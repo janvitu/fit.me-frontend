@@ -4,7 +4,7 @@ export function H3({ children, variant }) {
 			case "big":
 				return "";
 			case "small":
-				return "mt-2 mb-8 text-2xl leading-8 font-semibold tracking-tight text-gray-900 sm:text-4x";
+				return "text-lg leading-6 font-medium text-gray-900";
 			default:
 				return "mt-2 mb-8 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4x";
 		}

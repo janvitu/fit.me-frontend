@@ -26,3 +26,5 @@ export { ButtonSubmit } from "./ButtonSubmit";
 export { ButtonCard } from "./ButtonCard";
 export { Tag } from "./Tag";
 export { Button } from "./Button";
+export { DataDisplayRow } from "./DataDisplayRow";
+export { DelimiterWide } from "./DelimiterWide";

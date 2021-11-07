@@ -7,5 +7,4 @@ export const ROUTES = [
 export const APPROUTES = [
 	{ name: "places", path: "/sportoviste", text: "Sportoviště" },
 	{ name: "trainers", path: "/treneri", text: "Trenéři" },
-	{ name: "profile", path: "/profil-sportovce", text: "Profil" },
 ];

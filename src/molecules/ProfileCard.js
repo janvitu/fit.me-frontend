@@ -1,28 +1,20 @@
-export function ProfileCard({ name, phone, email, address }) {
+import { H3 } from "@src/atoms";
+import { DataDisplayRow } from "@src/atoms";
+
+export function ProfileCard() {
 	return (
-		<div className="text-center md:text-left mx-auto lg:grid lg:grid-cols-3 lg:gap-60 lg:gap-y-8 grid grid-cols-3">
-			<div className="text-gray-600">Celé jméno</div>
-			<div>{name}</div>
-			<div className="text-gray-600 underline">Upravit</div>
-
-			<div className="text-gray-600">Telefon</div>
-			<div>{phone}</div>
-			<div className="text-gray-600 underline">Upravit</div>
-
-			<div className="text-gray-600">Email</div>
-			<div>{email}</div>
-			<div className="text-gray-600 underline">Upravit</div>
-
-			<div className="text-gray-600">Adresa</div>
-			<div>{address}</div>
-			<div className="text-gray-600 underline">Upravit</div>
+		<div className="max-w-4xl">
+			<div>
+				<H3 variant="small">Profil</H3>
+			</div>
+			<div className="mt-5 border-t border-gray-200">
+				<dl className="divide-y divide-gray-200">
+					<DataDisplayRow fieldName="Celé jméno" fieldValue="Alber Mírek" />
+					<DataDisplayRow fieldName="Telefon" fieldValue="777 777 777" />
+					<DataDisplayRow fieldName="email" fieldValue="knuckles@uganda.com" />
+					<DataDisplayRow fieldName="Adresa" fieldValue="U Ďolíčku na Bohemce, Praha 10" />
+				</dl>
+			</div>
 		</div>
 	);
 }
-
-ProfileCard.defaultProps = {
-	name: "Albert Mirek",
-	phone: "888888888",
-	email: "mail@mail.com",
-	address: "U Ďolíčku na Bohemce, Praha 10",
-};
