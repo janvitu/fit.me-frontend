@@ -26,6 +26,9 @@ module.exports = {
 					50: "#FEFCE8",
 				},
 			},
+			transformOrigin: {
+				"bottom-center": "center bottom",
+			},
 		},
 	},
 	variants: {
