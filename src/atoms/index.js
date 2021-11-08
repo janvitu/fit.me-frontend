@@ -29,3 +29,4 @@ export { Tag } from "./Tag";
 export { Button } from "./Button";
 export { DataDisplayRow } from "./DataDisplayRow";
 export { DelimiterWide } from "./DelimiterWide";
+export { CopyItem } from "./CopyItem";
