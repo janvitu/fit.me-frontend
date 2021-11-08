@@ -14,7 +14,7 @@ export function Button({ children, onClickHandler, isActive, variant }) {
 			{children}
 			{variant === "underline" && (
 				<div
-					className={`w-0 sm:group-hover:w-full h-1 bg-main-600 transition-all 
+					className={`w-0 sm:group-hover:w-full h-px bg-main-600 transition-all 
                 ${isActive ? "sm:w-full bg-main-500" : ""}`}
 				/>
 			)}

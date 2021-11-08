@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export function DataDisplayRow({ fieldName, fieldValue }) {
 	const [isEdit, setIsEdit] = useState(false);
+
 	return (
 		<div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4">
 			<dt className="text-sm font-medium text-gray-500">{fieldName}</dt>
