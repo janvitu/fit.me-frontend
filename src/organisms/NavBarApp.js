@@ -1,9 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 import { ButtonLink, Hamburger } from "@src/atoms";
 import { NavStatics } from "@src/molecules";
-import { Logo } from "@src/partials/Logo";
 import { APPROUTES } from "@src/constants";
 
 export function NavBarApp({}) {
@@ -18,7 +18,7 @@ export function NavBarApp({}) {
 					<div className="flex justify-start lg:w-0 lg:flex-1">
 						<Link href="/" passHref>
 							<a className="h-12 hover:scale-105 transition-all">
-								<Logo />
+								<Image src="/logo.svg" alt="logo" width={144} height={48} />
 							</a>
 						</Link>
 					</div>
