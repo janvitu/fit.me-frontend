@@ -1,5 +1,5 @@
 import { CardsGrid, H2, H1, HeadingWrapper } from "@src/atoms";
-import { PlaceCard } from "@src/molecules";
+import { PlacesList } from "@src/organisms";
 import { DynamicSite } from "@src/templates/DynamicSite";
 
 export default function Places() {
@@ -50,14 +50,9 @@ export default function Places() {
 
 			{/* Places Cards */}
 			<section className="mx-24">
-				<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-					<PlaceCard />
-					<PlaceCard />
-					<PlaceCard />
-					<PlaceCard />
-					<PlaceCard />
-					<PlaceCard />
-				</div>
+				<PlacesList
+				// places={places}
+				/>
 			</section>
 		</DynamicSite>
 	);
