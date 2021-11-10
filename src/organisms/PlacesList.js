@@ -1,7 +1,6 @@
 import { PlaceCard } from "@src/molecules";
 
 export function PlacesList({ places }) {
-	console.log("---PlacesList:", places);
 	return (
 		<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 			{places.map((place) => {

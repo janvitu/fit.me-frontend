@@ -1,5 +1,7 @@
 import { ButtonCard, Tag } from "@src/atoms";
 import hooliIcon from "@assets/img/hooli-brands.svg";
+import emailIcon from "@assets/img/email.svg";
+import messageIcon from "@assets/img/message.svg";
 
 export function TrainerCard({ name, description, tags, img }) {
 	return (
@@ -20,8 +22,8 @@ export function TrainerCard({ name, description, tags, img }) {
 			</div>
 			<div>
 				<div className="-mt-px flex divide-x divide-gray-200">
-					<ButtonCard type="email" text="Email" />
-					<ButtonCard type="chat" text="Chat" />
+					<ButtonCard text="Email" img={emailIcon} />
+					<ButtonCard text="Chat" img={messageIcon} />
 				</div>
 			</div>
 		</div>

@@ -1,8 +1,9 @@
 import { ButtonCard, Tag } from "@src/atoms";
 import hooliIcon from "@assets/img/hooli-brands.svg";
+import emailIcon from "@assets/img/email.svg";
+import messageIcon from "@assets/img/message.svg";
 
 export function PlaceCard({ name, description, tags, img }) {
-	console.log("---PlaceCard", PlaceCard.defaultProps);
 	return (
 		<div className="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
 			<div className="w-full flex items-center justify-between p-6 space-x-6">
@@ -23,8 +24,8 @@ export function PlaceCard({ name, description, tags, img }) {
 			</div>
 			<div>
 				<div className="-mt-px flex divide-x divide-gray-200">
-					<ButtonCard type="email" />
-					<ButtonCard type="chat" />
+					<ButtonCard text="Email" img={emailIcon} />
+					<ButtonCard text="Chat" img={messageIcon} />
 				</div>
 			</div>
 		</div>
@@ -41,7 +42,7 @@ PlaceCard.defaultProps = {
 		},
 		{
 			id: 2,
-			ame: "Yoga",
+			name: "Yoga",
 		},
 	],
 	img: {
