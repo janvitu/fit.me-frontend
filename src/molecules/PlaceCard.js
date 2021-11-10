@@ -2,6 +2,7 @@ import { ButtonCard, Tag } from "@src/atoms";
 import hooliIcon from "@assets/img/hooli-brands.svg";
 
 export function PlaceCard({ name, description, tags, img }) {
+	console.log("---PlaceCard", PlaceCard.defaultProps);
 	return (
 		<div className="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
 			<div className="w-full flex items-center justify-between p-6 space-x-6">
@@ -9,7 +10,7 @@ export function PlaceCard({ name, description, tags, img }) {
 					<div className="flex items-center space-x-3 sm">
 						<h3 className="text-gray-900 text-sm font-medium">{name}</h3>
 						{tags.map((tag) => (
-							<Tag name={tag} />
+							<Tag name={tag.name} key={tag.id} />
 						))}
 					</div>
 					<p className="mt-1 text-gray-500 text-sm truncate">{description}</p>
@@ -33,7 +34,16 @@ export function PlaceCard({ name, description, tags, img }) {
 PlaceCard.defaultProps = {
 	name: "Xfitness",
 	description: "Vaše oblíbená posilovna",
-	tags: ["Powerlifting"],
+	tags: [
+		{
+			id: 1,
+			name: "Powerlifting",
+		},
+		{
+			id: 2,
+			ame: "Yoga",
+		},
+	],
 	img: {
 		src: hooliIcon.src,
 		alt: "",

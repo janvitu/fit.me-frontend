@@ -13,7 +13,7 @@ export function TrainerCard({ name, description, tags, img }) {
 					<dt className="sr-only">Specializations</dt>
 					<dd className="mt-3 space-x-1">
 						{tags.map((tag) => (
-							<Tag name={tag} />
+							<Tag name={tag.name} key={tag.id} />
 						))}
 					</dd>
 				</dl>
@@ -31,7 +31,20 @@ export function TrainerCard({ name, description, tags, img }) {
 TrainerCard.defaultProps = {
 	name: "Robert Chott",
 	description: "Fyzio Terapeut a Zen Master",
-	tags: ["Fyzioerapie", "Zen Mistr", "Mist Chi"],
+	tags: [
+		{
+			id: 1,
+			name: "Fyzioterapie",
+		},
+		{
+			id: 2,
+			name: "Mistr chi",
+		},
+		{
+			id: 3,
+			name: "Zen master",
+		},
+	],
 	img: {
 		src: hooliIcon.src,
 		alt: "",
