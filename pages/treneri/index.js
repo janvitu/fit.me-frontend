@@ -1,5 +1,5 @@
 import { CardsGrid, H2, H1, HeadingWrapper } from "@src/atoms";
-import { TrainerCard } from "@src/molecules";
+import { TrainersList } from "@src/organisms";
 import { DynamicSite } from "@src/templates/DynamicSite";
 
 export default function Trainers() {
@@ -50,14 +50,9 @@ export default function Trainers() {
 
 			{/* Trainers Cards */}
 			<section className="mx-24">
-				<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-					<TrainerCard />
-					<TrainerCard />
-					<TrainerCard />
-					<TrainerCard />
-					<TrainerCard />
-					<TrainerCard />
-				</div>
+				<TrainersList
+				// trainers={trainers}
+				/>
 			</section>
 		</DynamicSite>
 	);

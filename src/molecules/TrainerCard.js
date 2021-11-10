@@ -1,5 +1,7 @@
 import { ButtonCard, Tag } from "@src/atoms";
 import hooliIcon from "@assets/img/hooli-brands.svg";
+import emailIcon from "@assets/img/email.svg";
+import messageIcon from "@assets/img/message.svg";
 
 export function TrainerCard({ name, description, tags, img }) {
 	return (
@@ -13,15 +15,15 @@ export function TrainerCard({ name, description, tags, img }) {
 					<dt className="sr-only">Specializations</dt>
 					<dd className="mt-3 space-x-1">
 						{tags.map((tag) => (
-							<Tag name={tag} />
+							<Tag name={tag.name} key={tag.id} />
 						))}
 					</dd>
 				</dl>
 			</div>
 			<div>
 				<div className="-mt-px flex divide-x divide-gray-200">
-					<ButtonCard type="email" text="Email" />
-					<ButtonCard type="chat" text="Chat" />
+					<ButtonCard text="Email" img={emailIcon} />
+					<ButtonCard text="Chat" img={messageIcon} />
 				</div>
 			</div>
 		</div>
@@ -31,7 +33,20 @@ export function TrainerCard({ name, description, tags, img }) {
 TrainerCard.defaultProps = {
 	name: "Robert Chott",
 	description: "Fyzio Terapeut a Zen Master",
-	tags: ["Fyzioerapie", "Zen Mistr", "Mist Chi"],
+	tags: [
+		{
+			id: 1,
+			name: "Fyzioterapie",
+		},
+		{
+			id: 2,
+			name: "Mistr chi",
+		},
+		{
+			id: 3,
+			name: "Zen master",
+		},
+	],
 	img: {
 		src: hooliIcon.src,
 		alt: "",

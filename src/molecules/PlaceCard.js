@@ -1,5 +1,7 @@
 import { ButtonCard, Tag } from "@src/atoms";
 import hooliIcon from "@assets/img/hooli-brands.svg";
+import emailIcon from "@assets/img/email.svg";
+import messageIcon from "@assets/img/message.svg";
 
 export function PlaceCard({ name, description, tags, img }) {
 	return (
@@ -9,7 +11,7 @@ export function PlaceCard({ name, description, tags, img }) {
 					<div className="flex items-center space-x-3 sm">
 						<h3 className="text-gray-900 text-sm font-medium">{name}</h3>
 						{tags.map((tag) => (
-							<Tag name={tag} />
+							<Tag name={tag.name} key={tag.id} />
 						))}
 					</div>
 					<p className="mt-1 text-gray-500 text-sm truncate">{description}</p>
@@ -22,8 +24,8 @@ export function PlaceCard({ name, description, tags, img }) {
 			</div>
 			<div>
 				<div className="-mt-px flex divide-x divide-gray-200">
-					<ButtonCard type="email" />
-					<ButtonCard type="chat" />
+					<ButtonCard text="Email" img={emailIcon} />
+					<ButtonCard text="Chat" img={messageIcon} />
 				</div>
 			</div>
 		</div>
@@ -33,7 +35,16 @@ export function PlaceCard({ name, description, tags, img }) {
 PlaceCard.defaultProps = {
 	name: "Xfitness",
 	description: "Vaše oblíbená posilovna",
-	tags: ["Powerlifting"],
+	tags: [
+		{
+			id: 1,
+			name: "Powerlifting",
+		},
+		{
+			id: 2,
+			name: "Yoga",
+		},
+	],
 	img: {
 		src: hooliIcon.src,
 		alt: "",

@@ -8,3 +8,5 @@ export { RegisterUser } from "./RegisterUser";
 export { RegisterTrainer } from "./RegisterTrainer";
 export { RegisterWorkoutPlace } from "./RegisterWorkoutPlace";
 export { NavBarApp } from "./NavBarApp";
+export { TrainersList } from "./TrainersList";
+export { PlacesList } from "./PlacesList";
