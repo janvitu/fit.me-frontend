@@ -16,7 +16,7 @@ export function ButtonCard({ type, text }) {
 			case "chat":
 				return {
 					text: "Chat",
-					src: email.src,
+					src: chat.src,
 					alt: "Chat Button",
 				};
 			default:
