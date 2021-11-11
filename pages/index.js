@@ -33,18 +33,15 @@ export default function Home() {
 						Přestaň váhat, prostě začni! Dostaň ze sebe to nejlepší.{" "}
 					</p>
 					<div className="mt-10 flex">
-						<ButtonLink variant="big" isOutline={false}>
+						<ButtonLink href="#jak-pomahame" variant="big" isOutline={false}>
 							Zjistit více
 						</ButtonLink>
 					</div>
 				</div>
 			</section>
 
-			{/* */}
-			{/* "S ČÍM VÁM POMÁHÁME "White background with overlaping cards */}
-			<div className="bg-white">
-				{/* <!-- Header --> */}
-				<div className="relative pb-32 bg-white-800">
+			<section id="jak-pomahame">
+				<div className="relative pb-32">
 					<div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8 flex flex-col items-center">
 						<H2 variant="big">Jak ti pomůžeme</H2>
 						<p className="mt-6 max-w-3xl text-xl text-gray-600 text-center">
@@ -70,6 +67,7 @@ export default function Home() {
 							text="Víš, že chceš sportovat. Víš, kde chceš sportovat. Nejsi si jistý, co konkrétně za sport chceš dělat, případně tušíš, ale v okolí nic neznáš. Máš benefit kartu a nebojíš se ji použít."
 							linkText="Zaregistrujte se"
 							svgVector="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+							linkHref="/registrace?formType=user"
 						/>
 
 						<OverlappingCard
@@ -77,16 +75,18 @@ export default function Home() {
 							text="Naplánuj si svůj sportovní život s naší aplikací. Díky intuitivnímu kalednáři a propojení se systémy sportovišť hned uvidíš, co kdy a kde můžeš dělat."
 							linkText="Zaregistrujte se"
 							svgVector="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
+							linkHref="/registrace?formType=user"
 						/>
 						<OverlappingCard
 							header="Doporučení"
 							text="Víš, že chceš sportovat. Nevíš, co chceš dělat a chceš si nechat něco doporučit. Fit.Me na základě pokročilých postupů najde to nejlepší pro tebe!"
 							linkText="Zaregistrujte se"
 							svgVector="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+							linkHref="/registrace?formType=user"
 						/>
 					</div>
 				</section>
-			</div>
+			</section>
 
 			{/* "JAK TO FUNGUJE" */}
 			<section className="relative">
@@ -150,7 +150,6 @@ export default function Home() {
 					<div className="max-w-2xl mx-auto lg:max-w-none lg:mr-0 lg:ml-auto lg:w-1/2 lg:pl-10">
 						<div>
 							<div className="flex items-center justify-center h-12 w-12 rounded-md bg-main-500 text-white">
-								{/* <!-- Heroicon name: outline/users --> */}
 								<svg
 									className="h-6 w-6"
 									xmlns="http://www.w3.org/2000/svg"

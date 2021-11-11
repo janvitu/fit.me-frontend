@@ -1,4 +1,4 @@
-import { H3 } from "@src/atoms";
+import { DelimiterWide, H3 } from "@src/atoms";
 import { DataDisplayRow } from "@src/atoms";
 
 export function ProfileCard({ userInfoData }) {
@@ -11,6 +11,7 @@ export function ProfileCard({ userInfoData }) {
 						<DataDisplayRow key={name} fieldName={name} fieldValue={value} />
 					))}
 				</dl>
+				<DelimiterWide variant="base" />
 			</div>
 		</div>
 	);

@@ -10,8 +10,8 @@ export function PlaceCard({ name, description, tags, img }) {
 				<div className="flex-1 truncate">
 					<div className="flex items-center space-x-3 sm">
 						<h3 className="text-gray-900 text-sm font-medium">{name}</h3>
-						{tags.map((tag) => (
-							<Tag name={tag.name} key={tag.id} />
+						{tags.map((tag, index) => (
+							<Tag name={tag.name} key={index} />
 						))}
 					</div>
 					<p className="mt-1 text-gray-500 text-sm truncate">{description}</p>
@@ -37,11 +37,9 @@ PlaceCard.defaultProps = {
 	description: "Vaše oblíbená posilovna",
 	tags: [
 		{
-			id: 1,
 			name: "Powerlifting",
 		},
 		{
-			id: 2,
 			name: "Yoga",
 		},
 	],

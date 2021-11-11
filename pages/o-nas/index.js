@@ -134,7 +134,7 @@ export default function About() {
 				<div className="mx-auto max-w-7xl">
 					<HeadingWrapper centered>
 						<H2 variant="small">tým</H2>
-						<H3 variant="big">Náš tým</H3>
+						<H3 variant="base">Náš tým</H3>
 					</HeadingWrapper>
 					<ul className="space-y-4 sm:grid sm:grid-cols-2 sm:space-y-0 lg:grid-cols-3 sm:gap-6 lg:gap-8">
 						{teamMembers.map((teamMember, index) => (
@@ -154,11 +154,11 @@ export default function About() {
 			{/* "Píší o nás" section */}
 			<section className="py-12 bg-gray-50 overflow-hidden md:py-20 lg:py-24">
 				<ReferenceSection
-					companyName="Fit.Me"
 					companyLogoSrc={hooli.src}
 					refereeName="Jan Vítů"
 					refereeImgSrc="https://source.unsplash.com/random/48x48/?male,face"
-					refereePosition="CEO, ex"
+					refereePosition="Someone"
+					companyName="Fit.Me"
 				>
 					<div className="max-w-3xl mx-auto text-center text-2xl leading-9 font-medium text-gray-900">
 						<p>
@@ -168,8 +168,6 @@ export default function About() {
 					</div>
 				</ReferenceSection>
 			</section>
-
-			{/* FAQ */}
 		</StaticSite>
 	);
 }

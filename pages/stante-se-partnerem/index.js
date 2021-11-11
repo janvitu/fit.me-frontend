@@ -37,7 +37,6 @@ const descriptionList = [
 export default function Partner() {
 	return (
 		<StaticSite>
-			{/* "Staňte se naším partnerem" + CTA */}
 			<section className="relative bg-white overflow-hidden">
 				<div className="max-w-7xl lg:w-1/2">
 					<div className="relative z-10 py-8 lg:bg-white sm:py-16 md:py-20 lg:max-w-2xl lg:w-full lg:py-28 xl:py-32 ml-auto">
@@ -52,11 +51,8 @@ export default function Partner() {
 									vazbu bereme vážně a všechny vstupy sportovišť pečlivě zvažujeme.
 								</MainDescription>
 								<div className="mt-5 sm:mt-8 flex flex-wrap gap-3 justify-start">
-									<ButtonLink variant="big" isOutline={false}>
+									<ButtonLink href="/registrace?formType=place" variant="big" isOutline={false}>
 										Staňte se partnerem
-									</ButtonLink>
-									<ButtonLink variant="big" isOutline={true}>
-										Naše síť
 									</ButtonLink>
 								</div>
 							</div>
@@ -75,9 +71,8 @@ export default function Partner() {
 					></div>
 				</div>
 			</section>
-			{/* Centered 2x2 grid "Co vám přinese partnerství" */}
 
-			<div className="py-12 bg-white">
+			<section className="py-12">
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="lg:text-center">
 						<H2 variant="small">Benefity</H2>
@@ -88,9 +83,7 @@ export default function Partner() {
 					</div>
 					<DescriptionList list={descriptionList} />
 				</div>
-			</div>
-
-			{/* "Co znamená být naším partnerem" */}
+			</section>
 			<section className="relative">
 				<div className="flex flex-col mx-auto lg:flex-row">
 					<div className="relative px-4 mx-auto py-12 lg:py-16 lg:max-w-7xl lg:pl-6 lg:mr-auto">
@@ -122,9 +115,7 @@ export default function Partner() {
 					</div>
 				</div>
 			</section>
-			{/* "Jednoduchá administrátorská konzole" */}
-
-			<div className="bg-white">
+			<sectio>
 				<div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
 					<BigCardWithImage
 						imageSrc="https://tailwindui.com/img/component-images/full-width-with-sidebar.jpg"
@@ -147,7 +138,7 @@ export default function Partner() {
 						</div>
 					</BigCardWithImage>
 				</div>
-			</div>
+			</sectio>
 			<ContactFooter />
 		</StaticSite>
 	);
