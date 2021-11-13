@@ -2,8 +2,22 @@ import { InputWrapper } from "@src/molecules";
 import { useFormik } from "formik";
 import { ButtonSubmit } from "../atoms/ButtonSubmit";
 import * as Yup from "yup";
+import { gql, useMutation } from "@apollo/client";
+import Router from "next/router";
+
+const REGISTER_USER = gql`
+	mutation RegisterSportsman(
+		$name: String!
+		$surname: String!
+		$email: String!
+		$password: String!
+	) {
+		sportsmanSignUp(name: $name, surname: $surname, email: $email, password: $password)
+	}
+`;
 
 export function RegisterUser() {
+	const [registerSportsman] = useMutation(REGISTER_USER);
 	const formik = useFormik({
 		initialValues: {
 			name: "",
@@ -13,7 +27,22 @@ export function RegisterUser() {
 			secondPassword: "",
 		},
 		onSubmit: (values) => {
-			console.log(JSON.stringify(values, null));
+			registerSportsman({
+				variables: {
+					name: values.name,
+					surname: values.surname,
+					email: values.email,
+					password: values.password,
+				},
+			})
+				.then((res) => {
+					console.log(res);
+					Router.push("/prihlasit-se");
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+			formik.resetForm();
 		},
 		validationSchema: Yup.object().shape({
 			name: Yup.string().required("Jméno nesmí být prázdné"),
@@ -31,7 +60,7 @@ export function RegisterUser() {
 		}),
 	});
 	return (
-		<form className="space-y-9" onSubmit={formik.onSubmit}>
+		<form className="space-y-9" onSubmit={formik.handleSubmit}>
 			<div className="space-y-9">
 				<InputWrapper formik={formik} name="name" type="text" isRequired description="Jméno" />
 				<InputWrapper

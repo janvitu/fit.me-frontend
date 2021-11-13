@@ -18,7 +18,7 @@ export function PlaceCard({ name, username, description, tags, img }) {
 
 	return (
 		<div className="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
-			<Link href={`/treneri/${username}`} passHref>
+			<Link href={`/sportoviste/${username}`} passHref>
 				<a>
 					<div className="w-full flex items-center justify-between p-6 space-x-6">
 						<div className="flex-1 truncate">
@@ -56,12 +56,12 @@ export function PlaceCard({ name, username, description, tags, img }) {
 					</div>
 				</a>
 			</Link>
-			<div>
-				{/* <div className="-mt-px flex divide-x divide-gray-200">
+			{/* <div> */}
+			{/* <div className="-mt-px flex divide-x divide-gray-200">
 					<ButtonCard text="Email" img={emailIcon} />
 					<ButtonCard text="Chat" img={messageIcon} />
 				</div> */}
-			</div>
+			{/* </div> */}
 		</div>
 	);
 }

@@ -32,7 +32,7 @@ export default function Places() {
 						</div>
 						<div className="mt-5">
 							<H3 variant="small">Filtr: </H3>
-							<Filter selectedTag={(val) => setFilter(val)} />
+							<Filter selectedTag={filter} selectTag={(val) => setFilter(val)} />
 						</div>
 					</div>
 				</XlWrapper>

@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { H3, IconButton } from "@src/atoms";
 import { DescriptionList, RatingIndicator } from "@src/molecules";
+import { disableScroll, enableScroll } from "@src/utils/handleScroll";
 
 export function DetailCard({ descriptionItems, rating = 0 }) {
 	const [toggled, setToggled] = useState(false);
 
 	useEffect(() => {
 		if (toggled) {
-			document.body.style.overflow = "hidden";
+			disableScroll();
 		} else {
-			document.body.style.overflow = "auto";
+			enableScroll();
 		}
 	}, [toggled]);
 
@@ -29,7 +30,7 @@ export function DetailCard({ descriptionItems, rating = 0 }) {
 			>
 				<div className="bg-white shadow rounded-md sm:rounded-lg max-w-sm max-h-[75vh] flex flex-col">
 					<div className="relative px-4 py-5 sm:px-6 overflow-visible">
-						<H3 variant="small">Detail trenéra</H3>
+						<H3 variant="small">Detail</H3>
 						{rating && (
 							<div className="flex gap-2">
 								<RatingIndicator ratingValue={rating} className="mt-2" />

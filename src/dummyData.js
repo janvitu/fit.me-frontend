@@ -72,12 +72,8 @@ export const WorkoutPlaceBusinessData = {
 			value: "ApplePay, Cash, Mulrisport",
 		},
 		{
-			title: "Zázemí",
-			value: "Sprchy, vybavení",
-		},
-		{
 			title: "Kontakt",
-			value: "Email: email@name.domain\nTelefon: +420 123 456 789",
+			value: "Email: abcsportoviste@info.cz",
 		},
 		{
 			title: "Adresa",
@@ -107,4 +103,36 @@ Quis semper vulputate aliquam venenatis egestas sagittis quisque orci. Donec com
 Id orci tellus laoreet id ac. Dolor, aenean leo, ac etiam consequat in. Convallis arcu ipsum urna nibh. Pharetra, euismod vitae interdum mauris enim, consequat vulputate nibh. Maecenas pellentesque id sed tellus mauris, ultrices mauris. Tincidunt enim cursus ridiculus mi. Pellentesque nam sed nullam sed diam turpis ipsum eu a sed convallis diam.
 `,
 	imageGallery: [""],
+	ratingList: [
+		{
+			id: 1,
+			user: {
+				name: "John Doe",
+				avatar: "https://placeimg.com/64/64/people",
+			},
+			rating: 4,
+			submitedAt: "2020-01-01",
+			text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt nunc ipsum tempor purus vitae id. Morbi in vestibulum nec varius. Et diam cursus quis sed purus nam. Scelerisque amet elit non sit ut tincidunt condimentum. Nisl ultrices eu venenatis diam.",
+		},
+		{
+			id: 2,
+			user: {
+				name: "I don't know who I am",
+				avatar: "https://placeimg.com/64/64/people",
+			},
+			rating: 5,
+			submitedAt: "2021-11-13T17:31:38.556Z",
+			text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt nunc ipsum tempor purus vitae id. Morbi in vestibulum nec varius. Et diam cursus quis sed purus nam. Scelerisque amet elit non sit ut tincidunt condimentum. Nisl ultrices eu venenatis diam.",
+		},
+		{
+			id: 1,
+			user: {
+				name: "I don't know who I am",
+				avatar: "https://placeimg.com/64/64/people",
+			},
+			rating: 1,
+			submitedAt: "2021-11-14T12:31:38.556Z",
+			text: "Never go there!",
+		},
+	],
 };

@@ -3,6 +3,12 @@ import { StaticSite } from "@src/templates";
 import { RegisterUser, RegisterWorkoutPlace, RegisterTrainer } from "@src/organisms";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+
+const client = new ApolloClient({
+	uri: process.env.NEXT_PUBLIC_GQL_SERVER,
+	cache: new InMemoryCache(),
+});
 
 export default function Registrace() {
 	const [registerFormRoute, setRegisterFormRoute] = useState("user");
@@ -66,7 +72,10 @@ export default function Registrace() {
 							</ul>
 						</nav>
 					</div>
-					<div className="w-full">{getFormByType(registerFormRoute)}</div>
+
+					<div className="w-full">
+						<ApolloProvider client={client}>{getFormByType(registerFormRoute)}</ApolloProvider>
+					</div>
 				</div>
 			</SmWrapper>
 		</StaticSite>

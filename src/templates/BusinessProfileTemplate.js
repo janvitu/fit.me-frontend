@@ -3,6 +3,7 @@ import { Modal, RatingInput } from "@src/molecules";
 import { ContactBusinessForm, DetailCard, RatingList } from "@src/organisms";
 import snarkdown from "snarkdown";
 import { useState, useEffect } from "react";
+import { disableScroll, enableScroll } from "@src/utils/handleScroll";
 
 export function BusinessProfileTemplate({ BusinessProfileData }) {
 	const article = snarkdown(BusinessProfileData.article);
@@ -15,9 +16,9 @@ export function BusinessProfileTemplate({ BusinessProfileData }) {
 
 	useEffect(() => {
 		if (contactModal) {
-			document.body.style.overflow = "hidden";
+			disableScroll();
 		} else {
-			document.body.style.overflow = "auto";
+			enableScroll();
 		}
 	}, [contactModal]);
 

@@ -1,9 +1,9 @@
 import { useState } from "react";
-export function Filter({ name, options, selectedTag }) {
+export function Filter({ name, options, selectedTag, selectTag }) {
 	const [toggled, setToggled] = useState(false);
 
 	return (
-		<div onClick={() => setToggled(!toggled)}>
+		<div className="z-100" onClick={() => setToggled(!toggled)}>
 			<div className="relative inline-block text-left">
 				<div>
 					<button
@@ -31,7 +31,7 @@ export function Filter({ name, options, selectedTag }) {
 				</div>
 				{toggled && (
 					<div
-						className=" absolute origin-top-right right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+						className="absolute origin-top-right left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-100"
 						role="menu"
 						aria-orientation="vertical"
 						aria-labelledby="menu-button"
@@ -42,8 +42,10 @@ export function Filter({ name, options, selectedTag }) {
 								return (
 									<a
 										href="#"
-										onClick={() => selectedTag(option)}
-										className="text-gray-700 block px-4 py-2 text-sm"
+										onClick={() => selectTag(option)}
+										className={`text-gray-700 block px-4 py-2 text-sm ${
+											selectedTag === option ? "underline" : ""
+										}`}
 										role="menuitem"
 										tabIndex="-1"
 										id="menu-item-0"
@@ -62,6 +64,6 @@ export function Filter({ name, options, selectedTag }) {
 }
 
 Filter.defaultProps = {
-	name: "Tags",
-	options: ["Powerlifting", "Yoga", "Badminton", "Tennis", "Squash", "Fitbox"],
+	name: "Tagy",
+	options: ["Powerlifting", "Yoga", "Badminton", "Tennis", "Squash", "FitBox"],
 };
