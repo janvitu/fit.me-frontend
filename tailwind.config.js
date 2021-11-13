@@ -29,6 +29,9 @@ module.exports = {
 			transformOrigin: {
 				"bottom-center": "center bottom",
 			},
+			zIndex: {
+				100: "100",
+			},
 		},
 	},
 	variants: {

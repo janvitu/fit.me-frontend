@@ -8,6 +8,7 @@ export function TrainersList({ trainers }) {
 				return (
 					<TrainerCard
 						name={trainer.name}
+						username={trainer.username}
 						description={trainer.description}
 						tags={trainer.tags}
 						img={trainer.img}
@@ -24,26 +25,56 @@ TrainersList.defaultProps = {
 		{
 			id: 1,
 			name: "Robert Chott",
+			username: "robertchott",
+			img: {
+				src: hooliIcon.src,
+				alt: "Ikona sportoviště",
+			},
 		},
 		{
 			id: 2,
 			name: "Robert Chott",
+			username: "robertchott",
+			img: {
+				src: hooliIcon.src,
+				alt: "Ikona sportoviště",
+			},
 		},
 		{
 			id: 3,
 			name: "Robert Chott",
+			username: "robertchott",
+			img: {
+				src: hooliIcon.src,
+				alt: "Ikona sportoviště",
+			},
 		},
 		{
 			id: 4,
 			name: "Robert Chott",
+			username: "robertchott",
+			img: {
+				src: hooliIcon.src,
+				alt: "Ikona sportoviště",
+			},
 		},
 		{
 			id: 5,
 			name: "Robert Chott",
+			username: "robertchott",
+			img: {
+				src: hooliIcon.src,
+				alt: "Ikona sportoviště",
+			},
 		},
 		{
 			id: 6,
 			name: "Robert Chott",
+			username: "robertchott",
+			img: {
+				src: hooliIcon.src,
+				alt: "Ikona sportoviště",
+			},
 		},
 	],
 };

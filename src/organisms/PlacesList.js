@@ -1,4 +1,5 @@
 import { PlaceCard } from "@src/molecules";
+import hooliIcon from "@assets/img/hooli-brands.svg";
 
 export function PlacesList({ places }) {
 	return (
@@ -7,6 +8,7 @@ export function PlacesList({ places }) {
 				return (
 					<PlaceCard
 						name={place.name}
+						username={place.username}
 						description={place.description}
 						tags={place.tags}
 						img={place.img}
@@ -23,26 +25,56 @@ PlacesList.defaultProps = {
 		{
 			id: 1,
 			name: "XFitness",
+			username: "xfitness",
+			img: {
+				src: hooliIcon.src,
+				alt: "Ikona sportoviště",
+			},
 		},
 		{
 			id: 2,
 			name: "XFitness",
+			username: "xfitness",
+			img: {
+				src: hooliIcon.src,
+				alt: "Ikona sportoviště",
+			},
 		},
 		{
 			id: 3,
 			name: "XFitness",
+			username: "xfitness",
+			img: {
+				src: hooliIcon.src,
+				alt: "Ikona sportoviště",
+			},
 		},
 		{
 			id: 4,
 			name: "XFitness",
+			username: "xfitness",
+			img: {
+				src: hooliIcon.src,
+				alt: "Ikona sportoviště",
+			},
 		},
 		{
 			id: 5,
 			name: "XFitness",
+			username: "xfitness",
+			img: {
+				src: hooliIcon.src,
+				alt: "Ikona sportoviště",
+			},
 		},
 		{
 			id: 6,
 			name: "XFitness",
+			username: "xfitness",
+			img: {
+				src: hooliIcon.src,
+				alt: "Ikona sportoviště",
+			},
 		},
 	],
 };

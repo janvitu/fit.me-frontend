@@ -17,7 +17,8 @@
 	input:required + label::after {
 		content: " *";
 	}
-	.is-visited label {
+	.is-visited label,
+	.visited label {
 		@apply transform top-0 bg-white -translate-y-1/2 text-sm;
 	}
 
@@ -43,9 +44,13 @@
 		@apply border border-black;
 	}
 
+	textarea:focus {
+		@apply text-gray-600;
+	}
+
 	input:focus-within + label,
 	textarea:focus-within + label {
-		@apply top-0 -translate-y-1/2 text-gray-500 bg-white;
+		@apply top-0 -translate-y-1/2 text-gray-800 bg-white;
 	}
 }
 
@@ -59,4 +64,19 @@
 		-ms-overflow-style: none; /* IE and Edge */
 		scrollbar-width: none; /* Firefox */
 	}
+}
+
+/* RATING LIST */
+.starlist button svg path:last-child {
+	@apply opacity-0;
+}
+
+.starlist button:hover svg path:last-child,
+.starlist button:hover ~ button svg path:last-child {
+	@apply opacity-100;
+}
+
+.starlist button.selected svg path:last-child,
+.starlist button.selected ~ button svg path:last-child {
+	@apply opacity-100;
 }
