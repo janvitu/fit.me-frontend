@@ -29,10 +29,10 @@ export function TrainerCard({ name, username, description, tags, img }) {
 				</a>
 			</Link>
 			<div>
-				<div className="-mt-px flex divide-x divide-gray-200">
+				{/* <div className="-mt-px flex divide-x divide-gray-200">
 					<ButtonCard text="Email" img={emailIcon} />
 					<ButtonCard text="Chat" img={messageIcon} />
-				</div>
+				</div> */}
 			</div>
 		</div>
 	);
