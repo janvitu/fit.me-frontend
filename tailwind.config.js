@@ -3,7 +3,23 @@ const colors = require("tailwindcss/colors");
 
 module.exports = {
 	mode: "jit",
-	purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./src/**/*.{js,ts,jsx,tsx}"],
+	purge: {
+		content: ["./pages/**/*.{js,ts,jsx,tsx}", "./src/**/*.{js,ts,jsx,tsx}"],
+		safelist: [
+			"text-green-800",
+			"bg-green-100",
+			"text-lime-800",
+			"bg-lime-100",
+			"text-red-800",
+			"bg-red-100",
+			"text-pink-800",
+			"bg-pink-100",
+			"text-yellow-800",
+			"bg-yellow-100",
+			"text-purple-800",
+			"bg-purple-100",
+		],
+	},
 	darkMode: false, // or 'media' or 'class'
 	theme: {
 		colors: {
