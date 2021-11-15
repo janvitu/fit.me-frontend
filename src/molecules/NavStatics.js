@@ -16,11 +16,8 @@ export function NavStatics({ routes, toggled }) {
 				</NavLink>
 			))}
 			<div className="flex md:hidden space-x-2 items-center">
-				<ButtonLink variant="base" isOutline={true}>
-					Registrace
-				</ButtonLink>
-				<ButtonLink variant="base" isOutline={false}>
-					Přihlásit se
+				<ButtonLink variant="base" isOutline={true} href="/prihlasit-se">
+					Odhlásit se
 				</ButtonLink>
 			</div>
 		</nav>

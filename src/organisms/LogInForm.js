@@ -2,15 +2,39 @@ import { InputWrapper } from "@src/molecules";
 import { ButtonSubmit } from "@src/atoms";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { gql, useMutation } from "@apollo/client";
+import Router from "next/router";
+
+const LOG_IN = gql`
+	mutation LogInSportsman($email: String!, $password: String!) {
+		sportsmanSignIn(email: $email, password: $password) {
+			token
+		}
+	}
+`;
 
 export function LogInForm() {
+	const [logInSportsman] = useMutation(LOG_IN);
 	const formik = useFormik({
 		initialValues: {
 			email: "",
 			password: "",
 		},
 		onSubmit: (values) => {
-			alert(JSON.stringify(values, null, 2));
+			logInSportsman({
+				variables: {
+					email: values.email,
+					password: values.password,
+				},
+			})
+				.then((res) => {
+					console.log(res);
+					Router.push("/sportoviste");
+				})
+				.catch((err) => {
+					console.error(err);
+				});
+			formik.resetForm();
 		},
 		validationSchema: Yup.object().shape({
 			email: Yup.string().email("Špatný formát emailu").required("Email nesmí být prázdný"),

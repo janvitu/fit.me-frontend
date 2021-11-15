@@ -1,9 +1,9 @@
-import { NavBar, Footer } from "@src/organisms";
+import { NavBarStatic, Footer } from "@src/organisms";
 
 export function StaticSite({ children }) {
 	return (
 		<>
-			<NavBar />
+			<NavBarStatic />
 			{children}
 			<Footer />
 		</>
