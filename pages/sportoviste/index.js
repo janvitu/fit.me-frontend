@@ -1,11 +1,14 @@
-import { H1, XlWrapper } from "@src/atoms";
+import { H1, H3, XlWrapper, Filter, SmWrapper } from "@src/atoms";
 import { PlacesList } from "@src/organisms";
 import { DynamicSite } from "@src/templates/DynamicSite";
+import { useState } from "react";
 
 export default function Places() {
+	const [filter, setFilter] = useState();
+
 	return (
 		<DynamicSite>
-			<div className="bg-white overflow-hidden shadow rounded-lg pt-20 mb-10">
+			<div className="bg-white shadow rounded-lg pt-20 mb-10 z-100">
 				<XlWrapper>
 					<H1>Sportoviště</H1>
 
@@ -26,21 +29,10 @@ export default function Places() {
 									placeholder="Biskupocova 20 / ABC Sportoviště"
 								/>
 							</div>
-							<button
-								type="button"
-								className="-ml-px relative inline-flex items-center space-x-2 px-4 py-2 border border-gray-300 text-sm font-medium rounded-r-md text-gray-700 bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-main-500 focus:border-main-500"
-							>
-								<svg
-									className="h-5 w-5 text-gray-400"
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 20 20"
-									fill="currentColor"
-									aria-hidden="true"
-								>
-									<path d="M3 3a1 1 0 000 2h11a1 1 0 100-2H3zM3 7a1 1 0 000 2h5a1 1 0 000-2H3zM3 11a1 1 0 100 2h4a1 1 0 100-2H3zM13 16a1 1 0 102 0v-5.586l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 101.414 1.414L13 10.414V16z" />
-								</svg>
-								<span>Filtr</span>
-							</button>
+						</div>
+						<div className="mt-5">
+							<H3 variant="small">Filtr: </H3>
+							<Filter selectedTag={(val) => setFilter(val)} />
 						</div>
 					</div>
 				</XlWrapper>
@@ -48,7 +40,8 @@ export default function Places() {
 			<section className="mx-auto">
 				<XlWrapper>
 					<PlacesList
-					// places={places}
+						// places={places}
+						filter={filter}
 					/>
 				</XlWrapper>
 			</section>
