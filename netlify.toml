@@ -1,0 +1,4 @@
+[[redirects]]
+  from="/api/*"
+  to="http://dev.backend.team04.vse.handson.pro/:splat"
+  status=200
