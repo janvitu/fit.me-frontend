@@ -1,10 +1,13 @@
-import { H1, H3, XlWrapper, Filter, SmWrapper } from "@src/atoms";
+import { H1, H3, XlWrapper, SmWrapper } from "@src/atoms";
+import { Filter } from "@src/molecules";
 import { PlacesList } from "@src/organisms";
 import { DynamicSite } from "@src/templates/DynamicSite";
 import { useState } from "react";
 
 export default function Places() {
-	const [filter, setFilter] = useState();
+	const [filters, setFilters] = useState({
+		tags: [],
+	});
 
 	return (
 		<DynamicSite>
@@ -32,7 +35,12 @@ export default function Places() {
 						</div>
 						<div className="mt-5">
 							<H3 variant="small">Filtr: </H3>
-							<Filter selectedTag={filter} selectTag={(val) => setFilter(val)} />
+							<Filter
+								name="Tagy"
+								// options={options}
+								filters={filters}
+								setFilters={(val) => setFilters(val)}
+							/>
 						</div>
 					</div>
 				</XlWrapper>
@@ -41,7 +49,7 @@ export default function Places() {
 				<XlWrapper>
 					<PlacesList
 						// places={places}
-						filter={filter}
+						filters={filters}
 					/>
 				</XlWrapper>
 			</section>

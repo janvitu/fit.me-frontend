@@ -1,37 +1,39 @@
 import { PlaceCard } from "@src/molecules";
 import hooliIcon from "@assets/img/hooli-brands.svg";
 
-export function PlacesList({ places, filter }) {
+export function PlacesList({ places, filters }) {
+	const placesReadyToRender = (places, filters) => {
+		let arrOfPlaces = places;
+		if (filters.tags.length && Array.isArray(filters.tags)) {
+			arrOfPlaces = places.filter((place) => {
+				let condition = true;
+				filters.tags.forEach((tag) => {
+					const contains = (element) => element.name === tag;
+					if (!place.tags.some(contains)) condition = false;
+				});
+				return condition;
+			});
+		}
+		return arrOfPlaces;
+	};
+
+	//TODO ordering places by selected field ASC/DESC
+	const reorderPlaces = (places, order) => {};
+
 	return (
 		<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-			{filter &&
-				places.map((place) => {
-					if (place.tags.find((tag) => tag.name.toUpperCase() === filter.toUpperCase())) {
-						return (
-							<PlaceCard
-								name={place.name}
-								username={place.username}
-								description={place.description}
-								tags={place.tags}
-								img={place.img}
-								key={place.id}
-							/>
-						);
-					}
-				})}
-			{!filter &&
-				places.map((place) => {
-					return (
-						<PlaceCard
-							name={place.name}
-							username={place.username}
-							description={place.description}
-							tags={place.tags}
-							img={place.img}
-							key={place.id}
-						/>
-					);
-				})}
+			{placesReadyToRender(places, filters).map((place) => {
+				return (
+					<PlaceCard
+						name={place.name}
+						username={place.username}
+						description={place.description}
+						tags={place.tags}
+						img={place.img}
+						key={place.id}
+					/>
+				);
+			})}
 		</div>
 	);
 }

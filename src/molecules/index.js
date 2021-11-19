@@ -18,3 +18,4 @@ export { RatingIndicator } from "./RatingIndicator";
 export { RatingItem } from "./RatingItem";
 export { RatingInput } from "./RatingInput";
 export { Modal } from "./Modal";
+export { Filter } from "./Filter";
