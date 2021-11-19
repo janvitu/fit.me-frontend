@@ -17,4 +17,5 @@ export { TextContent } from "./TextContent";
 export { RatingIndicator } from "./RatingIndicator";
 export { RatingItem } from "./RatingItem";
 export { RatingInput } from "./RatingInput";
+export { EventCard } from "./EventCard";
 export { Modal } from "./Modal";

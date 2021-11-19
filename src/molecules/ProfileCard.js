@@ -4,7 +4,10 @@ import { DataDisplayRow } from "@src/atoms";
 export function ProfileCard({ userInfoData }) {
 	return (
 		<div className="max-w-4xl">
-			<H3 variant="small">Profil</H3>
+			<div className="text-center md:text-left">
+				<H3 variant="small">Profil</H3>
+			</div>
+
 			<div className="mt-5 border-t border-gray-200">
 				<dl className="divide-y divide-gray-200">
 					{userInfoData.map(({ name, value }) => (
