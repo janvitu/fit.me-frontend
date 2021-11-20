@@ -1,9 +1,11 @@
+import { CustomToaster } from "@src/atoms";
 import { InputWrapper } from "@src/molecules";
 import { useFormik } from "formik";
 import { ButtonSubmit } from "../atoms/ButtonSubmit";
 import * as Yup from "yup";
 import { gql, useMutation } from "@apollo/client";
 import Router from "next/router";
+import toast from "react-hot-toast";
 
 const REGISTER_USER = gql`
 	mutation RegisterSportsman(
@@ -38,9 +40,11 @@ export function RegisterUser() {
 				.then((res) => {
 					console.log(res);
 					Router.push("/prihlasit-se");
+					toast.success("Registrace byla úspěšná");
 				})
 				.catch((err) => {
 					console.log(err);
+					toast.error("Registrace se nepovedla");
 				});
 			formik.resetForm();
 		},
@@ -89,6 +93,7 @@ export function RegisterUser() {
 			<div className="flex justify-center">
 				<ButtonSubmit>Registrovat se</ButtonSubmit>
 			</div>
+			<CustomToaster />
 		</form>
 	);
 }

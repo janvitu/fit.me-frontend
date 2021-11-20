@@ -37,3 +37,4 @@ export { RatingStar } from "./RatingStar";
 export { AvatarImg } from "./AvatarImg";
 export { ModalOverlay } from "./ModalOverlay";
 export { FilterOption } from "./FilterOption";
+export { CustomToaster } from "./CustomToaster";
