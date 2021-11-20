@@ -1,4 +1,4 @@
-import { H1, H3, XlWrapper } from "@src/atoms";
+import { H1, H3, XlWrapper, CustomToaster } from "@src/atoms";
 import { Filter, Sorter } from "@src/molecules";
 import { PlacesList } from "@src/organisms";
 import { DynamicSite } from "@src/templates/DynamicSite";
@@ -12,6 +12,7 @@ export default function Places() {
 
 	return (
 		<DynamicSite>
+			<CustomToaster />
 			<div className="bg-white shadow rounded-lg pt-20 mb-10 z-100">
 				<XlWrapper>
 					<H1>Sportoviště</H1>

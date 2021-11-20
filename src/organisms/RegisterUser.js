@@ -29,22 +29,27 @@ export function RegisterUser() {
 			secondPassword: "",
 		},
 		onSubmit: (values) => {
-			registerSportsman({
-				variables: {
-					name: values.name,
-					surname: values.surname,
-					email: values.email,
-					password: values.password,
+			registerSportsman(
+				{
+					variables: {
+						name: values.name,
+						surname: values.surname,
+						email: values.email,
+						password: values.password,
+					},
 				},
-			})
+				toast.promise(registerSportsman(), {
+					loading: "Vyčkejte prosím, požadavek se zpracovává",
+					success: "Registrace byla úspěšná! Pro pokračování se přihlaste.",
+					error: "Registrace se nepovedla, zkuste to prosím znovu či se obraťte na podporu.",
+				}),
+			)
 				.then((res) => {
 					console.log(res);
 					Router.push("/prihlasit-se");
-					toast.success("Registrace byla úspěšná");
 				})
 				.catch((err) => {
 					console.log(err);
-					toast.error("Registrace se nepovedla");
 				});
 			formik.resetForm();
 		},
@@ -65,6 +70,7 @@ export function RegisterUser() {
 	});
 	return (
 		<form className="space-y-9" onSubmit={formik.handleSubmit}>
+			<CustomToaster />
 			<div className="space-y-9">
 				<InputWrapper formik={formik} name="name" type="text" isRequired description="Jméno" />
 				<InputWrapper
@@ -93,7 +99,6 @@ export function RegisterUser() {
 			<div className="flex justify-center">
 				<ButtonSubmit>Registrovat se</ButtonSubmit>
 			</div>
-			<CustomToaster />
 		</form>
 	);
 }

@@ -4,6 +4,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { gql, useMutation } from "@apollo/client";
 import Router from "next/router";
+import toast from "react-hot-toast";
 
 const LOG_IN = gql`
 	mutation LogInSportsman($email: String!, $password: String!) {
@@ -21,12 +22,19 @@ export function LogInForm() {
 			password: "",
 		},
 		onSubmit: (values) => {
-			logInSportsman({
-				variables: {
-					email: values.email,
-					password: values.password,
+			logInSportsman(
+				{
+					variables: {
+						email: values.email,
+						password: values.password,
+					},
 				},
-			})
+				toast.promise(logInSportsman(), {
+					loading: "Vyčkejte prosím, ověřují se údaje",
+					success: "Přihlášení bylo úspěšné! Vítejte",
+					error: "Přihlášení se nepovedlo, zkuste to znovu, nebo se obraťte na podporu",
+				}),
+			)
 				.then((res) => {
 					console.log(res);
 					Router.push("/sportoviste");

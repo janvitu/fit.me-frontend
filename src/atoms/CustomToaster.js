@@ -11,21 +11,21 @@ export function CustomToaster({}) {
 			toastOptions={{
 				// Define default options
 				className: "",
-				duration: 5000,
+				duration: 9000,
 				style: {
 					background: "white",
 					color: "black",
 				},
 				// Default options for specific types
 				success: {
-					duration: 3000,
+					duration: 9000,
 					theme: {
 						primary: "green",
 						secondary: "red",
 					},
 				},
 				error: {
-					duration: 7000,
+					duration: 9000,
 					theme: {
 						primary: "red",
 						secondary: "black",
