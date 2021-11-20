@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export function TrainerCard({ name, username, description, tags, img, rating }) {
 	return (
-		<div className="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200">
+		<div className="col-span-1 flex flex-col text-center bg-white rounded-lg shadow ">
 			<Link href={`/treneri/${username}`} passHref>
 				<a>
 					<div className="flex-1 flex flex-col p-8">
@@ -34,12 +34,11 @@ export function TrainerCard({ name, username, description, tags, img, rating }) 
 					</div>
 				</a>
 			</Link>
-			<div>
-				{/* <div className="-mt-px flex divide-x divide-gray-200">
+
+			{/* <div className="-mt-px flex divide-x divide-gray-200">
 					<ButtonCard text="Email" img={emailIcon} />
 					<ButtonCard text="Chat" img={messageIcon} />
 				</div> */}
-			</div>
 		</div>
 	);
 }
