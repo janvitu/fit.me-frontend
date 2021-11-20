@@ -1,12 +1,26 @@
 import { useState } from "react";
-export function Filter({ name, options, selectedTag, selectTag }) {
+import { FilterOption } from "@src/atoms";
+
+export function Filter({ name, options, filters, setFilters }) {
 	const [toggled, setToggled] = useState(false);
 
+	const addFilterOptionHandler = (option) => {
+		let arr = filters.tags;
+		if (filters.tags.includes(option)) {
+			const index = arr.indexOf(option);
+			if (index > -1) arr.splice(index, 1);
+		} else {
+			arr.push(option);
+		}
+		setFilters((filters) => ({ ...filters, tags: arr }));
+	};
+
 	return (
-		<div className="z-100" onClick={() => setToggled(!toggled)}>
+		<div className="z-100">
 			<div className="relative inline-block text-left">
 				<div>
 					<button
+						onClick={() => setToggled(!toggled)}
 						type="button"
 						className="inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
 						id="menu-button"
@@ -31,31 +45,25 @@ export function Filter({ name, options, selectedTag, selectTag }) {
 				</div>
 				{toggled && (
 					<div
-						className="absolute origin-top-right left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-100"
+						className="absolute origin-top-right left-0 mt-2 w-56 max-h-36 overflow-y-scroll  rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-100"
 						role="menu"
 						aria-orientation="vertical"
 						aria-labelledby="menu-button"
 						tabIndex="-1"
 					>
-						<div className="py-1" role="none">
-							{options.map((option, index) => {
+						{options
+							.sort((a, b) => a.localeCompare(b))
+							.map((option, index) => {
 								return (
-									<a
-										href="#"
-										onClick={() => selectTag(option)}
-										className={`text-gray-700 block px-4 py-2 text-sm ${
-											selectedTag === option ? "underline" : ""
-										}`}
-										role="menuitem"
-										tabIndex="-1"
-										id="menu-item-0"
+									<FilterOption
+										name={option}
+										addFilterOption={(option) => addFilterOptionHandler(option)}
+										// selected={filters[subject].includes(option)}
+										selected={filters.tags.includes(option)}
 										key={index}
-									>
-										{option}
-									</a>
+									/>
 								);
 							})}
-						</div>
 					</div>
 				)}
 			</div>
@@ -65,5 +73,15 @@ export function Filter({ name, options, selectedTag, selectTag }) {
 
 Filter.defaultProps = {
 	name: "Tagy",
-	options: ["Powerlifting", "Yoga", "Badminton", "Tennis", "Squash", "FitBox"],
+	options: [
+		"Powerlifting",
+		"Fyzioterapie",
+		"Yoga",
+		"Zen master",
+		"Badminton",
+		"Mistr chi",
+		"Tennis",
+		"Squash",
+		"FitBox",
+	],
 };

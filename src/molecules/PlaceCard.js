@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Tag } from "@src/atoms";
+import { RatingIndicator } from "@src/molecules";
 import hooliIcon from "@assets/img/hooli-brands.svg";
 import Link from "next/link";
+import Image from "next/image";
 
-export function PlaceCard({ name, username, description, tags, img }) {
+export function PlaceCard({ name, username, description, tags, img, rating }) {
 	const [tagsToggled, setTagsToggled] = useState(false);
 	const toggledTags = (tagsToggled) => {
 		var shortenedTags = [];
@@ -22,11 +24,13 @@ export function PlaceCard({ name, username, description, tags, img }) {
 				<a>
 					<div className="w-full flex items-center justify-between p-6 space-x-6">
 						<div className="flex-1 truncate">
-							<div className="flex items-center space-x-3 sm">
+							<div className="flex items-center space-x-3 gap-2 py-2 sm">
 								<h3 className="text-gray-900 text-sm font-medium">{name}</h3>
+								<RatingIndicator ratingValue={rating} />
 							</div>
+
 							<div>
-								<div className="flex items-center flex-wrap gap-x-2 gap-y-1">
+								<div className="flex items-center flex-wrap gap-x-1 gap-y-1">
 									{toggledTags(tagsToggled).map((tag, index) => (
 										<Tag name={tag.name} color={tag.color} key={index} />
 									))}
@@ -35,7 +39,7 @@ export function PlaceCard({ name, username, description, tags, img }) {
 									) : (
 										<button
 											type="button"
-											className=" relative flex-shrink-0 text-xs z-20 px-2 py-0.5 rounded-t-sm bg-gray-100 text-gray-800  hover:bg-main-200"
+											className=" relative flex-shrink-0 text-xs z-20 mr-1 px-2 py-0.5 rounded-t-sm bg-gray-100 text-gray-800  hover:bg-main-200"
 											onClick={(e) => {
 												e.preventDefault();
 												setTagsToggled(!tagsToggled);
@@ -48,8 +52,10 @@ export function PlaceCard({ name, username, description, tags, img }) {
 							</div>
 							<p className="mt-1 text-gray-500 text-sm truncate">{description}</p>
 						</div>
-						<img
-							className="w-10 h-10 bg-gray-300 rounded-full flex-shrink-0"
+						<Image
+							className="bg-gray-300 rounded-full flex-shrink-0"
+							width="40"
+							height="40"
 							src={img.src}
 							alt={img.alt}
 						/>

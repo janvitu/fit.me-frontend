@@ -36,4 +36,5 @@ export { DescriptionTerm } from "./DescriptionTerm";
 export { RatingStar } from "./RatingStar";
 export { AvatarImg } from "./AvatarImg";
 export { ModalOverlay } from "./ModalOverlay";
-export { Filter } from "./Filter";
+export { FilterOption } from "./FilterOption";
+export { CustomToaster } from "./CustomToaster";

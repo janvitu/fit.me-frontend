@@ -1,37 +1,48 @@
 import { PlaceCard } from "@src/molecules";
 import hooliIcon from "@assets/img/hooli-brands.svg";
 
-export function PlacesList({ places, filter }) {
+export function PlacesList({ places, filters }) {
+	const placesReadyToRender = (places, filters) => {
+		let arrOfPlaces = places;
+		if (filters.tags.length && Array.isArray(filters.tags)) {
+			arrOfPlaces = places.filter((place) => {
+				let condition = true;
+				filters.tags.forEach((tag) => {
+					const contains = (element) => element.name === tag;
+					if (!place.tags.some(contains)) condition = false;
+				});
+				return condition;
+			});
+		}
+		console.log(reorderPlaces(arrOfPlaces, filters.order));
+		return reorderPlaces(arrOfPlaces, filters.order);
+	};
+
+	const reorderPlaces = (places, order) => {
+		if (order === "") {
+			return places;
+		} else if (order === "ASC") {
+			return places.sort((a, b) => parseFloat(a.rating) - parseFloat(b.rating));
+		} else if (order === "DESC") {
+			return places.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating));
+		}
+	};
+
 	return (
 		<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-			{filter &&
-				places.map((place) => {
-					if (place.tags.find((tag) => tag.name.toUpperCase() === filter.toUpperCase())) {
-						return (
-							<PlaceCard
-								name={place.name}
-								username={place.username}
-								description={place.description}
-								tags={place.tags}
-								img={place.img}
-								key={place.id}
-							/>
-						);
-					}
-				})}
-			{!filter &&
-				places.map((place) => {
-					return (
-						<PlaceCard
-							name={place.name}
-							username={place.username}
-							description={place.description}
-							tags={place.tags}
-							img={place.img}
-							key={place.id}
-						/>
-					);
-				})}
+			{placesReadyToRender(places, filters).map((place) => {
+				return (
+					<PlaceCard
+						name={place.name}
+						username={place.username}
+						description={place.description}
+						tags={place.tags}
+						img={place.img}
+						rating={place.rating}
+						key={place.id}
+					/>
+				);
+			})}
 		</div>
 	);
 }
@@ -60,6 +71,7 @@ PlacesList.defaultProps = {
 				src: hooliIcon.src,
 				alt: "Ikona sportoviště",
 			},
+			rating: 5,
 		},
 		{
 			id: 2,
@@ -95,6 +107,7 @@ PlacesList.defaultProps = {
 				src: hooliIcon.src,
 				alt: "Ikona sportoviště",
 			},
+			rating: 4,
 		},
 		{
 			id: 3,
@@ -122,6 +135,7 @@ PlacesList.defaultProps = {
 				src: hooliIcon.src,
 				alt: "Ikona sportoviště",
 			},
+			rating: 2,
 		},
 		{
 			id: 4,
@@ -157,6 +171,7 @@ PlacesList.defaultProps = {
 				src: hooliIcon.src,
 				alt: "Ikona sportoviště",
 			},
+			rating: 4,
 		},
 		{
 			id: 5,
@@ -192,6 +207,7 @@ PlacesList.defaultProps = {
 				src: hooliIcon.src,
 				alt: "Ikona sportoviště",
 			},
+			rating: 5,
 		},
 		{
 			id: 6,
@@ -215,6 +231,7 @@ PlacesList.defaultProps = {
 				src: hooliIcon.src,
 				alt: "Ikona sportoviště",
 			},
+			rating: 1,
 		},
 		{
 			id: 7,
@@ -242,6 +259,7 @@ PlacesList.defaultProps = {
 				src: hooliIcon.src,
 				alt: "Ikona sportoviště",
 			},
+			rating: 3,
 		},
 	],
 };
