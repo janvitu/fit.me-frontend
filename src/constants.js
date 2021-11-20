@@ -8,3 +8,9 @@ export const APPROUTES = [
 	{ name: "places", path: "/sportoviste", text: "Sportoviště" },
 	{ name: "trainers", path: "/treneri", text: "Trenéři" },
 ];
+
+export const REGISTER_FORM_INFO = [
+	{ name: "user", label: "Registrace uživatele" },
+	{ name: "trainer", label: "Registrace trenéra" },
+	{ name: "place", label: "Registrace sportoviště" },
+];
