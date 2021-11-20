@@ -11,7 +11,6 @@ export function FilterOption({ name, addFilterOption, selected }) {
 			}}
 		>
 			<a
-				href="#"
 				className={` block px-4 py-2 text-sm ${isSelected ? "text-main-500" : "text-gray-900"}`}
 				role="menuitem"
 				tabIndex="-1"

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FilterOption } from "@src/atoms";
 
-export function Filter({ name, subject, options, filters, setFilters }) {
+export function Filter({ name, options, filters, setFilters }) {
 	const [toggled, setToggled] = useState(false);
 
 	const addFilterOptionHandler = (option) => {
@@ -45,23 +45,25 @@ export function Filter({ name, subject, options, filters, setFilters }) {
 				</div>
 				{toggled && (
 					<div
-						className="absolute origin-top-right left-0 mt-2 w-56 max-h-80 overflow-y-scroll  rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-100"
+						className="absolute origin-top-right left-0 mt-2 w-56 max-h-36 overflow-y-scroll  rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-100"
 						role="menu"
 						aria-orientation="vertical"
 						aria-labelledby="menu-button"
 						tabIndex="-1"
 					>
-						{options.map((option, index) => {
-							return (
-								<FilterOption
-									name={option}
-									addFilterOption={(option) => addFilterOptionHandler(option)}
-									// selected={filters[subject].includes(option)}
-									selected={filters.tags.includes(option)}
-									key={index}
-								/>
-							);
-						})}
+						{options
+							.sort((a, b) => a.localeCompare(b))
+							.map((option, index) => {
+								return (
+									<FilterOption
+										name={option}
+										addFilterOption={(option) => addFilterOptionHandler(option)}
+										// selected={filters[subject].includes(option)}
+										selected={filters.tags.includes(option)}
+										key={index}
+									/>
+								);
+							})}
 					</div>
 				)}
 			</div>
@@ -71,5 +73,15 @@ export function Filter({ name, subject, options, filters, setFilters }) {
 
 Filter.defaultProps = {
 	name: "Tagy",
-	options: ["Powerlifting", "Yoga", "Badminton", "Tennis", "Squash", "FitBox"],
+	options: [
+		"Powerlifting",
+		"Fyzioterapie",
+		"Yoga",
+		"Zen master",
+		"Badminton",
+		"Mistr chi",
+		"Tennis",
+		"Squash",
+		"FitBox",
+	],
 };

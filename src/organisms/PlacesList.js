@@ -14,11 +14,19 @@ export function PlacesList({ places, filters }) {
 				return condition;
 			});
 		}
-		return arrOfPlaces;
+		console.log(reorderPlaces(arrOfPlaces, filters.order));
+		return reorderPlaces(arrOfPlaces, filters.order);
 	};
 
-	//TODO ordering places by selected field ASC/DESC
-	const reorderPlaces = (places, order) => {};
+	const reorderPlaces = (places, order) => {
+		if (order === "") {
+			return places;
+		} else if (order === "ASC") {
+			return places.sort((a, b) => parseFloat(a.rating) - parseFloat(b.rating));
+		} else if (order === "DESC") {
+			return places.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating));
+		}
+	};
 
 	return (
 		<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -30,6 +38,7 @@ export function PlacesList({ places, filters }) {
 						description={place.description}
 						tags={place.tags}
 						img={place.img}
+						rating={place.rating}
 						key={place.id}
 					/>
 				);
@@ -62,6 +71,7 @@ PlacesList.defaultProps = {
 				src: hooliIcon.src,
 				alt: "Ikona sportoviště",
 			},
+			rating: 5,
 		},
 		{
 			id: 2,
@@ -97,6 +107,7 @@ PlacesList.defaultProps = {
 				src: hooliIcon.src,
 				alt: "Ikona sportoviště",
 			},
+			rating: 4,
 		},
 		{
 			id: 3,
@@ -124,6 +135,7 @@ PlacesList.defaultProps = {
 				src: hooliIcon.src,
 				alt: "Ikona sportoviště",
 			},
+			rating: 2,
 		},
 		{
 			id: 4,
@@ -159,6 +171,7 @@ PlacesList.defaultProps = {
 				src: hooliIcon.src,
 				alt: "Ikona sportoviště",
 			},
+			rating: 4,
 		},
 		{
 			id: 5,
@@ -194,6 +207,7 @@ PlacesList.defaultProps = {
 				src: hooliIcon.src,
 				alt: "Ikona sportoviště",
 			},
+			rating: 5,
 		},
 		{
 			id: 6,
@@ -217,6 +231,7 @@ PlacesList.defaultProps = {
 				src: hooliIcon.src,
 				alt: "Ikona sportoviště",
 			},
+			rating: 1,
 		},
 		{
 			id: 7,
@@ -244,6 +259,7 @@ PlacesList.defaultProps = {
 				src: hooliIcon.src,
 				alt: "Ikona sportoviště",
 			},
+			rating: 3,
 		},
 	],
 };

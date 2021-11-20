@@ -1,5 +1,5 @@
-import { H1, H3, XlWrapper, SmWrapper } from "@src/atoms";
-import { Filter } from "@src/molecules";
+import { H1, H3, XlWrapper } from "@src/atoms";
+import { Filter, Sorter } from "@src/molecules";
 import { PlacesList } from "@src/organisms";
 import { DynamicSite } from "@src/templates/DynamicSite";
 import { useState } from "react";
@@ -7,6 +7,7 @@ import { useState } from "react";
 export default function Places() {
 	const [filters, setFilters] = useState({
 		tags: [],
+		order: "",
 	});
 
 	return (
@@ -28,19 +29,25 @@ export default function Places() {
 									type="text"
 									name="adress"
 									id="adress"
-									className="py-2 ring-main-500 focus:border-main-500 block w-full rounded-none rounded-l-md pl-10 sm:text-sm border border-gray-300"
-									placeholder="Robert Chott"
+									className="py-2 ring-main-500 focus:border-main-500 block w-full rounded-none rounded-l-md rounded-r-md pl-10 sm:text-sm border border-gray-300"
+									placeholder="U Jindřišské věže 23 / Praha / XFitness"
 								/>
 							</div>
 						</div>
-						<div className="mt-5">
-							<H3 variant="small">Filtr: </H3>
-							<Filter
-								name="Tagy"
-								// options={options}
-								filters={filters}
-								setFilters={(val) => setFilters(val)}
-							/>
+						<div className="mt-5 flex gap-20 ">
+							<div>
+								<H3 variant="small">Filtr: </H3>
+								<Filter
+									name="Tagy"
+									// options={options}
+									filters={filters}
+									setFilters={(val) => setFilters(val)}
+								/>
+							</div>
+							<div>
+								<H3 variant="small">Seřadit dle hodnocení:</H3>
+								<Sorter setFilters={setFilters} />
+							</div>
 						</div>
 					</div>
 				</XlWrapper>
