@@ -17,9 +17,6 @@ export function FilterOption({ name, addFilterOption, selected }) {
 				id="menu-item-0"
 			>
 				{name}
-
-				{/* Přidej obrázek selectnutí filtru */}
-				{/* {isSelected && } */}
 			</a>
 		</div>
 	);

@@ -56,18 +56,12 @@ export function PlaceCard({ name, username, description, tags, img, rating }) {
 							className="bg-gray-300 rounded-full flex-shrink-0"
 							width="40"
 							height="40"
-							src={img.src}
-							alt={img.alt}
+							src={img}
+							alt="alt"
 						/>
 					</div>
 				</a>
 			</Link>
-			{/* <div> */}
-			{/* <div className="-mt-px flex divide-x divide-gray-200">
-					<ButtonCard text="Email" img={emailIcon} />
-					<ButtonCard text="Chat" img={messageIcon} />
-				</div> */}
-			{/* </div> */}
 		</div>
 	);
 }
@@ -102,8 +96,5 @@ PlaceCard.defaultProps = {
 			color: "pink",
 		},
 	],
-	img: {
-		src: hooliIcon.src,
-		alt: "",
-	},
+	img: hooliIcon.src,
 };

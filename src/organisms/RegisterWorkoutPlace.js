@@ -1,6 +1,7 @@
 import { InputWrapper } from "@src/molecules";
 import { useFormik } from "formik";
 import { ButtonSubmit } from "../atoms/ButtonSubmit";
+
 import * as Yup from "yup";
 
 export function RegisterWorkoutPlace() {

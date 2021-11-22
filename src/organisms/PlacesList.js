@@ -67,10 +67,7 @@ PlacesList.defaultProps = {
 					color: "green",
 				},
 			],
-			img: {
-				src: hooliIcon.src,
-				alt: "Ikona sportoviště",
-			},
+			img: hooliIcon.src,
 			rating: 5,
 		},
 		{
@@ -103,10 +100,7 @@ PlacesList.defaultProps = {
 					color: "pink",
 				},
 			],
-			img: {
-				src: hooliIcon.src,
-				alt: "Ikona sportoviště",
-			},
+			img: hooliIcon.src,
 			rating: 4,
 		},
 		{
@@ -131,10 +125,7 @@ PlacesList.defaultProps = {
 					color: "pink",
 				},
 			],
-			img: {
-				src: hooliIcon.src,
-				alt: "Ikona sportoviště",
-			},
+			img: hooliIcon.src,
 			rating: 2,
 		},
 		{
@@ -167,10 +158,7 @@ PlacesList.defaultProps = {
 					color: "pink",
 				},
 			],
-			img: {
-				src: hooliIcon.src,
-				alt: "Ikona sportoviště",
-			},
+			img: hooliIcon.src,
 			rating: 4,
 		},
 		{
@@ -203,10 +191,7 @@ PlacesList.defaultProps = {
 					color: "pink",
 				},
 			],
-			img: {
-				src: hooliIcon.src,
-				alt: "Ikona sportoviště",
-			},
+			img: hooliIcon.src,
 			rating: 5,
 		},
 		{
@@ -227,10 +212,7 @@ PlacesList.defaultProps = {
 					color: "pink",
 				},
 			],
-			img: {
-				src: hooliIcon.src,
-				alt: "Ikona sportoviště",
-			},
+			img: hooliIcon.src,
 			rating: 1,
 		},
 		{
@@ -255,10 +237,7 @@ PlacesList.defaultProps = {
 					color: "pink",
 				},
 			],
-			img: {
-				src: hooliIcon.src,
-				alt: "Ikona sportoviště",
-			},
+			img: hooliIcon.src,
 			rating: 3,
 		},
 	],

@@ -1,5 +1,4 @@
-import { InputWrapper } from "@src/molecules";
-import { TextAreaWrapper } from "@src/molecules";
+import { InputWrapper, TextAreaWrapper } from "@src/molecules";
 import { ButtonSubmit } from "@src/atoms";
 import { useFormik } from "formik";
 import * as Yup from "yup";

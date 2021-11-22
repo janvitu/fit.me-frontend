@@ -2,7 +2,6 @@ export function DescriptionListTerm({ svgDraw, children }) {
 	return (
 		<dt>
 			<div className="absolute flex items-center justify-center h-12 w-12 rounded-md bg-main-500 text-white">
-				{/* <!-- Heroicon name: outline/globe-alt --> */}
 				<svg
 					className="h-6 w-6"
 					xmlns="http://www.w3.org/2000/svg"

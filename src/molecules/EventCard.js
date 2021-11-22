@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Tag } from "@src/atoms";
+import { ArrowLink, Tag } from "@src/atoms";
 import hooliIcon from "@assets/img/hooli-brands.svg";
 import Link from "next/link";
 import { RatingIndicator } from "@src/molecules";
@@ -68,17 +68,11 @@ export function EventCard({ id, date, time, name, rating, numOfRegistered, tags,
 								</div>
 							</div>
 							<div className="text-gray-500 text-xs mb-2">Přihlášených: {numOfRegistered}</div>
-							<div className="text-xs text-yellow-500"> Více > </div>
+							<ArrowLink>Více</ArrowLink>
 						</div>
 					</div>
 				</a>
 			</Link>
-			{/* <div> */}
-			{/* <div className="-mt-px flex divide-x divide-gray-200">
-					<ButtonCard text="Email" img={emailIcon} />
-					<ButtonCard text="Chat" img={messageIcon} />
-				</div> */}
-			{/* </div> */}
 		</div>
 	);
 }

@@ -1,8 +1,6 @@
 import { ButtonCard, Tag } from "@src/atoms";
 import { RatingIndicator } from "@src/molecules";
 import hooliIcon from "@assets/img/hooli-brands.svg";
-import emailIcon from "@assets/img/email.svg";
-import messageIcon from "@assets/img/message.svg";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -16,8 +14,8 @@ export function TrainerCard({ name, username, description, tags, img, rating }) 
 							width="128 px"
 							height="128 px"
 							className="w-32 h-32 flex-shrink-0 mx-auto rounded-full"
-							src={img.src}
-							alt={img.alt}
+							src={img}
+							alt="alt"
 						/>
 						<h3 className="mt-6 text-gray-900 text-sm font-medium">{name}</h3>
 						<RatingIndicator ratingValue={rating} className="self-center" />
@@ -34,11 +32,6 @@ export function TrainerCard({ name, username, description, tags, img, rating }) 
 					</div>
 				</a>
 			</Link>
-
-			{/* <div className="-mt-px flex divide-x divide-gray-200">
-					<ButtonCard text="Email" img={emailIcon} />
-					<ButtonCard text="Chat" img={messageIcon} />
-				</div> */}
 		</div>
 	);
 }
@@ -48,8 +41,5 @@ TrainerCard.defaultProps = {
 	username: "robertchott",
 	description: "Váš osobní trenér za cestou úlevy",
 
-	img: {
-		src: hooliIcon.src,
-		alt: "",
-	},
+	img: hooliIcon.src,
 };

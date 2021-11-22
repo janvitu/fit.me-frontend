@@ -1,10 +1,9 @@
-import { CustomToaster } from "@src/atoms";
+import { CustomToaster, ButtonSubmit } from "@src/atoms";
 import { InputWrapper } from "@src/molecules";
 import { useFormik } from "formik";
-import { ButtonSubmit } from "../atoms/ButtonSubmit";
+
 import * as Yup from "yup";
 import { gql, useMutation } from "@apollo/client";
-import Router from "next/router";
 import toast from "react-hot-toast";
 
 const RGISTER_TRAINTER = gql`
@@ -55,7 +54,6 @@ export function RegisterTrainer() {
 			)
 				.then((res) => {
 					console.log(res);
-					Router.push("/prihlasit-se");
 				})
 				.catch((err) => {
 					console.log(err);

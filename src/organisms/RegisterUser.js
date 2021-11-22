@@ -2,9 +2,9 @@ import { CustomToaster } from "@src/atoms";
 import { InputWrapper } from "@src/molecules";
 import { useFormik } from "formik";
 import { ButtonSubmit } from "../atoms/ButtonSubmit";
+
 import * as Yup from "yup";
 import { gql, useMutation } from "@apollo/client";
-import Router from "next/router";
 import toast from "react-hot-toast";
 
 const REGISTER_USER = gql`
@@ -46,12 +46,13 @@ export function RegisterUser() {
 			)
 				.then((res) => {
 					console.log(res);
-					Router.push("/prihlasit-se");
 				})
 				.catch((err) => {
 					console.log(err);
+				})
+				.finally(() => {
+					formik.resetForm();
 				});
-			formik.resetForm();
 		},
 		validationSchema: Yup.object().shape({
 			name: Yup.string().required("Jméno nesmí být prázdné"),

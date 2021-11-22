@@ -3,38 +3,6 @@ import { H3, H4, HeadingWrapper, XlWrapper, DelimiterWide } from "@src/atoms";
 import { ProfileCard, PlaceCard, TrainerCard } from "@src/molecules";
 
 export function UserProfileTemplate({ profileImg, userData }) {
-	/*	function HistoryItemsList({ userData }) {
-		return (
-			<div className="mx-auto lg:mx-0">
-				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
-					{userData.history.map((historyItem) => {
-						if (historyItem.type === "place") {
-							return (
-								<PlaceCard
-									key={historyItem.id}
-									name={historyItem.name}
-									description={historyItem.description}
-									tags={historyItem.tags}
-									img={historyItem.img}
-								/>
-							);
-						} else if (historyItem.type === "trainer") {
-							return (
-								<TrainerCard
-									key={historyItem.id}
-									name={historyItem.name}
-									description={historyItem.description}
-									tags={historyItem.tags}
-									img={historyItem.img}
-								/>
-							);
-						}
-					})}
-				</div>
-			</div>
-		);
-	}
-	*/
 	function FavouritesPlaces({ userData }) {
 		return (
 			<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -77,8 +45,8 @@ export function UserProfileTemplate({ profileImg, userData }) {
 						<img
 							src={profileImg}
 							alt="Profile Image"
-							width={160}
-							height={160}
+							width="160"
+							height="160"
 							className="rounded-full object-cover mx-auto h-40 w-40"
 						/>
 					</div>
@@ -88,14 +56,8 @@ export function UserProfileTemplate({ profileImg, userData }) {
 				</div>
 			</XlWrapper>
 			<XlWrapper>
-				<div className="lg:grid max-w-screen-xl mx-auto lg:grid-cols-4 md:mt-36 mt-8 gap-8">
-					<div className="lg:col-span-6 space-y-7">
-						<HeadingWrapper>
-							<div className="mt-10 text-center md:text-left">
-								<H3 variant="base">Lekce</H3>
-							</div>
-						</HeadingWrapper>
-
+				<div className="max-w-screen-xl mx-auto md:mt-36 mt-8 gap-8">
+					<div className="space-y-7">
 						<HeadingWrapper>
 							<div className="mt-10 text-center md:text-left">
 								<H3 variant="base">Oblíbené</H3>
@@ -112,12 +74,6 @@ export function UserProfileTemplate({ profileImg, userData }) {
 						</div>
 						<FavouritesTrainers userData={userData} />
 					</div>
-					{/*	<div className="sm:mr-4">
-					<div className="text-center">
-						<H3 variant="base">Historie</H3>
-					</div>
-							 <HistoryItemsList userData={userData} /> 
-				</div> */}
 				</div>
 			</XlWrapper>
 		</>
@@ -127,16 +83,6 @@ export function UserProfileTemplate({ profileImg, userData }) {
 UserProfileTemplate.defaultProps = {
 	profileImg: "https://source.unsplash.com/random",
 	userData: {
-		/*	history: [
-			{
-				id: 1,
-				type: "place",
-				name: "Náměstí",
-				description: "Náměstí",
-				tags: [{ name: "náměstí" }, { name: "náměstí" }],
-				img: "https://images.unsplash.com/photo-1588790981757-b9f9f9f8b8f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
-			},
-		],*/
 		favourites: {
 			places: [
 				{

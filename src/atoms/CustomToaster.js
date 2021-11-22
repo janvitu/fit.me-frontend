@@ -9,14 +9,12 @@ export function CustomToaster({}) {
 			containerStyle={{ position: "absolute", top: 100 }}
 			className="absolute top-40"
 			toastOptions={{
-				// Define default options
 				className: "",
 				duration: 9000,
 				style: {
 					background: "white",
 					color: "black",
 				},
-				// Default options for specific types
 				success: {
 					duration: 9000,
 					theme: {

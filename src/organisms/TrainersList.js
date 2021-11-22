@@ -53,10 +53,7 @@ TrainersList.defaultProps = {
 			id: 1,
 			name: "Robert Chott",
 			username: "robertchott",
-			img: {
-				src: hooliIcon.src,
-				alt: "Ikona sportoviště",
-			},
+			img: hooliIcon.src,
 			tags: [
 				{
 					name: "Fyzioterapie",
@@ -77,10 +74,7 @@ TrainersList.defaultProps = {
 			id: 2,
 			name: "Robert Chott",
 			username: "robertchott",
-			img: {
-				src: hooliIcon.src,
-				alt: "Ikona sportoviště",
-			},
+			img: hooliIcon.src,
 			tags: [
 				{
 					name: "Zen master",
@@ -93,10 +87,7 @@ TrainersList.defaultProps = {
 			id: 3,
 			name: "Robert Chott",
 			username: "robertchott",
-			img: {
-				src: hooliIcon.src,
-				alt: "Ikona sportoviště",
-			},
+			img: hooliIcon.src,
 			tags: [
 				{
 					name: "Mistr chi",
@@ -109,10 +100,7 @@ TrainersList.defaultProps = {
 			id: 4,
 			name: "Robert Chott",
 			username: "robertchott",
-			img: {
-				src: hooliIcon.src,
-				alt: "Ikona sportoviště",
-			},
+			img: hooliIcon.src,
 			tags: [
 				{
 					name: "Mistr chi",
@@ -129,10 +117,7 @@ TrainersList.defaultProps = {
 			id: 5,
 			name: "Robert Chott",
 			username: "robertchott",
-			img: {
-				src: hooliIcon.src,
-				alt: "Ikona sportoviště",
-			},
+			img: hooliIcon.src,
 			tags: [
 				{
 					name: "Fyzioterapie",
@@ -145,10 +130,7 @@ TrainersList.defaultProps = {
 			id: 6,
 			name: "Robert Chott",
 			username: "robertchott",
-			img: {
-				src: hooliIcon.src,
-				alt: "Ikona sportoviště",
-			},
+			img: hooliIcon.src,
 			tags: [
 				{
 					name: "Fyzioterapie",
