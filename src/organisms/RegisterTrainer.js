@@ -1,26 +1,74 @@
+import { CustomToaster } from "@src/atoms";
 import { InputWrapper } from "@src/molecules";
 import { useFormik } from "formik";
 import { ButtonSubmit } from "../atoms/ButtonSubmit";
 import * as Yup from "yup";
+import { gql, useMutation } from "@apollo/client";
+import Router from "next/router";
+import toast from "react-hot-toast";
+
+const RGISTER_TRAINTER = gql`
+	mutation RegisterTrainer(
+		$name: String!
+		$surname: String!
+		$email: String!
+		$vat_number: Number!
+		$password: String!
+	) {
+		trainerSignUp(
+			name: $name
+			surname: $surname
+			email: $email
+			vat_number: $vat_number
+			password: $password
+		)
+	}
+`;
 
 export function RegisterTrainer() {
+	const [registerTrainer] = useMutation(RGISTER_TRAINTER);
 	const formik = useFormik({
 		initialValues: {
 			name: "",
 			surname: "",
 			email: "",
-			ico: "",
+			vat_number: "",
 			password: "",
 			secondPassword: "",
 		},
 		onSubmit: (values) => {
-			console.log(JSON.stringify(values, null));
+			registerTrainer(
+				{
+					variables: {
+						name: values.name,
+						surname: values.surname,
+						email: values.email,
+						vat_number: values.vat_number,
+						password: values.password,
+					},
+				},
+				toast.promise(registerSportsman(), {
+					loading: "Vyčkejte prosím, požadavek se zpracovává",
+					success: "Registrace byla úspěšná! Pro pokračování se přihlaste.",
+					error: "Registrace se nepovedla, zkuste to prosím znovu či se obraťte na podporu.",
+				}),
+			)
+				.then((res) => {
+					console.log(res);
+					Router.push("/prihlasit-se");
+				})
+				.catch((err) => {
+					console.log(err);
+				})
+				.finally(() => {
+					formik.resetForm();
+				});
 		},
 		validationSchema: Yup.object().shape({
 			name: Yup.string().required("Jméno nesmí být prázdné"),
 			surname: Yup.string().required("Příjmení nesmí být prázdné"),
 			email: Yup.string().email("Špatný formát emailu").required("Email nesmí být prázdný"),
-			ico: Yup.string()
+			vat_number: Yup.string()
 				.max(8, "IČO může obsahovat maximálně 8 čísel")
 				.required("IČO musí být vyplněné"),
 			password: Yup.string()
@@ -35,7 +83,8 @@ export function RegisterTrainer() {
 		}),
 	});
 	return (
-		<form className="space-y-9" onSubmit={formik.onSubmit}>
+		<form className="space-y-9" onSubmit={formik.handleSubmit}>
+			<CustomToaster />
 			<div className="space-y-9">
 				<InputWrapper formik={formik} name="name" type="text" isRequired description="Jméno" />
 				<InputWrapper
@@ -45,7 +94,13 @@ export function RegisterTrainer() {
 					isRequired
 					description="Příjmení"
 				/>
-				<InputWrapper formik={formik} name="ico" type="string" isRequired description="IČO" />
+				<InputWrapper
+					formik={formik}
+					name="vat_number"
+					type="string"
+					isRequired
+					description="IČO"
+				/>
 				<InputWrapper formik={formik} name="email" type="email" isRequired description="Email" />
 				<InputWrapper
 					formik={formik}

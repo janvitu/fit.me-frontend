@@ -41,8 +41,10 @@ export function LogInForm() {
 				})
 				.catch((err) => {
 					console.error(err);
+				})
+				.finally(() => {
+					formik.resetForm();
 				});
-			formik.resetForm();
 		},
 		validationSchema: Yup.object().shape({
 			email: Yup.string().email("Špatný formát emailu").required("Email nesmí být prázdný"),
