@@ -21,3 +21,4 @@ export { EventCard } from "./EventCard";
 export { Modal } from "./Modal";
 export { Filter } from "./Filter";
 export { Sorter } from "./Sorter";
+export { ResponsiveGallery } from "./ResponsiveGallery";

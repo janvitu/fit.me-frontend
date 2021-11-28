@@ -1,9 +1,18 @@
 import { H2, TextProse, XlWrapper } from "@src/atoms";
-import { Modal, RatingInput } from "@src/molecules";
+import { Modal, RatingInput, ResponsiveGallery } from "@src/molecules";
 import { ContactBusinessForm, DetailCard, RatingList } from "@src/organisms";
 import snarkdown from "snarkdown";
 import { useState, useEffect } from "react";
 import { disableScroll, enableScroll } from "@src/utils/handleScroll";
+
+const imagesFromServer = [
+	{ src: "https://source.unsplash.com/random/?landscape", alt: "" },
+	{ src: "https://source.unsplash.com/random/?male", alt: "" },
+	{ src: "https://source.unsplash.com/random/?male", alt: "" },
+	{ src: "https://source.unsplash.com/random/?female", alt: "" },
+	{ src: "https://source.unsplash.com/random/?landscape", alt: "" },
+	{ src: "https://source.unsplash.com/random/?landscape", alt: "" },
+];
 
 export function BusinessProfileTemplate({ BusinessProfileData }) {
 	const article = snarkdown(BusinessProfileData.article);
@@ -122,38 +131,7 @@ export function BusinessProfileTemplate({ BusinessProfileData }) {
 			</section>
 			<section>
 				<XlWrapper>
-					<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 grid-flow-row justify-items-center gap-6">
-						<img
-							className="h-60 w-auto"
-							src="https://source.unsplash.com/random/?landscape"
-							alt=""
-						/>
-						<img
-							className="h-60 w-auto"
-							src="https://source.unsplash.com/random/?landscape"
-							alt=""
-						/>
-						<img
-							className="h-60 w-auto"
-							src="https://source.unsplash.com/random/?landscape"
-							alt=""
-						/>
-						<img
-							className="h-60 w-auto"
-							src="https://source.unsplash.com/random/?landscape"
-							alt=""
-						/>
-						<img
-							className="h-60 w-auto"
-							src="https://source.unsplash.com/random/?landscape"
-							alt=""
-						/>
-						<img
-							className="h-60 w-auto"
-							src="https://source.unsplash.com/random/?landscape"
-							alt=""
-						/>
-					</div>
+					<ResponsiveGallery>{imagesFromServer}</ResponsiveGallery>
 				</XlWrapper>
 			</section>
 			<section>

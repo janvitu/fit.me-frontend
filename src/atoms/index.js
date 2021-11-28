@@ -38,3 +38,7 @@ export { AvatarImg } from "./AvatarImg";
 export { ModalOverlay } from "./ModalOverlay";
 export { FilterOption } from "./FilterOption";
 export { CustomToaster } from "./CustomToaster";
+export { ModalWithClose } from "./ModalWithClose";
+export { CarouselFull } from "./CarouselFull";
+export { CarouselMultiple } from "./CarouselMultiple";
+export { GridGallery } from "./GridGallery";
