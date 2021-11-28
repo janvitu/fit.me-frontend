@@ -22,3 +22,4 @@ export { Modal } from "./Modal";
 export { Filter } from "./Filter";
 export { Sorter } from "./Sorter";
 export { ProfilePopup } from "./ProfilePopup";
+export { ResponsiveGallery } from "./ResponsiveGallery";

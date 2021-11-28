@@ -40,3 +40,7 @@ export { FilterOption } from "./FilterOption";
 export { ButtonFilter } from "./ButtonFilter";
 export { CustomToaster } from "./CustomToaster";
 export { ProfileImage } from "./ProfileImage";
+export { ModalWithClose } from "./ModalWithClose";
+export { CarouselFull } from "./CarouselFull";
+export { CarouselMultiple } from "./CarouselMultiple";
+export { GridGallery } from "./GridGallery";
