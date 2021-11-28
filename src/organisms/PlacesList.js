@@ -14,7 +14,6 @@ export function PlacesList({ places, filters }) {
 				return condition;
 			});
 		}
-		console.log(reorderPlaces(arrOfPlaces, filters.order));
 		return reorderPlaces(arrOfPlaces, filters.order);
 	};
 
