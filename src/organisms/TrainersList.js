@@ -14,7 +14,6 @@ export function TrainersList({ trainers, filters }) {
 				return condition;
 			});
 		}
-		console.log(reorderPlaces(arrOfTrainers, filters.order));
 		return reorderPlaces(arrOfTrainers, filters.order);
 	};
 

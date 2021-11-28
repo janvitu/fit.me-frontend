@@ -45,8 +45,15 @@ export default function Trainers() {
 									/>
 									{/* Selected filters wrapper */}
 									<div className=" flex gap-x-3 gap-y-1 flex-wrap">
-										{filters.tags.map((tag) => {
-											return <ButtonFilter name={tag} filters={filters} setFilters={setFilters} />;
+										{filters.tags.map((tag, index) => {
+											return (
+												<ButtonFilter
+													name={tag}
+													filters={filters}
+													setFilters={setFilters}
+													key={index}
+												/>
+											);
 										})}
 									</div>
 								</div>
