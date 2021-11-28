@@ -8,18 +8,13 @@ import { gql, useMutation } from "@apollo/client";
 import toast from "react-hot-toast";
 
 const REGISTER_USER = gql`
-	mutation RegisterSportsman(
-		$name: String!
-		$surname: String!
-		$email: String!
-		$password: String!
-	) {
-		sportsmanSignUp(name: $name, surname: $surname, email: $email, password: $password)
+	mutation CreateSportsman($name: String!, $surname: String!, $email: String!, $password: String!) {
+		createSportsman(name: $name, surname: $surname, email: $email, password: $password)
 	}
 `;
 
 export function RegisterUser() {
-	const [registerSportsman] = useMutation(REGISTER_USER);
+	const [createSportsman] = useMutation(REGISTER_USER);
 	const formik = useFormik({
 		initialValues: {
 			name: "",
@@ -29,7 +24,7 @@ export function RegisterUser() {
 			secondPassword: "",
 		},
 		onSubmit: (values) => {
-			registerSportsman(
+			createSportsman(
 				{
 					variables: {
 						name: values.name,
@@ -38,7 +33,7 @@ export function RegisterUser() {
 						password: values.password,
 					},
 				},
-				toast.promise(registerSportsman(), {
+				toast.promise(createSportsman(), {
 					loading: "Vyčkejte prosím, požadavek se zpracovává",
 					success: "Registrace byla úspěšná! Pro pokračování se přihlaste.",
 					error: "Registrace se nepovedla, zkuste to prosím znovu či se obraťte na podporu.",

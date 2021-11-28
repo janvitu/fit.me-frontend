@@ -7,14 +7,14 @@ import { gql, useMutation } from "@apollo/client";
 import toast from "react-hot-toast";
 
 const RGISTER_TRAINTER = gql`
-	mutation RegisterTrainer(
+	mutation CreateTrainer(
 		$name: String!
 		$surname: String!
 		$email: String!
 		$vat_number: Number!
 		$password: String!
 	) {
-		trainerSignUp(
+		createTrainer(
 			name: $name
 			surname: $surname
 			email: $email
@@ -25,7 +25,7 @@ const RGISTER_TRAINTER = gql`
 `;
 
 export function RegisterTrainer() {
-	const [registerTrainer] = useMutation(RGISTER_TRAINTER);
+	const [createTrainer] = useMutation(RGISTER_TRAINTER);
 	const formik = useFormik({
 		initialValues: {
 			name: "",
@@ -36,7 +36,7 @@ export function RegisterTrainer() {
 			secondPassword: "",
 		},
 		onSubmit: (values) => {
-			registerTrainer(
+			createTrainer(
 				{
 					variables: {
 						name: values.name,
@@ -46,7 +46,7 @@ export function RegisterTrainer() {
 						password: values.password,
 					},
 				},
-				toast.promise(registerSportsman(), {
+				toast.promise(createTrainer(), {
 					loading: "Vyčkejte prosím, požadavek se zpracovává",
 					success: "Registrace byla úspěšná! Pro pokračování se přihlaste.",
 					error: "Registrace se nepovedla, zkuste to prosím znovu či se obraťte na podporu.",

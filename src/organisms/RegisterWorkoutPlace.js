@@ -3,8 +3,34 @@ import { useFormik } from "formik";
 import { ButtonSubmit } from "../atoms/ButtonSubmit";
 
 import * as Yup from "yup";
+import { gql, useMutation } from "@apollo/client";
+
+const REGISTER_SPORTS_GROUND = gql`
+	mutation CreateSportsground(
+		$name: String!
+		$street: String!
+		$city: String!
+		$zip: String!
+		$country: String!
+		$email: String!
+		$password: String!
+		$vat_number: String!
+	) {
+		createSportsground(
+			name: $name
+			street: $street
+			city: $city
+			zip: $zip
+			country: $country
+			email: $email
+			password: $password
+			vat_number: $vat_number
+		)
+	}
+`;
 
 export function RegisterWorkoutPlace() {
+	const [createSportsground] = useMutation(REGISTER_SPORTS_GROUND);
 	const formik = useFormik({
 		initialValues: {
 			name: "",
@@ -17,7 +43,27 @@ export function RegisterWorkoutPlace() {
 			secondPassword: "",
 		},
 		onSubmit: (values) => {
-			console.log(JSON.stringify(values, null));
+			createSportsground({
+				variables: {
+					name: values.name,
+					street: values.street,
+					city: values.city,
+					zip: values.zip,
+					country: "Czech Republic",
+					email: values.email,
+					password: values.password,
+					vat_number: values.ico,
+				},
+			})
+				.then((res) => {
+					console.log(res);
+				})
+				.catch((err) => {
+					console.log(err);
+				})
+				.finally(() => {
+					formik.resetForm();
+				});
 		},
 		validationSchema: Yup.object().shape({
 			name: Yup.string().required("Jméno nesmí být prázdné"),
