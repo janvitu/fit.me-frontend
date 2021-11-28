@@ -1,4 +1,4 @@
-import { NavLink } from "@src/atoms";
+import { NavLink, ProfileImage } from "@src/atoms";
 import { useRouter } from "next/router";
 import { ButtonLink } from "@src/atoms";
 
@@ -10,6 +10,11 @@ export function NavStatics({ routes, toggled }) {
 				toggled ? "scale-y-100" : "scale-y-0"
 			}`}
 		>
+			<div className="md:hidden overflow-x-hidden mt-2">
+				<NavLink>
+					<ProfileImage variant="medium" />
+				</NavLink>
+			</div>
 			{routes.map(({ name, path, text }) => (
 				<NavLink key={name} href={path} linkIsActive={router.asPath === path}>
 					{text}
