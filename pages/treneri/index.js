@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { H3, H1, XlWrapper } from "@src/atoms";
+import { H3, H1, XlWrapper, ButtonFilter } from "@src/atoms";
 import { Filter, Sorter } from "@src/molecules";
 import { TrainersList } from "@src/organisms";
 import { DynamicSite } from "@src/templates/DynamicSite";
@@ -33,19 +33,27 @@ export default function Trainers() {
 								/>
 							</div>
 						</div>
-						<div className="mt-5 flex gap-20 ">
-							<div>
+						<div className="mt-5 flex ">
+							<div className="max-w-xs">
 								<H3 variant="small">Filtr: </H3>
-								<Filter
-									name="Tagy"
-									// options={options}
-									filters={filters}
-									setFilters={(val) => setFilters(val)}
-								/>
+								<div className="flex flex-col gap-y-5">
+									<Filter
+										name="Tagy"
+										// options={options}
+										filters={filters}
+										setFilters={(val) => setFilters(val)}
+									/>
+									{/* Selected filters wrapper */}
+									<div className=" flex gap-x-3 gap-y-1 flex-wrap">
+										{filters.tags.map((tag) => {
+											return <ButtonFilter name={tag} filters={filters} setFilters={setFilters} />;
+										})}
+									</div>
+								</div>
 							</div>
-							<div>
+							<div className="absolute left-1/4 ml-32">
 								<H3 variant="small">Seřadit dle hodnocení:</H3>
-								<Sorter setFilters={setFilters} />
+								<Sorter setFilters={setFilters} filters={filters} />
 							</div>
 						</div>
 					</div>
