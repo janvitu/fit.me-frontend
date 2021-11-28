@@ -80,3 +80,12 @@
 .starlist button.selected ~ button svg path:last-child {
 	@apply opacity-100;
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+	color: #fff !important;
+}
+
+.swiper-pagination-bullet {
+	background: #fff !important;
+}

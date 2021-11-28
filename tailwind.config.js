@@ -47,6 +47,11 @@ module.exports = {
 			},
 			zIndex: {
 				100: "100",
+				110: "110",
+			},
+			height: {
+				...tailwindcssDefaults.height,
+				screen80: "80vh",
 			},
 		},
 	},
