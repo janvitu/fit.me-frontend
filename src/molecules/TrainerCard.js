@@ -9,14 +9,16 @@ export function TrainerCard({ name, username, description, tags, img, rating }) 
 		<div className="col-span-1 flex flex-col text-center bg-white rounded-lg shadow ">
 			<Link href={`/treneri/${username}`} passHref>
 				<a>
-					<div className="flex-1 flex flex-col p-8">
-						<Image
-							width="128 px"
-							height="128 px"
-							className="w-32 h-32 flex-shrink-0 mx-auto rounded-full"
-							src={img}
-							alt="alt"
-						/>
+					<div className="flex-1 flex flex-col p-8 ">
+						<div className="w-32 h-32 flex-shrink-0 mx-auto object-cover rounded-full">
+							<Image
+								width="128"
+								height="128"
+								className="w-32 h-32 flex-shrink-0 mx-auto object-cover rounded-full"
+								src={img}
+								alt="alt"
+							/>
+						</div>
 						<h3 className="mt-6 text-gray-900 text-sm font-medium">{name}</h3>
 						<RatingIndicator ratingValue={rating} className="self-center" />
 						<dl className="mt-1 flex-grow flex flex-col justify-between">
