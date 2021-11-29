@@ -5,6 +5,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { gql, useMutation } from "@apollo/client";
 import toast from "react-hot-toast";
+import Router from "next/router";
 
 const RGISTER_TRAINTER = gql`
 	mutation CreateTrainer(
@@ -36,24 +37,18 @@ export function RegisterTrainer() {
 			secondPassword: "",
 		},
 		onSubmit: (values) => {
-			createTrainer(
-				{
-					variables: {
-						name: values.name,
-						surname: values.surname,
-						email: values.email,
-						vat_number: values.vat_number,
-						password: values.password,
-					},
+			createTrainer({
+				variables: {
+					name: values.name,
+					surname: values.surname,
+					email: values.email,
+					vat_number: values.vat_number,
+					password: values.password,
 				},
-				toast.promise(createTrainer(), {
-					loading: "Vyčkejte prosím, požadavek se zpracovává",
-					success: "Registrace byla úspěšná! Pro pokračování se přihlaste.",
-					error: "Registrace se nepovedla, zkuste to prosím znovu či se obraťte na podporu.",
-				}),
-			)
+			})
 				.then((res) => {
 					console.log(res);
+					Router.push("/prihlasit-se");
 				})
 				.catch((err) => {
 					console.log(err);

@@ -14,6 +14,7 @@ export function UserProfileTemplate({ profileImg, userData }) {
 							description={favouritPlace.description}
 							tags={favouritPlace.tags}
 							img={favouritPlace.img}
+							rating={favouritPlace.rating}
 						/>
 					);
 				})}
@@ -31,6 +32,7 @@ export function UserProfileTemplate({ profileImg, userData }) {
 							description={favouritTrainer.description}
 							tags={favouritTrainer.tags}
 							img={favouritTrainer.img}
+							rating={favouritTrainer.rating}
 						/>
 					);
 				})}
@@ -87,31 +89,115 @@ UserProfileTemplate.defaultProps = {
 			places: [
 				{
 					id: 1,
-					name: "Náměstí",
-					description: "Náměstí",
-					tags: [{ name: "náměstí" }, { name: "náměstí" }],
-					img: "https://images.unsplash.com/photo-1588790981757-b9f9f9f8b8f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+					name: "XFitness",
+					description: "xfitness",
+					tags: [
+						{
+							name: "Powerlifting",
+							color: "red",
+						},
+						{
+							name: "Yoga",
+							color: "lime",
+						},
+						{
+							name: "Badminton",
+							color: "green",
+						},
+					],
+					img: "https://source.unsplash.com/random/?PERSON",
+					rating: 5,
 				},
 				{
 					id: 2,
-					name: "Náměstí",
-					description: "Náměstí",
-					tags: [{ name: "náměstí" }, { name: "náměstí" }],
-					img: "https://images.unsplash.com/photo-1588790981757-b9f9f9f8b8f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+					name: "XFitness",
+					description: "xfitness",
+					tags: [
+						{
+							name: "Powerlifting",
+							color: "red",
+						},
+						{
+							name: "Yoga",
+							color: "lime",
+						},
+						{
+							name: "Badminton",
+							color: "green",
+						},
+						{
+							name: "Tennis",
+							color: "yellow",
+						},
+						{
+							name: "Squash",
+							color: "purple",
+						},
+						{
+							name: "FitBox",
+							color: "pink",
+						},
+					],
+					img: "https://source.unsplash.com/random/?PERSON",
+					rating: 4,
 				},
 				{
 					id: 3,
-					name: "Náměstí",
-					description: "Náměstí",
-					tags: [{ name: "náměstí" }, { name: "náměstí" }],
-					img: "https://images.unsplash.com/photo-1588790981757-b9f9f9f8b8f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+					name: "XFitness",
+					description: "xfitness",
+					tags: [
+						{
+							name: "Badminton",
+							color: "green",
+						},
+						{
+							name: "Tennis",
+							color: "yellow",
+						},
+						{
+							name: "Squash",
+							color: "purple",
+						},
+						{
+							name: "FitBox",
+							color: "pink",
+						},
+					],
+					img: "https://source.unsplash.com/random/?PERSON",
+					rating: 2,
 				},
 				{
 					id: 4,
-					name: "Náměstí",
-					description: "Náměstí",
-					tags: [{ name: "náměstí" }, { name: "náměstí" }],
-					img: "https://images.unsplash.com/photo-1588790981757-b9f9f9f8b8f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+					name: "XFitness",
+					description: "xfitness",
+					tags: [
+						{
+							name: "Powerlifting",
+							color: "red",
+						},
+						{
+							name: "Yoga",
+							color: "lime",
+						},
+						{
+							name: "Badminton",
+							color: "green",
+						},
+						{
+							name: "Tennis",
+							color: "yellow",
+						},
+						{
+							name: "Squash",
+							color: "purple",
+						},
+						{
+							name: "FitBox",
+							color: "pink",
+						},
+					],
+					img: "https://source.unsplash.com/random/?PERSON",
+					rating: 4,
 				},
 			],
 			trainers: [
@@ -119,29 +205,65 @@ UserProfileTemplate.defaultProps = {
 					id: 1,
 					name: "Robert Chott",
 					Description: "Prostě fizio",
-					tags: [{ name: "fizio" }, { name: "mistr zenu" }, { name: "fizioterapeut" }],
-					img: "https://images.unsplash.com/photo-1588790981757-b9f9f9f8b8f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+					img: "https://source.unsplash.com/random/?PERSON",
+					tags: [
+						{
+							name: "Fyzioterapie",
+							color: "yellow",
+						},
+						{
+							name: "Mistr chi",
+							color: "green",
+						},
+						{
+							name: "Zen master",
+							color: "lime",
+						},
+					],
+					rating: 1,
 				},
 				{
 					id: 2,
 					name: "Robert Chott",
 					Description: "Prostě fizio",
-					tags: [{ name: "fizio" }, { name: "mistr zenu" }, { name: "fizioterapeut" }],
-					img: "https://images.unsplash.com/photo-1588790981757-b9f9f9f8b8f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+					img: "https://source.unsplash.com/random/?PERSON",
+					tags: [
+						{
+							name: "Zen master",
+							color: "lime",
+						},
+					],
+					rating: 5,
 				},
 				{
 					id: 3,
 					name: "Robert Chott",
 					Description: "Prostě fizio",
-					tags: [{ name: "fizio" }, { name: "mistr zenu" }, { name: "fizioterapeut" }],
-					img: "https://images.unsplash.com/photo-1588790981757-b9f9f9f8b8f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+					img: "https://source.unsplash.com/random/?PERSON",
+					tags: [
+						{
+							name: "Mistr chi",
+							color: "green",
+						},
+					],
+					rating: 5,
 				},
 				{
 					id: 4,
 					name: "Robert Chott",
 					Description: "Prostě fizio",
-					tags: [{ name: "fizio" }, { name: "mistr zenu" }, { name: "fizioterapeut" }],
-					img: "https://images.unsplash.com/photo-1588790981757-b9f9f9f8b8f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",
+					img: "https://source.unsplash.com/random/?PERSON",
+					tags: [
+						{
+							name: "Mistr chi",
+							color: "green",
+						},
+						{
+							name: "Zen master",
+							color: "lime",
+						},
+					],
+					rating: 3,
 				},
 			],
 		},

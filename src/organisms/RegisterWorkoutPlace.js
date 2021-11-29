@@ -4,6 +4,7 @@ import { ButtonSubmit } from "../atoms/ButtonSubmit";
 
 import * as Yup from "yup";
 import { gql, useMutation } from "@apollo/client";
+import Router from "next/router";
 
 const REGISTER_SPORTS_GROUND = gql`
 	mutation CreateSportsground(
@@ -57,6 +58,7 @@ export function RegisterWorkoutPlace() {
 			})
 				.then((res) => {
 					console.log(res);
+					Router.push("/prihlasit-se");
 				})
 				.catch((err) => {
 					console.log(err);

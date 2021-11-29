@@ -6,6 +6,7 @@ import { ButtonSubmit } from "../atoms/ButtonSubmit";
 import * as Yup from "yup";
 import { gql, useMutation } from "@apollo/client";
 import toast from "react-hot-toast";
+import Router from "next/router";
 
 const REGISTER_USER = gql`
 	mutation CreateSportsman($name: String!, $surname: String!, $email: String!, $password: String!) {
@@ -24,29 +25,20 @@ export function RegisterUser() {
 			secondPassword: "",
 		},
 		onSubmit: (values) => {
-			createSportsman(
-				{
-					variables: {
-						name: values.name,
-						surname: values.surname,
-						email: values.email,
-						password: values.password,
-					},
+			createSportsman({
+				variables: {
+					name: values.name,
+					surname: values.surname,
+					email: values.email,
+					password: values.password,
 				},
-				toast.promise(createSportsman(), {
-					loading: "Vyčkejte prosím, požadavek se zpracovává",
-					success: "Registrace byla úspěšná! Pro pokračování se přihlaste.",
-					error: "Registrace se nepovedla, zkuste to prosím znovu či se obraťte na podporu.",
-				}),
-			)
+			})
 				.then((res) => {
 					console.log(res);
+					Router.push("/prihlasit-se");
 				})
 				.catch((err) => {
 					console.log(err);
-				})
-				.finally(() => {
-					formik.resetForm();
 				});
 		},
 		validationSchema: Yup.object().shape({

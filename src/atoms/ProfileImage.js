@@ -30,7 +30,7 @@ export function ProfileImage({ variant, img, className }) {
 	let imageVariant = chooseVariant(variant);
 
 	return (
-		<a href="#">
+		<a href="/profil">
 			<Image
 				src={icon.src}
 				alt={icon.alt}
