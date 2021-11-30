@@ -1,13 +1,19 @@
-import { H1, H3, XlWrapper, Filter, SmWrapper } from "@src/atoms";
+import { H1, H3, XlWrapper, CustomToaster, ButtonFilter } from "@src/atoms";
+import { Filter, Sorter } from "@src/molecules";
 import { PlacesList } from "@src/organisms";
 import { DynamicSite } from "@src/templates/DynamicSite";
 import { useState } from "react";
+import hooliIcon from "@assets/img/hooli-brands.svg";
 
 export default function Places() {
-	const [filter, setFilter] = useState();
+	const [filters, setFilters] = useState({
+		tags: [],
+		order: "",
+	});
 
 	return (
 		<DynamicSite>
+			<CustomToaster />
 			<div className="bg-white shadow rounded-lg pt-20 mb-10 z-100">
 				<XlWrapper>
 					<H1>Sportoviště</H1>
@@ -25,14 +31,40 @@ export default function Places() {
 									type="text"
 									name="adress"
 									id="adress"
-									className="py-2 ring-main-500 focus:border-main-500 block w-full rounded-none rounded-l-md pl-10 sm:text-sm border border-gray-300"
-									placeholder="Robert Chott"
+									className="py-2 ring-main-500 focus:border-main-500 block w-full rounded-none rounded-l-md rounded-r-md pl-10 sm:text-sm border border-gray-300"
+									placeholder="U Jindřišské věže 23 / Praha / XFitness"
 								/>
 							</div>
 						</div>
-						<div className="mt-5">
-							<H3 variant="small">Filtr: </H3>
-							<Filter selectedTag={filter} selectTag={(val) => setFilter(val)} />
+						<div className="mt-5 flex ">
+							<div className="max-w-xs">
+								<H3 variant="small">Filtr: </H3>
+								<div className="flex flex-col gap-y-5">
+									<Filter
+										name="Tagy"
+										// options={options}
+										filters={filters}
+										setFilters={(val) => setFilters(val)}
+									/>
+									{/* Selected filters wrapper */}
+									<div className=" flex gap-x-3 gap-y-1 flex-wrap">
+										{filters.tags.map((tag, index) => {
+											return (
+												<ButtonFilter
+													name={tag}
+													filters={filters}
+													setFilters={setFilters}
+													key={index}
+												/>
+											);
+										})}
+									</div>
+								</div>
+							</div>
+							<div className="absolute left-1/4 ml-32">
+								<H3 variant="small">Seřadit dle hodnocení:</H3>
+								<Sorter setFilters={setFilters} filters={filters} />
+							</div>
 						</div>
 					</div>
 				</XlWrapper>
@@ -41,7 +73,7 @@ export default function Places() {
 				<XlWrapper>
 					<PlacesList
 						// places={places}
-						filter={filter}
+						filters={filters}
 					/>
 				</XlWrapper>
 			</section>

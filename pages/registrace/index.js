@@ -4,6 +4,7 @@ import { RegisterUser, RegisterWorkoutPlace, RegisterTrainer } from "@src/organi
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { REGISTER_FORM_INFO } from "@src/constants";
 
 const client = new ApolloClient({
 	uri: process.env.NEXT_PUBLIC_GQL_SERVER,
@@ -42,37 +43,20 @@ export default function Registrace() {
 					<div className="text-sm my-8 w-full md:w-11/12">
 						<nav>
 							<ul className="flex justify-around nowrap">
-								<li className="flex justify-center">
-									<Button
-										variant="underline"
-										onClickHandler={() => setRegisterFormRoute("user")}
-										isActive={registerFormRoute === "user"}
-									>
-										Registrace uživatele
-									</Button>
-								</li>
-								<li className="flex justify-center">
-									<Button
-										variant="underline"
-										onClickHandler={() => setRegisterFormRoute("trainer")}
-										isActive={registerFormRoute === "trainer"}
-									>
-										Registrace trenéra
-									</Button>
-								</li>
-								<li className="flex justify-center">
-									<Button
-										variant="underline"
-										onClickHandler={() => setRegisterFormRoute("place")}
-										isActive={registerFormRoute === "place"}
-									>
-										Registrace sportoviště
-									</Button>
-								</li>
+								{REGISTER_FORM_INFO.map((formInfo) => (
+									<li key={formInfo.name} className="flex justify-center mx-4">
+										<Button
+											variant="underline"
+											onClickHandler={() => setRegisterFormRoute(formInfo.name)}
+											isActive={registerFormRoute === formInfo.name}
+										>
+											{formInfo.label}
+										</Button>
+									</li>
+								))}
 							</ul>
 						</nav>
 					</div>
-
 					<div className="w-full">
 						<ApolloProvider client={client}>{getFormByType(registerFormRoute)}</ApolloProvider>
 					</div>

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 import { ButtonLink, Hamburger } from "@src/atoms";
-import { NavStatics } from "@src/molecules";
+import { NavStatics, ProfilePopup } from "@src/molecules";
 import { APPROUTES } from "@src/constants";
 
 export function NavBarApp({}) {
@@ -27,6 +27,7 @@ export function NavBarApp({}) {
 						<Hamburger toggle={toggle} toggled={toggled} />
 					</div>
 					<div className="hidden md:flex space-x-2 items-center justify-end md:flex-1 lg:w-0">
+						<ProfilePopup />
 						<ButtonLink variant="base" isOutline={true} href="/prihlasit-se">
 							Odhlásit se
 						</ButtonLink>

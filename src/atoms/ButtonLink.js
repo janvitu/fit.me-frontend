@@ -9,7 +9,6 @@ export function ButtonLink({ href, children, variant, isOutline }) {
 		switch (variant) {
 			case "big":
 				return "w-full px-8 py-3 md:py-4 md:text-lg md:px-10 transition-all";
-			//base size is default
 			default:
 				return "px-5 py-3";
 		}
