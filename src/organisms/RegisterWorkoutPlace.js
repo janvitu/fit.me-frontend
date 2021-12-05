@@ -4,6 +4,7 @@ import { ButtonSubmit } from "@src/atoms";
 
 import * as Yup from "yup";
 import { gql, useMutation } from "@apollo/client";
+import toast from "react-hot-toast";
 import Router from "next/router";
 
 const REGISTER_SPORTS_GROUND = gql`
@@ -44,6 +45,8 @@ export function RegisterWorkoutPlace() {
 			secondPassword: "",
 		},
 		onSubmit: (values) => {
+			console.log(values);
+			const load = toast.loading("Požadavek se zpracovává");
 			createSportsground({
 				variables: {
 					name: values.name,
@@ -59,9 +62,15 @@ export function RegisterWorkoutPlace() {
 				.then((res) => {
 					console.log(res);
 					Router.push("/prihlasit-se");
+					toast.dismiss(load);
+					toast.success(
+						"Na váš email jsme poslali potvrzení registrace. Pro přihlášení do aplikace je potřeba již poslední krok, kterým je potvrzení správnosti vašeho emailového účtu tím, že kliknete na odkaz ve vašem emailu.",
+					);
 				})
 				.catch((err) => {
 					console.log(err);
+					toast.dismiss(load);
+					toast.error("Registrace se nezdařila");
 				})
 				.finally(() => {
 					formik.resetForm();

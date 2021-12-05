@@ -65,7 +65,6 @@ export function RegisterUser() {
 	});
 	return (
 		<form className="space-y-9" onSubmit={formik.handleSubmit}>
-			{/* <CustomToaster /> */}
 			<div className="space-y-9">
 				<InputWrapper formik={formik} name="name" type="text" isRequired description="Jméno" />
 				<InputWrapper
