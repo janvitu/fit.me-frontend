@@ -23,3 +23,4 @@ export { Filter } from "./Filter";
 export { Sorter } from "./Sorter";
 export { ProfilePopup } from "./ProfilePopup";
 export { ResponsiveGallery } from "./ResponsiveGallery";
+export { ChangePassword } from "./ChangePassword";

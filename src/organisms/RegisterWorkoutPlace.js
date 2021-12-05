@@ -1,6 +1,6 @@
 import { InputWrapper } from "@src/molecules";
 import { useFormik } from "formik";
-import { ButtonSubmit } from "../atoms/ButtonSubmit";
+import { ButtonSubmit } from "@src/atoms";
 
 import * as Yup from "yup";
 import { gql, useMutation } from "@apollo/client";
@@ -88,7 +88,7 @@ export function RegisterWorkoutPlace() {
 		}),
 	});
 	return (
-		<form className="space-y-9" onSubmit={formik.onSubmit}>
+		<form className="space-y-9" onSubmit={formik.handleSubmit}>
 			<div className="space-y-9">
 				<InputWrapper formik={formik} name="name" type="text" isRequired description="Název" />
 				<div>
