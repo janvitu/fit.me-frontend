@@ -1,8 +1,14 @@
 import { useState } from "react";
 import Link from "next/link";
-import { ProfileImage, ButtonLink } from "@src/atoms";
-import { Modal, InputWrapper, ChangePassword } from "@src/molecules";
+import { ProfileImage } from "@src/atoms";
+import { ChangePassword } from "@src/organisms";
 import icon from "@assets/img/hooli-brands.svg";
+
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+const client = new ApolloClient({
+	uri: process.env.NEXT_PUBLIC_GQL_SERVER,
+	cache: new InMemoryCache(),
+});
 
 export function ProfilePopup({ email, img }) {
 	const [modalPopped, setModalPopped] = useState(false);
@@ -49,10 +55,9 @@ export function ProfilePopup({ email, img }) {
 							</Link>
 						</div>
 						<div className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-50">
-							{/* <a href="#" onClick={() => setModalPopped(true)}>
-								Změnit heslo
-							</a> */}
-							<ChangePassword />
+							<ApolloProvider client={client}>
+								<ChangePassword />
+							</ApolloProvider>
 						</div>
 						<div className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-50">
 							<Link href="/profil" passHref>
@@ -62,9 +67,6 @@ export function ProfilePopup({ email, img }) {
 					</div>
 				</div>
 			</div>
-			{/* <Modal isOpen={modalPopped} onClose={() => setModalPopped(!modalPopped)}>
-				<ChangePassword />
-			</Modal> */}
 		</div>
 	);
 }
