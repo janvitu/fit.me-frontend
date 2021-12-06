@@ -6,7 +6,7 @@ export function CustomToaster({}) {
 			reverseOrder={false}
 			gutter={8}
 			containerClassName=""
-			containerStyle={{ position: "absolute", top: 100 }}
+			containerStyle={{ position: "sticky", top: 100 }}
 			className="absolute top-40"
 			toastOptions={{
 				className: "",
