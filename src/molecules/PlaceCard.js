@@ -39,7 +39,7 @@ export function PlaceCard({ name, username, description, tags, img, rating }) {
 									) : (
 										<button
 											type="button"
-											className=" relative flex-shrink-0 text-xs z-20 mr-1 px-2 py-0.5 rounded-t-sm bg-gray-100 text-gray-800  hover:bg-main-200"
+											className=" relative flex-shrink-0 text-xs  mr-1 px-2 py-0.5 rounded-t-sm bg-gray-100 text-gray-800  hover:bg-main-200"
 											onClick={(e) => {
 												e.preventDefault();
 												setTagsToggled(!tagsToggled);
