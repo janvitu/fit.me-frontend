@@ -14,7 +14,7 @@ const imagesFromServer = [
 	{ src: "https://source.unsplash.com/random/?landscape", alt: "" },
 ];
 
-export function SportsgroundProfileTemplate({ BusinessProfileData }) {
+export function BusinessProfileTemplate({ BusinessProfileData }) {
 	const article = snarkdown(BusinessProfileData.article);
 	const [ratingList, setRatingList] = useState(
 		BusinessProfileData.ratingList.sort((a, b) => {
