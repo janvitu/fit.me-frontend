@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export function ArrowLink({ children, href }) {
+export function ArrowLink({ children, href = "#" }) {
 	return (
 		<Link href={href} passHref>
 			<a className="text-base font-medium text-main-700 hover:text-main-600">

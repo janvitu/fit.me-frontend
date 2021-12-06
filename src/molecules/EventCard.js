@@ -18,34 +18,34 @@ export function EventCard({ id, date, time, name, rating, numOfRegistered, tags,
 	};
 
 	return (
-		<div className="col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200">
+		<div className="bg-white rounded-lg shadow divide-y divide-gray-200">
 			<Link href={`/sportoviste/${id}`} passHref>
 				<a>
-					<div className="w-full flex items-center justify-between p-6 space-x-6">
-						<div className="px-4 mt-5 sm:mt-8">
+					<div className="w-full flex items-center gap-6 p-6">
+						<div className="h-full">
 							<img
 								src={img.src}
 								alt="Event Image"
-								className="object-cover mx-auto md:h-40 md:w-40 h-20 w-20"
+								className="mx-auto md:h-full md:w-30 h-full w-20"
 							/>
 						</div>
-						<div className="flex-1 truncate">
+						<div className="flex-1">
 							<div className="flex flex-col sm:flex-row text-gray-500">
 								<div className="font-bold text-sm">{date} </div>
 								<div className="font-bold text-sm hidden sm:block">&nbsp;|&nbsp;</div>
 								<div className="text-sm font-normal">{time}</div>
 							</div>
 							<div className="flex flex-col sm:flex-row">
-								<div className="mr-4 mb-2 text-2xl leading-8 font-bold tracking-tight text-gray-900 sm:text-3x">
+								<div className="mr-4 text-2xl leading-8 font-bold tracking-tight text-gray-900 sm:text-3x">
 									{name}
 								</div>
-								{rating && (
-									<div className="flex gap-2 mb-4">
-										<RatingIndicator ratingValue={rating} className="mt-2" />
-										<span className="text-xs text-gray-500 mt-1">({rating})</span>
-									</div>
-								)}{" "}
 							</div>
+							{rating && (
+								<div className="flex gap-2 mb-4">
+									<RatingIndicator ratingValue={rating} className="mt-2" />
+									<span className="text-xs text-gray-500 mt-1">({rating})</span>
+								</div>
+							)}
 							<div>
 								<div className="flex items-center flex-wrap gap-x-2 gap-y-1 mb-2">
 									{toggledTags(tagsToggled).map((tag, index) => (
@@ -78,8 +78,8 @@ export function EventCard({ id, date, time, name, rating, numOfRegistered, tags,
 }
 
 EventCard.defaultProps = {
-	name: "Xfitnessss",
-	rating: 2,
+	name: "Super Trénink",
+	rating: 4.4,
 	date: "26.02.2009",
 	time: "15:00 - 16:30",
 	numOfRegistered: 16,

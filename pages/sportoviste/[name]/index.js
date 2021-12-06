@@ -1,10 +1,10 @@
-import { DynamicSite, BusinessProfileTemplate } from "@src/templates";
+import { DynamicSite, SportsgroundProfileTemplate } from "@src/templates";
 import { WorkoutPlaceBusinessData } from "@src/dummyData";
 
 export default function WorkoutPlace() {
 	return (
 		<DynamicSite>
-			<BusinessProfileTemplate BusinessProfileData={WorkoutPlaceBusinessData} />
+			<SportsgroundProfileTemplate BusinessProfileData={WorkoutPlaceBusinessData} />
 		</DynamicSite>
 	);
 }
