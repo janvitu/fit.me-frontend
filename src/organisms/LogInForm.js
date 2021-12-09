@@ -1,5 +1,5 @@
 import { InputWrapper } from "@src/molecules";
-import { ButtonSubmit } from "@src/atoms";
+import { ButtonSubmit, CustomToaster } from "@src/atoms";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { gql, useLazyQuery } from "@apollo/client";
@@ -28,8 +28,17 @@ export function LogInForm() {
 	const [userSignIn, { loading, error, data }] = useLazyQuery(LOG_IN);
 
 	useEffect(() => {
+		if (!data && loading) {
+			const loadToast = toast.loading("Požadavek se zpracovává");
+		}
 		if (data && !loading) {
+			toast.dismiss(loadToast);
+			toast.success("Přihlášení úspěšné, vítejte!");
 			Router.push("/sportoviste");
+		}
+		if (error) {
+			toast.dismiss(loadToast);
+			toast.error("Přihlášení se nezdařilo");
 		}
 	}, [data, loading]);
 	const formik = useFormik({
@@ -39,7 +48,6 @@ export function LogInForm() {
 			accType: "sportsman",
 		},
 		onSubmit: (values) => {
-			console.log(values);
 			userSignIn({
 				variables: {
 					email: values.email,
@@ -88,6 +96,7 @@ export function LogInForm() {
 				</div>
 			</fieldset>
 			<ButtonSubmit>Přihlásit se</ButtonSubmit>
+			{/* <CustomToaster /> */}
 		</form>
 	);
 }

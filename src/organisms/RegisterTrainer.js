@@ -15,7 +15,7 @@ const RGISTER_TRAINTER = gql`
 		$vat_number: Number!
 		$password: String!
 	) {
-		createTrainer(
+		createCoach(
 			name: $name
 			surname: $surname
 			email: $email
@@ -26,7 +26,7 @@ const RGISTER_TRAINTER = gql`
 `;
 
 export function RegisterTrainer() {
-	const [createTrainer] = useMutation(RGISTER_TRAINTER);
+	const [createCoach] = useMutation(RGISTER_TRAINTER);
 	const formik = useFormik({
 		initialValues: {
 			name: "",
@@ -37,7 +37,9 @@ export function RegisterTrainer() {
 			secondPassword: "",
 		},
 		onSubmit: (values) => {
-			createTrainer({
+			console.log(values);
+			const load = toast.loading("Požadavek se zpracovává");
+			createCoach({
 				variables: {
 					name: values.name,
 					surname: values.surname,
@@ -49,9 +51,15 @@ export function RegisterTrainer() {
 				.then((res) => {
 					console.log(res);
 					Router.push("/prihlasit-se");
+					toast.dismiss(load);
+					toast.success(
+						"Na váš email jsme poslali potvrzení registrace. Pro přihlášení do aplikace je potřeba již poslední krok, kterým je potvrzení správnosti vašeho emailového účtu tím, že kliknete na odkaz ve vašem emailu.",
+					);
 				})
 				.catch((err) => {
 					console.log(err);
+					toast.dismiss(load);
+					toast.error("Registrace se nezdařila");
 				})
 				.finally(() => {
 					formik.resetForm();
@@ -77,7 +85,6 @@ export function RegisterTrainer() {
 	});
 	return (
 		<form className="space-y-9" onSubmit={formik.handleSubmit}>
-			<CustomToaster />
 			<div className="space-y-9">
 				<InputWrapper formik={formik} name="name" type="text" isRequired description="Jméno" />
 				<InputWrapper

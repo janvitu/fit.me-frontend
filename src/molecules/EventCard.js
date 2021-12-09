@@ -18,25 +18,34 @@ export function EventCard({ id, date, time, name, rating, numOfRegistered, tags,
 	};
 
 	return (
-		<div className="bg-white rounded-lg shadow overflow-hidden">
+		<div className="bg-white rounded-lg shadow divide-y divide-gray-200">
 			<Link href={`/sportoviste/${id}`} passHref>
 				<a>
-					<div className="relative flex gap-4">
-						<div className="min-w-[30%] bg-gray-600">
-							<img src={img.src} alt="Event Image" className="object-cover w-full h-full" />
+					<div className="w-full flex items-center gap-6 p-6">
+						<div className="h-full">
+							<img
+								src={img.src}
+								alt="Event Image"
+								className="mx-auto md:h-full md:w-30 h-full w-20"
+							/>
 						</div>
-						<div className="flex-1 py-6 pr-6">
+						<div className="flex-1">
 							<div className="flex flex-col sm:flex-row text-gray-500">
 								<div className="font-bold text-xs">{date}</div>
 								<div className="font-bold text-xs hidden sm:block">&nbsp;|&nbsp;</div>
 								<div className="text-xs font-normal">{time}</div>
 							</div>
-							<div className="flex flex-col sm:flex-row flex-wrap mb-4">
-								<div className="mr-4 text-md leading-8 font-bold tracking-tight text-gray-900 sm:text-lg">
+							<div className="flex flex-col sm:flex-row">
+								<div className="mr-4 text-2xl leading-8 font-bold tracking-tight text-gray-900 sm:text-3x">
 									{name}
 								</div>
-								{rating && <RatingIndicator ratingValue={rating} />}
 							</div>
+							{rating && (
+								<div className="flex gap-2 mb-4">
+									<RatingIndicator ratingValue={rating} className="mt-2" />
+									<span className="text-xs text-gray-500 mt-1">({rating})</span>
+								</div>
+							)}
 							<div>
 								<div className="flex items-center flex-wrap gap-x-2 gap-y-1 mb-2">
 									{toggledTags(tagsToggled).map((tag, index) => (
@@ -69,8 +78,8 @@ export function EventCard({ id, date, time, name, rating, numOfRegistered, tags,
 }
 
 EventCard.defaultProps = {
-	name: "Xfitnessss",
-	rating: 2,
+	name: "Super Trénink",
+	rating: 4.4,
 	date: "26.02.2009",
 	time: "15:00 - 16:30",
 	numOfRegistered: 16,

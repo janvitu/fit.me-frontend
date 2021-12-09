@@ -25,6 +25,7 @@ export function RegisterUser() {
 			secondPassword: "",
 		},
 		onSubmit: (values) => {
+			const load = toast.loading("Požadavek se zpracovává");
 			createSportsman({
 				variables: {
 					name: values.name,
@@ -36,8 +37,14 @@ export function RegisterUser() {
 				.then((res) => {
 					console.log(res);
 					Router.push("/prihlasit-se");
+					toast.dismiss(load);
+					toast.success(
+						"Na váš email jsme poslali potvrzení registrace. Pro přihlášení do aplikace je potřeba již poslední krok, kterým je potvrzení správnosti vašeho emailového účtu tím, že kliknete na odkaz ve vašem emailu.",
+					);
 				})
 				.catch((err) => {
+					toast.dismiss(load);
+					toast.error("Registrace se nezdařila");
 					console.log(err);
 				});
 		},

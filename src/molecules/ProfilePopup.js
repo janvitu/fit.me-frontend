@@ -1,7 +1,17 @@
+import { useState } from "react";
 import Link from "next/link";
-import { ProfileImage, ButtonLink } from "@src/atoms";
+import { ProfileImage } from "@src/atoms";
+import { ChangePassword } from "@src/organisms";
 import icon from "@assets/img/hooli-brands.svg";
+
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+const client = new ApolloClient({
+	uri: process.env.NEXT_PUBLIC_GQL_SERVER,
+	cache: new InMemoryCache(),
+});
+
 export function ProfilePopup({ email, img }) {
+	const [modalPopped, setModalPopped] = useState(false);
 	return (
 		<div className="group px-7">
 			<div className=" relative inline-block md:flex space-x-2 items-center justify-end md:flex-1 lg:w-0">
@@ -12,7 +22,6 @@ export function ProfilePopup({ email, img }) {
 					role="menu"
 					aria-orientation="vertical"
 					aria-labelledby="menu-button"
-					tabindex="-1"
 					translate="yes"
 				>
 					<div className="px-4 py-3" role="none">
@@ -43,6 +52,11 @@ export function ProfilePopup({ email, img }) {
 							<Link href="/profil" passHref>
 								Změnit účet
 							</Link>
+						</div>
+						<div className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-50">
+							<ApolloProvider client={client}>
+								<ChangePassword />
+							</ApolloProvider>
 						</div>
 						<div className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-50">
 							<Link href="/profil" passHref>
