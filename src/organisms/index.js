@@ -15,3 +15,4 @@ export { DetailCard } from "./DetailCard";
 export { RatingList } from "./RatingList";
 export { ContactBusinessForm } from "./ContactBusinessForm";
 export { ChangePassword } from "./ChangePassword";
+export { ForgotenPasswordModal } from "./ForgotenPasswordModal";

@@ -6,20 +6,8 @@ import { InputWrapper, Modal } from "@src/molecules";
 import { H3, ButtonSubmit } from "@src/atoms";
 
 const CHANGE_PASSWORD = gql`
-	mutation ChangePassword(
-		$name: String!
-		$surname: String!
-		$email: String!
-		$vat_number: Number!
-		$password: String!
-	) {
-		changePassword(
-			name: $name
-			surname: $surname
-			email: $email
-			vat_number: $vat_number
-			password: $password
-		)
+	mutation ChangePassword($oldPassword: String!, $newPassword: String!) {
+		changePassword(oldPassword: $oldPassword, newPassword: $newPassword)
 	}
 `;
 
@@ -37,9 +25,8 @@ export function ChangePassword() {
 			const load = toast.loading("Požadavek se zpracovává");
 			changePasssword({
 				variables: {
-					name: values.name,
-					surname: values.surname,
-					email: values.email,
+					changePassword: values.oldpwd,
+					newPassword: values.newpwd,
 				},
 			})
 				.then((res) => {

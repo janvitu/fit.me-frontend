@@ -7,7 +7,6 @@ const client = new ApolloClient({
 	uri: process.env.NEXT_PUBLIC_GQL_SERVER,
 	cache: new InMemoryCache(),
 });
-console.log(process.env.NEXT_PUBLIC_GQL_SERVER);
 export default function LogIn() {
 	return (
 		<StaticSite>
