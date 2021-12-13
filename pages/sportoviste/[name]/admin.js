@@ -1,9 +1,23 @@
 import { ResponsiveGallery } from "@src/molecules";
 import { DynamicSite } from "@src/templates";
-import { XlWrapper, ButtonLink } from "@src/atoms";
+import { XlWrapper, ButtonLink, Input } from "@src/atoms";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import * as Yup from "yup";
+import { gql, useMutation } from "@apollo/client";
+import toast from "react-hot-toast";
+import { useFormik } from "formik";
 
+const UPDATE_BIO = gql`
+	mutation CreateSportsman($name: String!, $surname: String!, $email: String!, $password: String!) {
+		createSportsman(name: $name, surname: $surname, email: $email, password: $password)
+	}
+`;
+const client = new ApolloClient({
+	uri: process.env.NEXT_PUBLIC_GQL_SERVER,
+	cache: new InMemoryCache(),
+});
 const animatedComponents = makeAnimated();
 
 const imagesFromServer = [
@@ -38,36 +52,106 @@ const facilityOptions = [
 	{ value: "zapujcenivybaveni", label: "Zapůjčení vybavení" },
 ];
 
-export default function Example() {
+function Example() {
+	const [updateBio] = useMutation(UPDATE_BIO);
+	const formik = useFormik({
+		initialValues: {
+			name: "",
+			shortcut: "",
+			country: "",
+			address: "",
+			region: "",
+			city: "",
+			postalCode: "",
+			about: "",
+			activities: [""],
+			paymentOptions: [""],
+			facility: [""],
+			openHours: "",
+			companyWebsite: "",
+			companyEmail: "",
+			companyPhone: "",
+			titleImage: "",
+			images: [""],
+		},
+		onSubmit: (values) => {
+			// const load = toast.loading("Požadavek se zpracovává");
+			updateBio({
+				variables: {
+					name: values.name,
+					shortcut: values.shortcut,
+					country: values.country,
+					address: values.address,
+					region: values.region,
+					city: values.city,
+					postalode: values.postalCode,
+					about: values.about,
+					activities: values.activities,
+					paymentOptions: values.paymentOptions,
+					facility: values.facility,
+					openHours: values.openHours,
+					companyWebsite: values.companyWebsite,
+					companyEmail: values.companyEmail,
+					companyPhone: values.companyPhone,
+					titleImage: values.titleImage,
+					images: values.images,
+				},
+			})
+				.then((res) => {
+					console.log(res);
+					// Router.push("/prihlasit-se");
+					// toast.dismiss(load);
+					// toast.success("Změny uloženy");
+				})
+				.catch((err) => {
+					// toast.dismiss(load);
+					// toast.error("Došlo k chybě při ukládání změn");
+					console.log(err);
+				});
+		},
+		validationSchema: Yup.object().shape({
+			name: Yup.string().required("Jméno nesmí být prázdné"),
+			// surname: Yup.string().required("Příjmení nesmí být prázdné"),
+			// email: Yup.string().email("Špatný formát emailu").required("Email nesmí být prázdný"),
+			// password: Yup.string()
+			// 	.min(8, "Heslo musí obsahovat minimálně 8 znaků")
+			// 	.required("Heslo musí být vyplněno")
+			// 	.matches(/^(?=.*[a-záčďéěíňóřšťúůýž])/, "Heslo musí obsahovat alespoň jedno malé písmeno")
+			// 	.matches(/^(?=.*[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ])/, "Heslo musí obsahovat alespoň jedno velké písmeno")
+			// 	.matches(/^(?=.*\d)/, "Heslo musí obsahovat alespoň jedno číslo"),
+			// secondPassword: Yup.string()
+			// 	.oneOf([Yup.ref("password")], `Hesla se neshoduj`)
+			// 	.required("Pole musí být vyplněné"),
+		}),
+	});
 	return (
 		<>
 			<DynamicSite>
 				<XlWrapper>
-					<div className="mt-10 sm:mt-0">
-						<div className="md:grid md:grid-cols-3 md:gap-6">
-							<div className="md:col-span-1">
-								<div className="px-4 sm:px-0">
-									<h3 className="text-lg font-medium leading-6 text-gray-900">
-										Údaje o sportovišti
-									</h3>
+					<form onSubmit={formik.handleSubmit}>
+						<div className="mt-10 sm:mt-0">
+							<div className="md:grid md:grid-cols-3 md:gap-6">
+								<div className="md:col-span-1">
+									<div className="px-4 sm:px-0">
+										<h3 className="text-lg font-medium leading-6 text-gray-900">
+											Údaje o sportovišti
+										</h3>
+									</div>
 								</div>
-							</div>
-							<div className="mt-5 md:mt-0 md:col-span-2">
-								<form action="#" method="POST">
+								<div className="mt-5 md:mt-0 md:col-span-2">
 									<div className="shadow overflow-hidden sm:rounded-md">
 										<div className="px-4 py-5 bg-white sm:p-6">
 											<div className="grid grid-cols-6 gap-6">
 												<div className="col-span-6 sm:col-span-3">
-													<label
-														htmlFor="first-name"
-														className="block text-sm font-medium text-gray-700"
-													>
+													<label htmlFor="name" className="block text-sm font-medium text-gray-700">
 														Název sportoviště
 													</label>
 													<input
+														onChange={formik.handleChange}
+														value={formik.values["name"]}
 														type="text"
-														name="first-name"
-														id="first-name"
+														name="name"
+														id="name"
 														autoComplete="given-name"
 														className="py-1 px-3 mt-1 focus:ring-main-500 focus:border-main-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md"
 													/>
@@ -75,15 +159,17 @@ export default function Example() {
 
 												<div className="col-span-6 sm:col-span-3">
 													<label
-														htmlFor="last-name"
+														htmlFor="shortcut"
 														className="block text-sm font-medium text-gray-700"
 													>
 														Zkratka sportoviště (@)
 													</label>
 													<input
+														onChange={formik.handleChange}
+														value={formik.values["shortcut"]}
 														type="text"
-														name="last-name"
-														id="last-name"
+														name="shortcut"
+														id="shortcut"
 														autoComplete="family-name"
 														className="py-1 px-3 mt-1 focus:ring-main-500 focus:border-main-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md"
 													/>
@@ -113,6 +199,8 @@ export default function Example() {
 														Země
 													</label>
 													<select
+														onChange={formik.handleChange}
+														value={formik.values["country"]}
 														id="country"
 														name="country"
 														autoComplete="country-name"
@@ -125,16 +213,18 @@ export default function Example() {
 
 												<div className="col-span-6">
 													<label
-														htmlFor="street-address"
+														htmlFor="address"
 														className="block text-sm font-medium text-gray-700"
 													>
 														Adresa
 													</label>
 													<input
+														onChange={formik.handleChange}
+														value={formik.values["address"]}
 														type="text"
-														name="street-address"
-														id="street-address"
-														autoComplete="street-address"
+														name="address"
+														id="address"
+														autoComplete="address"
 														className="py-1 px-3 mt-1 focus:ring-main-500 focus:border-main-500 block w-full shadow-sm sm:text-sm border-gray-300 border rounded-md"
 													/>
 												</div>
@@ -144,6 +234,8 @@ export default function Example() {
 														Město
 													</label>
 													<input
+														onChange={formik.handleChange}
+														value={formik.values["city"]}
 														type="text"
 														name="city"
 														id="city"
@@ -160,6 +252,8 @@ export default function Example() {
 														Kraj
 													</label>
 													<input
+														onChange={formik.handleChange}
+														value={formik.values["region"]}
 														type="text"
 														name="region"
 														id="region"
@@ -170,43 +264,43 @@ export default function Example() {
 
 												<div className="col-span-6 sm:col-span-3 lg:col-span-2">
 													<label
-														htmlFor="postal-code"
+														htmlFor="postalCode"
 														className="block text-sm font-medium text-gray-700"
 													>
 														PSČ
 													</label>
 													<input
+														onChange={formik.handleChange}
+														value={formik.values["postalCode"]}
 														type="text"
-														name="postal-code"
-														id="postal-code"
-														autoComplete="postal-code"
+														name="postalCode"
+														id="postalCode"
+														autoComplete="postalCode"
 														className="py-1 px-3 mt-1 focus:ring-main-500 focus:border-main-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md"
 													/>
 												</div>
 											</div>
 										</div>
 									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-					<div className="hidden sm:block" aria-hidden="true">
-						<div className="py-5">
-							<div className="border-t border-gray-200" />
-						</div>
-					</div>
-					<div>
-						<div className="md:grid md:grid-cols-3 md:gap-6">
-							<div className="md:col-span-1">
-								<div className="px-4 sm:px-0">
-									<h3 className="text-lg font-medium leading-6 text-gray-900">
-										Profil sportoviště
-									</h3>
-									<p className="mt-1 text-sm text-gray-600">Základní údaje o sportovišti</p>
 								</div>
 							</div>
-							<div className="mt-5 md:mt-0 md:col-span-2">
-								<form action="#" method="POST">
+						</div>
+						<div className="hidden sm:block" aria-hidden="true">
+							<div className="py-5">
+								<div className="border-t border-gray-200" />
+							</div>
+						</div>
+						<div>
+							<div className="md:grid md:grid-cols-3 md:gap-6">
+								<div className="md:col-span-1">
+									<div className="px-4 sm:px-0">
+										<h3 className="text-lg font-medium leading-6 text-gray-900">
+											Profil sportoviště
+										</h3>
+										<p className="mt-1 text-sm text-gray-600">Základní údaje o sportovišti</p>
+									</div>
+								</div>
+								<div className="mt-5 md:mt-0 md:col-span-2">
 									<div className="shadow sm:rounded-md sm:overflow-hidden">
 										<div className="px-4 py-5 bg-white space-y-6 sm:p-6">
 											<div>
@@ -215,6 +309,8 @@ export default function Example() {
 												</label>
 												<div className="mt-1">
 													<textarea
+														onChange={formik.handleChange}
+														value={formik.values["about"]}
 														id="about"
 														name="about"
 														rows={5}
@@ -226,10 +322,16 @@ export default function Example() {
 												<p className="mt-2 text-sm text-gray-500">Krátký popis sportoviště</p>
 											</div>
 											<div>
-												<label htmlFor="about" className="block text-sm font-medium text-gray-700">
+												<label
+													htmlFor="activities"
+													className="block text-sm font-medium text-gray-700"
+												>
 													Nabízené aktivity
 												</label>
 												<Select
+													name="activities"
+													onChange={formik.handleChange}
+													value={formik.values["activities"]}
 													closeMenuOnSelect={false}
 													components={animatedComponents}
 													defaultValue={[tagOptions[4], tagOptions[5]]}
@@ -239,10 +341,16 @@ export default function Example() {
 											</div>
 
 											<div>
-												<label htmlFor="about" className="block text-sm font-medium text-gray-700">
+												<label
+													htmlFor="paymentOptions"
+													className="block text-sm font-medium text-gray-700"
+												>
 													Způsob platby
 												</label>
 												<Select
+													name="paymentOptions"
+													onChange={formik.handleChange}
+													value={formik.values["paymentOptions"]}
 													closeMenuOnSelect={false}
 													components={animatedComponents}
 													defaultValue={[paymentOptions[1], paymentOptions[2]]}
@@ -252,10 +360,16 @@ export default function Example() {
 											</div>
 
 											<div>
-												<label htmlFor="about" className="block text-sm font-medium text-gray-700">
+												<label
+													htmlFor="facility"
+													className="block text-sm font-medium text-gray-700"
+												>
 													Poskytované zázemí
 												</label>
 												<Select
+													name="facility"
+													onChange={formik.handleChange}
+													value={formik.values["facility"]}
 													closeMenuOnSelect={false}
 													components={animatedComponents}
 													defaultValue={[facilityOptions[1]]}
@@ -264,13 +378,18 @@ export default function Example() {
 												/>
 											</div>
 											<div>
-												<label htmlFor="about" className="block text-sm font-medium text-gray-700">
+												<label
+													htmlFor="openHours"
+													className="block text-sm font-medium text-gray-700"
+												>
 													Otevírací doba
 												</label>
 												<div className="mt-1">
 													<textarea
-														id="about"
-														name="about"
+														onChange={formik.handleChange}
+														value={formik.values["openHours"]}
+														id="openHours"
+														name="openHours"
 														rows={2}
 														className="py-1 px-3 shadow-sm focus:ring-main-500 focus:border-main-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
 														placeholder="Po - Ne: 6:00 - 17:00"
@@ -280,7 +399,7 @@ export default function Example() {
 											</div>
 											<div>
 												<label
-													htmlFor="company-website"
+													htmlFor="companyWebsite"
 													className="block text-sm font-medium text-gray-700"
 												>
 													Kontaktní údaje
@@ -288,13 +407,15 @@ export default function Example() {
 												<div className="grid grid-cols-3 gap-6">
 													<div className="col-span-3 sm:col-span-2">
 														<div className=" mt-1 flex rounded-md shadow-sm">
-															<span className="w-16 py-1 px-3 inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+															<span className="w-16 py-1 px-3 inline-flex items-center px-3 rounded-l-md border border-r-1 border-gray-300 bg-gray-50 text-gray-500 text-sm">
 																http://
 															</span>
 															<input
+																onChange={formik.handleChange}
+																value={formik.values["companyWebsite"]}
 																type="text"
-																name="company-website"
-																id="company-website"
+																name="companyWebsite"
+																id="companyWebsite"
 																className="py-1 px-3 focus:ring-main-500 focus:border-main-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
 																placeholder="www.example.com"
 															/>
@@ -305,13 +426,15 @@ export default function Example() {
 													<div className="grid grid-cols-3 gap-6 mt-1">
 														<div className="col-span-3">
 															<div className="mt-1 flex rounded-md shadow-sm">
-																<span className="w-16 py-1 px-3 inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+																<span className="w-16 py-1 px-3 inline-flex items-center px-3 rounded-l-md border border-r-1 border-gray-300 bg-gray-50 text-gray-500 text-sm">
 																	Email
 																</span>
 																<input
+																	onChange={formik.handleChange}
+																	value={formik.values["companyEmail"]}
 																	type="text"
-																	name="company-website"
-																	id="company-website"
+																	name="companyEmail"
+																	id="companyEmail"
 																	className="py-1 px-3 focus:ring-main-500 focus:border-main-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
 																	placeholder="vladciprahy@ACS.cz"
 																/>
@@ -321,13 +444,15 @@ export default function Example() {
 													<div className="grid grid-cols-3 gap-6 mt-1 ">
 														<div className="col-span-3">
 															<div className="mt-1 flex rounded-md shadow-sm">
-																<span className="w-16 py-1 px-3 inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
+																<span className="w-16 py-1 px-3 inline-flex items-center px-3 rounded-l-md border border-r-1 border-gray-300 bg-gray-50 text-gray-500 text-sm">
 																	Tel.:
 																</span>
 																<input
+																	onChange={formik.handleChange}
+																	value={formik.values["companyPhone"]}
 																	type="text"
-																	name="company-website"
-																	id="company-website"
+																	name="companyPhone"
+																	id="companyPhone"
 																	className="py-1 px-3 focus:ring-main-500 focus:border-main-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300"
 																	placeholder="+420 604 399 488"
 																/>
@@ -381,13 +506,15 @@ export default function Example() {
 														</svg>
 														<div className="flex text-sm text-gray-600">
 															<label
-																htmlFor="file-upload"
+																htmlFor="titleImage"
 																className="relative cursor-pointer bg-white rounded-md font-medium text-main-600 hover:text-main-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-main-500"
 															>
 																<span>Upload a file</span>
 																<input
-																	id="file-upload"
-																	name="file-upload"
+																	onChange={formik.handleChange}
+																	value={formik.values["titleImage"]}
+																	id="titleImage"
+																	name="titleImage"
 																	type="file"
 																	className="sr-only"
 																/>
@@ -421,13 +548,15 @@ export default function Example() {
 														</svg>
 														<div className="flex text-sm text-gray-600">
 															<label
-																htmlFor="file-upload"
+																htmlFor="images"
 																className="relative cursor-pointer bg-white rounded-md font-medium text-main-600 hover:text-main-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-main-500"
 															>
 																<span>Upload a file</span>
 																<input
-																	id="file-upload"
-																	name="file-upload"
+																	onChange={formik.handleChange}
+																	value={formik.values["images"]}
+																	id="images"
+																	name="images"
 																	type="file"
 																	className="sr-only"
 																/>
@@ -465,11 +594,10 @@ export default function Example() {
 											</button>
 										</div>
 									</div>
-								</form>
+								</div>
 							</div>
 						</div>
-					</div>
-
+					</form>
 					<div className="hidden sm:block" aria-hidden="true">
 						<div className="py-5">
 							<div className="border-t border-gray-200" />
@@ -478,5 +606,13 @@ export default function Example() {
 				</XlWrapper>
 			</DynamicSite>
 		</>
+	);
+}
+
+export default function Page() {
+	return (
+		<ApolloProvider client={client}>
+			<Example />
+		</ApolloProvider>
 	);
 }
