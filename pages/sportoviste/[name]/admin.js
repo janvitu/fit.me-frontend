@@ -11,24 +11,26 @@ import { useFormik } from "formik";
 
 const SPORTS_GROUND_MUTATION = gql`
 	mutation UpdateSportsground(
+		$token: String!
 		$name: String
-		$openning_hours_from: String
-		$openning_hours_to: String
+		$opening_hours_from: String
+		$opening_hours_to: String
 		$web: String
 		$phone: String
 		$description: String
 		$cover_photo_url: String
 		$street: String
-		$number: String
+		$number: Int
 		$city: String
 		$region: String
 		$state: String
 		$zip: String
 	) {
 		updateSportsground(
+			token: $token
 			name: $name
-			openning_hours_from: $openning_hours_from
-			openning_hours_to: $openning_hours_to
+			opening_hours_from: $opening_hours_from
+			opening_hours_to: $opening_hours_to
 			web: $web
 			phone: $phone
 			description: $description
@@ -103,18 +105,19 @@ function Example() {
 			titleImage: "",
 			images: [""],
 		},
-		onSubmit: (values) => {
-			// const load = toast.loading("Požadavek se zpracovává");
-			updateSportsground({
+		onSubmit: async (values) => {
+			console.log("loading");
+			const load = toast.loading("Požadavek se zpracovává");
+			await updateSportsground({
 				variables: {
+					token: window.localStorage.getItem("token"),
 					name: values.name,
-					openning_hours_from: values.openHoursFrom,
-					openning_hours_to: values.openHoursTo,
+					opening_hours_from: values.openHoursFrom,
+					opening_hours_to: values.openHoursTo,
 					web: values.companyWebsite,
 					phone: values.companyPhone,
 					description: values.about,
 					street: values.addressStreet,
-					number: values.addressNumber,
 					city: values.city,
 					region: values.region,
 					zip: values.postalCode,
@@ -123,17 +126,17 @@ function Example() {
 				.then((res) => {
 					console.log(res);
 					// Router.push("/prihlasit-se");
-					// toast.dismiss(load);
-					// toast.success("Změny uloženy");
+					toast.dismiss(load);
+					toast.success("Změny uloženy");
 				})
 				.catch((err) => {
-					// toast.dismiss(load);
-					// toast.error("Došlo k chybě při ukládání změn");
+					toast.dismiss(load);
+					toast.error("Došlo k chybě při ukládání změn");
 					console.log(err);
 				});
 		},
 		validationSchema: Yup.object().shape({
-			name: Yup.string().required("Jméno nesmí být prázdné"),
+			// name: Yup.string().required("Jméno nesmí být prázdné"),
 			// surname: Yup.string().required("Příjmení nesmí být prázdné"),
 			// email: Yup.string().email("Špatný formát emailu").required("Email nesmí být prázdný"),
 			// password: Yup.string()
@@ -611,15 +614,6 @@ function Example() {
 											</div>
 										</div>
 										<div className="flex flex-row justify-center">
-											<div className="px-4 py-3 text-center sm:px-3">
-												<button
-													type="submit"
-													className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-main-600 hover:bg-main-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-main-500"
-												>
-													Zrušit
-												</button>
-											</div>
-
 											<div className="px-4 py-3 text-center sm:px-3">
 												<button
 													type="submit"

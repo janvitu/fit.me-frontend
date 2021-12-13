@@ -48,13 +48,15 @@ export function LogInForm() {
 			password: "",
 			accType: "sportsman",
 		},
-		onSubmit: (values) => {
-			userSignIn({
+		onSubmit: async (values) => {
+			await userSignIn({
 				variables: {
 					email: values.email,
 					password: values.password,
 					accType: values.accType,
 				},
+			}).then((res) => {
+				window.localStorage.setItem("token", res.data.userSignIn.token);
 			});
 		},
 		validationSchema: Yup.object().shape({

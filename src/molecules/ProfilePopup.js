@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ProfileImage } from "@src/atoms";
 import { ChangePassword } from "@src/organisms";
 import icon from "@assets/img/hooli-brands.svg";
-
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 const client = new ApolloClient({
 	uri: process.env.NEXT_PUBLIC_GQL_SERVER,
@@ -22,7 +21,7 @@ export function ProfilePopup({ email, img }) {
 					role="menu"
 					aria-orientation="vertical"
 					aria-labelledby="menu-button"
-					tabindex="-1"
+					tabIndex="-1"
 					translate="yes"
 				>
 					<div className="px-4 py-3" role="none">

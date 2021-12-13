@@ -10,7 +10,8 @@ import toast from "react-hot-toast";
 import { useFormik } from "formik";
 
 const SPORTS_GROUND_MUTATION = gql`
-	mutation UpdateSportsground(
+	mutation updateCoach(
+		$token: String!
 		$name: String
 		$openning_hours_from: String
 		$openning_hours_to: String
@@ -19,13 +20,14 @@ const SPORTS_GROUND_MUTATION = gql`
 		$description: String
 		$cover_photo_url: String
 		$street: String
-		$number: String
+		$number: Int
 		$city: String
 		$region: String
 		$state: String
 		$zip: String
 	) {
-		updateSportsground(
+		updateCoach(
+			token: $token
 			name: $name
 			openning_hours_from: $openning_hours_from
 			openning_hours_to: $openning_hours_to
@@ -81,7 +83,7 @@ const facilityOptions = [
 ];
 
 function Example() {
-	const [updateSportsground] = useMutation(SPORTS_GROUND_MUTATION);
+	const [updateCoach] = useMutation(SPORTS_GROUND_MUTATION);
 	const formik = useFormik({
 		initialValues: {
 			name: "",
@@ -103,13 +105,12 @@ function Example() {
 			titleImage: "",
 			images: [""],
 		},
-		onSubmit: (values) => {
-			// const load = toast.loading("Požadavek se zpracovává");
-			updateSportsground({
+		onSubmit: async (values) => {
+			const load = toast.loading("Požadavek se zpracovává");
+			await updateCoach({
 				variables: {
+					token: window.localStorage.getItem("token"),
 					name: values.name,
-					openning_hours_from: values.openHoursFrom,
-					openning_hours_to: values.openHoursTo,
 					web: values.companyWebsite,
 					phone: values.companyPhone,
 					description: values.about,
@@ -123,17 +124,17 @@ function Example() {
 				.then((res) => {
 					console.log(res);
 					// Router.push("/prihlasit-se");
-					// toast.dismiss(load);
-					// toast.success("Změny uloženy");
+					toast.dismiss(load);
+					toast.success("Změny uloženy");
 				})
 				.catch((err) => {
-					// toast.dismiss(load);
-					// toast.error("Došlo k chybě při ukládání změn");
+					toast.dismiss(load);
+					toast.error("Došlo k chybě při ukládání změn");
 					console.log(err);
 				});
 		},
 		validationSchema: Yup.object().shape({
-			name: Yup.string().required("Jméno nesmí být prázdné"),
+			// name: Yup.string().required("Jméno nesmí být prázdné"),
 			// surname: Yup.string().required("Příjmení nesmí být prázdné"),
 			// email: Yup.string().email("Špatný formát emailu").required("Email nesmí být prázdný"),
 			// password: Yup.string()
