@@ -24,14 +24,16 @@ export function ForgotenPasswordModal({ isOpen, onClose }) {
 				variables: {
 					email: values.email,
 				},
+			}).then(() => {
+				onClose();
 			});
 		},
 	});
 	return (
 		<Modal isOpen={isOpen} onClose={onClose}>
 			<div className="py-12">
+				<H2>Zapomenuté heslo</H2>
 				<ApolloProvider client={client}>
-					<H2>Zapomenuté heslo</H2>
 					<form className="space-y-9" onSubmit={formik.handleSubmit}>
 						<InputWrapper
 							formik={formik}

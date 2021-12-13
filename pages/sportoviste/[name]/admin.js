@@ -207,7 +207,7 @@ function Example() {
 														>
 															Země
 														</label>
-														<select
+														<Select
 															onChange={formik.handleChange}
 															value={formik.values["country"]}
 															id="country"
@@ -217,7 +217,7 @@ function Example() {
 														>
 															<option>Česká republika</option>
 															<option>Slovensko</option>
-														</select>
+														</Select>
 													</div>
 
 													<div className="col-span-4">

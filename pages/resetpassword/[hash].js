@@ -4,18 +4,32 @@ import { InputWrapper } from "@src/molecules";
 import * as Yup from "yup";
 import { ApolloClient, ApolloProvider, InMemoryCache, gql, useMutation } from "@apollo/client";
 import router from "next/router";
+
 const client = new ApolloClient({
 	uri: process.env.NEXT_PUBLIC_GQL_SERVER,
 	cache: new InMemoryCache(),
 });
 
 const RESET_PASS = gql`
-	mutation resetPassword($email: String!) {
-		resetPassword(email: $email)
+	mutation resetPassword($newPassword: String!, $passwordResetHash: String!) {
+		resetPassword(newPassword: $newPassword, passwordResetHash: $passwordResetHash)
 	}
 `;
 
-export function ResetPassword() {
+export default function ResetPassword() {
+	return (
+		<div className="h-screen w-screen grid content-center">
+			<XlWrapper>
+				<H2>Změna zapomenutého hesla</H2>
+				<ApolloProvider client={client}>
+					<ResetPasswordForm />
+				</ApolloProvider>
+			</XlWrapper>
+		</div>
+	);
+}
+
+function ResetPasswordForm() {
 	const [resetPassword] = useMutation(RESET_PASS);
 	const formik = useFormik({
 		initialValues: {
@@ -25,7 +39,7 @@ export function ResetPassword() {
 		onSubmit: (values) => {
 			resetPassword({
 				variables: {
-					password: values.password,
+					newPassword: values.password,
 					passwordResetHash: router.query.hash,
 				},
 			}).then(() => {
@@ -45,29 +59,24 @@ export function ResetPassword() {
 		}),
 	});
 	return (
-		<XlWrapper>
-			<ApolloProvider client={client}>
-				<H2>Změna zapomenutého hesla</H2>
-				<form className="space-y-9" onSubmit={formik.handleSubmit}>
-					<InputWrapper
-						formik={formik}
-						name="password"
-						type="password"
-						isRequired
-						description="Heslo"
-					/>
-					<InputWrapper
-						formik={formik}
-						name="passwordConfirm"
-						type="password"
-						isRequired
-						description="Znovu zadejte heslo"
-					/>
-					<div className="flex justify-center">
-						<ButtonSubmit>Změnit heslo</ButtonSubmit>
-					</div>
-				</form>
-			</ApolloProvider>
-		</XlWrapper>
+		<form className="space-y-9" onSubmit={formik.handleSubmit}>
+			<InputWrapper
+				formik={formik}
+				name="password"
+				type="password"
+				isRequired
+				description="Heslo"
+			/>
+			<InputWrapper
+				formik={formik}
+				name="passwordConfirm"
+				type="password"
+				isRequired
+				description="Znovu zadejte heslo"
+			/>
+			<div className="flex justify-center">
+				<ButtonSubmit>Změnit heslo</ButtonSubmit>
+			</div>
+		</form>
 	);
 }
