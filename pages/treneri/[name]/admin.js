@@ -158,7 +158,7 @@ function Example() {
 									<div className="md:col-span-1">
 										<div className="px-4 sm:px-0">
 											<h3 className="text-lg font-medium leading-6 text-gray-900">
-												Údaje o sportovišti
+												Údaje o trenérovi
 											</h3>
 										</div>
 									</div>
@@ -171,7 +171,7 @@ function Example() {
 															htmlFor="name"
 															className="block text-sm font-medium text-gray-700"
 														>
-															Název sportoviště
+															Jméno trenéra
 														</label>
 														<input
 															onChange={formik.handleChange}
@@ -324,9 +324,9 @@ function Example() {
 									<div className="md:col-span-1">
 										<div className="px-4 sm:px-0">
 											<h3 className="text-lg font-medium leading-6 text-gray-900">
-												Profil sportoviště
+												Profil trenéra
 											</h3>
-											<p className="mt-1 text-sm text-gray-600">Základní údaje o sportovišti</p>
+											<p className="mt-1 text-sm text-gray-600">Základní údaje o trenérovi</p>
 										</div>
 									</div>
 									<div className="mt-5 md:mt-0 md:col-span-2">
@@ -337,7 +337,7 @@ function Example() {
 														htmlFor="about"
 														className="block text-sm font-medium text-gray-700"
 													>
-														Popis (O sportovišti)
+														Popis (O trenérovi)
 													</label>
 													<div className="mt-1">
 														{/* <textarea
@@ -352,7 +352,7 @@ function Example() {
 														/> */}
 														<RichTextArea formik={formik} />
 													</div>
-													<p className="mt-2 text-sm text-gray-500">Krátký popis sportoviště</p>
+													<p className="mt-2 text-sm text-gray-500">Krátký popis trenéra</p>
 												</div>
 												<div>
 													<label
@@ -498,7 +498,7 @@ function Example() {
 												</div>
 												<div>
 													<label className="block text-sm font-medium text-gray-700">
-														Profilová fotografie sportoviště
+														Profilová fotografie trenéra
 													</label>
 													<div className="mt-1 flex items-center">
 														<span className="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
