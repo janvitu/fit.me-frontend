@@ -24,6 +24,8 @@ export function ForgotenPasswordModal({ isOpen, onClose }) {
 				variables: {
 					email: values.email,
 				},
+			}).then(() => {
+				onClose();
 			});
 		},
 	});
