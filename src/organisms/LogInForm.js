@@ -1,5 +1,5 @@
 import { InputWrapper } from "@src/molecules";
-import { ButtonSubmit, CustomToaster } from "@src/atoms";
+import { ButtonSubmit } from "@src/atoms";
 import { ForgotenPasswordModal } from "@src/organisms";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -28,20 +28,21 @@ const notificationMethods = [
 export function LogInForm() {
 	const [userSignIn, { loading, error, data }] = useLazyQuery(LOG_IN);
 	const [modalOpen, setModalOpen] = useState(false);
+	const [loadToast, setLoadToast] = useState(null);
+
 	useEffect(() => {
-		if (!data && loading) {
-			const loadToast = toast.loading("Požadavek se zpracovává");
-		}
-		if (data && !loading) {
-			toast.dismiss(loadToast);
-			toast.success("Přihlášení úspěšné, vítejte!");
+		if (data?.userSignIn && !loading) {
+			toast.success("Přihlášení úspěšné, vítejte!", {
+				id: loadToast,
+			});
 			Router.push("/sportoviste");
 		}
 		if (error) {
-			toast.dismiss(loadToast);
-			toast.error("Přihlášení se nezdařilo");
+			toast.error("Přihlášení se nezdařilo", {
+				id: loadToast,
+			});
 		}
-	}, [data, loading]);
+	}, [data, loading, error, loadToast]);
 	const formik = useFormik({
 		initialValues: {
 			email: "",
@@ -49,15 +50,20 @@ export function LogInForm() {
 			accType: "sportsman",
 		},
 		onSubmit: async (values) => {
+			setLoadToast(toast.loading("Požadavek se zpracovává"));
 			await userSignIn({
 				variables: {
 					email: values.email,
 					password: values.password,
 					accType: values.accType,
 				},
-			}).then((res) => {
-				window.localStorage.setItem("token", res.data.userSignIn.token);
-			});
+			})
+				.then((res) => {
+					window.localStorage.setItem("token", res.data.userSignIn.token);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
 		},
 		validationSchema: Yup.object().shape({
 			email: Yup.string().email("Špatný formát emailu").required("Email nesmí být prázdný"),
