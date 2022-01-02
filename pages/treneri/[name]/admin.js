@@ -3,7 +3,6 @@ import { DynamicSite } from "@src/templates";
 import { XlWrapper, ButtonLink, Input, RichTextArea } from "@src/atoms";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import * as Yup from "yup";
 import { gql, useMutation } from "@apollo/client";
 import toast from "react-hot-toast";
@@ -44,10 +43,7 @@ const SPORTS_GROUND_MUTATION = gql`
 		)
 	}
 `;
-const client = new ApolloClient({
-	uri: process.env.NEXT_PUBLIC_GQL_SERVER,
-	cache: new InMemoryCache(),
-});
+
 const animatedComponents = makeAnimated();
 
 const imagesFromServer = [
@@ -647,9 +643,5 @@ function Example() {
 }
 
 export default function Page() {
-	return (
-		<ApolloProvider client={client}>
-			<Example />
-		</ApolloProvider>
-	);
+	return <Example />;
 }

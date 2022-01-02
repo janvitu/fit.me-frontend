@@ -2,13 +2,8 @@ import { XlWrapper, ButtonSubmit, H2 } from "@src/atoms";
 import { useFormik } from "formik";
 import { InputWrapper } from "@src/molecules";
 import * as Yup from "yup";
-import { ApolloClient, ApolloProvider, InMemoryCache, gql, useMutation } from "@apollo/client";
+import { gql, useMutation } from "@apollo/client";
 import router from "next/router";
-
-const client = new ApolloClient({
-	uri: process.env.NEXT_PUBLIC_GQL_SERVER,
-	cache: new InMemoryCache(),
-});
 
 const RESET_PASS = gql`
 	mutation resetPassword($newPassword: String!, $passwordResetHash: String!) {
@@ -21,9 +16,7 @@ export default function ResetPassword() {
 		<div className="h-screen w-screen grid content-center">
 			<XlWrapper>
 				<H2>Změna zapomenutého hesla</H2>
-				<ApolloProvider client={client}>
-					<ResetPasswordForm />
-				</ApolloProvider>
+				<ResetPasswordForm />
 			</XlWrapper>
 		</div>
 	);

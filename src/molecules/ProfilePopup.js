@@ -3,11 +3,6 @@ import Link from "next/link";
 import { ProfileImage } from "@src/atoms";
 import { ChangePassword } from "@src/organisms";
 import icon from "@assets/img/hooli-brands.svg";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-const client = new ApolloClient({
-	uri: process.env.NEXT_PUBLIC_GQL_SERVER,
-	cache: new InMemoryCache(),
-});
 
 export function ProfilePopup({ email, img }) {
 	const [modalPopped, setModalPopped] = useState(false);
@@ -54,9 +49,7 @@ export function ProfilePopup({ email, img }) {
 							</Link>
 						</div>
 						<div className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-50">
-							<ApolloProvider client={client}>
-								<ChangePassword />
-							</ApolloProvider>
+							<ChangePassword />
 						</div>
 						<div className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-50">
 							<Link href="/profil" passHref>

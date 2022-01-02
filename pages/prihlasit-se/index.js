@@ -1,12 +1,7 @@
 import { H1, SmWrapper, CustomToaster } from "@src/atoms";
 import { LogInForm } from "@src/organisms";
 import { StaticSite } from "@src/templates";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
-const client = new ApolloClient({
-	uri: process.env.NEXT_PUBLIC_GQL_SERVER,
-	cache: new InMemoryCache(),
-});
 export default function LogIn() {
 	return (
 		<StaticSite>
@@ -17,9 +12,7 @@ export default function LogIn() {
 						<H1>Přihlašte se</H1>
 					</div>
 					<div className="w-full">
-						<ApolloProvider client={client}>
-							<LogInForm />
-						</ApolloProvider>
+						<LogInForm />
 					</div>
 				</div>
 			</SmWrapper>
