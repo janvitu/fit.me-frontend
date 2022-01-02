@@ -1,4 +1,4 @@
-import { H1, SmWrapper, Button, CustomToaster } from "@src/atoms";
+import { H1, SmWrapper, Button } from "@src/atoms";
 import { StaticSite } from "@src/templates";
 import { RegisterUser, RegisterWorkoutPlace, RegisterTrainer } from "@src/organisms";
 import { useRouter } from "next/router";
@@ -29,7 +29,6 @@ export default function Registrace() {
 
 	return (
 		<StaticSite>
-			<CustomToaster />
 			<SmWrapper>
 				<div className="min-h-[60vh] flex items-center justify-center flex-col">
 					<div className="mb-8">

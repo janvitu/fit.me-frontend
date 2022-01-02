@@ -1,4 +1,5 @@
 import "@assets/css/tailwind.css";
+import { CustomToaster } from "@src/atoms";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({
@@ -9,6 +10,7 @@ const client = new ApolloClient({
 function MyApp({ Component, pageProps }) {
 	return (
 		<ApolloProvider client={client}>
+			<CustomToaster />
 			<Component {...pageProps} />
 		</ApolloProvider>
 	);

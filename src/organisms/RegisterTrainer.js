@@ -1,4 +1,4 @@
-import { CustomToaster, ButtonSubmit } from "@src/atoms";
+import { ButtonSubmit } from "@src/atoms";
 import { InputWrapper } from "@src/molecules";
 import { useFormik } from "formik";
 

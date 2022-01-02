@@ -1,11 +1,10 @@
-import { H1, SmWrapper, CustomToaster } from "@src/atoms";
+import { H1, SmWrapper } from "@src/atoms";
 import { LogInForm } from "@src/organisms";
 import { StaticSite } from "@src/templates";
 
 export default function LogIn() {
 	return (
 		<StaticSite>
-			<CustomToaster />
 			<SmWrapper>
 				<div className="min-h-[60vh] flex flex-col justify-center">
 					<div className="mb-8">

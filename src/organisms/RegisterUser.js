@@ -1,4 +1,3 @@
-import { CustomToaster } from "@src/atoms";
 import { InputWrapper } from "@src/molecules";
 import { useFormik } from "formik";
 import { ButtonSubmit } from "../atoms/ButtonSubmit";

@@ -115,7 +115,6 @@ export function LogInForm() {
 					</div>
 				</fieldset>
 				<ButtonSubmit>Přihlásit se</ButtonSubmit>
-				{/* <CustomToaster /> */}
 			</form>
 			{modalOpen && (
 				<ForgotenPasswordModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
