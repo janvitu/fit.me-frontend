@@ -62,7 +62,7 @@ export function EventCard({ id, date, time, name, rating, numOfRegistered, tags,
 												setTagsToggled(!tagsToggled);
 											}}
 										>
-											{!tagsToggled ? "Show more" : "Hide"}
+											{!tagsToggled ? "Zobrazit více" : "Skrýt"}
 										</button>
 									)}
 								</div>

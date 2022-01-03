@@ -45,7 +45,7 @@ export function PlaceCard({ name, username, description, tags, img, rating }) {
 												setTagsToggled(!tagsToggled);
 											}}
 										>
-											{!tagsToggled ? "Show more" : "Hide"}
+											{!tagsToggled ? "Zobrazit více" : "Skrýt"}
 										</button>
 									)}
 								</div>
