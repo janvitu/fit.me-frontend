@@ -10,7 +10,7 @@ export { RegisterWorkoutPlace } from "./RegisterWorkoutPlace";
 export { NavBarApp } from "./NavBarApp";
 export { FooterApp } from "./FooterApp";
 export { TrainersList } from "./TrainersList";
-export { PlacesList } from "./PlacesList";
+export { PlaceCard } from "./PlaceCard";
 export { DetailCard } from "./DetailCard";
 export { RatingList } from "./RatingList";
 export { ContactBusinessForm } from "./ContactBusinessForm";

@@ -1,6 +1,6 @@
 import { H1, H3, XlWrapper, ButtonFilter } from "@src/atoms";
 import { Filter, Sorter } from "@src/molecules";
-import { PlacesList } from "@src/organisms";
+import { PlacesList } from "@src/templates";
 import { DynamicSite } from "@src/templates/DynamicSite";
 import { useState } from "react";
 import hooliIcon from "@assets/img/hooli-brands.svg";

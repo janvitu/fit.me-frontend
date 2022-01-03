@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { H3, H4, HeadingWrapper, XlWrapper, DelimiterWide } from "@src/atoms";
-import { ProfileCard, PlaceCard, TrainerCard } from "@src/molecules";
+import { ProfileCard, TrainerCard } from "@src/molecules";
+import { PlaceCard } from "@src/organisms";
 
 export function UserProfileTemplate({ profileImg, userData }) {
 	function FavouritesPlaces({ userData }) {

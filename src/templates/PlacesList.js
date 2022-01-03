@@ -1,4 +1,4 @@
-import { PlaceCard } from "@src/molecules";
+import { PlaceCard } from "@src/organisms";
 import hooliIcon from "@assets/img/hooli-brands.svg";
 
 export function PlacesList({ places, filters }) {
