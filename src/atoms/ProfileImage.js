@@ -18,27 +18,19 @@ export function ProfileImage({ variant, img, className }) {
 				properties.height = "60";
 				properties.className = "bg-gray-100 flex-shrink-0 mx-auto rounded-full";
 				return properties;
-			// 	case "large":
-			// 		properties.width = "48";
-			// 		properties.height = "48";
-			// 		return properties;
-			// }
-			// return properties;
 		}
 	};
 
-	let imageVariant = chooseVariant(variant);
+	const imageVariant = chooseVariant(variant);
 
 	return (
-		<a href="/profil">
-			<Image
-				src={icon.src}
-				alt={icon.alt}
-				layout="fixed"
-				width={imageVariant.width}
-				height={imageVariant.height}
-				className={imageVariant.className}
-			/>
-		</a>
+		<Image
+			src={icon.src}
+			alt={icon.alt}
+			layout="fixed"
+			width={imageVariant.width}
+			height={imageVariant.height}
+			className={imageVariant.className}
+		/>
 	);
 }

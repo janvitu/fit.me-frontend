@@ -1,4 +1,5 @@
-export { NavStatics } from "./NavStatics";
+export { NavStatic } from "./NavStatic";
+export { NavApp } from "./NavApp";
 export { ContactCard } from "./ContactCard";
 export { OverlappingCard } from "./OverlappingCard";
 export { DescriptionListItem } from "./DescriptionListItem";
@@ -23,3 +24,4 @@ export { Filter } from "./Filter";
 export { Sorter } from "./Sorter";
 export { ProfilePopup } from "./ProfilePopup";
 export { ResponsiveGallery } from "./ResponsiveGallery";
+export { ProfileImageLink } from "./ProfileImageLink";

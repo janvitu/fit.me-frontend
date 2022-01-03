@@ -4,7 +4,7 @@ import Router from "next/router";
 import { useState } from "react";
 
 import { Button, ButtonLink, Hamburger } from "@src/atoms";
-import { NavStatics, ProfilePopup } from "@src/molecules";
+import { NavApp, ProfilePopup } from "@src/molecules";
 import { APPROUTES } from "@src/constants";
 
 function logout() {
@@ -28,7 +28,7 @@ export function NavBarApp({}) {
 							</a>
 						</Link>
 					</div>
-					<NavStatics toggled={toggled} routes={APPROUTES} />
+					<NavApp toggled={toggled} routes={APPROUTES} />
 					<div className="absolute right-0 md:hidden">
 						<Hamburger toggle={toggle} toggled={toggled} />
 					</div>

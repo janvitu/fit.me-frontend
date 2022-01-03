@@ -13,10 +13,9 @@ export default function Places() {
 
 	return (
 		<DynamicSite>
-			<div className="bg-white shadow rounded-lg pt-20 mb-10 z-100">
+			<div className="bg-white shadow rounded-lg mb-10 z-100">
 				<XlWrapper>
 					<H1>Sportoviště</H1>
-
 					<div>
 						<label htmlFor="email" className="block text-sm font-medium text-gray-700 pt-6">
 							Hledej Sportoviště
