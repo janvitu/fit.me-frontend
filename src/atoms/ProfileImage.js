@@ -18,6 +18,11 @@ export function ProfileImage({ variant, img, className }) {
 				properties.height = "60";
 				properties.className = "bg-gray-100 flex-shrink-0 mx-auto rounded-full";
 				return properties;
+			case "large":
+				properties.width = "160";
+				properties.height = "160";
+				properties.className = "bg-gray-100 flex-shrink-0 mx-auto rounded-full";
+				return properties;
 		}
 	};
 
@@ -25,8 +30,8 @@ export function ProfileImage({ variant, img, className }) {
 
 	return (
 		<Image
-			src={icon.src}
-			alt={icon.alt}
+			src={img?.src || icon.src}
+			alt={img?.alt || icon.alt}
 			layout="fixed"
 			width={imageVariant.width}
 			height={imageVariant.height}
