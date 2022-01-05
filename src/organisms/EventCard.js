@@ -78,9 +78,10 @@ export function EventCard({ id, date, time, name, rating, numOfRegistered, tags,
 }
 
 EventCard.defaultProps = {
+	id: "1",
 	name: "Super Trénink",
 	rating: 4.4,
-	date: "26.02.2009",
+	date: "26.02.1999",
 	time: "15:00 - 16:30",
 	numOfRegistered: 16,
 	tags: [
