@@ -1,5 +1,6 @@
 import { H2, TextProse, XlWrapper } from "@src/atoms";
-import { EventCard, Modal, RatingInput, ResponsiveGallery } from "@src/molecules";
+import { Modal, RatingInput, ResponsiveGallery } from "@src/molecules";
+import { EventCard } from "@src/organisms";
 import { ContactBusinessForm, DetailCard, RatingList } from "@src/organisms";
 import snarkdown from "snarkdown";
 import { useState, useEffect } from "react";
