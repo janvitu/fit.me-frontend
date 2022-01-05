@@ -11,6 +11,7 @@ export { NavBarApp } from "./NavBarApp";
 export { FooterApp } from "./FooterApp";
 export { TrainersList } from "./TrainersList";
 export { PlaceCard } from "./PlaceCard";
+export { EventCard } from "./EventCard";
 export { DetailCard } from "./DetailCard";
 export { RatingList } from "./RatingList";
 export { ContactBusinessForm } from "./ContactBusinessForm";

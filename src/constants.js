@@ -7,6 +7,7 @@ export const ROUTES = [
 export const APPROUTES = [
 	{ name: "places", path: "/sportoviste", text: "Sportoviště" },
 	{ name: "trainers", path: "/treneri", text: "Trenéři" },
+	{ name: "events", path: "/lekce", text: "Lekce" },
 ];
 
 export const REGISTER_FORM_INFO = [
