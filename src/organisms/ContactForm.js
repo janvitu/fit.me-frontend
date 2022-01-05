@@ -38,8 +38,6 @@ export function ContactForm() {
 					formik={formik}
 					name="message"
 					type="text"
-					cols="30"
-					rows="10"
 					isRequired
 					description="Zpráva"
 				/>
