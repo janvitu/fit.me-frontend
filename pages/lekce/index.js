@@ -3,7 +3,6 @@ import { Filter, Sorter } from "@src/molecules";
 import { EventsList } from "@src/templates";
 import { DynamicSite } from "@src/templates/DynamicSite";
 import { useState } from "react";
-import hooliIcon from "@assets/img/hooli-brands.svg";
 
 export default function Events() {
 	const [filters, setFilters] = useState({
@@ -13,7 +12,7 @@ export default function Events() {
 
 	return (
 		<DynamicSite>
-			<div className="bg-white shadow rounded-lg mb-10 z-100">
+			<div className="bg-white shadow mb-10 z-100">
 				<XlWrapper>
 					<H1>Lekce</H1>
 					<div>
@@ -34,7 +33,7 @@ export default function Events() {
 								/>
 							</div>
 						</div>
-						<div className="mt-5 flex ">
+						<div className="mt-5 flex space-x-10">
 							<div className="max-w-xs">
 								<H3 variant="small">Filtr: </H3>
 								<div className="flex flex-col gap-y-5">
@@ -59,7 +58,7 @@ export default function Events() {
 									</div>
 								</div>
 							</div>
-							<div className="absolute left-1/4 ml-32">
+							<div>
 								<H3 variant="small">Seřadit dle hodnocení:</H3>
 								<Sorter setFilters={setFilters} filters={filters} />
 							</div>

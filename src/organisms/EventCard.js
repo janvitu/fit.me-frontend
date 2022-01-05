@@ -19,7 +19,7 @@ export function EventCard({ id, date, time, name, rating, numOfRegistered, tags,
 
 	return (
 		<div className="bg-white rounded-lg shadow divide-y divide-gray-200">
-			<Link href={`/sportoviste/${id}`} passHref>
+			<Link href={`/lekce/${id}`} passHref>
 				<a>
 					<div className="w-full flex items-center gap-6 p-6">
 						<div className="h-full">

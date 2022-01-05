@@ -11,7 +11,7 @@ export default function Trainers() {
 	});
 	return (
 		<DynamicSite>
-			<div className="bg-white shadow rounded-lg pt-20 mb-10 z-100">
+			<div className="bg-white shadow pt-20 mb-10 z-100">
 				<XlWrapper>
 					<H1>Trenéři</H1>
 
@@ -33,7 +33,7 @@ export default function Trainers() {
 								/>
 							</div>
 						</div>
-						<div className="mt-5 flex ">
+						<div className="mt-5 flex space-x-10">
 							<div className="max-w-xs">
 								<H3 variant="small">Filtr: </H3>
 								<div className="flex flex-col gap-y-5">
@@ -43,7 +43,6 @@ export default function Trainers() {
 										filters={filters}
 										setFilters={(val) => setFilters(val)}
 									/>
-									{/* Selected filters wrapper */}
 									<div className=" flex gap-x-3 gap-y-1 flex-wrap">
 										{filters.tags.map((tag, index) => {
 											return (
@@ -58,7 +57,7 @@ export default function Trainers() {
 									</div>
 								</div>
 							</div>
-							<div className="absolute left-1/4 ml-32">
+							<div>
 								<H3 variant="small">Seřadit dle hodnocení:</H3>
 								<Sorter setFilters={setFilters} filters={filters} />
 							</div>
@@ -67,7 +66,6 @@ export default function Trainers() {
 				</XlWrapper>
 			</div>
 
-			{/* Trainers Cards */}
 			<section className="mx-auto">
 				<XlWrapper>
 					<TrainersList

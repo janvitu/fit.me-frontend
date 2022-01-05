@@ -29,9 +29,10 @@ export function EventsList({ events, filters }) {
 
 	return (
 		<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-			{eventsReadyToRender(events, filters).map((event) => {
+			{eventsReadyToRender(events, filters).map((event, index) => {
 				return (
 					<EventCard
+						key={index}
 						name={event.name}
 						rating={event.rating}
 						date={event.date}
