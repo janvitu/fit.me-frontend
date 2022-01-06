@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { H2, H1, ButtonLink, HeadingWrapper, XlWrapper, StatItem } from "@src/atoms";
 import { ContactFooter } from "@src/organisms";
 import { OverlappingCard } from "@src/molecules";
@@ -16,8 +18,9 @@ export default function Home() {
 		<StaticSite>
 			<section className="relative h-screen w-screen px-4 sm:px-8 md:px-12 lg:px-[150px] py-12 lg:py-16">
 				<div className="absolute inset-0 overflow-hidden">
-					<img
+					<Image
 						className="w-full object-cover blur-sm h-full"
+						layout="fill"
 						src="https://source.unsplash.com/random/?fitness"
 						alt="fitness"
 					/>
@@ -30,7 +33,7 @@ export default function Home() {
 					</H1>
 
 					<p className="mt-6 text-xl text-gray-100 max-w-3xl">
-						Přestaň váhat, prostě začni! Dostaň ze sebe to nejlepší.{" "}
+						Přestaň váhat, prostě začni! Dostaň ze sebe to nejlepší.
 					</p>
 					<div className="mt-10 flex">
 						<ButtonLink href="#jak-pomahame" variant="big" isOutline={false}>
@@ -110,12 +113,12 @@ export default function Home() {
 							</div>
 						</div>
 					</div>
-					<div className="lg:w-1/2 lg:h-auto flex items-center justify-center">
-						<img
+					<div className="lg:w-1/2 lg:h-auto flex items-center justify-center relative">
+						<Image
 							className="h-56 w-full object-cover lg:h-full shadow-md"
+							layout="fill"
 							src="https://source.unsplash.com/random/?garden"
 							alt=""
-							loading="lazy"
 						/>
 					</div>
 				</div>
@@ -140,8 +143,9 @@ export default function Home() {
 			{/* STATS Split with Image */}
 			<div className="relative bg-white">
 				<div className="h-56 bg-main-600 sm:h-72 lg:absolute lg:left-0 lg:h-full lg:w-1/2">
-					<img
+					<Image
 						className="w-full h-full object-cover"
+						layout="fill"
 						src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
 						alt="Support team"
 					/>
@@ -204,8 +208,12 @@ export default function Home() {
 					<div className="mt-1 flex rounded-md shadow-sm">
 						<div className="relative flex items-stretch flex-grow focus-within:z-10">
 							<div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-								{/* <!-- Heroicon name: solid/users --> */}
-								<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABmJLR0QA/wD/AP+gvaeTAAAA00lEQVQokaXSPU5CQRTF8R+yBQMBCmNFYwOhh9YF2OouYAsUuAgTE9gBO6DBxhUYG4x5pZ2VxdxnyPPNI8HT3MydnP8988E/1KrpdXEb9RPbqH/UroAWeI71N0Z4jL1dU4oF9uhX+gO8YJ4zdlHUGI8BBTp1se+iPmXMXxhL8V/L5kXUHt5zsUJv1WSl+QNXJ8zXONRtlGceZIzDGHCZI8+lW60ChtI5V02xWgEosMYSm5i4kj7KrAlAeo576d0fjqJOAzA9BcipBEzOBUxwc675Vz9TjCH7ON3ppAAAAABJRU5ErkJggg==" />
+								<Image
+									height="15"
+									width="15"
+									src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABmJLR0QA/wD/AP+gvaeTAAAA00lEQVQokaXSPU5CQRTF8R+yBQMBCmNFYwOhh9YF2OouYAsUuAgTE9gBO6DBxhUYG4x5pZ2VxdxnyPPNI8HT3MydnP8988E/1KrpdXEb9RPbqH/UroAWeI71N0Z4jL1dU4oF9uhX+gO8YJ4zdlHUGI8BBTp1se+iPmXMXxhL8V/L5kXUHt5zsUJv1WSl+QNXJ8zXONRtlGceZIzDGHCZI8+lW60ChtI5V02xWgEosMYSm5i4kj7KrAlAeo576d0fjqJOAzA9BcipBEzOBUxwc675Vz9TjCH7ON3ppAAAAABJRU5ErkJggg=="
+									alt=""
+								/>
 							</div>
 							<input
 								type="email"
@@ -232,11 +240,12 @@ export default function Home() {
 						</button>
 					</div>
 				</div>
-				<div className="pl-64 py-5">
-					{/* Ilustrativní obrázek není responzivní */}
-					<img
+				<div className="pl-64 py-5 relative">
+					<Image
 						className="w-10/12 h-auto px-4 py-5 sm:p-6"
+						layout="fill"
 						src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/191:100/w_1280,c_limit/GoogleMapTA.jpg"
+						alt=""
 					/>
 				</div>
 			</div>

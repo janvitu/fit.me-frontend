@@ -1,9 +1,11 @@
+import Image from "next/image";
+import { useState, useEffect } from "react";
+
 import { H2, TextProse, XlWrapper } from "@src/atoms";
 import { Modal, RatingInput, ResponsiveGallery } from "@src/molecules";
 import { EventCard } from "@src/organisms";
 import { ContactBusinessForm, DetailCard, RatingList } from "@src/organisms";
 import snarkdown from "snarkdown";
-import { useState, useEffect } from "react";
 import { disableScroll, enableScroll } from "@src/utils/handleScroll";
 
 const imagesFromServer = [
