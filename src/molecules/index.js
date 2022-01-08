@@ -29,3 +29,4 @@ export { TextAreaAdminWrapper } from "./formElements/TextAreaAdminWrapper";
 export { UploadImageWrapper } from "./formElements/UploadImageWrapper";
 export { ContactInputWrapper } from "./formElements/ContactInputWrapper";
 export { SelectWrapper } from "./formElements/SelectWrapper";
+export { SearchBar } from "./SearchBar";

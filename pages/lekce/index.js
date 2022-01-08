@@ -1,10 +1,9 @@
-import Image from "next/image";
-
 import { H1, H3, XlWrapper, ButtonFilter } from "@src/atoms";
-import { Filter, Sorter } from "@src/molecules";
+import { Filter, Sorter, SearchBar } from "@src/molecules";
 import { EventsList } from "@src/templates";
 import { DynamicSite } from "@src/templates/DynamicSite";
 import { useState } from "react";
+import searchIcon from "@assets/img/icons8-search.svg";
 
 export default function Events() {
 	const [filters, setFilters] = useState({
@@ -18,38 +17,18 @@ export default function Events() {
 				<XlWrapper>
 					<H1>Lekce</H1>
 					<div>
-						<label htmlFor="email" className="block text-sm font-medium text-gray-700 pt-6">
-							Hledej lekci
-						</label>
-						<div className="mt-1 flex rounded-md shadow-sm">
-							<div className="relative flex items-stretch flex-grow focus-within:z-10 ">
-								<div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-									<Image
-										height="15"
-										width="15"
-										src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABmJLR0QA/wD/AP+gvaeTAAAA00lEQVQokaXSPU5CQRTF8R+yBQMBCmNFYwOhh9YF2OouYAsUuAgTE9gBO6DBxhUYG4x5pZ2VxdxnyPPNI8HT3MydnP8988E/1KrpdXEb9RPbqH/UroAWeI71N0Z4jL1dU4oF9uhX+gO8YJ4zdlHUGI8BBTp1se+iPmXMXxhL8V/L5kXUHt5zsUJv1WSl+QNXJ8zXONRtlGceZIzDGHCZI8+lW60ChtI5V02xWgEosMYSm5i4kj7KrAlAeo576d0fjqJOAzA9BcipBEzOBUxwc675Vz9TjCH7ON3ppAAAAABJRU5ErkJggg=="
-										alt=""
-									/>
-								</div>
-								<input
-									type="text"
-									name="adress"
-									id="adress"
-									className="py-2 ring-main-500 focus:border-main-500 block w-full rounded-none rounded-l-md rounded-r-md pl-10 sm:text-sm border border-gray-300"
-									placeholder="U Jindřišské věže 23 / Praha / XFitness"
-								/>
-							</div>
-						</div>
+						<SearchBar
+							name="Hledej lekci"
+							id="address"
+							placeholder="U Jindřišské věže 23 / Praha / XFitness"
+							icon={searchIcon}
+						/>
 						<div className="mt-5 flex space-x-10">
 							<div className="max-w-xs">
 								<H3 variant="small">Filtr: </H3>
+
 								<div className="flex flex-col gap-y-5">
-									<Filter
-										name="Tagy"
-										// options={options}
-										filters={filters}
-										setFilters={(val) => setFilters(val)}
-									/>
+									<Filter name="Tagy" filters={filters} setFilters={(val) => setFilters(val)} />
 
 									<div className=" flex gap-x-3 gap-y-1 flex-wrap">
 										{filters.tags.map((tag, index) => {
