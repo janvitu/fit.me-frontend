@@ -26,7 +26,12 @@ export default function Events() {
 								<H3 variant="small">Filtr: </H3>
 
 								<div className="flex flex-col gap-y-5">
-									<Filter name="Tagy" filters={filters} setFilters={(val) => setFilters(val)} />
+									<Filter
+ 										name="Tagy"
+ 										// options={options}
+ 										filters={filters}
+ 										setFilters={(val) => setFilters(val)}
+ 									/>
 
 									<div className=" flex gap-x-3 gap-y-1 flex-wrap">
 										{filters.tags.map((tag, index) => {
