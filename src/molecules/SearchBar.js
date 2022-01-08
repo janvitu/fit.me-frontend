@@ -17,10 +17,10 @@ export function SearchBar({ name, id, placeholder }) {
 					</div>
 					<input
 						type="text"
-						name="adress"
-						id="adress"
+						name={name}
+						id={id}
 						className="py-2 ring-main-500 focus:border-main-500 block w-full rounded-none rounded-l-md rounded-r-md pl-10 sm:text-sm border border-gray-300"
-						placeholder="U Jindřišské věže 23 / Praha / XFitness"
+						placeholder={placeholder}
 					/>
 				</div>
 			</div>
