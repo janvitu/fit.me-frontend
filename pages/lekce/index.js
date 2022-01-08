@@ -21,7 +21,6 @@ export default function Events() {
 							name="Hledej lekci"
 							id="address"
 							placeholder="U Jindřišské věže 23 / Praha / XFitness"
-							icon={searchIcon}
 						/>
 						<div className="mt-5 flex space-x-10">
 							<div className="max-w-xs">
