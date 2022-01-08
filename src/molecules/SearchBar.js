@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { H3, ClassicInput } from "@src/atoms";
+import { H3 } from "@src/atoms";
 
 export function SearchBar({ name, id, placeholder }) {
 	return (
