@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { H3, ClassicInput } from "@src/atoms";
 
-export function SearchBar({ name, id, placeholder, icon }) {
+export function SearchBar({ name, id, placeholder }) {
 	return (
 		<div className="pt-6">
 			<H3 variant="small">{name}</H3>
