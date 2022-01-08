@@ -53,4 +53,3 @@ export { UploadImage } from "./formElements/UploadImage";
 export { CustomSelect } from "./formElements/CustomSelect";
 export { ContactLabel } from "./formElements/ContactLabel";
 export { ContactInput } from "./formElements/ContactInput";
-export { ClassicInput } from "./ClassicInput";
