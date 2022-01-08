@@ -3,7 +3,6 @@ import { Filter, Sorter, SearchBar } from "@src/molecules";
 import { EventsList } from "@src/templates";
 import { DynamicSite } from "@src/templates/DynamicSite";
 import { useState } from "react";
-import searchIcon from "@assets/img/icons8-search.svg";
 
 export default function Events() {
 	const [filters, setFilters] = useState({
