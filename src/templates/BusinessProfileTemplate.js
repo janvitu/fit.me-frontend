@@ -120,9 +120,9 @@ export function BusinessProfileTemplate({ BusinessProfileData }) {
 			<section>
 				<XlWrapper>
 					<div className="grid grid-cols-1 md:grid-cols-3 grid-flow-row gap-4">
-						<EventCard id={"xxx"}></EventCard>
-						<EventCard id={"xxx"}></EventCard>
-						<EventCard id={"xxx"}></EventCard>
+						<EventCard modal="true" id={"xxx"}></EventCard>
+						<EventCard modal="true" id={"xxx"}></EventCard>
+						<EventCard modal="true" id={"xxx"}></EventCard>
 					</div>
 				</XlWrapper>
 			</section>
