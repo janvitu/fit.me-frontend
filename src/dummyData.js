@@ -136,3 +136,98 @@ Id orci tellus laoreet id ac. Dolor, aenean leo, ac etiam consequat in. Convalli
 		},
 	],
 };
+
+export const EventData = {
+	id: 1,
+	name: "Super Trénink",
+	rating: 4.4,
+	date: "26.02.1999",
+	time: "15:00 - 16:30",
+	numOfRegistered: 16,
+	organizer: "lospodolos",
+	difficulty: "Pokročilý",
+	img: "https://source.unsplash.com/random/?workout",
+	difficulty: "Pokročilý",
+	content: [
+		{
+			id: 1,
+			name: "Snatch",
+		},
+		{
+			id: 2,
+			name: "Pull ups",
+		},
+		{
+			id: 3,
+			name: "Squats",
+		},
+		{
+			id: 4,
+			name: "Dips",
+		},
+	],
+	users: [
+		{
+			id: 1,
+			name: "Calvin Hawkins",
+			email: "calvin.hawkings@gmail.com",
+			img: "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+		},
+		{
+			id: 2,
+			name: "Calvin Hawkins",
+			email: "calvin.hawkings@gmail.com",
+			img: "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+		},
+		{
+			id: 3,
+			name: "Calvin Hawkins",
+			email: "calvin.hawkings@gmail.com",
+			img: "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+		},
+		{
+			id: 4,
+			name: "Calvin Hawkins",
+			email: "calvin.hawkings@gmail.com",
+			img: "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+		},
+		{
+			id: 5,
+			name: "Calvin Hawkins",
+			email: "calvin.hawkings@gmail.com",
+			img: "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+		},
+		{
+			id: 6,
+			name: "Calvin Hawkins",
+			email: "calvin.hawkings@gmail.com",
+			img: "https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+		},
+	],
+	tags: [
+		{
+			name: "Powerlifting",
+			color: "red",
+		},
+		{
+			name: "Yoga",
+			color: "lime",
+		},
+		{
+			name: "Badminton",
+			color: "green",
+		},
+		{
+			name: "Tennis",
+			color: "yellow",
+		},
+		{
+			name: "Squash",
+			color: "purple",
+		},
+		{
+			name: "FitBox",
+			color: "pink",
+		},
+	],
+};
