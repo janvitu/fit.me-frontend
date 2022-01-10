@@ -40,7 +40,7 @@ export default function Trainers() {
 								/>
 							</div>
 						</div>
-						<div className="mt-5 flex space-x-10">
+						<div className="mt-5 flex flex-wrap gap-x-10 gap-y-2 ">
 							<div className="max-w-xs">
 								<H3 variant="small">Filtr: </H3>
 								<div className="flex flex-col gap-y-5">
