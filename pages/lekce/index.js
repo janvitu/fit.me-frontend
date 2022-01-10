@@ -21,17 +21,17 @@ export default function Events() {
 							id="address"
 							placeholder="U Jindřišské věže 23 / Praha / XFitness"
 						/>
-						<div className="mt-5 flex space-x-10">
+						<div className="mt-5 flex flex-wrap gap-x-10 gap-y-2 ">
 							<div className="max-w-xs">
 								<H3 variant="small">Filtr: </H3>
 
 								<div className="flex flex-col gap-y-5">
 									<Filter
- 										name="Tagy"
- 										// options={options}
- 										filters={filters}
- 										setFilters={(val) => setFilters(val)}
- 									/>
+										name="Tagy"
+										// options={options}
+										filters={filters}
+										setFilters={(val) => setFilters(val)}
+									/>
 
 									<div className=" flex gap-x-3 gap-y-1 flex-wrap">
 										{filters.tags.map((tag, index) => {
