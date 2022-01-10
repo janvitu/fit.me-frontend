@@ -2,10 +2,24 @@ import { useState } from "react";
 import { ArrowLink, Tag } from "@src/atoms";
 import hooliIcon from "@assets/img/hooli-brands.svg";
 import Link from "next/link";
-import { RatingIndicator } from "@src/molecules";
+import { ModalEvent, RatingIndicator, Modal } from "@src/molecules";
 
-export function EventCard({ id, date, time, name, rating, numOfRegistered, tags, img }) {
+export function EventCard({
+	id,
+	date,
+	time,
+	name,
+	rating,
+	numOfRegistered,
+	tags,
+	img,
+	organizer,
+	difficulty,
+	modal = false,
+}) {
+	const [isOpen, setIsOpen] = useState(false);
 	const [tagsToggled, setTagsToggled] = useState(false);
+
 	const toggledTags = (tagsToggled) => {
 		var shortenedTags = [];
 		if (!tagsToggled) {
@@ -18,7 +32,32 @@ export function EventCard({ id, date, time, name, rating, numOfRegistered, tags,
 	};
 
 	return (
-		<div className="bg-white rounded-lg shadow divide-y divide-gray-200">
+		<div className="relative bg-white rounded-lg shadow divide-y divide-gray-200">
+			{/* <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}> */}
+			{modal && (
+				<>
+					<div
+						className="absolute w-full h-full hover:cursor-pointer z-10"
+						onClick={() => setIsOpen(true)}
+					></div>
+
+					<ModalEvent
+						isOpen={isOpen}
+						onClose={() => setIsOpen(false)}
+						id={id}
+						organizer={organizer}
+						date={date}
+						time={time}
+						name={name}
+						rating={rating}
+						numOfRegistered={numOfRegistered}
+						tags={tags}
+						img={img}
+						difficulty={difficulty}
+					/>
+				</>
+			)}
+			{/* </Modal> */}
 			<Link href={`/lekce/${id}`} passHref>
 				<a>
 					<div className="w-full flex items-center gap-6 p-6">
@@ -56,7 +95,7 @@ export function EventCard({ id, date, time, name, rating, numOfRegistered, tags,
 									) : (
 										<button
 											type="button"
-											className=" relative flex-shrink-0 text-xs z-20 px-2 py-0.5 rounded-t-sm bg-gray-100 text-gray-800  hover:bg-main-200"
+											className=" relative flex-shrink-0 text-xs px-2 py-0.5 rounded-t-sm bg-gray-100 text-gray-800  hover:bg-main-200"
 											onClick={(e) => {
 												e.preventDefault();
 												setTagsToggled(!tagsToggled);
@@ -68,7 +107,6 @@ export function EventCard({ id, date, time, name, rating, numOfRegistered, tags,
 								</div>
 							</div>
 							<div className="text-gray-500 text-xs mb-2">Přihlášených: {numOfRegistered}</div>
-							<ArrowLink>Více</ArrowLink>
 						</div>
 					</div>
 				</a>
@@ -84,6 +122,8 @@ EventCard.defaultProps = {
 	date: "26.02.1999",
 	time: "15:00 - 16:30",
 	numOfRegistered: 16,
+	organizer: "lospodolos",
+	difficulty: "Pokročilý",
 	tags: [
 		{
 			name: "Powerlifting",
