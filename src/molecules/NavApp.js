@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { NavLink } from "@src/atoms";
+import { NavLink, ProfileImage } from "@src/atoms";
 import { ProfileImageLink } from "@src/molecules";
 import { useRouter } from "next/router";
 import { ButtonLink } from "@src/atoms";
@@ -13,7 +13,11 @@ export function NavApp({ routes, toggled }) {
 			}`}
 		>
 			<div className="md:hidden">
-				<ProfileImageLink variant="small" />
+				<Link href="/profil">
+					<a>
+						<ProfileImage variant="small" />
+					</a>
+				</Link>
 			</div>
 			{routes.map(({ name, path, text }) => (
 				<NavLink key={name} href={path} linkIsActive={router.asPath === path}>
