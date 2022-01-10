@@ -22,7 +22,6 @@ export { Filter } from "./Filter";
 export { Sorter } from "./Sorter";
 export { ProfilePopup } from "./ProfilePopup";
 export { ResponsiveGallery } from "./ResponsiveGallery";
-export { ProfileImageLink } from "./ProfileImageLink";
 export { TagList } from "./TagList";
 export { InputAdminWrapper } from "./formElements/InputAdminWrapper";
 export { TextAreaAdminWrapper } from "./formElements/TextAreaAdminWrapper";
