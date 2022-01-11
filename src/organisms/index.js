@@ -19,3 +19,4 @@ export { ChangePassword } from "./ChangePassword";
 export { ForgotenPasswordModal } from "./ForgotenPasswordModal";
 export { AdminPlaceForm } from "./AdminPlaceForm";
 export { AdminTrainerForm } from "./AdminTrainerForm";
+export { FilterWithTags } from "./FilterWithTags";
