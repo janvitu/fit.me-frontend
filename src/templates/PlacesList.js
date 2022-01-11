@@ -46,198 +46,198 @@ export function PlacesList({ places, filters }) {
 	);
 }
 
-PlacesList.defaultProps = {
-	places: [
-		{
-			id: 1,
-			name: "XFitness",
-			username: "xfitness",
-			tags: [
-				{
-					name: "Powerlifting",
-					color: "red",
-				},
-				{
-					name: "Yoga",
-					color: "lime",
-				},
-				{
-					name: "Badminton",
-					color: "green",
-				},
-			],
-			img: hooliIcon.src,
-			rating: 5,
-		},
-		{
-			id: 2,
-			name: "XFitness",
-			username: "xfitness",
-			tags: [
-				{
-					name: "Powerlifting",
-					color: "red",
-				},
-				{
-					name: "Yoga",
-					color: "lime",
-				},
-				{
-					name: "Badminton",
-					color: "green",
-				},
-				{
-					name: "Tennis",
-					color: "yellow",
-				},
-				{
-					name: "Squash",
-					color: "purple",
-				},
-				{
-					name: "FitBox",
-					color: "pink",
-				},
-			],
-			img: hooliIcon.src,
-			rating: 4,
-		},
-		{
-			id: 3,
-			name: "XFitness",
-			username: "xfitness",
-			tags: [
-				{
-					name: "Badminton",
-					color: "green",
-				},
-				{
-					name: "Tennis",
-					color: "yellow",
-				},
-				{
-					name: "Squash",
-					color: "purple",
-				},
-				{
-					name: "FitBox",
-					color: "pink",
-				},
-			],
-			img: hooliIcon.src,
-			rating: 2,
-		},
-		{
-			id: 4,
-			name: "XFitness",
-			username: "xfitness",
-			tags: [
-				{
-					name: "Powerlifting",
-					color: "red",
-				},
-				{
-					name: "Yoga",
-					color: "lime",
-				},
-				{
-					name: "Badminton",
-					color: "green",
-				},
-				{
-					name: "Tennis",
-					color: "yellow",
-				},
-				{
-					name: "Squash",
-					color: "purple",
-				},
-				{
-					name: "FitBox",
-					color: "pink",
-				},
-			],
-			img: hooliIcon.src,
-			rating: 4,
-		},
-		{
-			id: 5,
-			name: "XFitness",
-			username: "xfitness",
-			tags: [
-				{
-					name: "Powerlifting",
-					color: "red",
-				},
-				{
-					name: "Yoga",
-					color: "lime",
-				},
-				{
-					name: "Badminton",
-					color: "green",
-				},
-				{
-					name: "Tennis",
-					color: "yellow",
-				},
-				{
-					name: "Squash",
-					color: "purple",
-				},
-				{
-					name: "FitBox",
-					color: "pink",
-				},
-			],
-			img: hooliIcon.src,
-			rating: 5,
-		},
-		{
-			id: 6,
-			name: "XFitness",
-			username: "xfitness",
-			tags: [
-				{
-					name: "Powerlifting",
-					color: "red",
-				},
-				{
-					name: "Yoga",
-					color: "lime",
-				},
-				{
-					name: "FitBox",
-					color: "pink",
-				},
-			],
-			img: hooliIcon.src,
-			rating: 1,
-		},
-		{
-			id: 7,
-			name: "XFitness",
-			username: "xfitness",
-			tags: [
-				{
-					name: "Badminton",
-					color: "green",
-				},
-				{
-					name: "Tennis",
-					color: "yellow",
-				},
-				{
-					name: "Squash",
-					color: "purple",
-				},
-				{
-					name: "FitBox",
-					color: "pink",
-				},
-			],
-			img: hooliIcon.src,
-			rating: 3,
-		},
-	],
-};
+// PlacesList.defaultProps = {
+// 	places: [
+// 		{
+// 			id: 1,
+// 			name: "XFitness",
+// 			username: "xfitness",
+// 			tags: [
+// 				{
+// 					name: "Powerlifting",
+// 					color: "red",
+// 				},
+// 				{
+// 					name: "Yoga",
+// 					color: "lime",
+// 				},
+// 				{
+// 					name: "Badminton",
+// 					color: "green",
+// 				},
+// 			],
+// 			img: hooliIcon.src,
+// 			rating: 5,
+// 		},
+// 		{
+// 			id: 2,
+// 			name: "XFitness",
+// 			username: "xfitness",
+// 			tags: [
+// 				{
+// 					name: "Powerlifting",
+// 					color: "red",
+// 				},
+// 				{
+// 					name: "Yoga",
+// 					color: "lime",
+// 				},
+// 				{
+// 					name: "Badminton",
+// 					color: "green",
+// 				},
+// 				{
+// 					name: "Tennis",
+// 					color: "yellow",
+// 				},
+// 				{
+// 					name: "Squash",
+// 					color: "purple",
+// 				},
+// 				{
+// 					name: "FitBox",
+// 					color: "pink",
+// 				},
+// 			],
+// 			img: hooliIcon.src,
+// 			rating: 4,
+// 		},
+// 		{
+// 			id: 3,
+// 			name: "XFitness",
+// 			username: "xfitness",
+// 			tags: [
+// 				{
+// 					name: "Badminton",
+// 					color: "green",
+// 				},
+// 				{
+// 					name: "Tennis",
+// 					color: "yellow",
+// 				},
+// 				{
+// 					name: "Squash",
+// 					color: "purple",
+// 				},
+// 				{
+// 					name: "FitBox",
+// 					color: "pink",
+// 				},
+// 			],
+// 			img: hooliIcon.src,
+// 			rating: 2,
+// 		},
+// 		{
+// 			id: 4,
+// 			name: "XFitness",
+// 			username: "xfitness",
+// 			tags: [
+// 				{
+// 					name: "Powerlifting",
+// 					color: "red",
+// 				},
+// 				{
+// 					name: "Yoga",
+// 					color: "lime",
+// 				},
+// 				{
+// 					name: "Badminton",
+// 					color: "green",
+// 				},
+// 				{
+// 					name: "Tennis",
+// 					color: "yellow",
+// 				},
+// 				{
+// 					name: "Squash",
+// 					color: "purple",
+// 				},
+// 				{
+// 					name: "FitBox",
+// 					color: "pink",
+// 				},
+// 			],
+// 			img: hooliIcon.src,
+// 			rating: 4,
+// 		},
+// 		{
+// 			id: 5,
+// 			name: "XFitness",
+// 			username: "xfitness",
+// 			tags: [
+// 				{
+// 					name: "Powerlifting",
+// 					color: "red",
+// 				},
+// 				{
+// 					name: "Yoga",
+// 					color: "lime",
+// 				},
+// 				{
+// 					name: "Badminton",
+// 					color: "green",
+// 				},
+// 				{
+// 					name: "Tennis",
+// 					color: "yellow",
+// 				},
+// 				{
+// 					name: "Squash",
+// 					color: "purple",
+// 				},
+// 				{
+// 					name: "FitBox",
+// 					color: "pink",
+// 				},
+// 			],
+// 			img: hooliIcon.src,
+// 			rating: 5,
+// 		},
+// 		{
+// 			id: 6,
+// 			name: "XFitness",
+// 			username: "xfitness",
+// 			tags: [
+// 				{
+// 					name: "Powerlifting",
+// 					color: "red",
+// 				},
+// 				{
+// 					name: "Yoga",
+// 					color: "lime",
+// 				},
+// 				{
+// 					name: "FitBox",
+// 					color: "pink",
+// 				},
+// 			],
+// 			img: hooliIcon.src,
+// 			rating: 1,
+// 		},
+// 		{
+// 			id: 7,
+// 			name: "XFitness",
+// 			username: "xfitness",
+// 			tags: [
+// 				{
+// 					name: "Badminton",
+// 					color: "green",
+// 				},
+// 				{
+// 					name: "Tennis",
+// 					color: "yellow",
+// 				},
+// 				{
+// 					name: "Squash",
+// 					color: "purple",
+// 				},
+// 				{
+// 					name: "FitBox",
+// 					color: "pink",
+// 				},
+// 			],
+// 			img: hooliIcon.src,
+// 			rating: 3,
+// 		},
+// 	],
+// };

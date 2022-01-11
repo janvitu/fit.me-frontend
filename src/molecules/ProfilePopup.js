@@ -67,7 +67,6 @@ export function ProfilePopup({ email, img, username, accounts }) {
 									focusable="false"
 									data-prefix="fat"
 									data-icon="user-plus"
-									class="svg-inline--fa fa-user-plus"
 									role="img"
 									xmlns="http://www.w3.org/2000/svg"
 									viewBox="0 0 640 512"

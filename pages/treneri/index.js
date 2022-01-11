@@ -5,8 +5,24 @@ import { H3, H1, XlWrapper, ButtonFilter } from "@src/atoms";
 import { Filter, Sorter } from "@src/molecules";
 import { TrainersList } from "@src/organisms";
 import { DynamicSite } from "@src/templates/DynamicSite";
+import { gql, useQuery } from "@apollo/client";
+
+const GET_COACHES = gql`
+	query GetCoaches {
+		getCoaches {
+			id
+			username
+			name
+			surname
+			description
+			specializations
+			rating
+		}
+	}
+`;
 
 export default function Trainers() {
+	const { loading, error, data } = useQuery(GET_COACHES);
 	const [filters, setFilters] = useState({
 		tags: [],
 		order: "",
@@ -75,10 +91,7 @@ export default function Trainers() {
 
 			<section className="mx-auto">
 				<XlWrapper>
-					<TrainersList
-						// trainers={trainers}
-						filters={filters}
-					/>
+					{!loading && !error && <TrainersList trainers={data.getCoaches} filters={filters} />}
 				</XlWrapper>
 			</section>
 		</DynamicSite>

@@ -5,8 +5,26 @@ import { Filter, Sorter } from "@src/molecules";
 import { PlacesList } from "@src/templates";
 import { DynamicSite } from "@src/templates/DynamicSite";
 import { useState } from "react";
+import { gql, useQuery } from "@apollo/client";
+
+const GET_SPORTSGROUNDS = gql`
+	query GetSportsgrounds {
+		getSportsgrounds {
+			id
+			name
+			username
+			description
+			tags {
+				name
+				color
+			}
+			rating
+		}
+	}
+`;
 
 export default function Places() {
+	const { loading, error, data } = useQuery(GET_SPORTSGROUNDS);
 	const [filters, setFilters] = useState({
 		tags: [],
 		order: "",
@@ -74,10 +92,7 @@ export default function Places() {
 			</div>
 			<section className="mx-auto">
 				<XlWrapper>
-					<PlacesList
-						// places={places}
-						filters={filters}
-					/>
+					{!loading && !error && <PlacesList places={data.getSportsgrounds} filters={filters} />}
 				</XlWrapper>
 			</section>
 		</DynamicSite>

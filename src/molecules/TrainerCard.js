@@ -26,9 +26,8 @@ export function TrainerCard({ name, username, description, tags, img, rating }) 
 							<dd className="text-gray-500 text-sm">{description}</dd>
 							<dt className="sr-only">Specializations</dt>
 							<dd className="mt-3 space-x-1 space-y-1">
-								{tags.map((tag, index) => (
-									<Tag name={tag.name} color={tag.color} key={index} />
-								))}
+								{tags &&
+									tags.map((tag, index) => <Tag name={tag.name} color={tag.color} key={index} />)}
 							</dd>
 						</dl>
 					</div>

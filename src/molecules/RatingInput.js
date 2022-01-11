@@ -1,7 +1,7 @@
 import { Label } from "@src/atoms";
 import { useState } from "react";
 
-export function RatingInput({ addRating }) {
+export function RatingInput({ addReview }) {
 	const [isFocused, setIsFocused] = useState(false);
 	const [comment, setComment] = useState("");
 	const [rating, setRating] = useState(0);

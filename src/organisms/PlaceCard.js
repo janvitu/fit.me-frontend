@@ -14,9 +14,7 @@ export function PlaceCard({ name, username, description, tags, img, rating }) {
 								<h3 className="text-gray-900 text-sm font-medium">{name}</h3>
 								<RatingIndicator ratingValue={rating} />
 							</div>
-							<div>
-								<TagList tags={tags} />
-							</div>
+							<div>{tags && <TagList tags={tags} />}</div>
 							<p className="mt-1 text-gray-500 text-sm truncate">{description}</p>
 						</div>
 						<Image
@@ -37,31 +35,31 @@ PlaceCard.defaultProps = {
 	name: "Xfitness",
 	username: "xfitness",
 	description: "Vaše oblíbená posilovna",
-	tags: [
-		{
-			name: "Powerlifting",
-			color: "red",
-		},
-		{
-			name: "Yoga",
-			color: "lime",
-		},
-		{
-			name: "Badminton",
-			color: "green",
-		},
-		{
-			name: "Tennis",
-			color: "yellow",
-		},
-		{
-			name: "Squash",
-			color: "purple",
-		},
-		{
-			name: "FitBox",
-			color: "pink",
-		},
-	],
+	// tags: [
+	// 	{
+	// 		name: "Powerlifting",
+	// 		color: "red",
+	// 	},
+	// 	{
+	// 		name: "Yoga",
+	// 		color: "lime",
+	// 	},
+	// 	{
+	// 		name: "Badminton",
+	// 		color: "green",
+	// 	},
+	// 	{
+	// 		name: "Tennis",
+	// 		color: "yellow",
+	// 	},
+	// 	{
+	// 		name: "Squash",
+	// 		color: "purple",
+	// 	},
+	// 	{
+	// 		name: "FitBox",
+	// 		color: "pink",
+	// 	},
+	// ],
 	img: hooliIcon.src,
 };

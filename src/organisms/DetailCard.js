@@ -54,9 +54,11 @@ export function DetailCard({ descriptionItems, rating = 0 }) {
 							</IconButton>
 						</div>
 					</div>
-					<div className="border-t border-gray-200 px-4 py-5 sm:px-6 flex-grow overflow-y-scroll">
-						<DescriptionList items={descriptionItems} />
-					</div>
+					{descriptionItems && (
+						<div className="border-t border-gray-200 px-4 py-5 sm:px-6 flex-grow overflow-y-scroll">
+							<DescriptionList items={descriptionItems} />
+						</div>
+					)}
 				</div>
 			</div>
 		</>

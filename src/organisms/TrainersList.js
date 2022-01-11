@@ -7,9 +7,9 @@ export function TrainersList({ trainers, filters }) {
 		if (filters.tags.length && Array.isArray(filters.tags)) {
 			arrOfTrainers = trainers.filter((trainer) => {
 				let condition = true;
-				filters.tags.forEach((tag) => {
+				filters.specializations.forEach((tag) => {
 					const contains = (element) => element.name === tag;
-					if (!trainer.tags.some(contains)) condition = false;
+					if (!trainer.specializations.some(contains)) condition = false;
 				});
 				return condition;
 			});
@@ -32,10 +32,10 @@ export function TrainersList({ trainers, filters }) {
 			{trainersReadyToRender(trainers, filters).map((trainer) => {
 				return (
 					<TrainerCard
-						name={trainer.name}
+						name={`${trainer.name} ${trainer.surname}`}
 						username={trainer.username}
 						description={trainer.description}
-						tags={trainer.tags}
+						tags={trainer.specializations}
 						img={trainer.img}
 						rating={trainer.rating}
 						key={trainer.id}

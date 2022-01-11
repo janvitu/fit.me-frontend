@@ -18,10 +18,10 @@ const imagesFromServer = [
 ];
 
 export function BusinessProfileTemplate({ BusinessProfileData }) {
-	const article = snarkdown(BusinessProfileData.article);
-	const [ratingList, setRatingList] = useState(
-		BusinessProfileData.ratingList.sort((a, b) => {
-			return new Date(b.submitedAt) - new Date(a.submitedAt);
+	const article = snarkdown(BusinessProfileData.description);
+	const [reviews, setReviews] = useState(
+		[...BusinessProfileData.reviews].sort((a, b) => {
+			return new Date(a.datetime) - new Date(b.datetime);
 		}),
 	);
 	const [contactModal, setContactModal] = useState(false);
@@ -37,11 +37,11 @@ export function BusinessProfileTemplate({ BusinessProfileData }) {
 	const [rating, setRating] = useState(0);
 
 	useEffect(() => {
-		const ratings = ratingList.map((rating) => rating.rating);
-		const averageRating = ratings.reduce((a, b) => a + b, 0) / ratings.length;
+		const rating = reviews.map((review) => review.rating);
+		const averageRating = reviews.reduce((a, b) => a + b, 0) / reviews.length;
 		const roundedAverageRating = Math.round(averageRating);
 		setRating(roundedAverageRating);
-	}, [ratingList]);
+	}, [reviews]);
 
 	const closeContactModal = () => {
 		setContactModal(false);
@@ -50,8 +50,8 @@ export function BusinessProfileTemplate({ BusinessProfileData }) {
 		setContactModal(true);
 	};
 
-	const addRating = (ratingItem) => {
-		setRatingList([ratingItem, ...ratingList]);
+	const addReview = (review) => {
+		setReviews([review, ...reviews]);
 	};
 
 	return (
@@ -113,7 +113,10 @@ export function BusinessProfileTemplate({ BusinessProfileData }) {
 								</TextProse>
 							</div>
 						</div>
-						<DetailCard descriptionItems={BusinessProfileData.detail} rating={rating} />
+						<DetailCard
+							descriptionItems={BusinessProfileData.details}
+							rating={BusinessProfileData.rating}
+						/>
 					</div>
 				</XlWrapper>
 			</section>
@@ -134,8 +137,8 @@ export function BusinessProfileTemplate({ BusinessProfileData }) {
 			<section>
 				<XlWrapper>
 					<div className="space-y-10">
-						<RatingInput addRating={addRating} />
-						<RatingList ratingList={ratingList} />
+						<RatingInput addReview={addReview} />
+						<RatingList reviews={reviews} />
 					</div>
 				</XlWrapper>
 			</section>
