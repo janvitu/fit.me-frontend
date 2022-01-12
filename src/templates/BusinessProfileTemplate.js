@@ -122,11 +122,16 @@ export function BusinessProfileTemplate({ BusinessProfileData }) {
 			</section>
 			<section>
 				<XlWrapper>
-					<div className="grid grid-cols-1 md:grid-cols-3 grid-flow-row gap-4">
-						<EventCard modal="true" id={"xxx"}></EventCard>
-						<EventCard modal="true" id={"xxx"}></EventCard>
-						<EventCard modal="true" id={"xxx"}></EventCard>
-					</div>
+					{BusinessProfileData.events && (
+						<div className="grid grid-cols-1 md:grid-cols-3 grid-flow-row gap-4">
+							{BusinessProfileData.events.map((event) => (
+								<EventCard key={event.id} id={event.id} modal={true} />
+							))}
+							<EventCard modal="true" id={"xxx"}></EventCard>
+							<EventCard modal="true" id={"xxx"}></EventCard>
+							<EventCard modal="true" id={"xxx"}></EventCard>
+						</div>
+					)}
 				</XlWrapper>
 			</section>
 			<section>
