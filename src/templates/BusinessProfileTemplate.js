@@ -131,11 +131,6 @@ export function BusinessProfileTemplate({ BusinessProfileData }) {
 			</section>
 			<section>
 				<XlWrapper>
-					<ResponsiveGallery>{imagesFromServer}</ResponsiveGallery>
-				</XlWrapper>
-			</section>
-			<section>
-				<XlWrapper>
 					<div className="space-y-10">
 						<RatingInput addReview={addReview} />
 						<RatingList reviews={reviews} />
