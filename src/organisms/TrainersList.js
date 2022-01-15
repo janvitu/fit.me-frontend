@@ -34,9 +34,9 @@ export function TrainersList({ trainers, filters }) {
 					<TrainerCard
 						name={`${trainer.name} ${trainer.surname}`}
 						username={trainer.username}
-						description={trainer.description}
+						description={trainer.intro_text}
 						tags={trainer.specializations}
-						img={trainer.img}
+						img={trainer.profile_photo}
 						rating={trainer.rating}
 						key={trainer.id}
 					/>
@@ -45,106 +45,3 @@ export function TrainersList({ trainers, filters }) {
 		</div>
 	);
 }
-
-TrainersList.defaultProps = {
-	trainers: [
-		{
-			id: 1,
-			name: "Robert Chott",
-			username: "robertchott",
-			img: hooliIcon.src,
-			tags: [
-				{
-					name: "Fyzioterapie",
-					color: "yellow",
-				},
-				{
-					name: "Mistr chi",
-					color: "green",
-				},
-				{
-					name: "Zen master",
-					color: "lime",
-				},
-			],
-			rating: 1,
-		},
-		{
-			id: 2,
-			name: "Robert Chott",
-			username: "robertchott",
-			img: hooliIcon.src,
-			tags: [
-				{
-					name: "Zen master",
-					color: "lime",
-				},
-			],
-			rating: 5,
-		},
-		{
-			id: 3,
-			name: "Robert Chott",
-			username: "robertchott",
-			img: hooliIcon.src,
-			tags: [
-				{
-					name: "Mistr chi",
-					color: "green",
-				},
-			],
-			rating: 5,
-		},
-		{
-			id: 4,
-			name: "Robert Chott",
-			username: "robertchott",
-			img: hooliIcon.src,
-			tags: [
-				{
-					name: "Mistr chi",
-					color: "green",
-				},
-				{
-					name: "Zen master",
-					color: "lime",
-				},
-			],
-			rating: 3,
-		},
-		{
-			id: 5,
-			name: "Robert Chott",
-			username: "robertchott",
-			img: hooliIcon.src,
-			tags: [
-				{
-					name: "Fyzioterapie",
-					color: "yellow",
-				},
-			],
-			rating: 4,
-		},
-		{
-			id: 6,
-			name: "Robert Chott",
-			username: "robertchott",
-			img: hooliIcon.src,
-			tags: [
-				{
-					name: "Fyzioterapie",
-					color: "yellow",
-				},
-				{
-					name: "Mistr chi",
-					color: "green",
-				},
-				{
-					name: "Zen master",
-					color: "lime",
-				},
-			],
-			rating: 2,
-		},
-	],
-};

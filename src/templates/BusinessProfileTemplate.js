@@ -18,6 +18,7 @@ const imagesFromServer = [
 ];
 
 export function BusinessProfileTemplate({ BusinessProfileData }) {
+	console.log(BusinessProfileData.profile_photo);
 	const article = snarkdown(BusinessProfileData.description);
 	const [reviews, setReviews] = useState(
 		[...BusinessProfileData.reviews].sort((a, b) => {
@@ -68,9 +69,9 @@ export function BusinessProfileTemplate({ BusinessProfileData }) {
 					<div className="-mt-12 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
 						<div className="flex">
 							<img
-								className="h-24 w-24 rounded-full object-contain ring-4 ring-white sm:h-32 sm:w-32"
-								src="https://source.unsplash.com/random/128x128/?avatar"
-								alt=""
+								className="h-24 w-24 rounded-full object-contain ring-4 bg-gray-200 ring-white sm:h-32 sm:w-32"
+								src={BusinessProfileData.profile_photo.location}
+								alt={BusinessProfileData.profile_photo.name}
 							/>
 						</div>
 						<div className="mt-6 sm:flex-1 sm:min-w-0 sm:flex sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
@@ -120,20 +121,18 @@ export function BusinessProfileTemplate({ BusinessProfileData }) {
 					</div>
 				</XlWrapper>
 			</section>
-			<section>
-				<XlWrapper>
-					{BusinessProfileData.events && (
+			{BusinessProfileData.events && (
+				<section>
+					<XlWrapper>
 						<div className="grid grid-cols-1 md:grid-cols-3 grid-flow-row gap-4">
 							{BusinessProfileData.events.map((event) => (
 								<EventCard key={event.id} id={event.id} modal={true} />
 							))}
-							<EventCard modal="true" id={"xxx"}></EventCard>
-							<EventCard modal="true" id={"xxx"}></EventCard>
-							<EventCard modal="true" id={"xxx"}></EventCard>
 						</div>
-					)}
-				</XlWrapper>
-			</section>
+					</XlWrapper>
+				</section>
+			)}
+
 			<section>
 				<XlWrapper>
 					<div className="space-y-10">

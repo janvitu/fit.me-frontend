@@ -13,6 +13,10 @@ const GET_COACH = gql`
 			vat_number
 			phone
 			description
+			profile_photo {
+				name
+				location
+			}
 			specializations
 			address {
 				id

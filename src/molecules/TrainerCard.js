@@ -15,8 +15,8 @@ export function TrainerCard({ name, username, description, tags, img, rating }) 
 								width="128"
 								height="128"
 								className="w-32 h-32 flex-shrink-0 mx-auto object-cover rounded-full"
-								src={img}
-								alt="alt"
+								src={img.location}
+								alt={img.name}
 							/>
 						</div>
 						<h3 className="mt-6 text-gray-900 text-sm font-medium">{name}</h3>

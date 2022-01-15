@@ -10,7 +10,11 @@ const GET_SPORTSGROUNDS = gql`
 			id
 			name
 			username
-			description
+			intro_text
+			profile_photo {
+				location
+				name
+			}
 			tags {
 				name
 				color

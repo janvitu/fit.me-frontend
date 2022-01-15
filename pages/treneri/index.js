@@ -12,9 +12,13 @@ const GET_COACHES = gql`
 			username
 			name
 			surname
-			description
+			intro_text
 			specializations
 			rating
+			profile_photo {
+				name
+				location
+			}
 		}
 	}
 `;

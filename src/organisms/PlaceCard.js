@@ -1,5 +1,4 @@
 import { RatingIndicator, TagList } from "@src/molecules";
-import hooliIcon from "@assets/img/hooli-brands.svg";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -21,8 +20,8 @@ export function PlaceCard({ name, username, description, tags, img, rating }) {
 							className="bg-gray-300 rounded-full flex-shrink-0"
 							width="40"
 							height="40"
-							src={img}
-							alt="alt"
+							src={img.location}
+							alt={img.name}
 						/>
 					</div>
 				</a>
@@ -30,36 +29,3 @@ export function PlaceCard({ name, username, description, tags, img, rating }) {
 		</div>
 	);
 }
-
-PlaceCard.defaultProps = {
-	name: "Xfitness",
-	username: "xfitness",
-	description: "Vaše oblíbená posilovna",
-	// tags: [
-	// 	{
-	// 		name: "Powerlifting",
-	// 		color: "red",
-	// 	},
-	// 	{
-	// 		name: "Yoga",
-	// 		color: "lime",
-	// 	},
-	// 	{
-	// 		name: "Badminton",
-	// 		color: "green",
-	// 	},
-	// 	{
-	// 		name: "Tennis",
-	// 		color: "yellow",
-	// 	},
-	// 	{
-	// 		name: "Squash",
-	// 		color: "purple",
-	// 	},
-	// 	{
-	// 		name: "FitBox",
-	// 		color: "pink",
-	// 	},
-	// ],
-	img: hooliIcon.src,
-};
