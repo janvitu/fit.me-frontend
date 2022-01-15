@@ -1,21 +1,23 @@
 import { useState } from "react";
-import { ArrowLink, Tag } from "@src/atoms";
+import { Tag } from "@src/atoms";
 import hooliIcon from "@assets/img/hooli-brands.svg";
 import Link from "next/link";
-import { ModalEvent, RatingIndicator, Modal } from "@src/molecules";
+import { ModalEvent } from "@src/molecules";
+import { parseDate, getTimePeriod } from "@src/utils/dateHandler";
 
 export function EventCard({
 	id,
-	date,
-	time,
 	name,
-	rating,
-	numOfRegistered,
-	tags,
-	img,
-	organizer,
+	datetime_from,
+	datetime_to,
 	difficulty,
+	tags,
+	exercises,
+	sportsground,
+	sportsmans,
+	numOfRegistered,
 	modal = false,
+	img = hooliIcon,
 }) {
 	const [isOpen, setIsOpen] = useState(false);
 	const [tagsToggled, setTagsToggled] = useState(false);
@@ -33,7 +35,6 @@ export function EventCard({
 
 	return (
 		<div className="relative bg-white rounded-lg shadow divide-y divide-gray-200">
-			{/* <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}> */}
 			{modal && (
 				<>
 					<div
@@ -45,19 +46,17 @@ export function EventCard({
 						isOpen={isOpen}
 						onClose={() => setIsOpen(false)}
 						id={id}
-						organizer={organizer}
-						date={date}
-						time={time}
 						name={name}
-						rating={rating}
-						numOfRegistered={numOfRegistered}
-						tags={tags}
-						img={img}
+						datetime_from={date}
+						datetime_to={time}
 						difficulty={difficulty}
+						tags={tags}
+						exercises={exercises}
+						sportsmans={sportsmans}
+						img={img}
 					/>
 				</>
 			)}
-			{/* </Modal> */}
 			<Link href={`/lekce/${id}`} passHref>
 				<a>
 					<div className="w-full flex items-center gap-6 p-6">
@@ -70,22 +69,20 @@ export function EventCard({
 						</div>
 						<div className="flex-1">
 							<div className="flex flex-col sm:flex-row text-gray-500">
-								<div className="font-bold text-sm">{date} </div>
+								<div className="font-bold text-sm">{parseDate(new Date(datetime_from))} </div>
 								<div className="font-bold text-sm hidden sm:block">&nbsp;|&nbsp;</div>
-								<div className="text-sm font-normal">{time}</div>
+								<div className="text-sm font-normal">
+									{getTimePeriod(new Date(datetime_from), new Date(datetime_to))}
+								</div>
 							</div>
 							<div className="flex flex-col sm:flex-row">
 								<div className="mr-4 text-2xl leading-8 font-bold tracking-tight text-gray-900 sm:text-3x">
 									{name}
 								</div>
 							</div>
-							{rating && (
-								<div className="flex gap-2 mb-4">
-									<RatingIndicator ratingValue={rating} className="mt-2" />
-									<span className="text-xs text-gray-500 mt-1">({rating})</span>
-								</div>
-							)}
-							<div>
+							<span className="text-xs text-gray-400">@{sportsground.username}</span>
+
+							<div className="mt-2">
 								<div className="flex items-center flex-wrap gap-x-2 gap-y-1 mb-2">
 									{toggledTags(tagsToggled).map((tag, index) => (
 										<Tag name={tag.name} color={tag.color} key={index} />
@@ -114,44 +111,3 @@ export function EventCard({
 		</div>
 	);
 }
-
-EventCard.defaultProps = {
-	id: "1",
-	name: "Super Trénink",
-	rating: 4.4,
-	date: "26.02.1999",
-	time: "15:00 - 16:30",
-	numOfRegistered: 16,
-	organizer: "lospodolos",
-	difficulty: "Pokročilý",
-	tags: [
-		{
-			name: "Powerlifting",
-			color: "red",
-		},
-		{
-			name: "Yoga",
-			color: "lime",
-		},
-		{
-			name: "Badminton",
-			color: "green",
-		},
-		{
-			name: "Tennis",
-			color: "yellow",
-		},
-		{
-			name: "Squash",
-			color: "purple",
-		},
-		{
-			name: "FitBox",
-			color: "pink",
-		},
-	],
-	img: {
-		src: hooliIcon.src,
-		alt: "",
-	},
-};
