@@ -21,8 +21,9 @@ export function formatDateForServer(date) {
 }
 
 export function parseDate(date) {
-	const t = date.split(/[- :]/);
-	const parsedDate = new Date(Date.UTC(t[0], t[1] - 1, t[2], t[3], t[4], t[5]));
+	const day = date.getDate();
+	const month = date.getMonth() + 1;
+	const year = date.getFullYear();
 
-	return parsedDate;
+	return `${day}.${month}.${year}`;
 }
