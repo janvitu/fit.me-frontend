@@ -33,6 +33,7 @@ export function AddNewAccount() {
 			city: "",
 		},
 		onSubmit: (values) => {
+			const load = toast.loading("Požadavek se zpracovává");
 			try {
 				if (values.accType == "coach")
 					createCoach({
@@ -44,8 +45,10 @@ export function AddNewAccount() {
 							city: values.city,
 							vat_number: values.vat_number.toString(),
 						},
-					}).then((res) => {
-						console.log(res);
+					}).then(() => {
+						toast.dismiss(load);
+						toast.success("Účet úspěšně vytvořen");
+						setIsVisible(false);
 					});
 				if (values.accType == "sportsground")
 					createSportsGround({
@@ -54,22 +57,29 @@ export function AddNewAccount() {
 							street: values.street,
 							email: user.email,
 							city: values.city,
+							zip: values.zip,
 							vat_number: values.vat_number,
+							number: values.number,
+							country: "Česká republika",
 						},
-					}).then((res) => {
-						console.log(res);
+					}).then(() => {
+						toast.dismiss(load);
+						toast.success("Účet úspěšně vytvořen");
+						setIsVisible(false);
 					});
 				if (values.accType == "sportsman")
 					createSportsman({
 						variables: { name: values.name, surname: values.surname, email: user.email },
-					}).then((res) => {
-						console.log(res);
+					}).then(() => {
+						toast.dismiss(load);
+						toast.success("Účet úspěšně vytvořen");
+						setIsVisible(false);
 					});
-				const load = toast.loading("Požadavek se zpracovává");
 			} catch (error) {
 				console.log(error);
 				toast.dismiss(load);
-				toast.error("Registrace se nezdařila");
+				toast.error("Vytvoření účtu se nezdařilo");
+				setIsVisible(false);
 			}
 			formik.resetForm();
 		},
@@ -171,7 +181,7 @@ export function AddNewAccount() {
 							<InputWrapper
 								formik={formik}
 								name="vat_number"
-								type="string"
+								type="text"
 								isRequired={true}
 								description="IČO"
 							/>
@@ -188,12 +198,20 @@ export function AddNewAccount() {
 							/>
 							<div className="grid mt-4 grid-cols-2 gap-x-4 gap-y-9">
 								<InputWrapper
-									className="col-span-2"
+									className="col-span-1"
 									formik={formik}
 									name="street"
 									type="text"
 									isRequired
-									description="Ulice a číslo popisné"
+									description="Ulice"
+								/>
+								<InputWrapper
+									className="col-span-1"
+									formik={formik}
+									name="number"
+									type="text"
+									isRequired
+									description="Č.p."
 								/>
 								<InputWrapper
 									formik={formik}

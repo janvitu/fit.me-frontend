@@ -33,7 +33,7 @@ export const ADD_SPORTSGROUND = gql`
 		$email: String!
 		$vat_number: String!
 	) {
-		createSportsGround(
+		createSportsground(
 			name: $name
 			street: $street
 			city: $city

@@ -8,13 +8,16 @@ import { AddNewAccount } from "./AddNewAccount";
 
 export function ProfilePopup({ email, img, username }) {
 	const [accounts, setAccounts] = useState([]);
-	const { activeAcc, user } = useContext(UserContext);
+	const { activeAcc, user, setActiveAcc } = useContext(UserContext);
 	useEffect(() => {
 		if (user) {
-			const acc = { coach: user.coach, sportsman: user.sportsman, sportsground: user.sportsground };
+			const acc = [user.coach, user.sportsman, user.sportsground];
 			if (activeAcc) {
-				delete acc[activeAcc];
-				setAccounts[acc];
+				const acc2 = acc.filter((a) => a !== null);
+				const result = acc2.filter(
+					(a) => a["__typename"].toLowerCase() !== activeAcc.toLowerCase(),
+				);
+				setAccounts(result);
 			}
 		}
 	}, [user, activeAcc]);
@@ -53,27 +56,30 @@ export function ProfilePopup({ email, img, username }) {
 							</p>
 						</div>
 						<div className="flex flex-col justify-center items-center border-t border-b w-full">
-							{accounts.map((account, index) => {
-								if (!account)
-									return (
-										<div
-											key={index}
-											className="flex flex-row w-full items-center justify-between  hover:cursor-pointer hover:bg-gray-50 px-4 py-3 gap-4"
-										>
-											<div className="flex flex-row  items-center justify-evenly gap-2">
-												<ProfileImage variant="small" />
-												<div className="flex flex-col">
-													<a className="text-sm font-medium text-gray-900 ">{account.name}</a>
-													<a className="text-xs font-light text-gray-600 ">@{account.username}</a>
+							{accounts &&
+								accounts.map((account, index) => {
+									if (account) {
+										return (
+											<div
+												key={index}
+												className="flex flex-row w-full items-center justify-between  hover:cursor-pointer hover:bg-gray-50 px-4 py-3 gap-4"
+												onClick={() => setActiveAcc(account["__typename"].toLowerCase())}
+											>
+												<div className="flex flex-row  items-center justify-evenly gap-2">
+													<ProfileImage variant="small" img={account.profile_photo} />
+													<div className="flex flex-col">
+														<a className="text-sm font-medium text-gray-900 ">{account.name}</a>
+														<a className="text-xs font-light text-gray-600 ">@{account.username}</a>
+													</div>
 												</div>
-											</div>
 
-											<a className="self-center text-xs font-light text-gray-600 ">
-												{account.type}
-											</a>
-										</div>
-									);
-							})}
+												<a className="self-center text-xs font-light text-gray-600 ">
+													{account.type}
+												</a>
+											</div>
+										);
+									}
+								})}
 
 							<AddNewAccount />
 						</div>
