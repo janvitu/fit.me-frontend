@@ -15,7 +15,7 @@ const options = [
 	{ name: "Trenér", type: "coach" },
 ];
 
-export function AddNewAccount({}) {
+export function AddNewAccount() {
 	const [isVisible, setIsVisible] = useState(false);
 	const [activeOption, setActiveOption] = useState(null);
 	const { user } = useContext(UserContext);
@@ -44,6 +44,8 @@ export function AddNewAccount({}) {
 							city: values.city,
 							vat_number: values.vat_number.toString(),
 						},
+					}).then((res) => {
+						console.log(res);
 					});
 				if (values.accType == "sportsground")
 					createSportsGround({
@@ -54,10 +56,14 @@ export function AddNewAccount({}) {
 							city: values.city,
 							vat_number: values.vat_number,
 						},
+					}).then((res) => {
+						console.log(res);
 					});
 				if (values.accType == "sportsman")
 					createSportsman({
 						variables: { name: values.name, surname: values.surname, email: user.email },
+					}).then((res) => {
+						console.log(res);
 					});
 				const load = toast.loading("Požadavek se zpracovává");
 			} catch (error) {

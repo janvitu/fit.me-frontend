@@ -74,7 +74,6 @@ export default function PlaceAdminPage() {
 			images: [""],
 		},
 		onSubmit: async (values) => {
-			console.log("loading");
 			const load = toast.loading("Požadavek se zpracovává");
 			await updateSportsground({
 				variables: {
@@ -92,8 +91,6 @@ export default function PlaceAdminPage() {
 				},
 			})
 				.then((res) => {
-					console.log(res);
-					// Router.push("/prihlasit-se");
 					toast.dismiss(load);
 					toast.success("Změny uloženy");
 				})

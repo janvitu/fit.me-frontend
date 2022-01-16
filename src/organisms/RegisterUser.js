@@ -34,7 +34,6 @@ export function RegisterUser() {
 				},
 			})
 				.then((res) => {
-					console.log(res);
 					Router.push("/prihlasit-se");
 					toast.dismiss(load);
 					toast.success(

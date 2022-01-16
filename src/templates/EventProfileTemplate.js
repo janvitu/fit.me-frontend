@@ -2,7 +2,6 @@ import { Tag, H3, DelimiterWide, ButtonSubmit, XlWrapper } from "@src/atoms";
 import { parseDate, getTimePeriod } from "@src/utils/dateHandler";
 
 export function EventProfileTemplate({ EventProfileData }) {
-	console.log(EventProfileData);
 	const placeholder = { src: "https://source.unsplash.com/random/?sport", alt: "" };
 	return (
 		<>

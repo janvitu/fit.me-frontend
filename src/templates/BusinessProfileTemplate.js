@@ -61,7 +61,6 @@ export function BusinessProfileTemplate({ BusinessProfileData, type }) {
 	}
 
 	const addReview = async (review) => {
-		console.log(review);
 		try {
 			await mutate({
 				variables: {

@@ -5,7 +5,6 @@ import { UserContext } from "@src/utils/UserProvider";
 
 export function RatingInput({ addReview }) {
 	const { user } = useContext(UserContext);
-	console.log(user);
 	const [isFocused, setIsFocused] = useState(false);
 	const [comment, setComment] = useState("");
 	const [rating, setRating] = useState(0);
@@ -14,7 +13,6 @@ export function RatingInput({ addReview }) {
 		e.preventDefault();
 		const ratingValue = 5 - index;
 		setRating(ratingValue);
-		console.log(ratingValue);
 	};
 
 	const onSubmit = (e) => {

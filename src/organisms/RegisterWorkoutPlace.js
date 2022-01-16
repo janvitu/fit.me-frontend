@@ -45,7 +45,6 @@ export function RegisterWorkoutPlace() {
 			secondPassword: "",
 		},
 		onSubmit: (values) => {
-			console.log(values);
 			const load = toast.loading("Požadavek se zpracovává");
 			createSportsground({
 				variables: {
@@ -60,7 +59,6 @@ export function RegisterWorkoutPlace() {
 				},
 			})
 				.then((res) => {
-					console.log(res);
 					Router.push("/prihlasit-se");
 					toast.dismiss(load);
 					toast.success(

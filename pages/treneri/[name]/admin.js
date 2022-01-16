@@ -82,8 +82,6 @@ export default function TrainerAdminPage() {
 				},
 			})
 				.then((res) => {
-					console.log(res);
-					// Router.push("/prihlasit-se");
 					toast.dismiss(load);
 					toast.success("Změny uloženy");
 				})
