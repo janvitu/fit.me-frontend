@@ -40,6 +40,10 @@ const GET_COACH = gql`
 					username
 					name
 					surname
+					profile_photo {
+						name
+						location
+					}
 				}
 			}
 		}
@@ -52,7 +56,6 @@ export default function Trainer() {
 	const { loading, error, data } = useQuery(GET_COACH, {
 		variables: { username: name },
 	});
-	console.log(data);
 	return (
 		<DynamicSite>
 			{!loading && !error && <BusinessProfileTemplate BusinessProfileData={data.getCoach} />}
