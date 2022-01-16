@@ -29,14 +29,20 @@ export function EventsList({ events, filters }) {
 
 	return (
 		<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-			{eventsReadyToRender(events, filters).map((event, index) => {
+			{eventsReadyToRender(events, filters).map((event) => {
 				return (
 					<EventCard
-						key={index}
+						key={event.id}
+						id={event.id}
 						name={event.name}
-						rating={event.rating}
-						date={event.date}
+						description={event.description}
+						datetime_from={event.datetime_from}
+						datetime_to={event.datetime_to}
+						difficulty={event.difficulty}
+						sportsground={event.sportsground}
 						tags={event.tags}
+						exercises={event.exercises}
+						sportsmans={event.sportsmans}
 						numOfRegistered={event.numOfRegistered}
 					/>
 				);
@@ -44,98 +50,3 @@ export function EventsList({ events, filters }) {
 		</div>
 	);
 }
-
-EventsList.defaultProps = {
-	events: [
-		{
-			id: 1,
-			name: "Super Trénink",
-			rating: 4.4,
-			date: "23.03.2022",
-			time: "15:00 - 16:30",
-			numOfRegistered: 13,
-			tags: [
-				{
-					name: "Powerlifting",
-					color: "red",
-				},
-			],
-			img: {
-				src: hooliIcon.src,
-				alt: "",
-			},
-		},
-		{
-			id: 2,
-			name: "Jump trénink",
-			rating: 4.0,
-			date: "24.03.2022",
-			time: "15:00 - 16:30",
-			numOfRegistered: 16,
-			tags: [
-				{
-					name: "Yoga",
-					color: "lime",
-				},
-			],
-			img: {
-				src: hooliIcon.src,
-				alt: "",
-			},
-		},
-		{
-			id: 3,
-			name: "Beďas",
-			rating: 3.2,
-			date: "27.05.2022",
-			time: "16:00 - 16:30",
-			numOfRegistered: 5,
-			tags: [
-				{
-					name: "Badminton",
-					color: "green",
-				},
-			],
-			img: {
-				src: hooliIcon.src,
-				alt: "",
-			},
-		},
-		{
-			id: 4,
-			name: "Tennis zápas",
-			rating: 4.9,
-			date: "29.03.2022",
-			time: "15:00 - 17:30",
-			numOfRegistered: 10,
-			tags: [
-				{
-					name: "Tennis",
-					color: "yellow",
-				},
-			],
-			img: {
-				src: hooliIcon.src,
-				alt: "",
-			},
-		},
-		{
-			id: 5,
-			name: "Poť krev",
-			rating: 2.1,
-			date: "02.03.2022",
-			time: "14:00 - 16:30",
-			numOfRegistered: 19,
-			tags: [
-				{
-					name: "FitBox",
-					color: "pink",
-				},
-			],
-			img: {
-				src: hooliIcon.src,
-				alt: "",
-			},
-		},
-	],
-};

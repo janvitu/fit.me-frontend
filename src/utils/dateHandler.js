@@ -27,3 +27,16 @@ export function parseDate(date) {
 
 	return `${day}.${month}.${year}`;
 }
+
+export function getTimePeriod(dateFrom, dateTo) {
+	function addZero(i) {
+		if (i < 10) {
+			i = "0" + i;
+		}
+		return i;
+	}
+	const timeFrom = `${addZero(dateFrom.getHours())}:${addZero(dateFrom.getMinutes())}`;
+	const timeTo = `${addZero(dateTo.getHours())}:${addZero(dateTo.getMinutes())}`;
+
+	return `${timeFrom} - ${timeTo}`;
+}
