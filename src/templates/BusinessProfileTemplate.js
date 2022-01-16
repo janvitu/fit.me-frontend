@@ -9,12 +9,12 @@ import { gql, useMutation } from "@apollo/client";
 import { UserContext } from "@src/utils/UserProvider";
 
 const ADD_REVIEWSPORTSGROUND = gql`
-	mutation AddReviewSportsground($stars: String!, $comment: String, $token: String!, $id: Int) {
+	mutation AddReviewSportsground($stars: Int!, $comment: String!, $token: String!, $id: Int!) {
 		addReviewSportsground(stars: $stars, comment: $comment, token: $token, sportsground_id: $id)
 	}
 `;
 const ADD_REVIEWCOACH = gql`
-	mutation AddReviewCoach($stars: String, $comment: String, $token: String!, $id: Int) {
+	mutation AddReviewCoach($stars: Int!, $comment: String!, $token: String!, $id: Int!) {
 		addReviewCoach(stars: $stars, comment: $comment, token: $token, coach_id: $id)
 	}
 `;
@@ -60,14 +60,14 @@ export function BusinessProfileTemplate({ BusinessProfileData, type }) {
 		else return ADD_REVIEWSPORTSGROUND;
 	}
 
-	const addReview = (review) => {
+	const addReview = async (review) => {
+		console.log(review);
 		try {
-			mutate({
+			await mutate({
 				variables: {
-					stars: review.rating,
-					comment: review.text,
+					stars: review.stars,
+					comment: review.comment,
 					token: localStorage.getItem("token"),
-					// "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJjeXJ1c0BnbWFpbC5jb20iLCJzcG9ydHNtYW4iOjIsImNvYWNoIjpudWxsLCJzcG9ydHNncm91bmQiOm51bGwsImlhdCI6MTY0MjI4MzU5MH0.cU7ZryX8KhM-0fW394YUcrzyMOwDuwMGhAE6BieegII",
 					id: parseInt(BusinessProfileData.id),
 				},
 			});
