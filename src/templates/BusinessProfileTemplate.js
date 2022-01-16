@@ -22,6 +22,7 @@ const ADD_REVIEWCOACH = gql`
 export function BusinessProfileTemplate({ BusinessProfileData, type }) {
 	const [mutate, { loading, error, data }] = useMutation(chooseMutation(type));
 	const { user } = useContext(UserContext);
+
 	const article = snarkdown(BusinessProfileData.description);
 	const [reviews, setReviews] = useState(
 		[...BusinessProfileData.reviews].sort((a, b) => {
