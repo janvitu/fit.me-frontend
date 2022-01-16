@@ -1,4 +1,6 @@
 import { RatingIndicator } from "@src/molecules";
+import { useContext } from "react";
+import { UserContext } from "@src/utils/UserProvider";
 
 export function RatingItem({ review }) {
 	const calculateTime = (date) => {
@@ -62,8 +64,8 @@ export function RatingItem({ review }) {
 			<div className="relative flex items-start space-x-3 pb-8">
 				<img
 					className="h-10 w-10 rounded-full bg-gray-400 flex items-center justify-center ring-8 ring-white"
-					src={review.sportsman.profile_photo.location}
-					alt={review.sportsman.profile_photo.name}
+					src={review.sportsman.profile_photo.location || ""}
+					alt={review.sportsman.profile_photo.name || ""}
 				/>
 				<div className="flex-1">
 					<div className="flex gap-4">

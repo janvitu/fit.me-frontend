@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { H2, TextProse, XlWrapper } from "@src/atoms";
 import { Modal, RatingInput, ResponsiveGallery } from "@src/molecules";
 import { EventCard } from "@src/organisms";
@@ -6,20 +6,22 @@ import { ContactBusinessForm, DetailCard, RatingList } from "@src/organisms";
 import snarkdown from "snarkdown";
 import { disableScroll, enableScroll } from "@src/utils/handleScroll";
 import { gql, useMutation } from "@apollo/client";
+import { UserContext } from "@src/utils/UserProvider";
 
 const ADD_REVIEWSPORTSGROUND = gql`
-	mutation AddReviewSportsground($stars: Int!, $comment: String, $token: String!, $id: Int) {
+	mutation AddReviewSportsground($stars: String!, $comment: String, $token: String!, $id: Int) {
 		addReviewSportsground(stars: $stars, comment: $comment, token: $token, sportsground_id: $id)
 	}
 `;
 const ADD_REVIEWCOACH = gql`
-	mutation AddReviewCoach($stars: Int!, $comment: String, $token: String!, $id: Int) {
+	mutation AddReviewCoach($stars: String, $comment: String, $token: String!, $id: Int) {
 		addReviewCoach(stars: $stars, comment: $comment, token: $token, coach_id: $id)
 	}
 `;
 
 export function BusinessProfileTemplate({ BusinessProfileData, type }) {
 	const [mutate, { loading, error, data }] = useMutation(chooseMutation(type));
+	const { user } = useContext(UserContext);
 
 	const article = snarkdown(BusinessProfileData.description);
 	const [reviews, setReviews] = useState(
@@ -64,8 +66,8 @@ export function BusinessProfileTemplate({ BusinessProfileData, type }) {
 				variables: {
 					stars: review.rating,
 					comment: review.text,
-					token:
-						"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJjeXJ1c0BnbWFpbC5jb20iLCJzcG9ydHNtYW4iOjIsImNvYWNoIjpudWxsLCJzcG9ydHNncm91bmQiOm51bGwsImlhdCI6MTY0MjI4MzU5MH0.cU7ZryX8KhM-0fW394YUcrzyMOwDuwMGhAE6BieegII",
+					token: localStorage.getItem("token"),
+					// "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJjeXJ1c0BnbWFpbC5jb20iLCJzcG9ydHNtYW4iOjIsImNvYWNoIjpudWxsLCJzcG9ydHNncm91bmQiOm51bGwsImlhdCI6MTY0MjI4MzU5MH0.cU7ZryX8KhM-0fW394YUcrzyMOwDuwMGhAE6BieegII",
 					id: parseInt(BusinessProfileData.id),
 				},
 			});

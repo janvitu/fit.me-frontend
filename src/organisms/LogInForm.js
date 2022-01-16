@@ -50,6 +50,7 @@ export function LogInForm() {
 			accType: "sportsman",
 		},
 		onSubmit: async (values) => {
+			console.log(values.accType);
 			setLoadToast(toast.loading("Požadavek se zpracovává"));
 			await userSignIn({
 				variables: {
