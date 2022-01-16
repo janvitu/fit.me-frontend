@@ -1,7 +1,11 @@
 import { Label } from "@src/atoms";
 import { useState } from "react";
+import { useContext } from "react";
+import { UserContext } from "@src/utils/UserProvider";
 
 export function RatingInput({ addReview }) {
+	const { user } = useContext(UserContext);
+	console.log(user);
 	const [isFocused, setIsFocused] = useState(false);
 	const [comment, setComment] = useState("");
 	const [rating, setRating] = useState(0);
@@ -16,13 +20,10 @@ export function RatingInput({ addReview }) {
 	const onSubmit = (e) => {
 		e.preventDefault();
 		addReview({
-			user: {
-				name: "Pepe",
-				avatar: "https://placeimg.com/64/64/people",
-			},
-			rating: rating,
-			submitedAt: new Date(),
-			text: comment,
+			sportsman: user.sportsman,
+			stars: rating,
+			datetime: new Date(),
+			comment: comment,
 		});
 		setComment("");
 	};

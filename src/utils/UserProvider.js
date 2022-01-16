@@ -47,7 +47,7 @@ export const UserProvider = ({ children }) => {
 	const [getUser, { loading, error, data }] = useLazyQuery(GET_USER);
 	const [user, setUser] = useState(null);
 	useEffect(() => {
-		const token = localStorage.getItem("user");
+		const token = localStorage.getItem("token");
 		if (token) {
 			getUser({
 				variables: {
