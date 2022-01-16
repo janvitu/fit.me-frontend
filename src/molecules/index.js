@@ -30,3 +30,4 @@ export { ContactInputWrapper } from "./formElements/ContactInputWrapper";
 export { SelectWrapper } from "./formElements/SelectWrapper";
 export { SearchBar } from "./SearchBar";
 export { ModalEvent } from "./ModalEvent";
+export { AddNewAccount } from "./AddNewAccount";

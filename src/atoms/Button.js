@@ -9,15 +9,20 @@ const variantHandler = (variant, isActive) => {
 	}
 };
 
-const outlineHandler = (outline) =>
-	outline
-		? "border-main-400 text-main-400 hover:bg-gray-100 hover:text-main-600 bg-white hover:border-main-600"
-		: "border-transparent text-black bg-main-400 hover:bg-main-600";
+const outlineHandler = (outline, variant) => {
+	if (variant !== "underline") {
+		const outlinecss = outline
+			? "border-main-400 text-main-400 hover:bg-gray-100 hover:text-main-600 bg-white hover:border-main-600"
+			: "border-transparent text-black bg-main-400 hover:bg-main-600";
+		return outlinecss;
+	}
+	return "";
+};
 
 export function Button({ children, onClickHandler, isActive, variant, isOutline }) {
 	return (
 		<button
-			className={variantHandler(variant, isActive) + " " + outlineHandler(isOutline)}
+			className={variantHandler(variant, isActive) + " " + outlineHandler(isOutline, variant)}
 			onClick={onClickHandler}
 		>
 			{children}

@@ -21,7 +21,6 @@ const GET_USER = gql`
 				id
 				name
 				username
-
 				profile_photo {
 					name
 					location
@@ -45,8 +44,14 @@ export const UserContext = createContext({});
 
 export const UserProvider = ({ children }) => {
 	const [getUser, { loading, error, data }] = useLazyQuery(GET_USER);
+	const [activeAcc, setActiveAcc] = useState(null);
+
 	const [user, setUser] = useState(null);
 	useEffect(() => {
+		const acc = localStorage.getItem("activeAcc");
+		if (acc) {
+			setActiveAcc(acc);
+		}
 		const token = localStorage.getItem("token");
 		if (token) {
 			getUser({
@@ -68,6 +73,8 @@ export const UserProvider = ({ children }) => {
 			value={{
 				user,
 				setUser,
+				activeAcc,
+				setActiveAcc,
 			}}
 		>
 			{children}

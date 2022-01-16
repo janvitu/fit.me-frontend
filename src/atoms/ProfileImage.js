@@ -30,8 +30,8 @@ export function ProfileImage({ variant, img, className }) {
 
 	return (
 		<Image
-			src={img?.src || icon.src}
-			alt={img?.alt || icon.alt}
+			src={img?.location || icon.src}
+			alt={img?.name || icon.alt}
 			layout="fixed"
 			width={imageVariant.width}
 			height={imageVariant.height}

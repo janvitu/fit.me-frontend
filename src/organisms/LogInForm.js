@@ -6,7 +6,8 @@ import * as Yup from "yup";
 import { gql, useLazyQuery } from "@apollo/client";
 import Router from "next/router";
 import toast from "react-hot-toast";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { UserContext } from "@src/utils/UserProvider";
 
 const LOG_IN = gql`
 	query UserSignIn($email: String!, $password: String!, $accType: String) {
@@ -26,6 +27,7 @@ const notificationMethods = [
 ];
 
 export function LogInForm() {
+	const { setActiveAcc } = useContext(UserContext);
 	const [userSignIn, { loading, error, data }] = useLazyQuery(LOG_IN);
 	const [modalOpen, setModalOpen] = useState(false);
 	const [loadToast, setLoadToast] = useState(null);
@@ -50,7 +52,6 @@ export function LogInForm() {
 			accType: "sportsman",
 		},
 		onSubmit: async (values) => {
-			console.log(values.accType);
 			setLoadToast(toast.loading("Požadavek se zpracovává"));
 			await userSignIn({
 				variables: {
@@ -61,6 +62,8 @@ export function LogInForm() {
 			})
 				.then((res) => {
 					window.localStorage.setItem("token", res.data.userSignIn.token);
+					localStorage.setItem("activeAcc", values.accType.replace("_", ""));
+					setActiveAcc(values.accType.replace("_", ""));
 				})
 				.catch((err) => {
 					console.log(err);
