@@ -1,28 +1,30 @@
-import Image from "next/image";
 import { useState, useEffect } from "react";
-
 import { H2, TextProse, XlWrapper } from "@src/atoms";
 import { Modal, RatingInput, ResponsiveGallery } from "@src/molecules";
 import { EventCard } from "@src/organisms";
 import { ContactBusinessForm, DetailCard, RatingList } from "@src/organisms";
 import snarkdown from "snarkdown";
 import { disableScroll, enableScroll } from "@src/utils/handleScroll";
+import { gql, useMutation } from "@apollo/client";
 
-const imagesFromServer = [
-	{ src: "https://source.unsplash.com/random/?landscape", alt: "" },
-	{ src: "https://source.unsplash.com/random/?male", alt: "" },
-	{ src: "https://source.unsplash.com/random/?male", alt: "" },
-	{ src: "https://source.unsplash.com/random/?female", alt: "" },
-	{ src: "https://source.unsplash.com/random/?landscape", alt: "" },
-	{ src: "https://source.unsplash.com/random/?landscape", alt: "" },
-];
+const ADD_REVIEWSPORTSGROUND = gql`
+	mutation AddReviewSportsground($stars: Int!, $comment: String, $token: String!, $id: Int) {
+		addReviewSportsground(stars: $stars, comment: $comment, token: $token, sportsground_id: $id)
+	}
+`;
+const ADD_REVIEWCOACH = gql`
+	mutation AddReviewCoach($stars: Int!, $comment: String, $token: String!, $id: Int) {
+		addReviewCoach(stars: $stars, comment: $comment, token: $token, coach_id: $id)
+	}
+`;
 
-export function BusinessProfileTemplate({ BusinessProfileData }) {
-	console.log(BusinessProfileData.profile_photo);
+export function BusinessProfileTemplate({ BusinessProfileData, type }) {
+	const [mutate, { loading, error, data }] = useMutation(chooseMutation(type));
+
 	const article = snarkdown(BusinessProfileData.description);
 	const [reviews, setReviews] = useState(
 		[...BusinessProfileData.reviews].sort((a, b) => {
-			return new Date(a.datetime) - new Date(b.datetime);
+			return new Date(b.datetime) - new Date(a.datetime);
 		}),
 	);
 	const [contactModal, setContactModal] = useState(false);
@@ -51,8 +53,26 @@ export function BusinessProfileTemplate({ BusinessProfileData }) {
 		setContactModal(true);
 	};
 
+	function chooseMutation(type) {
+		if (type == "coach") return ADD_REVIEWCOACH;
+		else return ADD_REVIEWSPORTSGROUND;
+	}
+
 	const addReview = (review) => {
-		setReviews([review, ...reviews]);
+		try {
+			mutate({
+				variables: {
+					stars: review.rating,
+					comment: review.text,
+					token:
+						"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJjeXJ1c0BnbWFpbC5jb20iLCJzcG9ydHNtYW4iOjIsImNvYWNoIjpudWxsLCJzcG9ydHNncm91bmQiOm51bGwsImlhdCI6MTY0MjI4MzU5MH0.cU7ZryX8KhM-0fW394YUcrzyMOwDuwMGhAE6BieegII",
+					id: parseInt(BusinessProfileData.id),
+				},
+			});
+			setReviews([review, ...reviews]);
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	return (
@@ -65,6 +85,7 @@ export function BusinessProfileTemplate({ BusinessProfileData }) {
 						alt=""
 					/>
 				</div>
+
 				<div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="-mt-12 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
 						<div className="flex">

@@ -1,7 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { DynamicSite, BusinessProfileTemplate } from "@src/templates";
 import { useRouter } from "next/router";
-// import { TrainerBusinessData } from "@src/dummyData";
 
 const GET_COACH = gql`
 	query GetCoach($username: String!) {
@@ -58,7 +57,9 @@ export default function Trainer() {
 	});
 	return (
 		<DynamicSite>
-			{!loading && !error && <BusinessProfileTemplate BusinessProfileData={data.getCoach} />}
+			{!loading && !error && (
+				<BusinessProfileTemplate BusinessProfileData={data.getCoach} type="coach" />
+			)}
 		</DynamicSite>
 	);
 }
