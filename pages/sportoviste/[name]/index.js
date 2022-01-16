@@ -26,6 +26,10 @@ const GET_SPORTSGROUND = gql`
 					username
 					name
 					surname
+					profile_photo {
+						location
+						name
+					}
 				}
 			}
 			address {
@@ -58,7 +62,9 @@ export default function WorkoutPlace() {
 
 	return (
 		<DynamicSite>
-			{!loading && !error && <BusinessProfileTemplate BusinessProfileData={data.getSportsground} />}
+			{!loading && !error && (
+				<BusinessProfileTemplate BusinessProfileData={data.getSportsground} type="sportsground" />
+			)}
 		</DynamicSite>
 	);
 }
