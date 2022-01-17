@@ -76,7 +76,6 @@ export default function PlaceAdminPage() {
 	const { data, loading, error } = useQuery(GET_FULLSPORTSGROUND, {
 		variables: { username: name },
 	});
-	console.log("data", data);
 	const [updateSportsground] = useMutation(SPORTS_GROUND_MUTATION);
 	return (
 		<>
