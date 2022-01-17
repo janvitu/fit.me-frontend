@@ -1,12 +1,6 @@
 import { useFormik } from "formik";
-import * as Yup from "yup";
 import toast from "react-hot-toast";
-import {
-	InputAdminWrapper,
-	TextAreaAdminWrapper,
-	ContactInputWrapper,
-	SelectWrapper,
-} from "@src/molecules";
+import { InputAdminWrapper, TextAreaAdminWrapper, ContactInputWrapper } from "@src/molecules";
 import { H3, CardInputWrapper, ButtonSubmit, LabelAdmin } from "@src/atoms";
 
 export function AdminTrainerForm({ data, sendData }) {
@@ -22,7 +16,6 @@ export function AdminTrainerForm({ data, sendData }) {
 		},
 		onSubmit: async (values) => {
 			const load = toast.loading("Požadavek se zpracovává");
-			console.log(values);
 			await sendData({
 				variables: {
 					token: localStorage.getItem("token"),
@@ -45,20 +38,6 @@ export function AdminTrainerForm({ data, sendData }) {
 					console.log(err);
 				});
 		},
-		validationSchema: Yup.object().shape({
-			// name: Yup.string().required("Jméno nesmí být prázdné"),
-			// surname: Yup.string().required("Příjmení nesmí být prázdné"),
-			// email: Yup.string().email("Špatný formát emailu").required("Email nesmí být prázdný"),
-			// password: Yup.string()
-			// 	.min(8, "Heslo musí obsahovat minimálně 8 znaků")
-			// 	.required("Heslo musí být vyplněno")
-			// 	.matches(/^(?=.*[a-záčďéěíňóřšťúůýž])/, "Heslo musí obsahovat alespoň jedno malé písmeno")
-			// 	.matches(/^(?=.*[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ])/, "Heslo musí obsahovat alespoň jedno velké písmeno")
-			// 	.matches(/^(?=.*\d)/, "Heslo musí obsahovat alespoň jedno číslo"),
-			// secondPassword: Yup.string()
-			// 	.oneOf([Yup.ref("password")], `Hesla se neshoduj`)
-			// 	.required("Pole musí být vyplněné"),
-		}),
 	});
 
 	return (
@@ -111,7 +90,6 @@ export function AdminTrainerForm({ data, sendData }) {
 						</div>
 						<div>
 							<LabelAdmin>Popis (O trenérovi)</LabelAdmin>
-							{/* <p className="mt-2 text-sm text-gray-500">Popis trenéra</p> */}
 							<div className="mt-1">
 								<TextAreaAdminWrapper formik={formik} name="description" />
 							</div>
@@ -146,7 +124,6 @@ export function AdminTrainerForm({ data, sendData }) {
 								Profilová fotografie trenéra
 							</label>
 							<div className="mt-1 flex items-center">
-								{/* Cover Photo */}
 								<span className="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
 									<svg
 										className="h-full w-full text-gray-300"

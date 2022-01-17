@@ -1,6 +1,5 @@
 import toast from "react-hot-toast";
 import { useFormik } from "formik";
-import * as Yup from "yup";
 
 import { InputAdminWrapper, TextAreaAdminWrapper, ContactInputWrapper } from "@src/molecules";
 import { H3, CardInputWrapper, ButtonSubmit, LabelAdmin } from "@src/atoms";
@@ -25,7 +24,6 @@ export function AdminPlaceForm({ data, sendData }) {
 		},
 		onSubmit: async (values) => {
 			const load = toast.loading("Požadavek se zpracovává");
-			console.log(values);
 			await sendData({
 				variables: {
 					token: localStorage.getItem("token"),
@@ -55,20 +53,6 @@ export function AdminPlaceForm({ data, sendData }) {
 					console.log(err);
 				});
 		},
-		validationSchema: Yup.object().shape({
-			// name: Yup.string().required("Jméno nesmí být prázdné"),
-			// surname: Yup.string().required("Příjmení nesmí být prázdné"),
-			// email: Yup.string().email("Špatný formát emailu").required("Email nesmí být prázdný"),
-			// password: Yup.string()
-			// 	.min(8, "Heslo musí obsahovat minimálně 8 znaků")
-			// 	.required("Heslo musí být vyplněno")
-			// 	.matches(/^(?=.*[a-záčďéěíňóřšťúůýž])/, "Heslo musí obsahovat alespoň jedno malé písmeno")
-			// 	.matches(/^(?=.*[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ])/, "Heslo musí obsahovat alespoň jedno velké písmeno")
-			// 	.matches(/^(?=.*\d)/, "Heslo musí obsahovat alespoň jedno číslo"),
-			// secondPassword: Yup.string()
-			// 	.oneOf([Yup.ref("password")], `Hesla se neshoduj`)
-			// 	.required("Pole musí být vyplněné"),
-		}),
 	});
 	return (
 		<form onSubmit={formik.handleSubmit}>
@@ -130,23 +114,10 @@ export function AdminPlaceForm({ data, sendData }) {
 								/>
 							</div>
 							<LabelAdmin>Popis (O sportovišti)</LabelAdmin>
-							{/* <p className="mt-2 text-sm text-gray-500">Krátký popis sportoviště</p> */}
 							<div className="mt-1">
-								{/* <RichTextArea formik={formik} /> */}
 								<TextAreaAdminWrapper formik={formik} name="description" />
 							</div>
 						</div>
-						{/* <div>
-							<SelectWrapper
-								formik={formik}
-								name="tags"
-								description="Nabízené aktivity"
-								closeMenuOnSelect={false}
-								isMulti={true}
-								options={SPORTS}
-							/>
-						</div> */}
-
 						<div className="col-span-6 sm:col-span-3">
 							<InputAdminWrapper
 								formik={formik}
@@ -211,9 +182,6 @@ export function AdminPlaceForm({ data, sendData }) {
 								</button>
 							</div>
 						</div>
-						{/* <UploadImageWrapper formik={formik} name="titleImage" description="Úvodní fotografie" />
-
-						<UploadImageWrapper formik={formik} name="images" description="Galerie fotografií" /> */}
 					</CardInputWrapper>
 					<div className="col-span-2 col-start-2 flex flex-row justify-center px-4 py-3 text-center sm:px-3">
 						<ButtonSubmit>Uložit změny</ButtonSubmit>
