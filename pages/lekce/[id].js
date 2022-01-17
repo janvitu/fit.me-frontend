@@ -1,6 +1,4 @@
 import { DynamicSite } from "@src/templates";
-import { EventData } from "@src/dummyData";
-import {} from "@src/molecules";
 import { EventProfileTemplate } from "@src/templates";
 import { useRouter } from "next/router";
 import { gql, useQuery } from "@apollo/client";

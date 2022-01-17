@@ -46,9 +46,6 @@ export function ProfilePopup({ email, img, username }) {
 								</a>
 							</Link>
 							<p className="text-xs font-light text-gray-600 truncate">
-								{/* {accounts.map((account) => {
-									if (account.active) return account.username + " (" + account.type + ") ";
-								})} */}
 								{user?.[activeAcc].username + " (" + derivateAccType(activeAcc) + ")"}
 							</p>
 							<p className="text-sm font-medium text-gray-900 truncate" role="none">
@@ -59,7 +56,6 @@ export function ProfilePopup({ email, img, username }) {
 							{accounts &&
 								accounts.map((account, index) => {
 									if (account) {
-										console.log(account);
 										return (
 											<div
 												key={index}

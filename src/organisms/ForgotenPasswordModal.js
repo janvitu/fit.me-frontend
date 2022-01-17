@@ -1,5 +1,5 @@
 import { Modal, InputWrapper } from "@src/molecules";
-import { ButtonSubmit, H1, H2 } from "@src/atoms";
+import { ButtonSubmit, H2 } from "@src/atoms";
 import { useFormik } from "formik";
 import { gql, useMutation } from "@apollo/client";
 

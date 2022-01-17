@@ -1,4 +1,4 @@
-import { ButtonCard, Tag } from "@src/atoms";
+import { Tag } from "@src/atoms";
 import { RatingIndicator } from "@src/molecules";
 import hooliIcon from "@assets/img/hooli-brands.svg";
 import Link from "next/link";

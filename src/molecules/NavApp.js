@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { NavLink, ProfileImage } from "@src/atoms";
-import { ProfileImageLink } from "@src/molecules";
 import { useRouter } from "next/router";
 import { ButtonLink } from "@src/atoms";
 

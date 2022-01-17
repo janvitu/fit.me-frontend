@@ -13,9 +13,7 @@ export function ContactBusinessForm() {
 			subject: Yup.string().required("Předmět nesmí být prázdný"),
 			message: Yup.string().required("Zpráva nesmí být prázdná"),
 		}),
-		onSubmit: (values) => {
-			console.log(values);
-		},
+		onSubmit: (values) => {},
 	});
 	return (
 		<form onSubmit={formik.handleSubmit} className="space-y-6" id="contact-form" name="contact">

@@ -1,7 +1,4 @@
-import { useState } from "react";
-import Link from "next/dist/client/link";
 import { ModalOverlay, Tag, H3, DelimiterWide, ButtonSubmit } from "@src/atoms";
-import { Modal } from "@src/molecules";
 
 export function ModalEvent({
 	isOpen,

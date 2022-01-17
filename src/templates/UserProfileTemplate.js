@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { H3, H4, HeadingWrapper, XlWrapper, DelimiterWide, ProfileImage } from "@src/atoms";
 import { ProfileCard, TrainerCard } from "@src/molecules";
 import { PlaceCard } from "@src/organisms";

@@ -1,7 +1,6 @@
 import { DynamicSite } from "@src/templates";
 import { AdminPlaceForm } from "@src/organisms";
 import { XlWrapper } from "@src/atoms";
-import { useEffect, useState } from "react";
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 

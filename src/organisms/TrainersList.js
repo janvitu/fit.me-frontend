@@ -1,5 +1,4 @@
 import { TrainerCard } from "@src/molecules";
-import hooliIcon from "@assets/img/hooli-brands.svg";
 
 export function TrainersList({ trainers, filters }) {
 	const trainersReadyToRender = (trainers, filters) => {

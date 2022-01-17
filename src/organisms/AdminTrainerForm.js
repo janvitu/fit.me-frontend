@@ -1,12 +1,7 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import toast from "react-hot-toast";
-import {
-	InputAdminWrapper,
-	TextAreaAdminWrapper,
-	ContactInputWrapper,
-	SelectWrapper,
-} from "@src/molecules";
+import { InputAdminWrapper, TextAreaAdminWrapper, ContactInputWrapper } from "@src/molecules";
 import { H3, CardInputWrapper, ButtonSubmit, LabelAdmin } from "@src/atoms";
 
 export function AdminTrainerForm({ data, sendData }) {
