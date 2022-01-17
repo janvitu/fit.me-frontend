@@ -17,7 +17,6 @@ export function AdminTrainerForm({ data, sendData }) {
 		},
 		onSubmit: async (values) => {
 			const load = toast.loading("Požadavek se zpracovává");
-			console.log(values);
 			await sendData({
 				variables: {
 					token: localStorage.getItem("token"),
@@ -40,20 +39,6 @@ export function AdminTrainerForm({ data, sendData }) {
 					console.log(err);
 				});
 		},
-		validationSchema: Yup.object().shape({
-			// name: Yup.string().required("Jméno nesmí být prázdné"),
-			// surname: Yup.string().required("Příjmení nesmí být prázdné"),
-			// email: Yup.string().email("Špatný formát emailu").required("Email nesmí být prázdný"),
-			// password: Yup.string()
-			// 	.min(8, "Heslo musí obsahovat minimálně 8 znaků")
-			// 	.required("Heslo musí být vyplněno")
-			// 	.matches(/^(?=.*[a-záčďéěíňóřšťúůýž])/, "Heslo musí obsahovat alespoň jedno malé písmeno")
-			// 	.matches(/^(?=.*[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ])/, "Heslo musí obsahovat alespoň jedno velké písmeno")
-			// 	.matches(/^(?=.*\d)/, "Heslo musí obsahovat alespoň jedno číslo"),
-			// secondPassword: Yup.string()
-			// 	.oneOf([Yup.ref("password")], `Hesla se neshoduj`)
-			// 	.required("Pole musí být vyplněné"),
-		}),
 	});
 
 	return (
