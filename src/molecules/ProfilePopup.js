@@ -95,9 +95,6 @@ export function ProfilePopup({ email, img, username }) {
 						<div className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-50 w-full text-center">
 							<ChangePassword />
 						</div>
-						<div className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-50 w-full text-center">
-							<Link href="/profil">Nastavení</Link>
-						</div>
 					</div>
 				</div>
 			</div>

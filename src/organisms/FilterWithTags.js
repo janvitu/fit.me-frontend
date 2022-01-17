@@ -1,10 +1,11 @@
 import { ButtonFilter } from "@src/atoms";
 import { Filter } from "@src/molecules";
+import { TAGS } from "@src/constants";
 
 export function FilterWithTags({ filters, setFilters }) {
 	return (
 		<div className="flex flex-col gap-y-5">
-			<Filter name="Tagy" filters={filters} setFilters={(val) => setFilters(val)} />
+			<Filter name="Tagy" filters={filters} setFilters={(val) => setFilters(val)} options={TAGS} />
 
 			<div className=" flex gap-x-3 gap-y-1 flex-wrap">
 				{filters.tags.map((tag, index) => (

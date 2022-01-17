@@ -16,7 +16,7 @@ const GET_COACH = gql`
 				name
 				location
 			}
-			specializations
+			specialization
 			address {
 				id
 				street

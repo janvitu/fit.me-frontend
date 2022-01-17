@@ -10,14 +10,18 @@ export function DynamicListHeader({ setFilters, filters, namePlural, nameAkuzati
 				<div>
 					<SearchBar name={"Hledej " + nameAkuzativ} id="address" placeholder={placeholder} />
 					<div className="mt-5 flex space-x-10">
-						<div className="max-w-xs">
-							<H3 variant="small">Filtr: </H3>
-							<FilterWithTags filters={filters} setFilters={setFilters} />
-						</div>
-						<div>
-							<H3 variant="small">Seřadit dle hodnocení:</H3>
-							<Sorter setFilters={setFilters} filters={filters} />
-						</div>
+						{namePlural !== "Trenéři" && (
+							<div className="max-w-xs">
+								<H3 variant="small">Filtr: </H3>
+								<FilterWithTags filters={filters} setFilters={setFilters} />
+							</div>
+						)}
+						{namePlural !== "Lekce" && (
+							<div>
+								<H3 variant="small">Seřadit dle hodnocení:</H3>
+								<Sorter setFilters={setFilters} filters={filters} />
+							</div>
+						)}
 					</div>
 				</div>
 			</XlWrapper>
