@@ -34,7 +34,7 @@ export function EventCard({
 	};
 
 	return (
-		<div className="relative bg-white rounded-lg shadow divide-y divide-gray-200">
+		<div className="relative overflow-hidden bg-white rounded-lg shadow divide-y divide-gray-200">
 			{modal && (
 				<>
 					<div
@@ -59,15 +59,15 @@ export function EventCard({
 			)}
 			<Link href={`/lekce/${id}`} passHref>
 				<a>
-					<div className="w-full flex items-center gap-6 p-6">
-						<div className="h-full">
+					<div className="relative w-full h-full flex items-center gap-6 p-6">
+						<div className="absolute left-0 top-0 bottom-0 w-24 md:w-32">
 							<img
-								src={img.src}
+								src={`https://paxjrxehftbgfclkcnoi.supabase.in/storage/v1/object/public/fitme-imgs/event/${id}/cover_photo.jpg`}
 								alt="Event Image"
-								className="mx-auto md:h-full md:w-30 h-full w-20"
+								className="mx-auto h-full object-cover"
 							/>
 						</div>
-						<div className="flex-1">
+						<div className="flex-1 ml-24 md:ml-28">
 							<div className="flex flex-col sm:flex-row text-gray-500">
 								<div className="font-bold text-sm">{parseDate(new Date(datetime_from))} </div>
 								<div className="font-bold text-sm hidden sm:block">&nbsp;|&nbsp;</div>
