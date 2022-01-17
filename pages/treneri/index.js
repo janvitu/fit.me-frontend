@@ -13,7 +13,7 @@ const GET_COACHES = gql`
 			name
 			surname
 			intro_text
-			specializations
+			specialization
 			rating
 			profile_photo {
 				name
