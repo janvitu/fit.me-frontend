@@ -59,15 +59,10 @@ const SPORTS_GROUND_MUTATION = gql`
 `;
 
 export default function TrainerAdminPage() {
-	const [coach, setCoach] = useState(null);
 	const router = useRouter();
 	const { name } = router.query;
 	const { data, loading, error } = useQuery(GET_FULLCOACH, { variables: { username: name } });
-	useEffect(() => {
-		if (data?.getCoach && !loading && !error) {
-			setCoach(data.getCoach);
-		}
-	}, [data, loading, error]);
+
 	const [updateCoach] = useMutation(SPORTS_GROUND_MUTATION);
 
 	return (
