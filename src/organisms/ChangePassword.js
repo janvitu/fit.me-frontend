@@ -4,10 +4,11 @@ import * as Yup from "yup";
 import { gql, useMutation } from "@apollo/client";
 import { InputWrapper, Modal } from "@src/molecules";
 import { H3, ButtonSubmit } from "@src/atoms";
+import toast from "react-hot-toast";
 
 const CHANGE_PASSWORD = gql`
-	mutation ChangePassword($oldPassword: String!, $newPassword: String!) {
-		changePassword(oldPassword: $oldPassword, newPassword: $newPassword)
+	mutation changePassword($token: String!, $oldPassword: String!, $newPassword: String!) {
+		changePassword(token: $token, oldPassword: $oldPassword, newPassword: $newPassword)
 	}
 `;
 
@@ -20,18 +21,17 @@ export function ChangePassword() {
 			newpwd: "",
 			newpwd2: "",
 		},
-		onSubmit: (values) => {
-			console.log(values);
+		onSubmit: async (values) => {
 			const load = toast.loading("Požadavek se zpracovává");
-			changePasssword({
+			await changePasssword({
 				variables: {
-					changePassword: values.oldpwd,
+					token: window.localStorage.getItem("token"),
+					oldPassword: values.oldpwd,
 					newPassword: values.newpwd,
 				},
 			})
-				.then((res) => {
-					console.log(res);
-					Router.push("/prihlasit-se");
+				.then(() => {
+					setIsVisible(false);
 					toast.dismiss(load);
 					toast.success("Heslo úspěšně změněno");
 				})
@@ -39,18 +39,9 @@ export function ChangePassword() {
 					console.log(err);
 					toast.dismiss(load);
 					toast.error("Změna hesla se nezdařila");
-				})
-				.finally(() => {
-					formik.resetForm();
 				});
 		},
 		validationSchema: Yup.object().shape({
-			oldpwd: Yup.string()
-				.min(8, "Heslo musí obsahovat minimálně 8 znaků")
-				.required("Heslo nesmí být prázdné")
-				.matches(/^(?=.*[a-záčďéěíňóřšťúůýž])/, "Heslo musí obsahovat alespoň jedno malé písmeno")
-				.matches(/^(?=.*[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ])/, "Heslo musí obsahovat alespoň jedno velké písmeno")
-				.matches(/^(?=.*\d)/, "Heslo musí obsahovat alespoň jedno číslo"),
 			newpwd: Yup.string()
 				.min(8, "Heslo musí obsahovat minimálně 8 znaků")
 				.required("Heslo nesmí být prázdné")
@@ -70,7 +61,7 @@ export function ChangePassword() {
 			</a>
 			<Modal isOpen={isVisible} onClose={() => setIsVisible(!isVisible)}>
 				<H3>Změna hesla</H3>
-				<form className="space-y-9">
+				<form className="space-y-9" onSubmit={formik.handleSubmit}>
 					<InputWrapper
 						formik={formik}
 						name="oldpwd"

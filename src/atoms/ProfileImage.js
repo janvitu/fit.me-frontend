@@ -1,6 +1,6 @@
 import Image from "next/image";
 import icon from "@assets/img/hooli-brands.svg";
-export function ProfileImage({ variant, img, className }) {
+export function ProfileImage({ variant, img }) {
 	const chooseVariant = (variant) => {
 		let properties = {
 			width: "",
@@ -18,27 +18,24 @@ export function ProfileImage({ variant, img, className }) {
 				properties.height = "60";
 				properties.className = "bg-gray-100 flex-shrink-0 mx-auto rounded-full";
 				return properties;
-			// 	case "large":
-			// 		properties.width = "48";
-			// 		properties.height = "48";
-			// 		return properties;
-			// }
-			// return properties;
+			case "large":
+				properties.width = "160";
+				properties.height = "160";
+				properties.className = "bg-gray-100 flex-shrink-0 mx-auto rounded-full";
+				return properties;
 		}
 	};
 
-	let imageVariant = chooseVariant(variant);
+	const imageVariant = chooseVariant(variant);
 
 	return (
-		<a href="/profil">
-			<Image
-				src={icon.src}
-				alt={icon.alt}
-				layout="fixed"
-				width={imageVariant.width}
-				height={imageVariant.height}
-				className={imageVariant.className}
-			/>
-		</a>
+		<Image
+			src={img?.location || icon.src}
+			alt={img?.name || icon.alt}
+			layout="fixed"
+			width={imageVariant.width}
+			height={imageVariant.height}
+			className={imageVariant.className}
+		/>
 	);
 }

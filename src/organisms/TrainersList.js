@@ -1,5 +1,4 @@
 import { TrainerCard } from "@src/molecules";
-import hooliIcon from "@assets/img/hooli-brands.svg";
 
 export function TrainersList({ trainers, filters }) {
 	const trainersReadyToRender = (trainers, filters) => {
@@ -7,9 +6,9 @@ export function TrainersList({ trainers, filters }) {
 		if (filters.tags.length && Array.isArray(filters.tags)) {
 			arrOfTrainers = trainers.filter((trainer) => {
 				let condition = true;
-				filters.tags.forEach((tag) => {
+				filters.specializations.forEach((tag) => {
 					const contains = (element) => element.name === tag;
-					if (!trainer.tags.some(contains)) condition = false;
+					if (!trainer.specializations.some(contains)) condition = false;
 				});
 				return condition;
 			});
@@ -32,11 +31,11 @@ export function TrainersList({ trainers, filters }) {
 			{trainersReadyToRender(trainers, filters).map((trainer) => {
 				return (
 					<TrainerCard
-						name={trainer.name}
+						name={`${trainer.name} ${trainer.surname}`}
 						username={trainer.username}
-						description={trainer.description}
-						tags={trainer.tags}
-						img={trainer.img}
+						description={trainer.intro_text}
+						tags={trainer.specializations}
+						img={trainer.profile_photo}
 						rating={trainer.rating}
 						key={trainer.id}
 					/>
@@ -45,106 +44,3 @@ export function TrainersList({ trainers, filters }) {
 		</div>
 	);
 }
-
-TrainersList.defaultProps = {
-	trainers: [
-		{
-			id: 1,
-			name: "Robert Chott",
-			username: "robertchott",
-			img: hooliIcon.src,
-			tags: [
-				{
-					name: "Fyzioterapie",
-					color: "yellow",
-				},
-				{
-					name: "Mistr chi",
-					color: "green",
-				},
-				{
-					name: "Zen master",
-					color: "lime",
-				},
-			],
-			rating: 1,
-		},
-		{
-			id: 2,
-			name: "Robert Chott",
-			username: "robertchott",
-			img: hooliIcon.src,
-			tags: [
-				{
-					name: "Zen master",
-					color: "lime",
-				},
-			],
-			rating: 5,
-		},
-		{
-			id: 3,
-			name: "Robert Chott",
-			username: "robertchott",
-			img: hooliIcon.src,
-			tags: [
-				{
-					name: "Mistr chi",
-					color: "green",
-				},
-			],
-			rating: 5,
-		},
-		{
-			id: 4,
-			name: "Robert Chott",
-			username: "robertchott",
-			img: hooliIcon.src,
-			tags: [
-				{
-					name: "Mistr chi",
-					color: "green",
-				},
-				{
-					name: "Zen master",
-					color: "lime",
-				},
-			],
-			rating: 3,
-		},
-		{
-			id: 5,
-			name: "Robert Chott",
-			username: "robertchott",
-			img: hooliIcon.src,
-			tags: [
-				{
-					name: "Fyzioterapie",
-					color: "yellow",
-				},
-			],
-			rating: 4,
-		},
-		{
-			id: 6,
-			name: "Robert Chott",
-			username: "robertchott",
-			img: hooliIcon.src,
-			tags: [
-				{
-					name: "Fyzioterapie",
-					color: "yellow",
-				},
-				{
-					name: "Mistr chi",
-					color: "green",
-				},
-				{
-					name: "Zen master",
-					color: "lime",
-				},
-			],
-			rating: 2,
-		},
-	],
-};

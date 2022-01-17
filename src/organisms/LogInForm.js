@@ -1,12 +1,13 @@
 import { InputWrapper } from "@src/molecules";
-import { ButtonSubmit, CustomToaster } from "@src/atoms";
+import { ButtonSubmit } from "@src/atoms";
 import { ForgotenPasswordModal } from "@src/organisms";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { gql, useLazyQuery } from "@apollo/client";
 import Router from "next/router";
 import toast from "react-hot-toast";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { UserContext } from "@src/utils/UserProvider";
 
 const LOG_IN = gql`
 	query UserSignIn($email: String!, $password: String!, $accType: String) {
@@ -26,36 +27,47 @@ const notificationMethods = [
 ];
 
 export function LogInForm() {
+	const { setActiveAcc } = useContext(UserContext);
 	const [userSignIn, { loading, error, data }] = useLazyQuery(LOG_IN);
 	const [modalOpen, setModalOpen] = useState(false);
+	const [loadToast, setLoadToast] = useState(null);
+
 	useEffect(() => {
-		if (!data && loading) {
-			const loadToast = toast.loading("Požadavek se zpracovává");
-		}
-		if (data && !loading) {
-			toast.dismiss(loadToast);
-			toast.success("Přihlášení úspěšné, vítejte!");
+		if (data?.userSignIn && !loading) {
+			toast.success("Přihlášení úspěšné, vítejte!", {
+				id: loadToast,
+			});
 			Router.push("/sportoviste");
 		}
 		if (error) {
-			toast.dismiss(loadToast);
-			toast.error("Přihlášení se nezdařilo");
+			toast.error("Přihlášení se nezdařilo", {
+				id: loadToast,
+			});
 		}
-	}, [data, loading]);
+	}, [data, loading, error, loadToast]);
 	const formik = useFormik({
 		initialValues: {
 			email: "",
 			password: "",
 			accType: "sportsman",
 		},
-		onSubmit: (values) => {
-			userSignIn({
+		onSubmit: async (values) => {
+			setLoadToast(toast.loading("Požadavek se zpracovává"));
+			await userSignIn({
 				variables: {
 					email: values.email,
 					password: values.password,
 					accType: values.accType,
 				},
-			});
+			})
+				.then((res) => {
+					window.localStorage.setItem("token", res.data.userSignIn.token);
+					localStorage.setItem("activeAcc", values.accType.replace("_", ""));
+					setActiveAcc(values.accType.replace("_", ""));
+				})
+				.catch((err) => {
+					console.log(err);
+				});
 		},
 		validationSchema: Yup.object().shape({
 			email: Yup.string().email("Špatný formát emailu").required("Email nesmí být prázdný"),
@@ -107,7 +119,6 @@ export function LogInForm() {
 					</div>
 				</fieldset>
 				<ButtonSubmit>Přihlásit se</ButtonSubmit>
-				{/* <CustomToaster /> */}
 			</form>
 			{modalOpen && (
 				<ForgotenPasswordModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />

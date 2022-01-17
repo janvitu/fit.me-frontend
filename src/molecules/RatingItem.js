@@ -1,6 +1,6 @@
-import { RatingIndicator } from ".";
+import { RatingIndicator } from "@src/molecules";
 
-export function RatingItem({ ratingItem }) {
+export function RatingItem({ review }) {
 	const calculateTime = (date) => {
 		const now = new Date();
 		const ratingDate = new Date(date);
@@ -62,19 +62,21 @@ export function RatingItem({ ratingItem }) {
 			<div className="relative flex items-start space-x-3 pb-8">
 				<img
 					className="h-10 w-10 rounded-full bg-gray-400 flex items-center justify-center ring-8 ring-white"
-					src={ratingItem.user.avatar}
-					alt={`Avatar ${ratingItem.user.name}`}
+					src={review.sportsman.profile_photo.location || ""}
+					alt={review.sportsman.profile_photo.name || ""}
 				/>
 				<div className="flex-1">
 					<div className="flex gap-4">
 						<div>
-							<div className="text-sm font-medium text-gray-900">{ratingItem.user.name}</div>
-							<p className="mt-0.5 text-sm text-gray-500">{calculateTime(ratingItem.submitedAt)}</p>
+							<div className="text-sm font-medium text-gray-900">
+								{`${review.sportsman.name} ${review.sportsman.surname}`}
+							</div>
+							<p className="mt-0.5 text-sm text-gray-500">{calculateTime(review.datetime)}</p>
 						</div>
-						<RatingIndicator ratingValue={ratingItem.rating} />
+						<RatingIndicator ratingValue={review.stars} />
 					</div>
 					<div className="mt-2 text-sm text-gray-700">
-						<p>{ratingItem.text}</p>
+						<p>{review.comment}</p>
 					</div>
 				</div>
 			</div>

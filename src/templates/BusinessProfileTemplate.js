@@ -1,24 +1,32 @@
+import { useState, useEffect, useContext } from "react";
 import { H2, TextProse, XlWrapper } from "@src/atoms";
-import { EventCard, Modal, RatingInput, ResponsiveGallery } from "@src/molecules";
+import { Modal, RatingInput } from "@src/molecules";
+import { EventCard } from "@src/organisms";
 import { ContactBusinessForm, DetailCard, RatingList } from "@src/organisms";
 import snarkdown from "snarkdown";
-import { useState, useEffect } from "react";
 import { disableScroll, enableScroll } from "@src/utils/handleScroll";
+import { gql, useMutation } from "@apollo/client";
+import { UserContext } from "@src/utils/UserProvider";
 
-const imagesFromServer = [
-	{ src: "https://source.unsplash.com/random/?landscape", alt: "" },
-	{ src: "https://source.unsplash.com/random/?male", alt: "" },
-	{ src: "https://source.unsplash.com/random/?male", alt: "" },
-	{ src: "https://source.unsplash.com/random/?female", alt: "" },
-	{ src: "https://source.unsplash.com/random/?landscape", alt: "" },
-	{ src: "https://source.unsplash.com/random/?landscape", alt: "" },
-];
+const ADD_REVIEWSPORTSGROUND = gql`
+	mutation AddReviewSportsground($stars: Int!, $comment: String!, $token: String!, $id: Int!) {
+		addReviewSportsground(stars: $stars, comment: $comment, token: $token, sportsground_id: $id)
+	}
+`;
+const ADD_REVIEWCOACH = gql`
+	mutation AddReviewCoach($stars: Int!, $comment: String!, $token: String!, $id: Int!) {
+		addReviewCoach(stars: $stars, comment: $comment, token: $token, coach_id: $id)
+	}
+`;
 
-export function BusinessProfileTemplate({ BusinessProfileData }) {
-	const article = snarkdown(BusinessProfileData.article);
-	const [ratingList, setRatingList] = useState(
-		BusinessProfileData.ratingList.sort((a, b) => {
-			return new Date(b.submitedAt) - new Date(a.submitedAt);
+export function BusinessProfileTemplate({ BusinessProfileData, type }) {
+	const [mutate, { loading, error, data }] = useMutation(chooseMutation(type));
+	const { user } = useContext(UserContext);
+
+	const article = snarkdown(BusinessProfileData.description);
+	const [reviews, setReviews] = useState(
+		[...BusinessProfileData.reviews].sort((a, b) => {
+			return new Date(b.datetime) - new Date(a.datetime);
 		}),
 	);
 	const [contactModal, setContactModal] = useState(false);
@@ -34,11 +42,11 @@ export function BusinessProfileTemplate({ BusinessProfileData }) {
 	const [rating, setRating] = useState(0);
 
 	useEffect(() => {
-		const ratings = ratingList.map((rating) => rating.rating);
-		const averageRating = ratings.reduce((a, b) => a + b, 0) / ratings.length;
+		const rating = reviews.map((review) => review.rating);
+		const averageRating = reviews.reduce((a, b) => a + b, 0) / reviews.length;
 		const roundedAverageRating = Math.round(averageRating);
 		setRating(roundedAverageRating);
-	}, [ratingList]);
+	}, [reviews]);
 
 	const closeContactModal = () => {
 		setContactModal(false);
@@ -47,8 +55,25 @@ export function BusinessProfileTemplate({ BusinessProfileData }) {
 		setContactModal(true);
 	};
 
-	const addRating = (ratingItem) => {
-		setRatingList([ratingItem, ...ratingList]);
+	function chooseMutation(type) {
+		if (type == "coach") return ADD_REVIEWCOACH;
+		else return ADD_REVIEWSPORTSGROUND;
+	}
+
+	const addReview = async (review) => {
+		try {
+			await mutate({
+				variables: {
+					stars: review.stars,
+					comment: review.comment,
+					token: localStorage.getItem("token"),
+					id: parseInt(BusinessProfileData.id),
+				},
+			});
+			setReviews([review, ...reviews]);
+		} catch (err) {
+			console.log(err);
+		}
 	};
 
 	return (
@@ -65,9 +90,9 @@ export function BusinessProfileTemplate({ BusinessProfileData }) {
 					<div className="-mt-12 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
 						<div className="flex">
 							<img
-								className="h-24 w-24 rounded-full object-contain ring-4 ring-white sm:h-32 sm:w-32"
-								src="https://source.unsplash.com/random/128x128/?avatar"
-								alt=""
+								className="h-24 w-24 rounded-full object-contain ring-4 bg-gray-200 ring-white sm:h-32 sm:w-32"
+								src={BusinessProfileData.profile_photo.location}
+								alt={BusinessProfileData.profile_photo.name}
 							/>
 						</div>
 						<div className="mt-6 sm:flex-1 sm:min-w-0 sm:flex sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
@@ -110,29 +135,30 @@ export function BusinessProfileTemplate({ BusinessProfileData }) {
 								</TextProse>
 							</div>
 						</div>
-						<DetailCard descriptionItems={BusinessProfileData.detail} rating={rating} />
+						<DetailCard
+							descriptionItems={BusinessProfileData.details}
+							rating={BusinessProfileData.rating}
+						/>
 					</div>
 				</XlWrapper>
 			</section>
-			<section>
-				<XlWrapper>
-					<div className="grid grid-cols-1 md:grid-cols-3 grid-flow-row gap-4">
-						<EventCard id={"xxx"}></EventCard>
-						<EventCard id={"xxx"}></EventCard>
-						<EventCard id={"xxx"}></EventCard>
-					</div>
-				</XlWrapper>
-			</section>
-			<section>
-				<XlWrapper>
-					<ResponsiveGallery>{imagesFromServer}</ResponsiveGallery>
-				</XlWrapper>
-			</section>
+			{BusinessProfileData.events && (
+				<section>
+					<XlWrapper>
+						<div className="grid grid-cols-1 md:grid-cols-3 grid-flow-row gap-4">
+							{BusinessProfileData.events.map((event) => (
+								<EventCard key={event.id} id={event.id} modal={true} />
+							))}
+						</div>
+					</XlWrapper>
+				</section>
+			)}
+
 			<section>
 				<XlWrapper>
 					<div className="space-y-10">
-						<RatingInput addRating={addRating} />
-						<RatingList ratingList={ratingList} />
+						<RatingInput addReview={addReview} />
+						<RatingList reviews={reviews} />
 					</div>
 				</XlWrapper>
 			</section>

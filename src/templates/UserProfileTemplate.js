@@ -1,6 +1,6 @@
-import Image from "next/image";
-import { H3, H4, HeadingWrapper, XlWrapper, DelimiterWide } from "@src/atoms";
-import { ProfileCard, PlaceCard, TrainerCard } from "@src/molecules";
+import { H3, H4, HeadingWrapper, XlWrapper, DelimiterWide, ProfileImage } from "@src/atoms";
+import { ProfileCard, TrainerCard } from "@src/molecules";
+import { PlaceCard } from "@src/organisms";
 
 export function UserProfileTemplate({ profileImg, userData }) {
 	function FavouritesPlaces({ userData }) {
@@ -44,13 +44,7 @@ export function UserProfileTemplate({ profileImg, userData }) {
 			<XlWrapper>
 				<div className="md:flex">
 					<div className="px-4 md:ml-8 md:mr-12 mt-5 sm:mt-8">
-						<img
-							src={profileImg}
-							alt="Profile Image"
-							width="160"
-							height="160"
-							className="rounded-full object-cover mx-auto h-40 w-40"
-						/>
+						<ProfileImage img={{ src: profileImg, alt: "alt" }} variant="large" />
 					</div>
 					<div className="mt-8 pl-4 pr-4 md:pr-8 mx-auto flex-1">
 						<ProfileCard />

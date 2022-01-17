@@ -1,21 +1,36 @@
 const variantHandler = (variant, isActive) => {
 	switch (variant) {
 		case "underline":
-			return `group relative cursor-pointer hover:text-main-600 py-3 
-                ${isActive ? "text-main-600 font-medium" : ""}`;
+			return `group relative cursor-pointer hover:text-main-600 py-3 ${
+				isActive ? "text-main-600 font-medium" : ""
+			}`;
 		default:
-			return "flex items-center px-4 py-2 justify-center min-w-[10ch] border text-base font-medium rounded-md border-transparent text-black bg-main-400 hover:bg-main-600";
+			return "flex items-center px-5 py-3 justify-center min-w-[10ch] border text-base font-medium rounded-md";
 	}
 };
 
-export function Button({ children, onClickHandler, isActive, variant }) {
+const outlineHandler = (outline, variant) => {
+	if (variant !== "underline") {
+		const outlinecss = outline
+			? "border-main-400 text-main-400 hover:bg-gray-100 hover:text-main-600 bg-white hover:border-main-600"
+			: "border-transparent text-black bg-main-400 hover:bg-main-600";
+		return outlinecss;
+	}
+	return "";
+};
+
+export function Button({ children, onClickHandler, isActive, variant, isOutline }) {
 	return (
-		<button className={variantHandler(variant, isActive)} onClick={onClickHandler}>
+		<button
+			className={variantHandler(variant, isActive) + " " + outlineHandler(isOutline, variant)}
+			onClick={onClickHandler}
+		>
 			{children}
 			{variant === "underline" && (
 				<div
-					className={`w-0 sm:group-hover:w-full h-px bg-main-600 transition-all 
-                ${isActive ? "sm:w-full bg-main-500" : ""}`}
+					className={`w-0 sm:group-hover:w-full h-px bg-main-600 transition-all ${
+						isActive ? "sm:w-full bg-main-500" : ""
+					}`}
 				/>
 			)}
 		</button>

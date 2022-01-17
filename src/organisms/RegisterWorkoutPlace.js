@@ -45,7 +45,6 @@ export function RegisterWorkoutPlace() {
 			secondPassword: "",
 		},
 		onSubmit: (values) => {
-			console.log(values);
 			const load = toast.loading("Požadavek se zpracovává");
 			createSportsground({
 				variables: {
@@ -60,7 +59,6 @@ export function RegisterWorkoutPlace() {
 				},
 			})
 				.then((res) => {
-					console.log(res);
 					Router.push("/prihlasit-se");
 					toast.dismiss(load);
 					toast.success(
@@ -103,15 +101,14 @@ export function RegisterWorkoutPlace() {
 				<div>
 					<label className="text-base">Adresa sportoviště</label>
 					<div className="grid mt-4 grid-cols-2 gap-x-4 gap-y-9">
-						<div className="col-span-2">
-							<InputWrapper
-								formik={formik}
-								name="street"
-								type="text"
-								isRequired
-								description="Ulice a číslo popisné"
-							/>
-						</div>
+						<InputWrapper
+							className="col-span-2"
+							formik={formik}
+							name="street"
+							type="text"
+							isRequired
+							description="Ulice a číslo popisné"
+						/>
 						<InputWrapper formik={formik} name="city" type="text" isRequired description="Město" />
 						<InputWrapper formik={formik} name="zip" type="text" isRequired description="PSČ" />
 					</div>

@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 export function Hamburger({ toggle, toggled }) {
 	return (
 		<div className="w-14 h-14">

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 import { ButtonLink, Hamburger } from "@src/atoms";
-import { NavStatics } from "@src/molecules";
+import { NavStatic } from "@src/molecules";
 import { ROUTES } from "@src/constants";
 
 export function NavBarStatic() {
@@ -23,7 +23,7 @@ export function NavBarStatic() {
 							</a>
 						</Link>
 					</div>
-					<NavStatics toggled={toggled} routes={ROUTES} />
+					<NavStatic toggled={toggled} routes={ROUTES} />
 					<div className="absolute right-0 md:hidden">
 						<Hamburger toggle={toggle} toggled={toggled} />
 					</div>

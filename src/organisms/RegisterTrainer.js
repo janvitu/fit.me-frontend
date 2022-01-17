@@ -1,4 +1,4 @@
-import { CustomToaster, ButtonSubmit } from "@src/atoms";
+import { ButtonSubmit } from "@src/atoms";
 import { InputWrapper } from "@src/molecules";
 import { useFormik } from "formik";
 
@@ -37,7 +37,6 @@ export function RegisterTrainer() {
 			secondPassword: "",
 		},
 		onSubmit: (values) => {
-			console.log(values);
 			const load = toast.loading("Požadavek se zpracovává");
 			createCoach({
 				variables: {
@@ -49,7 +48,6 @@ export function RegisterTrainer() {
 				},
 			})
 				.then((res) => {
-					console.log(res);
 					Router.push("/prihlasit-se");
 					toast.dismiss(load);
 					toast.success(

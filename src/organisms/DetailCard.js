@@ -54,41 +54,13 @@ export function DetailCard({ descriptionItems, rating = 0 }) {
 							</IconButton>
 						</div>
 					</div>
-					<div className="border-t border-gray-200 px-4 py-5 sm:px-6 flex-grow overflow-y-scroll">
-						<DescriptionList items={descriptionItems} />
-					</div>
+					{descriptionItems && (
+						<div className="border-t border-gray-200 px-4 py-5 sm:px-6 flex-grow overflow-y-scroll">
+							<DescriptionList items={descriptionItems} />
+						</div>
+					)}
 				</div>
 			</div>
 		</>
 	);
 }
-
-DetailCard.defaultProps = {
-	descriptionItems: [
-		{
-			title: "Nabízené sporty",
-			value: "Yoga, Tenis",
-		},
-		{
-			title: "Způsob platby",
-			value: "ApplePay, Cash, Mulrisport",
-		},
-		{
-			title: "Zázemí",
-			value: "Sprchy, vybavení",
-		},
-		{
-			title: "Kontakt",
-			value: "Email: abcsportoviste@info.cz",
-		},
-		{
-			title: "Adresa",
-			value: "U sportoviště 66, Praha 6, 166 66",
-		},
-		{
-			title: "Otevírací doba:",
-			value: "Po-Ne: 6:00 - 17:00",
-		},
-	],
-	rating: 4,
-};

@@ -1,15 +1,9 @@
-import { H1, SmWrapper, Button, CustomToaster } from "@src/atoms";
+import { H1, SmWrapper, Button } from "@src/atoms";
 import { StaticSite } from "@src/templates";
 import { RegisterUser, RegisterWorkoutPlace, RegisterTrainer } from "@src/organisms";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { REGISTER_FORM_INFO } from "@src/constants";
-
-const client = new ApolloClient({
-	uri: process.env.NEXT_PUBLIC_GQL_SERVER,
-	cache: new InMemoryCache(),
-});
 
 export default function Registrace() {
 	const [registerFormRoute, setRegisterFormRoute] = useState("user");
@@ -35,7 +29,6 @@ export default function Registrace() {
 
 	return (
 		<StaticSite>
-			<CustomToaster />
 			<SmWrapper>
 				<div className="min-h-[60vh] flex items-center justify-center flex-col">
 					<div className="mb-8">
@@ -58,9 +51,7 @@ export default function Registrace() {
 							</ul>
 						</nav>
 					</div>
-					<div className="w-full">
-						<ApolloProvider client={client}>{getFormByType(registerFormRoute)}</ApolloProvider>
-					</div>
+					<div className="w-full">{getFormByType(registerFormRoute)}</div>
 				</div>
 			</SmWrapper>
 		</StaticSite>
