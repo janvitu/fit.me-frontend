@@ -1,51 +1,66 @@
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import toast from "react-hot-toast";
 import {
-	ResponsiveGallery,
 	InputAdminWrapper,
 	TextAreaAdminWrapper,
-	UploadImageWrapper,
 	ContactInputWrapper,
 	SelectWrapper,
 } from "@src/molecules";
-import {
-	XlWrapper,
-	RichTextArea,
-	H3,
-	CardInputWrapper,
-	ButtonSubmit,
-	LabelAdmin,
-} from "@src/atoms";
-const imagesFromServer = [
-	{ src: "https://source.unsplash.com/random/?landscape", alt: "" },
-	{ src: "https://source.unsplash.com/random/?male", alt: "" },
-	{ src: "https://source.unsplash.com/random/?male", alt: "" },
-	{ src: "https://source.unsplash.com/random/?female", alt: "" },
-	{ src: "https://source.unsplash.com/random/?landscape", alt: "" },
-	{ src: "https://source.unsplash.com/random/?landscape", alt: "" },
-];
+import { H3, CardInputWrapper, ButtonSubmit, LabelAdmin } from "@src/atoms";
 
-const tagOptions = [
-	{ value: "powerlifting", label: "Powerlifting" },
-	{ value: "fyzioterapie", label: "Fyzioterapie" },
-	{ value: "yoga", label: "Yoga" },
-	{ value: "zenmaster", label: "Zen master" },
-	{ value: "badminton", label: "Badminton" },
-	{ value: "mistrchi", label: "Mistr chi" },
-	{ value: "tennis", label: "Tennis" },
-	{ value: "squash", label: "Squash" },
-	{ value: "fitbox", label: "FitBox" },
-];
+export function AdminTrainerForm({ data, sendData }) {
+	const formik = useFormik({
+		initialValues: {
+			name: data.name || "",
+			vat_number: data.vat_number || "",
+			surname: data.surname || "",
+			intro_text: data.intro_text || "",
+			description: data.description || "",
+			specialization: data.specialization || "",
+			phone: data.phone || "",
+		},
+		onSubmit: async (values) => {
+			const load = toast.loading("Požadavek se zpracovává");
+			console.log(values);
+			await sendData({
+				variables: {
+					token: localStorage.getItem("token"),
+					name: values.name,
+					vat_number: values.vat_number,
+					surname: values.surname,
+					intro_text: values.intro_text,
+					description: values.description,
+					specialization: values.specialization,
+					phone: values.phone,
+				},
+			})
+				.then((res) => {
+					toast.dismiss(load);
+					toast.success("Změny uloženy");
+				})
+				.catch((err) => {
+					toast.dismiss(load);
+					toast.error("Došlo k chybě při ukládání změn");
+					console.log(err);
+				});
+		},
+		validationSchema: Yup.object().shape({
+			// name: Yup.string().required("Jméno nesmí být prázdné"),
+			// surname: Yup.string().required("Příjmení nesmí být prázdné"),
+			// email: Yup.string().email("Špatný formát emailu").required("Email nesmí být prázdný"),
+			// password: Yup.string()
+			// 	.min(8, "Heslo musí obsahovat minimálně 8 znaků")
+			// 	.required("Heslo musí být vyplněno")
+			// 	.matches(/^(?=.*[a-záčďéěíňóřšťúůýž])/, "Heslo musí obsahovat alespoň jedno malé písmeno")
+			// 	.matches(/^(?=.*[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ])/, "Heslo musí obsahovat alespoň jedno velké písmeno")
+			// 	.matches(/^(?=.*\d)/, "Heslo musí obsahovat alespoň jedno číslo"),
+			// secondPassword: Yup.string()
+			// 	.oneOf([Yup.ref("password")], `Hesla se neshoduj`)
+			// 	.required("Pole musí být vyplněné"),
+		}),
+	});
 
-const paymentOptions = [
-	{ value: "hotovost", label: "Hotovost" },
-	{ value: "karty", label: "Karty" },
-	{ value: "stravenky", label: "Stravenky" },
-];
-
-const facilityOptions = [
-	{ value: "sprcha", label: "Sprcha" },
-	{ value: "zapujcenivybaveni", label: "Zapůjčení vybavení" },
-];
-export function AdminTrainerForm({ formik }) {
 	return (
 		<form onSubmit={formik.handleSubmit}>
 			<div className="mt-10 sm:mt-0  md:grid md:grid-cols-3 md:gap-6">
@@ -56,56 +71,19 @@ export function AdminTrainerForm({ formik }) {
 				</div>
 				<CardInputWrapper>
 					<div className="grid grid-cols-6 gap-6">
-						<div className="col-span-6 sm:col-span-4">
-							<InputAdminWrapper
-								formik={formik}
-								name="name"
-								type="text"
-								description="Jméno trenéra"
-							/>
-						</div>
-
 						<div className="col-span-6 sm:col-span-3">
-							<SelectWrapper
-								formik={formik}
-								name="paymentOptions"
-								description="Země"
-								isMulti={false}
-								closeMenuOnSelect={true}
-								options={[
-									{ value: "cz", label: "Česká republika" },
-									{ value: "sk", label: "Slovensko" },
-								]}
-							/>
+							<InputAdminWrapper formik={formik} name="name" type="text" description="Jméno" />
 						</div>
-
-						<div className="col-span-4">
+						<div className="col-span-6 sm:col-span-3">
 							<InputAdminWrapper
 								formik={formik}
-								name="addressStreet"
+								name="surname"
 								type="text"
-								description="Adresa (ulice)"
+								description="Příjmení"
 							/>
 						</div>
-						<div className="col-span-2">
-							<InputAdminWrapper
-								formik={formik}
-								name="addressNumber"
-								type="text"
-								description="Číslo popisné"
-							/>
-						</div>
-
-						<div className="col-span-6 sm:col-span-6 lg:col-span-2">
-							<InputAdminWrapper formik={formik} name="city" type="text" description="Město" />
-						</div>
-
-						<div className="col-span-6 sm:col-span-3 lg:col-span-2">
-							<InputAdminWrapper formik={formik} name="region" type="text" description="Kraj" />
-						</div>
-
-						<div className="col-span-6 sm:col-span-3 lg:col-span-2">
-							<InputAdminWrapper formik={formik} name="postalCode" type="text" description="PSČ" />
+						<div className="col-span-6 sm:col-span-3">
+							<InputAdminWrapper formik={formik} name="vat_number" type="text" description="IČO" />
 						</div>
 					</div>
 				</CardInputWrapper>
@@ -124,81 +102,40 @@ export function AdminTrainerForm({ formik }) {
 
 					<CardInputWrapper>
 						<div>
+							<InputAdminWrapper
+								formik={formik}
+								name="intro_text"
+								type="text"
+								description="Krátký popis"
+							/>
+						</div>
+						<div>
 							<LabelAdmin>Popis (O trenérovi)</LabelAdmin>
+							{/* <p className="mt-2 text-sm text-gray-500">Popis trenéra</p> */}
 							<div className="mt-1">
-								<RichTextArea formik={formik} />
+								<TextAreaAdminWrapper formik={formik} name="description" />
 							</div>
-							<p className="mt-2 text-sm text-gray-500">Krátký popis trenéra</p>
 						</div>
 						<div>
-							<SelectWrapper
+							<InputAdminWrapper
 								formik={formik}
-								name="activities"
-								description="Nabízené aktivity"
-								defaultValue={[tagOptions[4], tagOptions[5]]}
-								closeMenuOnSelect={false}
-								isMulti={true}
-								options={tagOptions}
+								name="specialization"
+								type="text"
+								description="Specializace"
 							/>
 						</div>
 
-						<div>
-							<SelectWrapper
-								formik={formik}
-								name="paymentOptions"
-								description="Způsob platby"
-								defaultValue={[paymentOptions[1], paymentOptions[2]]}
-								closeMenuOnSelect={false}
-								isMulti={true}
-								options={paymentOptions}
-							/>
-						</div>
-
-						<div>
-							<SelectWrapper
-								formik={formik}
-								name="facility"
-								description="Poskytované zázemí"
-								defaultValue={[facilityOptions[1]]}
-								closeMenuOnSelect={false}
-								isMulti={true}
-								options={facilityOptions}
-							/>
-						</div>
-						<div>
-							<TextAreaAdminWrapper
-								formik={formik}
-								name="openHoursFrom"
-								description="Otevírací doba od"
-							/>
-						</div>
-						<div>
-							<TextAreaAdminWrapper
-								formik={formik}
-								name="openHoursFrom"
-								description="Otevírací doba do"
-							/>
-						</div>
 						<div>
 							<LabelAdmin htmlfor="companyWebsite">Kontaktní údaje</LabelAdmin>
-							<div className="grid grid-cols-3 gap-6">
-								<div className="col-span-3 sm:col-span-2">
-									<ContactInputWrapper
-										formik={formik}
-										prefix="http://"
-										name="companyWebsite"
-										placeholder="www.example.com"
-									/>
-								</div>
-							</div>
+
 							<div className="flex flex-col md:flex-row sm:mt-2  ">
 								<div className="grid grid-cols-3 gap-6 mt-1 ">
 									<div className="col-span-3">
 										<ContactInputWrapper
 											formik={formik}
 											prefix="Tel.:"
-											name="companyPhone"
-											placeholder="+420 789 666 777"
+											name="phone"
+											placeholder="789666777"
 										/>
 									</div>
 								</div>
@@ -209,6 +146,7 @@ export function AdminTrainerForm({ formik }) {
 								Profilová fotografie trenéra
 							</label>
 							<div className="mt-1 flex items-center">
+								{/* Cover Photo */}
 								<span className="inline-block h-12 w-12 rounded-full overflow-hidden bg-gray-100">
 									<svg
 										className="h-full w-full text-gray-300"
@@ -226,15 +164,6 @@ export function AdminTrainerForm({ formik }) {
 								</button>
 							</div>
 						</div>
-						<UploadImageWrapper formik={formik} name="titleImage" description="Úvodní fotografie" />
-
-						<UploadImageWrapper formik={formik} name="images" description="Galerie fotografií" />
-
-						<section>
-							<XlWrapper>
-								<ResponsiveGallery>{imagesFromServer}</ResponsiveGallery>
-							</XlWrapper>
-						</section>
 					</CardInputWrapper>
 					<div className="col-span-2 col-start-2 flex flex-row justify-center px-4 py-3 text-center sm:px-3">
 						<ButtonSubmit>Uložit změny</ButtonSubmit>

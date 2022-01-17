@@ -30,9 +30,7 @@ export function ChangePassword() {
 					newPassword: values.newpwd,
 				},
 			})
-				.then((res) => {
-					console.log(res);
-					// Router.push("/prihlasit-se");
+				.then(() => {
 					setIsVisible(false);
 					toast.dismiss(load);
 					toast.success("Heslo úspěšně změněno");

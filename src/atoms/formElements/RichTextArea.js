@@ -3,7 +3,7 @@ import { useQuill } from "react-quilljs";
 import "quill/dist/quill.snow.css"; // Add css for snow theme
 import { useEffect } from "react";
 
-export function RichTextArea({ formik }) {
+export function RichTextArea({ formik, name }) {
 	const modules = {
 		toolbar: [
 			[{ header: [1, 2, 3, false] }],
@@ -15,9 +15,7 @@ export function RichTextArea({ formik }) {
 	const { quill, quillRef } = useQuill({ modules });
 	useEffect(() => {
 		if (quill) {
-			quill.clipboard.dangerouslyPasteHTML(
-				"<h1>Popis</h1><p>Zde napiště popis čím se zabýváte, nabízíte...</p> <h2>Další informace o vás</h2><p>K našim zákazníkům se přistupujeme s úctou ...</p>",
-			);
+			quill.setText(formik.values[name]);
 		}
 	}, [quill]);
 

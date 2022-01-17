@@ -45,51 +45,8 @@ export const ADD_SPORTSGROUND = gql`
 		)
 	}
 `;
-
-export function addNewAccType(name, surname, email, vat_number, accType) {
-	// let addMutation;
-	let variables;
-	switch (accType) {
-		case "sportsground":
-			// addMutation = ADD_SPORTSGROUND;
-			variables = { name: name, street: street, email: email, city: city, vat_number: vat_number };
-		case "coach":
-			// addMutation = ADD_COACH;
-			variables = { name: name, street: street, email: email, city: city, vat_number: vat_number };
-		case "sportsman":
-			// addMutation = ADD_SPORTSMAN;
-			variables = { name: name, surname: surname, email: email };
+export const REFRESH = gql`
+	query RefreshToken($token: String!) {
+		refreshToken(token: $token)
 	}
-	// const [create] = useMutation(addMutation);
-	return { ...variables };
-}
-
-export function getFormComponents(type, formik) {
-	switch (
-		type
-		// case "sportsman":
-		// 	return (
-		// 		<div className="flex flex-col gap-4 mt-4 mb-10">
-		// 			<InputWrapper
-		// 				formik={formik}
-		// 				name="name"
-		// 				type="text"
-		// 				isRequired={true}
-		// 				description="Jméno"
-		// 			/>
-		// 			<InputWrapper
-		// 				formik={formik}
-		// 				name="surname"
-		// 				type="text"
-		// 				isRequired={true}
-		// 				description="Příjmení"
-		// 			/>
-		// 		</div>
-		// 	);
-		// 	case "coach":
-		// 		return(
-
-		// 		)
-	) {
-	}
-}
+`;

@@ -5,9 +5,14 @@ import { UserContext } from "@src/utils/UserProvider";
 import { InputWrapper } from "./formElements/InputWrapper";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { gql, useMutation } from "@apollo/client";
+import { useMutation, useLazyQuery } from "@apollo/client";
 import toast from "react-hot-toast";
-import { ADD_SPORTSMAN, ADD_COACH, ADD_SPORTSGROUND } from "@src/utils/accountTypeFunctions";
+import {
+	ADD_SPORTSMAN,
+	ADD_COACH,
+	ADD_SPORTSGROUND,
+	REFRESH,
+} from "@src/utils/accountTypeFunctions";
 
 const options = [
 	{ name: "Sportovec", type: "sportsman" },
@@ -16,14 +21,14 @@ const options = [
 ];
 
 export function AddNewAccount() {
+	const [refreshToken] = useLazyQuery(REFRESH);
 	const [isVisible, setIsVisible] = useState(false);
 	const [activeOption, setActiveOption] = useState(null);
 	const { user } = useContext(UserContext);
 	const [createSportsman] = useMutation(ADD_SPORTSMAN);
 	const [createCoach] = useMutation(ADD_COACH);
 	const [createSportsGround] = useMutation(ADD_SPORTSGROUND);
-	console.log("property", user?.hasOwnProperty("sportsground"));
-	console.log(user);
+
 	const formik = useFormik({
 		initialValues: {
 			name: "",
@@ -46,6 +51,9 @@ export function AddNewAccount() {
 							vat_number: values.vat_number.toString(),
 						},
 					}).then(() => {
+						refreshToken({ variables: { token: localStorage.getItem("token") } }).then((res) => {
+							localStorage.setItem("token", res.data.refreshToken);
+						});
 						toast.dismiss(load);
 						toast.success("Účet úspěšně vytvořen");
 						setIsVisible(false);
@@ -63,6 +71,9 @@ export function AddNewAccount() {
 							country: "Česká republika",
 						},
 					}).then(() => {
+						refreshToken({ variables: { token: localStorage.getItem("token") } }).then((res) => {
+							localStorage.setItem("token", res.data.refreshToken);
+						});
 						toast.dismiss(load);
 						toast.success("Účet úspěšně vytvořen");
 						setIsVisible(false);
@@ -71,6 +82,9 @@ export function AddNewAccount() {
 					createSportsman({
 						variables: { name: values.name, surname: values.surname, email: user.email },
 					}).then(() => {
+						refreshToken({ variables: { token: localStorage.getItem("token") } }).then((res) => {
+							localStorage.setItem("token", res.data.refreshToken);
+						});
 						toast.dismiss(load);
 						toast.success("Účet úspěšně vytvořen");
 						setIsVisible(false);

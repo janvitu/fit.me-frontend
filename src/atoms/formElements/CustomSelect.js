@@ -14,8 +14,8 @@ export function CustomSelect({
 		<div className="mt-1">
 			<Select
 				name={name}
-				// onChange={formik.handleChange}
-				// value={formik.values["paymentOptions"]}
+				onChange={formik.handleChange}
+				value={formik.values[name]}
 				closeMenuOnSelect={closeMenuOnSelect}
 				components={animatedComponents}
 				options={options}

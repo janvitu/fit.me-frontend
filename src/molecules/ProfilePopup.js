@@ -74,7 +74,7 @@ export function ProfilePopup({ email, img, username }) {
 												</div>
 
 												<a className="self-center text-xs font-light text-gray-600 ">
-													{account.type}
+													{/* {user?.[activeAcc].username + " (" + derivateAccType(activeAcc) + ")"} */}
 												</a>
 											</div>
 										);
@@ -83,9 +83,18 @@ export function ProfilePopup({ email, img, username }) {
 
 							<AddNewAccount />
 						</div>
-						<div className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-50 w-full text-center">
-							<Link href="/profil">Upravit Profil</Link>
-						</div>
+						{activeAcc == "sportsground" && (
+							<div className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-50 w-full text-center">
+								<Link href={`/sportoviste/${user.sportsground.username}/admin`}>
+									Upravit Profil
+								</Link>
+							</div>
+						)}
+						{activeAcc == "coach" && (
+							<div className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-50 w-full text-center">
+								<Link href={`/treneri/${user.coach.username}/admin`}>Upravit Profil</Link>
+							</div>
+						)}
 						<div className="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-50 w-full text-center">
 							<ChangePassword />
 						</div>

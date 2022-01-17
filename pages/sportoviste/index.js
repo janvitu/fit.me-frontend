@@ -30,7 +30,7 @@ export default function Places() {
 		tags: [],
 		order: "",
 	});
-	console.log(data);
+
 	return (
 		<DynamicSite>
 			<DynamicListHeader

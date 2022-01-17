@@ -2,7 +2,7 @@ export function ContactInput({ formik, name, placeholder }) {
 	return (
 		<input
 			onChange={formik.handleChange}
-			value={formik.values[{ name }]}
+			value={formik.values[name]}
 			type="text"
 			name={name}
 			id={name}
