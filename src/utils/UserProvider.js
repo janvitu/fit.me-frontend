@@ -60,7 +60,6 @@ export const UserProvider = ({ children }) => {
 				},
 			});
 		}
-		console.log(loading);
 		if (data?.getUserByToken && !loading) {
 			setUser(data.getUserByToken);
 		}

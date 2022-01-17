@@ -13,6 +13,7 @@ const REGISTER_SPORTS_GROUND = gql`
 		$street: String!
 		$city: String!
 		$zip: String!
+		$number: String!
 		$country: String!
 		$email: String!
 		$password: String!
@@ -23,6 +24,7 @@ const REGISTER_SPORTS_GROUND = gql`
 			street: $street
 			city: $city
 			zip: $zip
+			number: $number
 			country: $country
 			email: $email
 			password: $password
@@ -37,6 +39,7 @@ export function RegisterWorkoutPlace() {
 		initialValues: {
 			name: "",
 			street: "",
+			number: "",
 			city: "",
 			zip: "",
 			email: "",
@@ -51,11 +54,12 @@ export function RegisterWorkoutPlace() {
 					name: values.name,
 					street: values.street,
 					city: values.city,
-					zip: values.zip,
+					zip: String(values.zip),
 					country: "Czech Republic",
+					number: String(values.number),
 					email: values.email,
 					password: values.password,
-					vat_number: values.ico,
+					vat_number: String(values.ico),
 				},
 			})
 				.then((res) => {
@@ -102,12 +106,21 @@ export function RegisterWorkoutPlace() {
 					<label className="text-base">Adresa sportoviště</label>
 					<div className="grid mt-4 grid-cols-2 gap-x-4 gap-y-9">
 						<InputWrapper
-							className="col-span-2"
+							className="col-span-2 sm:col-span-1"
 							formik={formik}
 							name="street"
 							type="text"
 							isRequired
-							description="Ulice a číslo popisné"
+							description="Ulice"
+						/>
+
+						<InputWrapper
+							className="col-span-2 sm:col-span-1"
+							formik={formik}
+							name="number"
+							type="text"
+							isRequired
+							description="Číslo popisné"
 						/>
 						<InputWrapper formik={formik} name="city" type="text" isRequired description="Město" />
 						<InputWrapper formik={formik} name="zip" type="text" isRequired description="PSČ" />

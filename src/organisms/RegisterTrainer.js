@@ -12,7 +12,7 @@ const RGISTER_TRAINTER = gql`
 		$name: String!
 		$surname: String!
 		$email: String!
-		$vat_number: Number!
+		$vat_number: String!
 		$password: String!
 	) {
 		createCoach(
@@ -43,7 +43,7 @@ export function RegisterTrainer() {
 					name: values.name,
 					surname: values.surname,
 					email: values.email,
-					vat_number: values.vat_number,
+					vat_number: String(values.vat_number),
 					password: values.password,
 				},
 			})
