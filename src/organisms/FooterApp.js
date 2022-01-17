@@ -13,9 +13,7 @@ export function FooterApp() {
 				</nav>
 				<DelimiterWide />
 				<nav className="md:flex-grow md:flex md:flex-row md:justify-around md:uppercase ">
-					<FooterLinksWrapper
-						routes={[...APPROUTES, { name: "profile", path: "/profil", text: "Profil" }]}
-					/>
+					<FooterLinksWrapper routes={[...APPROUTES]} />
 				</nav>
 				<div className="text-gray-300">
 					<p>
