@@ -60,14 +60,14 @@ export const UserProvider = ({ children }) => {
 				},
 			});
 		}
-
+		console.log(loading);
 		if (data?.getUserByToken && !loading) {
 			setUser(data.getUserByToken);
 		}
 		if (!token) {
 			Router.push("/prihlasit-se");
 		}
-	}, [data, loading, error]);
+	}, [data, loading, error, activeAcc, getUser]);
 
 	return (
 		<UserContext.Provider
