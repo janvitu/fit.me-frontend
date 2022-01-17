@@ -97,14 +97,6 @@ export function AddNewAccount() {
 			}
 			formik.resetForm();
 		},
-		validationSchema: Yup.object().shape({
-			// name: Yup.string().required("Jméno nesmí být prázdné"),
-			// surname: Yup.string().required("Příjmení nesmí být prázdné"),
-			// email: Yup.string().email("Špatný formát emailu").required("Email nesmí být prázdný"),
-			// vat_number: Yup.string()
-			// 	.max(8, "IČO může obsahovat maximálně 8 čísel")
-			// 	.required("IČO musí být vyplněné"),
-		}),
 	});
 	return (
 		<div>

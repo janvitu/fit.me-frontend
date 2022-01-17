@@ -1,5 +1,4 @@
 import { EventCard } from "@src/organisms";
-import hooliIcon from "@assets/img/hooli-brands.svg";
 
 export function EventsList({ events, filters }) {
 	const eventsReadyToRender = (events, filters) => {

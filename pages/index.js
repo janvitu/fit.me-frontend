@@ -6,14 +6,6 @@ import { OverlappingCard } from "@src/molecules";
 import { StaticSite } from "@src/templates";
 
 export default function Home() {
-	const myMap = () => {
-		var mapProp = {
-			center: new google.maps.LatLng(51.508742, -0.12085),
-			zoom: 5,
-		};
-		var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-	};
-
 	return (
 		<StaticSite>
 			<section className="relative h-screen w-screen px-4 sm:px-8 md:px-12 lg:px-[150px] py-12 lg:py-16">

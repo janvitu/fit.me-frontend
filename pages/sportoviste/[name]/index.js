@@ -1,5 +1,4 @@
 import { DynamicSite, BusinessProfileTemplate } from "@src/templates";
-import { WorkoutPlaceBusinessData } from "@src/dummyData";
 import { gql, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 

@@ -3,7 +3,6 @@ import { DynamicSite } from "@src/templates";
 import { XlWrapper } from "@src/atoms";
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 
 const GET_FULLCOACH = gql`
 	query GetAll($username: String!) {

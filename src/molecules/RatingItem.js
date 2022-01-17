@@ -1,6 +1,4 @@
 import { RatingIndicator } from "@src/molecules";
-import { useContext } from "react";
-import { UserContext } from "@src/utils/UserProvider";
 
 export function RatingItem({ review }) {
 	const calculateTime = (date) => {

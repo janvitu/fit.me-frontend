@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { H2, TextProse, XlWrapper } from "@src/atoms";
-import { Modal, RatingInput, ResponsiveGallery } from "@src/molecules";
+import { Modal, RatingInput } from "@src/molecules";
 import { EventCard } from "@src/organisms";
 import { ContactBusinessForm, DetailCard, RatingList } from "@src/organisms";
 import snarkdown from "snarkdown";
@@ -71,8 +71,8 @@ export function BusinessProfileTemplate({ BusinessProfileData, type }) {
 				},
 			});
 			setReviews([review, ...reviews]);
-		} catch (error) {
-			console.log(error);
+		} catch (err) {
+			console.log(err);
 		}
 	};
 

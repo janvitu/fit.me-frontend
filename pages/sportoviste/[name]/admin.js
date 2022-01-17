@@ -1,7 +1,6 @@
 import { DynamicSite } from "@src/templates";
 import { AdminPlaceForm } from "@src/organisms";
 import { XlWrapper } from "@src/atoms";
-import { useEffect, useState } from "react";
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 
@@ -77,7 +76,6 @@ export default function PlaceAdminPage() {
 	const { data, loading, error } = useQuery(GET_FULLSPORTSGROUND, {
 		variables: { username: name },
 	});
-	console.log("data", data);
 	const [updateSportsground] = useMutation(SPORTS_GROUND_MUTATION);
 	return (
 		<>
