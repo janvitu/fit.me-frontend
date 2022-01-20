@@ -1,9 +1,11 @@
-import Link from "next/link";
 import { NavLink, ProfileImage } from "@src/atoms";
 import { useRouter } from "next/router";
 import { ButtonLink } from "@src/atoms";
+import { UserContext } from "@src/utils/UserProvider";
+import { useContext } from "react";
 
 export function NavApp({ routes, toggled }) {
+	const { activeAcc, user } = useContext(UserContext);
 	const router = useRouter();
 	return (
 		<nav
@@ -11,12 +13,8 @@ export function NavApp({ routes, toggled }) {
 				toggled ? "scale-y-100" : "scale-y-0"
 			}`}
 		>
-			<div className="md:hidden">
-				<Link href="/profil">
-					<a>
-						<ProfileImage variant="small" />
-					</a>
-				</Link>
+			<div className="md:hidden mt-6">
+				<ProfileImage variant="small" img={user?.[activeAcc].profile_photo} />
 			</div>
 			{routes.map(({ name, path, text }) => (
 				<NavLink key={name} href={path} linkIsActive={router.asPath === path}>

@@ -15,3 +15,18 @@ export const REGISTER_FORM_INFO = [
 	{ name: "trainer", label: "Registrace trenéra" },
 	{ name: "place", label: "Registrace sportoviště" },
 ];
+
+export const TAGS = [
+	"Fitness",
+	"Jóga",
+	"H.E.A.T.",
+	"Pilates",
+	"TRX Training",
+	"Spinning",
+	"Posilovna",
+	"Zumba",
+	"Pole Dance",
+	"Koule",
+	"Cvičení s vlastní vahou",
+	"Tabata",
+];

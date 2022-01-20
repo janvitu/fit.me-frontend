@@ -1,34 +1,21 @@
 import { TrainerCard } from "@src/molecules";
 
 export function TrainersList({ trainers, filters }) {
-	const trainersReadyToRender = (trainers, filters) => {
+	const finalizePlaces = (filters) => {
 		let arrOfTrainers = trainers;
-		if (filters.tags.length && Array.isArray(filters.tags)) {
-			arrOfTrainers = trainers.filter((trainer) => {
-				let condition = true;
-				filters.specializations.forEach((tag) => {
-					const contains = (element) => element.name === tag;
-					if (!trainer.specializations.some(contains)) condition = false;
-				});
-				return condition;
-			});
-		}
-		return reorderPlaces(arrOfTrainers, filters.order);
-	};
-
-	const reorderPlaces = (trainers, order) => {
-		if (order === "") {
-			return trainers;
-		} else if (order === "ASC") {
-			return trainers.sort((a, b) => parseFloat(a.rating) - parseFloat(b.rating));
-		} else if (order === "DESC") {
-			return trainers.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating));
-		}
+		let y = [...arrOfTrainers];
+		if (!filters.order) {
+			return y;
+		} else if (filters.order === "ASC") {
+			return y.sort((a, b) => parseFloat(a.rating) - parseFloat(b.rating));
+		} else if (filters.order === "DESC") {
+			return y.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating));
+		} else return arrOfTrainers;
 	};
 
 	return (
 		<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-			{trainersReadyToRender(trainers, filters).map((trainer) => {
+			{finalizePlaces(filters).map((trainer) => {
 				return (
 					<TrainerCard
 						name={`${trainer.name} ${trainer.surname}`}

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import icon from "@assets/img/hooli-brands.svg";
-export function ProfileImage({ variant, img }) {
+export function ProfileImage({ variant, img, className }) {
 	const chooseVariant = (variant) => {
 		let properties = {
 			width: "",
@@ -35,7 +35,7 @@ export function ProfileImage({ variant, img }) {
 			layout="fixed"
 			width={imageVariant.width}
 			height={imageVariant.height}
-			className={imageVariant.className}
+			className={`${imageVariant.className} ${className}`}
 		/>
 	);
 }

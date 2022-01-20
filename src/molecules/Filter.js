@@ -68,18 +68,3 @@ export function Filter({ name, options, filters, setFilters }) {
 		</div>
 	);
 }
-
-Filter.defaultProps = {
-	name: "Tagy",
-	options: [
-		"Powerlifting",
-		"Fyzioterapie",
-		"Yoga",
-		"Zen master",
-		"Badminton",
-		"Mistr chi",
-		"Tennis",
-		"Squash",
-		"FitBox",
-	],
-};

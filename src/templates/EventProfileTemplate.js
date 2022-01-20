@@ -2,10 +2,13 @@ import { Tag, H3, DelimiterWide, ButtonSubmit, XlWrapper } from "@src/atoms";
 import { parseDate, getTimePeriod } from "@src/utils/dateHandler";
 
 export function EventProfileTemplate({ EventProfileData }) {
-	const placeholder = { src: "https://source.unsplash.com/random/?sport", alt: "" };
 	return (
 		<>
-			<img className="h-48 w-full object-cover lg:h-72 " src={placeholder.src} alt="" />
+			<img
+				className="h-48 w-full object-cover lg:h-72 "
+				src={`https://paxjrxehftbgfclkcnoi.supabase.in/storage/v1/object/public/fitme-imgs/event/${EventProfileData.id}/cover_photo.jpg`}
+				alt="cover"
+			/>
 
 			<XlWrapper>
 				<div className="grid grid-cols-2 ">
@@ -81,9 +84,9 @@ export function EventProfileTemplate({ EventProfileData }) {
 							role="list"
 							className="grid grid-cols-1 gap-y-2 sm:gap-y-4 overflow-y-scroll divide-y divide-gray-200 max-h-64"
 						>
-							{EventProfileData.sportsmans.map((sportsman) => {
+							{EventProfileData.sportsmans.map((sportsman, index) => {
 								return (
-									<li className="py-1 flex" key={sportsman.id}>
+									<li className="py-1 flex" key={index}>
 										<img
 											className="h-10 w-10 rounded-full"
 											src={sportsman.profile_photo.location}

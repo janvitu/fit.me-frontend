@@ -86,6 +86,7 @@ export function BusinessProfileTemplate({ BusinessProfileData, type }) {
 						alt=""
 					/>
 				</div>
+
 				<div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="-mt-12 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
 						<div className="flex">
